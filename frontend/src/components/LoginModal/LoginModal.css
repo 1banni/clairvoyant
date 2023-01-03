@@ -1,0 +1,51 @@
+form {
+  justify-content: center;
+  text-rendering:optimizeLegibility;
+  font-variant-ligatures: common-ligatures;
+  justify-content: center;
+}
+
+.login-form {
+  box-shadow: 0 0 10px black;
+  box-sizing: border-box;
+  font-family: Georgia;
+  max-width: 400px;
+  font-size: 22px;
+  font-weight: 200;
+  text-align: center;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+input {
+  margin: 10px;
+  font-weight: 400;
+  font-family: Georgia;
+}
+
+label {
+  margin: 10px;
+  font-weight: 400;
+  font-family: Georgia;
+  border: grey;
+}
+
+button {
+  width: 200px;
+  border: none;
+  color: white;
+  background-color: black;
+  padding: 14px 28px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.your-email {
+  font: times;
+  font-size: 18px;
+}
+
+p {
+  font-size: 10px;
+}
+
