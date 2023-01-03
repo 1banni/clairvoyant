@@ -6,7 +6,7 @@ import { Redirect, useHistory } from 'react-router-dom';
 import { useInput, useSubmit } from '../../hooks';
 import { login } from '../../store/session'
 import { FormErrors, Input, SubmitButton } from '../Blocks';
-import './LoginPage.css'
+import './LoginPage.scss'
 
 const LoginPage = () => {
   const history = useHistory();
@@ -22,21 +22,28 @@ const LoginPage = () => {
 
   if (sessionUser) return <Redirect to="/" />;
   return (
-    <form onSubmit={handleSubmit}>
+    <form className="login-form-container" onSubmit={handleSubmit}>
       <FormErrors className='login-errors' errors={errors}/>
-      <Input label="Username or Email"
+      <br/>
+      <Input label=""
+        placeholder="Username or Email"
+        className="username"
         type="text"
         value={credential}
         onChange={credentialChange}
         required
       />
-      <Input label="Password"
+      <br/>
+      <Input label=""
+        placeholder="Password"
+        className="password"
         type="password"
         value={password}
         onChange={passwordChange}
         required
       />
-      <SubmitButton label="Sign In"/>
+      <br/>
+      <SubmitButton label="Sign In" />
     </form>
   );
 }

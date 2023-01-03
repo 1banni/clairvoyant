@@ -1,0 +1,55 @@
+$bg: #fff;
+$form-label-text-color: #8080aa;
+$placeholder-color: #434343;
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+}
+
+body {
+  background-color: $bg;
+  color: $form-label-text-color;
+  font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-size: 20px;
+  min-height: 100%
+}
+
+
+.align {
+  align-items: center;
+  box-shadow: 0 0 100px #555;
+  display: flex;
+  flex-direction: column;
+  padding: 3rem;
+
+
+  &__item {
+      &--start {
+        align-self: flex-start;
+      }
+
+      &--end {
+        align-self: flex-end;
+      }
+    }
+}
+
+.form {
+  padding: 0.3rem 0.8rem;
+}
+
+
+.grid {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 30rem;
+  
+}
+
+::placeholder {
+  font-style: italic;
+  color:$placeholder-color;
+}
