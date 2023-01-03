@@ -10,29 +10,32 @@ ApplicationRecord.transaction do
   puts "Destroying tables..."
   # Unnecessary if using `rails db:seed:replant`
   User.destroy_all
+  # Article.destroy_all
+  # ChatgptQuery.destroy_all
 
   puts "Resetting primary keys..."
   # For easy testing, so that after seeding, the first `User` has `id` of 1
   ApplicationRecord.connection.reset_pk_sequence!('users')
+  # ApplicationRecord.connection.reset_pk_sequence!('articles')
+  # ApplicationRecord.connection.reset_pk_sequence!('chatgptqueries')
+  # TODO - clean this up
+  # puts 'Resetting id sequences...'
+  # %w(actors movies castings).each do |table_name|
+    # ApplicationRecord.connection.reset_pk_sequence!(table_name)
+  # end
 
   puts "Creating users..."
   # Create one user with an easy to remember username, email, and password:
   User.create!(
-    username: 'Demo-lition',
-    email: 'demo@user.io',
-    password: 'password'
+    username: 'test',
+    email: 'test@gmail.com',
+    password: 'iuhiuh'
   )
   User.create!(
     username: 'william',
     email: 'william@gmail.com',
-    password: 'password'
+    password: 'iuhiuh'
   )
-  # User.create!(
-  #   username: 'Demo-lition',
-  #   email: 'demo@user.io',
-  #   password: 'password'
-  # )
-
   # More users
   10.times do
     User.create!({
@@ -42,46 +45,9 @@ ApplicationRecord.transaction do
     })
   end
 
-  Bench.create!(
-    title: 'moultrie bench',
-    description: 'bench on courthouse square in moultrie',
-    price: 10,
-    seating: 3,
-    lat: 31.179832,
-    lng: -83.788123,
-  )
-  Bench.create!(
-    title: 'thomasville bench',
-    description: 'bench in downtown thomasville by Jonah\'s',
-    price: 25,
-    seating: 8,
-    lat: 30.83775481572308,
-    lng: -83.97994412678419,
-  )
-  Bench.create!(
-    title: 'Best Bench in San Francisco',
-    description: 'bench by Erica\'s apartment',
-    price: 12,
-    seating: 2,
-    lat: 37.79472297772341,
-    lng: -122.41641647865086,
-  )
-  Bench.create!(
-    title: 'Hood River Bench',
-    description: 'bench in park next to hood river',
-    price: 10,
-    seating: 3,
-    lat: 45.713894,
-    lng: -121.530114,
-  )
-  Bench.create!(
-    title: 'Tompkins Square Park Bench',
-    description: 'bench in tompkins square park',
-    price: 20,
-    seating: 4,
-    lat: 40.725974,
-    lng: -73.981669,
-  )
+  puts "Creating articles..."
+  # TODO - create articles
+
 
   puts "Done!"
 end

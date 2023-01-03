@@ -11,10 +11,10 @@ function LoginModal() {
   const [credential, credentialChange] = useInput('');
   const [password, passwordChange] = useInput('');
   let [errors, handleSubmit] = useSubmit({
-    createAction: () => {
-      const user = { credential, password };
-      return login(user);
-    }
+    createAction: () => login({ credential, password })
+      // const user = { credential, password };
+      // return login(user);
+    // }
   });
 
   return (

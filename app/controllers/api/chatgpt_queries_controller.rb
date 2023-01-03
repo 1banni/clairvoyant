@@ -1,4 +1,4 @@
-class Api::ChatGptController < ApplicationController
+class Api::ChatgptQueriesController < ApplicationController
   # purpose of this controlller
   # 1) power search for creating queries
   # 2) power results
@@ -13,7 +13,7 @@ class Api::ChatGptController < ApplicationController
       body: body
     }
 
-    @article = Article.new(options)
+    @query = ChatgptQuery.new(options)
     if @article&.save
       render 'api/queries/show'
     else

@@ -1,4 +1,4 @@
-json.set! @query.id do
-    json.extract! @query, :id, :string, :output, :author
+json.set! @chatgpt_query.id do
+    json.extract! @chatgpt_query, :id, :prompt, :body, :author_id
 end
 

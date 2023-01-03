@@ -9,7 +9,6 @@ Rails.application.routes.draw do
 
 
   namespace :api, defaults: { format: :json } do
-    resources :benches, only: [:index, :create, :show]
     resources :queries, only: [:show, :index, :draft, :create]
     resources :users, only: :create
     # singular resource causes show/destroy routes to have no :id wildcard

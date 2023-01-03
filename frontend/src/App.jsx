@@ -2,9 +2,10 @@ import { Route, Switch } from "react-router-dom";
 import Navigation from "./components/Navigation";
 import LoginPage from "./components/LoginPage";
 import SignUpPage from "./components/SignUpPage";
-import BenchIndexPage from "./components/BenchIndexPage";
-import BenchShowPage from "./components/BenchShowPage";
-import BenchFormPage from "./components/BenchFormPage";
+import ArticleIndexPage from "./components/ArticleIndexPage";
+import ArticleCreatePage from "./components/ArticleCreatePage";
+import ArticleShowPage from "./components/ArticleShowPage";
+
 
 
 function App() {
@@ -14,7 +15,7 @@ function App() {
       <Navigation />
       <Switch>
         <Route exact path='/'>
-          <BenchIndexPage />
+          <ArticleIndexPage />
         </Route>
         <Route path='/signup'>
           <SignUpPage />
@@ -23,13 +24,10 @@ function App() {
           <LoginPage />
         </Route>
         <Route exact path='/articles/new'>
-          <BenchShowPage />
+          <ArticleCreatePage />
         </Route>
-        <Route exact path='/benches/new'>
-          <BenchFormPage />
-        </Route>
-        <Route path='/benches/:benchId'>
-          <BenchShowPage />
+        <Route path='/articles/:articleId'>
+          <ArticleShowPage />
         </Route>
       </Switch>
     </>

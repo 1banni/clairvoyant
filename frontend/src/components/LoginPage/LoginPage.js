@@ -8,8 +8,6 @@ import { login } from '../../store/session'
 import { FormErrors, Input, SubmitButton } from '../Blocks';
 import './LoginPage.css'
 
-
-
 const LoginPage = () => {
   const history = useHistory();
   const sessionUser = useSelector(state => state.session.user);
@@ -17,8 +15,8 @@ const LoginPage = () => {
   // const [credential, setCredential] = useState('');
   const [credential, credentialChange] = useInput('');
   const [password, passwordChange] = useInput('');
-  const [errors, setErrors, handleSubmit] = useSubmit({
-    createAction: () => { return login({ credential, password }) },
+  const [errors, handleSubmit] = useSubmit({
+    createAction: () => login({ credential, password }),
     onSuccess: () => history.push('/')
   })
 

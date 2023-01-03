@@ -8,7 +8,7 @@ import App from './App';
 import configureStore from './store';
 import csrfFetch, { restoreCSRF } from './store/csrf';
 import * as sessionActions from './store/session';
-import * as benchActions from './store/benches';
+import * as articleActions from './store/articles';
 
 const store = configureStore();
 
@@ -16,15 +16,7 @@ if (process.env.NODE_ENV !== 'production') {
   window.store = store;
   window.csrfFetch = csrfFetch;
   window.sessionActions = sessionActions;
-  window.benchData = {
-    title: 'new bench',
-    description: 'test bench',
-    price: 11,
-    seating: 3,
-    lat: 45,
-    lng: -70,
-  };
-  window.benchActions = benchActions;
+  window.articleActions = articleActions;
 }
 // debugger
 const renderApplication = () => {

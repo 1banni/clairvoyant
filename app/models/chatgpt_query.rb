@@ -1,3 +1,14 @@
+# == Schema Information
+#
+# Table name: chatgpt_queries
+#
+#  id           :bigint           not null, primary key
+#  author_id_id :bigint
+#  prompt       :string
+#  response     :string           not null
+#  created_at   :datetime         not null
+#  updated_at   :datetime         not null
+#
 class ChatgptQuery < ApplicationRecord
   async def make_api_request(prompt)
     warn "in make_api_request"
