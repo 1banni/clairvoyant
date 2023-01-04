@@ -6,7 +6,7 @@ import { Redirect, useHistory } from 'react-router-dom';
 import { useInput, useSubmit } from '../../hooks';
 import { login } from '../../store/session'
 import { FormErrors, Input, SubmitButton } from '../Blocks';
-import './LoginPage.scss'
+import './LoginPage.css'
 
 const LoginPage = () => {
   const history = useHistory();

@@ -17,7 +17,7 @@ export const useSubmit = ({action, createAction, onSuccess}) => {
 
   const handleSubmit = async e => {
     e.preventDefault();
-    console.log('in handle submit');
+    // console.log('in handle submit');
     setErrors([]);
     return dispatch(createAction())
        .catch(async res => {

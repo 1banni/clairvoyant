@@ -1,11 +1,11 @@
 // frontend/src/components/LoginFormModal/LoginForm.js
 
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
 import "./LoginModal.css";
 import { useInput, useSubmit } from "../../hooks";
 import { login } from "../../store/session";
 import {FormErrors, Input, SubmitButton} from "../Blocks";
+import { Link } from "react-router-dom";
 
 function LoginModal() {
   const [credential, credentialChange] = useInput('');
@@ -18,22 +18,35 @@ function LoginModal() {
   });
 
   return (
-    <form onSubmit={handleSubmit}>
-      <FormErrors className='login-errors' errors={errors}/>
-      <Input label="Username or Email"
-        type="text"
-        value={credential}
-        onChange={credentialChange}
-        required
-      />
-      <Input label="Password"
-        type="password"
-        value={password}
-        onChange={passwordChange}
-        required
-      />
-      <SubmitButton label="Sign In"/>
-    </form>
+    <div className="modal">
+    <div className="box">
+      <h2>Sign in with email</h2>
+      <p>Enter your email address and password.</p>
+      <form onSubmit={handleSubmit}>
+        <Input label=""
+          className="credentials email"
+          type="text"
+          value={credential}
+          onChange={credentialChange}
+          placeholder="Email"
+          required
+        /><br/>
+        <Input label=""
+          className="credentials password"
+          type="password"
+          value={password}
+          onChange={passwordChange}
+          placeholder="Password"
+          required
+        /><br/>
+        <div className="button-container">
+          <SubmitButton label="Login" className="login-button"/>
+        </div>
+        <FormErrors className='login-errors' errors={errors}/>
+      </form>
+      {/* TODO: ADD A LINK TO '< All sign in options' (prev-modal) */}
+    </div>
+    </div>
   );
 }
 

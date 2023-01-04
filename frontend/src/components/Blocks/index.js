@@ -1,5 +1,5 @@
 import FormErrors from './FormErrors';
-import Input from './Input';
+import Input from './Text-Input/Input';
 import SubmitButton from './SubmitButton';
 
 

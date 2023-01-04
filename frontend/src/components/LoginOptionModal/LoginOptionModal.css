@@ -1,0 +1,51 @@
+
+
+
+button {
+  width: 200px;
+  border: none;
+  color: white;
+  background-color: black;
+  padding: 14px 28px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+
+
+body {
+  display: flex;
+}
+
+.main {
+  flex-grow: 1
+}
+
+/*
+form {
+  justify-content: center;
+  text-rendering: optimizeLegibility;
+  font-variant-ligatures: common-ligatures;
+  justify-content: center;
+} */
+
+input {
+  margin: 10px;
+  font-weight: 400;
+  font-family: Georgia;
+}
+
+label {
+  margin: 10px;
+  font-weight: 400;
+  font-family: Georgia;
+  border: grey;
+}
+
+
+.your-email {
+  font: times;
+  font-size: 18px;
+}
+
+

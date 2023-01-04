@@ -28,14 +28,14 @@ const storeCurrentUser = user => {
 
 // THUNK ACTION CREATORS
 export const login = ({ credential, password }) => async dispatch => {
-  console.count('in session#login');
+  // console.count('in session#login');
   const res = await csrfFetch('/api/session', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ credential,password })
   });
 
-  console.log(res);
+  // console.log(res);
 
   if (res.ok) {
     const data = await res.json();
@@ -43,7 +43,7 @@ export const login = ({ credential, password }) => async dispatch => {
     dispatch(setCurrentUser(data.user));
     return res;
   } else {
-    console.log(res.errors)
+    // console.log(res.errors)
     return res;
   }
 };
