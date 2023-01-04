@@ -11,6 +11,20 @@
 #  updated_at :datetime         not null
 #
 class Article < ApplicationRecord
+  validates :title, :body, :author_id, presence: true
   validates :liked, numericality: { in: -1..1 }
+
+  belongs_to :author,
+    class_name: :user,
+    foreign_key: :author_id
+
+  has_many :likes, dependent: :destroy
+  # has_many :comments, dependent: :destroy
+
+  has_many :likers, through: :likes, source: :user
+  # has_many :commenters, through: :comments, source: :user
+
+
+
 
 end
