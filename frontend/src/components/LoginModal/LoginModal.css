@@ -21,7 +21,7 @@ input {
       Arial,
       sans-serif;
   width: 30vw;
-  min-width: 200px;
+  min-width: 250px;
   text-align: left;
   text-indent: 3px;
   border-style: hidden;
@@ -90,8 +90,7 @@ p {
   margin: 0 auto;
   position: center;
   height: 36px;
-  width: 20vw;
-  min-width: 200px;
+  width: 200px;
   font-size: 16px;
   font-kerning: normal;
   font-weight: 400;
@@ -141,21 +140,5 @@ p {
 
 
 /* CSS */
-
-
-.button-17:hover {
-  background: #F6F9FE;
-  color: #174ea6;
-}
-
-.button-17:active {
-  box-shadow: 0 4px 4px 0 rgb(60 64 67 / 30%), 0 8px 12px 6px rgb(60 64 67 / 15%);
-  outline: none;
-}
-
-.button-17:focus {
-  outline: none;
-  border: 2px solid #4285f4;
-}
 
 

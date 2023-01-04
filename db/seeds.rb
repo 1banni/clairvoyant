@@ -47,6 +47,23 @@ ApplicationRecord.transaction do
 
   puts "Creating articles..."
   # TODO - create articles
+  Article.create!(
+    title: 'model view controller explained',
+    body: 'lorem ipsum...',
+    author_id: 1
+  )
+
+  Article.create!(
+    title: 'how to create user model with auth in rails',
+    body: 'lorem ipsum...',
+    author_id: 2
+  )
+
+  Article.create!(
+    title: 'rails generate user model with auth',
+    body: 'lorem ipsum...',
+    author_id: 2
+  )
 
 
   puts "Done!"

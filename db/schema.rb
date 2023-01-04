@@ -15,33 +15,22 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_02_120202) do
   enable_extension "plpgsql"
 
   create_table "articles", force: :cascade do |t|
-    t.string "title"
-    t.string "body", null: false
-    t.bigint "author_id_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["author_id_id"], name: "index_articles_on_author_id_id"
-    t.index ["title"], name: "index_articles_on_title"
-  end
-
-  create_table "benches", force: :cascade do |t|
     t.string "title", null: false
-    t.text "description", null: false
-    t.integer "price", null: false
-    t.integer "seating", default: 2, null: false
-    t.float "lat", null: false
-    t.float "lng", null: false
+    t.text "body", null: false
+    t.string "categories", default: [], array: true
+    t.bigint "author_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["author_id"], name: "index_articles_on_author_id"
   end
 
   create_table "chatgpt_queries", force: :cascade do |t|
-    t.bigint "author_id_id"
     t.string "prompt"
-    t.string "response", null: false
+    t.string "body", null: false
+    t.bigint "author_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["author_id_id"], name: "index_chatgpt_queries_on_author_id_id"
+    t.index ["author_id"], name: "index_chatgpt_queries_on_author_id"
     t.index ["prompt"], name: "index_chatgpt_queries_on_prompt"
   end
 
@@ -57,6 +46,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_02_120202) do
     t.index ["username"], name: "index_users_on_username", unique: true
   end
 
-  add_foreign_key "articles", "users", column: "author_id_id"
-  add_foreign_key "chatgpt_queries", "users", column: "author_id_id"
+  add_foreign_key "articles", "users", column: "author_id"
+  add_foreign_key "chatgpt_queries", "users", column: "author_id"
 end
