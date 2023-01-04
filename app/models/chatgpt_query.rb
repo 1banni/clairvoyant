@@ -2,12 +2,12 @@
 #
 # Table name: chatgpt_queries
 #
-#  id           :bigint           not null, primary key
-#  author_id_id :bigint
-#  prompt       :string
-#  response     :string           not null
-#  created_at   :datetime         not null
-#  updated_at   :datetime         not null
+#  id         :bigint           not null, primary key
+#  prompt     :string
+#  body       :string           not null
+#  author_id  :bigint
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
 #
 class ChatgptQuery < ApplicationRecord
   async def make_api_request(prompt)

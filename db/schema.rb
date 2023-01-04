@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_01_02_120202) do
+ActiveRecord::Schema[7.0].define(version: 2023_01_04_100609) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -34,6 +34,16 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_02_120202) do
     t.index ["prompt"], name: "index_chatgpt_queries_on_prompt"
   end
 
+  create_table "likes", force: :cascade do |t|
+    t.integer "liked", null: false
+    t.bigint "author_id"
+    t.bigint "article_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["article_id"], name: "index_likes_on_article_id"
+    t.index ["author_id"], name: "index_likes_on_author_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", null: false
     t.string "username", null: false
@@ -48,4 +58,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_02_120202) do
 
   add_foreign_key "articles", "users", column: "author_id"
   add_foreign_key "chatgpt_queries", "users", column: "author_id"
+  add_foreign_key "likes", "articles"
+  add_foreign_key "likes", "users", column: "author_id"
 end
