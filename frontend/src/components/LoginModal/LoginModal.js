@@ -44,6 +44,7 @@ function LoginModal() {
         </div>
         <FormErrors className='login-errors' errors={errors}/>
       </form>
+      
       {/* TODO: ADD A LINK TO '< All sign in options' (prev-modal) */}
     </div>
     </div>

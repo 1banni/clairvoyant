@@ -12,7 +12,9 @@ h2 {
 }
 
 input {
-  font-size: 18px;
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 0.1em;
   font-family: sohne,
       "Helvetica Neue",
       Helvetica,
@@ -22,9 +24,14 @@ input {
   min-width: 200px;
   text-align: left;
   text-indent: 3px;
-  /* border-radius: 3px; */
-  border-color: black;
+  border-style: hidden;
+  border-bottom: 2px solid grey;
+  /* border-color: black; */
   padding: 0
+}
+
+input:focus {
+  outline: none;
 }
 
 p {
@@ -33,14 +40,16 @@ p {
     Helvetica,
     Arial,
     sans-serif;
-  font-size: 20px;
+  font-size: 18px;
   padding-bottom: 30px;
+  width: 30vh;
+  text-align: center;
 }
 
 .modal {
   margin: 0;
   border: 0;
-  padding: 10;
+  padding: 0;
   padding-right: 0;
   position: fixed;
   top: 50%;
@@ -53,13 +62,11 @@ p {
   margin: 0;
   padding: 0;
   border: 0;
-	background: rgb(250,245, 234, 1.0);
+	/* background: rgb(250,245, 234, 1.0); */
+  background: #fffefe;
 
   box-shadow: 0 0 10px black;
-	height: 100vh;
-  /* max-width:
-  width: 70vh;
-  min-width: 100px; */
+	height: 95vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -96,29 +103,13 @@ p {
   /* font-family: sans-serif, Roboto, Arial, sans-serif; */
   justify-content: center;
   justify-self: center;
+  letter-spacing: .25px;
+  line-height: normal;
   align-self: center;
   text-align: center;
   display:block;
-  transition-duration: 0.4s;
-}
-
-.button-17 {
-  height: 48px;
-  justify-content: center;
-  letter-spacing: .25px;
-  line-height: normal;
-  max-width: 100%;
+  transition-duration: 0.3s;
   overflow: visible;
-  padding: 2px 24px;
-  position: relative;
-  text-align: center;
-  text-transform: none;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-  width: auto;
-  will-change: transform, opacity;
-  z-index: 0;
 }
 
 .login-button:hover {
@@ -127,6 +118,11 @@ p {
   color: #000;
   border: 3px solid #000;
   font-weight: 400;
+}
+
+.login-errors {
+  padding-top: 20px;
+  text-align: center;
 }
 
 /* .login-form {

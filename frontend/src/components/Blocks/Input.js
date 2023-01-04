@@ -1,5 +1,4 @@
 import React from 'react';
-import './Input.css';
 
 function Input({label, ...inputProps}) {
   return (
