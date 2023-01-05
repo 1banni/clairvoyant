@@ -5,10 +5,8 @@ import SignUpPage from "./pages/SignUpPage";
 import ArticleIndexPage from "./pages/ArticleIndexPage";
 import ArticleCreatePage from "./pages/ArticleCreatePage";
 import ArticleShowPage from "./pages/ArticleShowPage";
-import { ModalProvider } from "./context/Modal";
-import ModalRoot from "./context/ModalRoot";
-import ModalService from "./context/ModalService";
-import TestModal from "./context/TestModal";
+import ModalProvider from "./context/ModalProvider";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 
 function App() {
@@ -16,10 +14,7 @@ function App() {
 
   return (
     <>
-      <div className='App'>App
-
-      </div>
-      {/* <h1>App</h1> */}
+      <ModalProvider />
       <NavBar />
       <Switch>
         <Route exact path='/'>
@@ -41,7 +36,7 @@ function App() {
 
 
 
-      {/* <Modal onClose={(setShowModal) => setShowModal(false)}/> */}
+
     </>
   );
 }

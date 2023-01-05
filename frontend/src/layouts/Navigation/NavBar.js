@@ -5,24 +5,18 @@ import ProfileButton from './ProfileButton';
 import LoginModal from '../../modals/LoginModal';
 import './Navigation.css';
 import site_logo from '../../assets/logo_with_name.png';
-import TestModal from '../../context/TestModal';
-import ModalRoot from '../../context/ModalRoot';
-import { ModalProvider } from '../../context/Modal';
-import ModalService from '../../context/ModalService';
+
+import ModalUtil from '../../context/ModalUtil';
+
+
 
 function NavBar() {
   const sessionUser = useSelector(state => state.session.user);
 
-  const openTestModal = () => {
-    // can also pass in props where {} is
-    console.count('App.js openTestModal');
-    ModalService.open(TestModal);
-  }
+  const openLoginModal = () => ModalUtil.open(LoginModal);
+  const openSignUpModal = () => ModalUtil.open(LoginModal);
+  // const openSignUpModal = () => ModalUtil.open(SignUpModal);
 
-  const openLoginModal = () => {
-    console.count('NavBar.js openLoginModal');
-    ModalService.open(LoginModal);
-  }
 
 
   let sessionLinks;
@@ -33,21 +27,21 @@ function NavBar() {
   } else {
     sessionLinks = (
       <>
-        <ModalRoot />
-        <button onClick={ openTestModal } className="btn">Open Test Modal</button>
-        <button onClick={ openLoginModal } className="btn">Login</button>
-        {/* <LoginModal /> */}
+        <button onClick={ openLoginModal } className="btn" children={openSignUpModal}>Login</button>
+        {/* <button onClick={ openTestModal } className="btn">Open Test Modal</button> */}
       </>
     );
   }
-  // debugger;
+
   return (
+    <div>
     <ul>
       <li>
         <NavLink exact to="/"><img src={site_logo} alt="Circles" height="30" />Medium</NavLink>
         {sessionLinks}
       </li>
     </ul>
+    </div>
   );
 }
 

@@ -1,13 +1,12 @@
 // frontend/src/components/LoginFormModal/LoginForm.js
-
 import React, {  } from 'react';
 import './LoginModal.css';
 import { useInput, useSubmit } from '../../hooks';
 import { login } from '../../store/session';
 import {FormErrors, Input, SubmitButton} from '../../components/Form';
 import { NavLink } from 'react-router-dom';
-import { Modal } from '../../context/Modal';
-import ModalBody from '../../context/ModalBody';
+import { ModalWrapper } from '../../context/ModalWrapper';
+import ModalCloseButton from '../../context/ModalCloseButton';
 
 function LoginModal(props) {
   const [credential, credentialChange] = useInput('');
@@ -17,41 +16,44 @@ function LoginModal(props) {
   });
 
   return (
-    <Modal>
-    <div className="modal">
-    <div className="box">
-      <h2>Sign in with email</h2>
-      <p>Enter your email address and password.</p>
-      <form onSubmit={handleSubmit}>
-        <Input label=""
-          className="credentials email"
-          type="text"
-          value={credential}
-          onChange={credentialChange}
-          placeholder="Email"
-          required
-        /><br/>
-        <Input label=""
-          className="credentials password"
-          type="password"
-          value={password}
-          onChange={passwordChange}
-          placeholder="Password"
-          required
-        /><br/>
-        <div className="button-container">
-          <SubmitButton label="Login" className="login-button"/>
-        </div>
+    <ModalWrapper>
+      <div className="modal">
+      <div className="box">
+
+        <h2>Sign in with email</h2>
+        <p>Enter your email address and password.</p>
+        <form onSubmit={handleSubmit}>
+          <Input label=""
+            className="credentials email"
+            type="text"
+            value={credential}
+            onChange={credentialChange}
+            placeholder="Email"
+            required
+          />
+          <br/>
+          <Input label=""
+            className="credentials password"
+            type="password"
+            value={password}
+            onChange={passwordChange}
+            placeholder="Password"
+            required
+          />
+          <br/>
+          <SubmitButton label="Login" className="btn"/>
+          <ModalCloseButton />
         <FormErrors className='login-errors' errors={errors}/>
       </form>
       <NavLink to="/signup">Sign Up</NavLink>
       <NavLink to="/demouser">Demo User</NavLink>
       <p>DEMO USER LINK</p>
       {/* TODO: ADD A LINK TO '< All sign in options' (prev-modal)*/}
-      <button onClick={ props.close } className="btn">Close Modal</button>
+
+      {/* <button onClick={ props.close } className="btn">Close Modal</button> */}
     </div>
     </div>
-    </Modal>
+    </ModalWrapper>
   );
 }
 

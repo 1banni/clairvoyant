@@ -1,63 +1,42 @@
 import React, { useContext, useEffect, useRef, useState } from 'react'
 import ReactDOM from 'react-dom';
 
-import ModalService from './ModalService';
+import ModalUtil from './ModalUtil';
 import './Modal.css'
 
-export function Modal(props) {
-  return (
-    <div id="modal">
-      <div id="modal-background" /* TODO? */ /*onClick={onClose}*/>
-        <div id="modal-content">
-          {props.children}
-        </div>
-      </div>
-      <button onClick={ props.close } className="btn">Close Modal</button>
-    </div>
-  )
-}
-
-const ModalContext = React.createContext();
-
-export function ModalProvider({ children }) {
-  // const modalRef = useRef();
+export default function ModalProvider({ children }) {
   const [modal, setModal] = useState({});
+  const modalRef = useRef();
+  const close = () => setModal({});
 
   // this will activate the modal when the page first renders
   useEffect(() => {
     // modal will send two pieces of data: component and props
-    ModalService.on('open', ({ component, props }) => {
-      setModal({ component, props, close: (val) => {
-          console.count('Modal.js useEffect - closing modal ');
-          setModal({});
-        },
-      })
+    ModalUtil.listen('open', ({ component, props }) => {
+      setModal({ component, props, close })
     });
   }, []);
 
-  const ModalComponent = modal.component ? modal.component : null;
+  const Modal = modal.component ? modal.component : null;
 
-  return (
-    <div className={ ModalComponent ? 'modal-root' : '' }>
-
-      { ModalComponent && (
-        <ModalComponent
+  // the magic of this is that events bubble up to the parent (propogate it up to div)
+  return ReactDOM.createPortal(
+    <div className={ Modal ? 'portal' : '' }>
+      { Modal && (
+        <Modal
           { ...modal.props }
           close={ modal.close }
           // defaults to display: none
-          className={ ModalComponent ? 'disp-block' : '' }
+          className={ Modal ? 'disp-block' : '' }
         />
       )}
-      {/* <ModalContext.Provider value={value}>
-        {children}
-      </ModalContext.Provider> */}
-      {/* <div ref={modalRef} /> */}
+      <div ref={modalRef} />
       {/* <div><button onclick={ modal.close } className="btn">Close Modal</button></div> */}
-    </div>
+    </div>,
+    document.getElementById('portal')
   )
 }
 
-// the magic of this is that events bubble up to the parent (propogate it up to div)
   // return ReactDOM.createPortal(
   // <div id="modal disp-block">
   //     <div id="modal-background" /* TODO? */ /*onClick={onClose}*/>
