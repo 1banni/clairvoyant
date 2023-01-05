@@ -1,23 +1,23 @@
 // frontend/src/components/LoginFormModal/LoginForm.js
 
-import React, { useState } from "react";
-import "./LoginModal.css";
-import { useInput, useSubmit } from "../../hooks";
-import { login } from "../../store/session";
-import {FormErrors, Input, SubmitButton} from "../Blocks";
-import { Link } from "react-router-dom";
+import React, {  } from 'react';
+import './LoginModal.css';
+import { useInput, useSubmit } from '../../hooks';
+import { login } from '../../store/session';
+import {FormErrors, Input, SubmitButton} from '../../components/Form';
+import { NavLink } from 'react-router-dom';
+import { Modal } from '../../context/Modal';
+import ModalBody from '../../context/ModalBody';
 
-function LoginModal() {
+function LoginModal(props) {
   const [credential, credentialChange] = useInput('');
   const [password, passwordChange] = useInput('');
   let [errors, handleSubmit] = useSubmit({
     createAction: () => login({ credential, password })
-      // const user = { credential, password };
-      // return login(user);
-    // }
   });
 
   return (
+    <Modal>
     <div className="modal">
     <div className="box">
       <h2>Sign in with email</h2>
@@ -44,10 +44,14 @@ function LoginModal() {
         </div>
         <FormErrors className='login-errors' errors={errors}/>
       </form>
-      
-      {/* TODO: ADD A LINK TO '< All sign in options' (prev-modal) */}
+      <NavLink to="/signup">Sign Up</NavLink>
+      <NavLink to="/demouser">Demo User</NavLink>
+      <p>DEMO USER LINK</p>
+      {/* TODO: ADD A LINK TO '< All sign in options' (prev-modal)*/}
+      <button onClick={ props.close } className="btn">Close Modal</button>
     </div>
     </div>
+    </Modal>
   );
 }
 

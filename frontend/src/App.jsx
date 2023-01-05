@@ -1,18 +1,26 @@
 import { Route, Switch } from "react-router-dom";
-import Navigation from "./components/Navigation";
-import LoginPage from "./components/LoginPage";
-import SignUpPage from "./components/SignUpPage";
-import ArticleIndexPage from "./components/ArticleIndexPage";
-import ArticleCreatePage from "./components/ArticleCreatePage";
-import ArticleShowPage from "./components/ArticleShowPage";
-
+import NavBar from "./layouts/Navigation/NavBar";
+import LoginPage from "./pages/LoginPage";
+import SignUpPage from "./pages/SignUpPage";
+import ArticleIndexPage from "./pages/ArticleIndexPage";
+import ArticleCreatePage from "./pages/ArticleCreatePage";
+import ArticleShowPage from "./pages/ArticleShowPage";
+import { ModalProvider } from "./context/Modal";
+import ModalRoot from "./context/ModalRoot";
+import ModalService from "./context/ModalService";
+import TestModal from "./context/TestModal";
 
 
 function App() {
+
+
   return (
     <>
+      <div className='App'>App
+
+      </div>
       {/* <h1>App</h1> */}
-      <Navigation />
+      <NavBar />
       <Switch>
         <Route exact path='/'>
           <ArticleIndexPage />
@@ -30,6 +38,10 @@ function App() {
           <ArticleShowPage />
         </Route>
       </Switch>
+
+
+
+      {/* <Modal onClose={(setShowModal) => setShowModal(false)}/> */}
     </>
   );
 }

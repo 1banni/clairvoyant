@@ -1,5 +1,27 @@
 /* frontend/src/context/Modal.css */
 /* /* */
+.modal-root {
+  position: fixed;
+  top: 0;
+  z-index: 100;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.3);
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.disp-block {
+  display: block;
+}
+
+
 #modal {
   position: fixed;
   top: 0;

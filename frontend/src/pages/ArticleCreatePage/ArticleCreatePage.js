@@ -1,8 +1,8 @@
-import { useSelector } from "react-redux";
-import { useHistory, Redirect } from "react-router-dom";
-import { createArticle } from "../../store/articles";
+import { useSelector } from 'react-redux';
+import { useHistory, Redirect } from 'react-router-dom';
+import { createArticle } from '../../store/articles';
 import { useInput, useSubmit } from '../../hooks';
-import { Input, SubmitButton } from "../Blocks";
+import { Input, SubmitButton } from '../../components/Form';
 
 
 const ArticleCreatePage = props => {

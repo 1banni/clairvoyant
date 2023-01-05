@@ -5,14 +5,12 @@ import { Redirect, useHistory } from 'react-router-dom';
 // src imports
 import { useInput, useSubmit } from '../../hooks';
 import { login } from '../../store/session'
-import { FormErrors, Input, SubmitButton } from '../Blocks';
+import { FormErrors, Input, SubmitButton } from '../../components/Form';
 import './LoginPage.css'
 
 const LoginPage = () => {
   const history = useHistory();
   const sessionUser = useSelector(state => state.session.user);
-  // const state = useSelector(state => state);
-  // const [credential, setCredential] = useState('');
   const [credential, credentialChange] = useInput('');
   const [password, passwordChange] = useInput('');
   const [errors, handleSubmit] = useSubmit({
