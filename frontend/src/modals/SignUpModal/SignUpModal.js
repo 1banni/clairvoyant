@@ -1,33 +1,28 @@
-// frontend/src/components/LoginFormModal/LoginForm.js
-import React, {  } from 'react';
-import { NavLink } from 'react-router-dom';
-// internal
-import { useInput, useSubmit } from '../../hooks';
-import { login } from '../../store/session';
-import {FormErrors, Input, SubmitButton} from '../../components/Form';
-import { ModalWrapper } from '../../context/ModalWrapper';
-import ModalUtil from '../../context/ModalUtil';
-import SignUpModal from '../SignUpModal';
-import ModalButton from '../../context/ModalButton';
+import { useInput, useSubmit } from "../../hooks";
+import { signup } from "../../store/session";
+import ModalUtil from "../../context/ModalUtil";
+import { ModalWrapper } from "../../context/ModalWrapper";
+import { FormErrors, Input, SubmitButton } from "../../components/Form";
+import { NavLink } from "react-router-dom";
+import LoginModal from "../LoginModal";
+import LoginModalButton from "../LoginModal/LoginModalButton";
 
-function LoginModal(props) {
+
+function SignUpModal(props) {
   const [credential, credentialChange] = useInput('');
   const [password, passwordChange] = useInput('');
+  const [confirmPassword, confirmPasswordChange] = useInput('');
   let [errors, handleSubmit] = useSubmit({
-    createAction: () => login({ credential, password }),
-    onSuccess: () => {
-      console.log('in success')
-      console.log(props);
-      console.log(window);
-      props.close();
-    },
+    createAction: () => signup({ credential, password })
   });
+
+  const openLoginModal = () => ModalUtil.open(LoginModal);
 
   return (
     <ModalWrapper>
       <div className="modal">
       <div className="modal-background">
-        <h2>Sign in with email</h2>
+        <h2>Sign up with email</h2>
         <p>Enter your email address and password.</p>
         {errors ? <FormErrors className='login-errors' errors={errors}/> : ''}
         <form onSubmit={handleSubmit}>
@@ -48,14 +43,24 @@ function LoginModal(props) {
             placeholder="Password"
             required
           />
+          <Input label=""
+            className="credentials password confirm"
+            type="password"
+            value={confirmPassword}
+            onChange={confirmPasswordChange}
+            placeholder="Confirm Password"
+            required
+          />
           <br/>
-          <SubmitButton label="Login" className="btn" />
-          <ModalButton label="Sign Up" modal={SignUpModal} />
-          {/* <button onClick={ openSignUpModal } className="btn">Sign Up</button> */}
+          <SubmitButton label="Sign Up" className="btn" />
+          {/* TODO: CONFIRM PASSWORD = CONFIRM PASSWORD */}
+          {/* <button onClick={ openLoginModal } className="btn">Login</button> */}
+          <LoginModalButton />
           <NavLink to="/demouser">Demo User</NavLink>
       </form>
       <p>DEMO USER LINK</p>
       {/* TODO: ADD A LINK TO '< All sign in options' (prev-modal)*/}
+
       <button onClick={ props.close } className="btn">X</button>
     </div>
     </div>
@@ -63,12 +68,4 @@ function LoginModal(props) {
   );
 }
 
-export default LoginModal;
-
-
-
-
-
-
-
-
+export default SignUpModal;

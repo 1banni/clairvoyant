@@ -6,13 +6,15 @@ import { SubmitButton } from '../components/Form'
 
 const closeButtonImg = require('../assets/close-button.png')
 
-function ModalCloseButton({...props}) {
+function ModalCloseButton(label, ...props) {
   return (
     <>
-    <div className="btn-close-modal-x">
-      <SubmitButton label="Close" className="btn" onSubmit={props.close}>
-        {/* <img src={closeButtonImg} alt="close-button-img"/> */}
-      </SubmitButton>
+    <div className="btn-container">
+      <div className="btn-close-modal-x">
+        <button type="button" {...props}>
+          {/* {label} */}
+      </button>
+    </div>
     </div>
     </>
   )

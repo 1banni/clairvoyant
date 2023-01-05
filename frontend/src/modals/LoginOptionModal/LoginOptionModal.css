@@ -1,4 +1,4 @@
-
+/*
 
 
 button {
@@ -21,13 +21,13 @@ body {
   flex-grow: 1
 }
 
-/*
+
 form {
   justify-content: center;
   text-rendering: optimizeLegibility;
   font-variant-ligatures: common-ligatures;
   justify-content: center;
-} */
+}
 
 input {
   margin: 10px;
@@ -48,4 +48,4 @@ label {
   font-size: 18px;
 }
 
-
+ */

@@ -1,7 +1,7 @@
-function SubmitButton({label, ...buttonProps}) {
+function SubmitButton({label, ...props}) {
   return (
     <div className="btn-container">
-      <button type="submit" {...buttonProps}>
+      <button type="submit" {...props}>
         {label}
       </button>
     </div>

@@ -31,7 +31,6 @@ export default function ModalProvider({ children }) {
         />
       )}
       <div ref={modalRef} />
-      {/* <div><button onclick={ modal.close } className="btn">Close Modal</button></div> */}
     </div>,
     document.getElementById('portal')
   )
