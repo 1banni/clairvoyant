@@ -1,10 +1,13 @@
 import React from 'react';
 
-function Input({label, ...inputProps}) {
+function Input({label, ...props}) {
   return (
     <div className="input">
-      <h4>{label}</h4><br/>
-      <input {...inputProps} />
+      <h4 className="input-label">
+        {label}
+      </h4>
+      <br/>
+      <input {...props} />
     </div>
   )
 }

@@ -30,6 +30,11 @@ class User < ApplicationRecord
 
   before_validation :ensure_session_token
 
+  has_many :articles, class_name: :Article, foreign_key: :author_id
+  has_many :likes
+
+  has_many :liked_articles, through: :likes, source: :articles
+
   def self.find_by_credentials(credential, password)
     if (URI::MailTo::EMAIL_REGEXP.match(credential))
       user = User.find_by(email: credential)

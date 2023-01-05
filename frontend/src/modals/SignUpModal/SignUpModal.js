@@ -1,11 +1,11 @@
 import { useInput, useSubmit } from "../../hooks";
-import { signup } from "../../store/session";
+import { login, signup } from "../../store/session";
 import ModalUtil from "../../context/ModalUtil";
-import { ModalWrapper } from "../../context/ModalWrapper";
-import { FormErrors, Input, SubmitButton } from "../../components/Form";
-import { NavLink } from "react-router-dom";
+import { Modal } from "../../context/Modal";
+import { FormErrors, Input } from "../../components/Form";
 import LoginModal from "../LoginModal";
 import LoginModalButton from "../LoginModal/LoginModalButton";
+import Button from "../../components/Button";
 
 
 function SignUpModal(props) {
@@ -15,11 +15,15 @@ function SignUpModal(props) {
   let [errors, handleSubmit] = useSubmit({
     createAction: () => signup({ credential, password })
   });
+  let [, handleDemo] = useSubmit({
+    createAction: () => login({ credential: "demo@demo.com", password: "password" }),
+    onSuccess: () => props.close(),
+  });
 
   const openLoginModal = () => ModalUtil.open(LoginModal);
 
   return (
-    <ModalWrapper>
+    <Modal>
       <div className="modal">
       <div className="modal-background">
         <h2>Sign up with email</h2>
@@ -52,19 +56,18 @@ function SignUpModal(props) {
             required
           />
           <br/>
-          <SubmitButton label="Sign Up" className="btn" />
+          <Button type="submit" label="Sign Up"  />
           {/* TODO: CONFIRM PASSWORD = CONFIRM PASSWORD */}
           {/* <button onClick={ openLoginModal } className="btn">Login</button> */}
           <LoginModalButton />
-          <NavLink to="/demouser">Demo User</NavLink>
+          {/* <button className="btn" onClick={handleDemo}>Demo User</button> */}
       </form>
-      <p>DEMO USER LINK</p>
       {/* TODO: ADD A LINK TO '< All sign in options' (prev-modal)*/}
-
-      <button onClick={ props.close } className="btn">X</button>
+      <Button className="btn demo" onClick={ handleDemo } label="Demo User"/>
+      <Button className="close-btn" onClick={ props.close }>X</Button>
     </div>
     </div>
-    </ModalWrapper>
+    </Modal>
   );
 }
 

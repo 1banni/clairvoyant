@@ -1,13 +1,11 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import ProfileButton from './ProfileButton';
+import ProfileMenu from './ProfileMenu';
 import LoginModal, { LoginModalButton } from '../../modals/LoginModal';
 import './Navigation.css';
 import site_logo from '../../assets/logo_with_name.png';
-
 import ModalUtil from '../../context/ModalUtil';
-
 
 
 function NavBar() {
@@ -16,7 +14,7 @@ function NavBar() {
   let sessionLinks;
   if (sessionUser) {
     sessionLinks = (
-      <ProfileButton user={sessionUser} />
+      <ProfileMenu user={sessionUser} />
     );
   } else {
     sessionLinks = (

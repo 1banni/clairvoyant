@@ -12,10 +12,9 @@
 #
 class Article < ApplicationRecord
   validates :title, :body, :author_id, presence: true
-  validates :liked, numericality: { in: -1..1 }
 
   belongs_to :author,
-    class_name: :user,
+    class_name: :User,
     foreign_key: :author_id
 
   has_many :likes, dependent: :destroy

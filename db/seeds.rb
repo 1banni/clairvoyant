@@ -19,23 +19,31 @@ ApplicationRecord.transaction do
   # ApplicationRecord.connection.reset_pk_sequence!('articles')
   # ApplicationRecord.connection.reset_pk_sequence!('chatgptqueries')
   # TODO - clean this up
-  # puts 'Resetting id sequences...'
-  # %w(actors movies castings).each do |table_name|
+  # puts 'Resetting id sequences...'\][]  # %w(actors movies castings).each do |table_name|
     # ApplicationRecord.connection.reset_pk_sequence!(table_name)
   # end
 
   puts "Creating users..."
   # Create one user with an easy to remember username, email, and password:
-  User.create!(
+
+  user_test = User.create!(
     username: 'test',
     email: 'test@gmail.com',
     password: 'iuhiuh'
   )
-  User.create!(
+
+  user_william = User.create!(
     username: 'william',
     email: 'william@gmail.com',
     password: 'iuhiuh'
   )
+
+  user_demo = User.create!(
+    username: 'demo',
+    email: 'demo@demo.com',
+    password: 'password'
+  )
+
   # More users
   10.times do
     User.create!({
@@ -50,21 +58,20 @@ ApplicationRecord.transaction do
   Article.create!(
     title: 'model view controller explained',
     body: 'lorem ipsum...',
-    author_id: 1
+    author: user_test
   )
 
   Article.create!(
     title: 'how to create user model with auth in rails',
     body: 'lorem ipsum...',
-    author_id: 2
+    author: user_william
   )
 
   Article.create!(
     title: 'rails generate user model with auth',
     body: 'lorem ipsum...',
-    author_id: 2
+    author: user_demo
   )
-
 
   puts "Done!"
 end

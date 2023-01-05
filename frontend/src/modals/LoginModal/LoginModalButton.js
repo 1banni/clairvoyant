@@ -1,11 +1,11 @@
 import React from 'react'
-import ModalButton from '../../context/ModalButton'
+import Button from '../../components/Button'
 import LoginModal from './LoginModal'
 
 function LoginModalButton() {
   return (
     <div className="LoginModalButton">
-      <ModalButton label="Login" modal={LoginModal} />
+      <Button label="Login" modal={ LoginModal } />
     </div>
   )
 }

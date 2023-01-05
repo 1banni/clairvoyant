@@ -2,11 +2,11 @@
 import React from 'react';
 import { useSelector } from 'react-redux'
 import { Redirect, useHistory } from 'react-router-dom';
-// src imports
-import { useInput, useSubmit } from '../../hooks';
-import { login } from '../../store/session'
-import { FormErrors, Input, SubmitButton } from '../../components/Form';
 import './LoginPage.css'
+import { useInput, useSubmit } from '../../hooks';
+import { FormErrors, Input } from '../../components/Form';
+import Button from '../../components/Button';
+import { login } from '../../store/session'
 
 const LoginPage = () => {
   const history = useHistory();
@@ -41,7 +41,7 @@ const LoginPage = () => {
         required
       />
       <br/>
-      <SubmitButton label="Sign In" />
+      <Button type="submit" label="Sign In" />
     </form>
   );
 }

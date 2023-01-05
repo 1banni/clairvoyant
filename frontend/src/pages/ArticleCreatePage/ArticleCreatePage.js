@@ -2,7 +2,8 @@ import { useSelector } from 'react-redux';
 import { useHistory, Redirect } from 'react-router-dom';
 import { createArticle } from '../../store/articles';
 import { useInput, useSubmit } from '../../hooks';
-import { Input, SubmitButton } from '../../components/Form';
+import { Input } from '../../components/Form';
+import Button from '../../components/Button';
 
 
 const ArticleCreatePage = props => {
@@ -40,7 +41,7 @@ const ArticleCreatePage = props => {
         value={categoryStr}
         onChange={categoryStrChange}
       />
-      <SubmitButton label="Submit Article"/>
+      <Button type="submit" label="Submit Article"/>
     </form>
   )
 }

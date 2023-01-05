@@ -12,15 +12,26 @@ h2 {
   padding-bottom: 50px;
 }
 
+p, input {
+  font-family: sohne,
+      "Helvetica Neue",
+      Helvetica,
+      Arial,
+      sans-serif;
+}
+
+p {
+  font-size: 18px;
+  padding-bottom: 30px;
+  width: 30vh;
+  text-align: center;
+}
+
 input {
   font-size: 14px;
   font-weight: 400;
   letter-spacing: 0.1em;
-  font-family: sohne,
-    "Helvetica Neue",
-    Helvetica,
-    Arial,
-    sans-serif;
+
   width: 30vw;
   min-width: 250px;
   text-align: left;
@@ -35,23 +46,12 @@ input:focus {
   outline: none;
 }
 
-p {
-  font-family: sohne,
-    "Helvetica Neue",
-    Helvetica,
-    Arial,
-    sans-serif;
-  font-size: 18px;
-  padding-bottom: 30px;
-  width: 30vh;
-  text-align: center;
-}
 
 .modal-background {
   margin: 0;
   padding: 0;
   border: 0;
-  /* background: rgb(250,245, 234, 1.0); */
+  background: rgb(250,245, 234, 0.5);
   background: #fffefe;
   box-shadow: 0 0 10px black;
   height: 95vh;
@@ -60,7 +60,7 @@ p {
   align-items: center;
   justify-content: center;
   width: clamp(250px, 75vw, 700px);
-  /* font-size: clamp(.75rem, 1.5vw, 2rem) */
+  /* font-size: clamp(.75rem, 1.5vw, 2rem); */
   overflow: auto;
 }
 
@@ -101,7 +101,7 @@ p {
 
 
 
-/* #modal {
+#modal {
   position: fixed;
   top: 0;
   right: 0;
@@ -110,16 +110,16 @@ p {
   display: flex;
   justify-content: center;
   align-items: center;
-} */
+}
 
-/* #modal-background {
+#modal-background {
   position: fixed;
   top: 0;
   right: 0;
   left: 0;
   bottom: 0;
   background-color: rgba(0, 0, 0, 0.7);
-} */
+}
 
 #modal-content {
   position: absolute;
@@ -131,11 +131,11 @@ p {
 }
 
 .btn {
-  background-color: #000;
+  background-color: #fff;
+  border: 0.5px solid #000;
   border-radius: 24px;
-  border-style: none;
   box-sizing: border-box;
-  color: #fff;
+  color: #000;
   cursor: pointer;
   margin: 0 auto;
   position: center;
@@ -143,7 +143,7 @@ p {
   width: 200px;
   font-size: 16px;
   font-kerning: normal;
-  font-weight: 400;
+  font-weight: 200;
   font-family: sohne,
     "Helvetica Neue",
     Helvetica,
@@ -161,12 +161,23 @@ p {
   overflow: visible;
 }
 
+.close-btn-container {
+  padding-top: 40px;
+  background-color: transparent;
+}
+
+.close-btn {
+  border: 0.25px solid #000;
+
+  background-color: transparent;
+}
+
 .btn:hover {
-  box-shadow: 0px 0px 2px 2px rgba(150, 150, 150, 0.4);
+  box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 1.0);
   background-color: #fff;
   color: #000;
-  border: 3px solid #000;
-  font-weight: 400;
+  /* border: 2px solid #000; */
+  font-weight: 300;
 }
 
 

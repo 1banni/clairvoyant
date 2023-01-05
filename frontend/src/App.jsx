@@ -6,16 +6,12 @@ import ArticleIndexPage from "./pages/ArticleIndexPage";
 import ArticleCreatePage from "./pages/ArticleCreatePage";
 import ArticleShowPage from "./pages/ArticleShowPage";
 import ModalProvider from "./context/ModalProvider";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-
 
 function App() {
-
-
   return (
     <>
+      <NavBar/>
       <ModalProvider />
-      <NavBar />
       <Switch>
         <Route exact path='/'>
           <ArticleIndexPage />
@@ -32,11 +28,10 @@ function App() {
         <Route path='/articles/:articleId'>
           <ArticleShowPage />
         </Route>
+        <Route path='/'>
+          <ArticleIndexPage />
+        </Route>
       </Switch>
-
-
-
-
     </>
   );
 }
