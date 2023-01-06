@@ -6,12 +6,15 @@ import { FormErrors, Input } from "../../components/Form";
 import LoginModal from "../LoginModal";
 import LoginModalButton from "../LoginModal/LoginModalButton";
 import Button from "../../components/Button";
+import { useHistory } from "react-router-dom";
 
 
 function SignUpModal(props) {
-  const [credential, credentialChange] = useInput('');
+  const [email, emailChange] = useInput('');
+  const [username, usernameChange] = useInput('');
   const [password, passwordChange] = useInput('');
   const [confirmPassword, confirmPasswordChange] = useInput('');
+  const history = useHistory();
 
   const wrap = {
     bool: (password === confirmPassword),
@@ -20,18 +23,14 @@ function SignUpModal(props) {
 
 
   let [errors, handleSubmit] = useSubmit({
-    createAction: () => signup({ credential, password }),
+    createAction: () => signup({ email, username, password }),
+    onSuccess: () => props.close(),
     wrap
   });
   let [, handleDemo] = useSubmit({
     createAction: () => login({ credential: "demo@demo.com", password: "password" }),
-    onSuccess: () => {
-      props.close()
-    },
+    onSuccess: () => props.close(),
   });
-
-  const openLoginModal = () => ModalUtil.open(LoginModal);
-
 
 
   return (
@@ -45,9 +44,17 @@ function SignUpModal(props) {
           <Input label=""
             className="credentials email"
             type="text"
-            value={credential}
-            onChange={credentialChange}
+            value={email}
+            onChange={emailChange}
             placeholder="Email"
+            required
+          />
+          <Input label=""
+            className="credentials username"
+            type="text"
+            value={username}
+            onChange={usernameChange}
+            placeholder="Username"
             required
           />
           <br/>
@@ -69,12 +76,8 @@ function SignUpModal(props) {
           />
           <br/>
           <Button type="submit" label="Sign Up"  />
-          {/* TODO: CONFIRM PASSWORD = CONFIRM PASSWORD */}
-          {/* <button onClick={ openLoginModal } className="btn">Login</button> */}
-          <LoginModalButton />
-          {/* <button className="btn" onClick={handleDemo}>Demo User</button> */}
+          <Button label="Login" classname="btn login-modal-btn" modal={ LoginModal }/>
       </form>
-      {/* TODO: ADD A LINK TO '< All sign in options' (prev-modal)*/}
       <Button className="btn demo" onClick={ handleDemo } label="Demo User"/>
       <Button className="close-btn" onClick={ props.close }>X</Button>
     </div>

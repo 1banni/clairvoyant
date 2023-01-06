@@ -19,17 +19,17 @@ function LoginModal(props) {
   let [errors, handleSubmit] = useSubmit({
     createAction: () => login({ credential, password }),
     onSuccess: () => {
-      console.count('in login success');
-      // if password
+      // console.count('in login success');
       if (sessionUser) {
         props.close()
       }
-
     },
   });
   let [, handleDemo] = useSubmit({
     createAction: () => login({ credential: "demo@demo.com", password: "password" }),
-    onSuccess: () => props.close(),
+    onSuccess: () => {
+      props.close()
+    },
   });
 
   return (
