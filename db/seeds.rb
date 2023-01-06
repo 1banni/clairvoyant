@@ -60,18 +60,23 @@ ApplicationRecord.transaction do
     body: 'lorem ipsum...',
     author: user_test
   )
-
   Article.create!(
     title: 'how to create user model with auth in rails',
     body: 'lorem ipsum...',
     author: user_william
   )
-
   Article.create!(
     title: 'rails generate user model with auth',
     body: 'lorem ipsum...',
     author: user_demo
   )
+  50.times do
+    Article.create!({
+      title: Faker::Lorem.sentence(word_count: rand(2..12)).chomp('.'),
+      body: Faker::Lorem.paragraphs(number: rand(3..15)).join('\n'),
+      author: user_william
+    })
+  end
 
   puts "Done!"
 end

@@ -5,6 +5,7 @@ const ArticleListItem = ({ article }) => {
   let history = useHistory();
 
   const goToArticle = () => {
+    console.count('in ArticleListItem#goToArticle');
     history.push(`/articles/${article.id}`)
   }
 

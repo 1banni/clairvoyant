@@ -1,0 +1,27 @@
+.article-index-page {
+  border: 2px solid violet;
+  display: grid;
+  grid-template-columns: 75% 25%;
+}
+
+.article-wrapper {
+  border: 2px solid indigo;
+}
+
+.article-header {
+  border: 2px solid yellow;
+}
+
+.article-index {
+  border: 2px solid blue;
+}
+
+.article-index-item {
+  border: 2px solid green;
+}
+
+.staff-picks {
+  border: 2px solid yellow;
+  height: 300px;
+}
+

@@ -12,18 +12,13 @@ import { useSelector } from 'react-redux';
 const closeButtonImg = require('../../assets/close-button.png')
 
 function LoginModal(props) {
-  const sessionUser = useSelector(state => state.session.user);
   const [credential, credentialChange] = useInput('');
   const [password, passwordChange] = useInput('');
+  const sessionUser = useSelector(state => state.session.user);
 
   let [errors, handleSubmit] = useSubmit({
     createAction: () => login({ credential, password }),
-    onSuccess: () => {
-      // console.count('in login success');
-      if (sessionUser) {
-        props.close()
-      }
-    },
+    onSuccess: () => {/*if (sessionUser) props.close();*/},
   });
   let [, handleDemo] = useSubmit({
     createAction: () => login({ credential: "demo@demo.com", password: "password" }),
@@ -33,7 +28,8 @@ function LoginModal(props) {
   });
 
   return (
-    <Modal>
+    sessionUser ? (<></>)
+    : (<Modal>
       <div className="modal">
       <div className="modal-background">
         <h2>Sign in with email</h2>
@@ -65,7 +61,7 @@ function LoginModal(props) {
       <Button containerName="close-btn-container" className="close-btn" onClick={ props.close } >X</Button>
     </div>
     </div>
-    </Modal>
+    </Modal>)
   );
 }
 

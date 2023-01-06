@@ -15,7 +15,8 @@ const ModalUtil = {
   // detail: {component, props}
   open(component, props = {}) {
     document.dispatchEvent(new CustomEvent('open', { detail: {
-      component, props } }));
+      component, props }
+    }));
   },
 };
 

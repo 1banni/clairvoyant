@@ -1,0 +1,39 @@
+
+
+.nav-bar {
+  padding: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-end;
+
+
+  border-bottom: 0.5px solid black;
+}
+
+.nav-bar-wrapper {
+  background-color: #fff;
+}
+
+.other-links {
+  display: flex;
+  flex-direction: row;
+}
+
+.write-link {
+  padding-right: 30px;
+}
+
+.login-modal-btn {
+  background-color: transparent;
+  border: none;
+
+
+}
+
+
+.login-modal-btn:hover {
+  background-color: transparent;
+  color: #0f4;
+  border: none;
+}

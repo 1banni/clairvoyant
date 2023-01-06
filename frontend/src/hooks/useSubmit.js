@@ -1,7 +1,8 @@
 import { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 const useSubmit = ({createAction, onSuccess, wrap}) => {
+
   const dispatch = useDispatch();
   let [errors, setErrors] = useState([]);
 
@@ -15,7 +16,6 @@ const useSubmit = ({createAction, onSuccess, wrap}) => {
       console.count('in bool true');
       console.log(createAction);
       return dispatch(createAction())
-        .then(onSuccess)
         .catch(async res => {
             let data;
             try { data = await res.clone().json(); }
@@ -24,6 +24,7 @@ const useSubmit = ({createAction, onSuccess, wrap}) => {
             else if (data) setErrors([data]);
             else setErrors([res.statusText]);
         })
+        .then(onSuccess)
     }
   }
 
