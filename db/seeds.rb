@@ -28,18 +28,21 @@ ApplicationRecord.transaction do
 
   user_test = User.create!(
     username: 'test',
+    name:'test user',
     email: 'test@gmail.com',
     password: 'iuhiuh'
   )
 
   user_william = User.create!(
-    username: 'william',
+    username: 'williB',
+    name: 'William',
     email: 'william@gmail.com',
     password: 'iuhiuh'
   )
 
   user_demo = User.create!(
     username: 'demo',
+    name: 'demo',
     email: 'demo@demo.com',
     password: 'password'
   )
@@ -48,6 +51,7 @@ ApplicationRecord.transaction do
   10.times do
     User.create!({
       username: Faker::Internet.unique.username(specifier: 3),
+      name: Faker::Internet.name,
       email: Faker::Internet.unique.email,
       password: 'password'
     })

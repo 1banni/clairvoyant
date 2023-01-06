@@ -1,10 +1,11 @@
-.article-index-page {
+.article-search-page {
   border: 2px solid violet;
   display: grid;
+  flex-direction: row;
   grid-template-columns: 75% 25%;
 }
 
-.article-wrapper {
+.article-search-wrapper {
   border: 2px solid indigo;
 }
 

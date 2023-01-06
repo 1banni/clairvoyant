@@ -5,6 +5,7 @@
 #  id              :bigint           not null, primary key
 #  email           :string           not null
 #  username        :string           not null
+#  name            :string           not null
 #  password_digest :string           not null
 #  session_token   :string           not null
 #  created_at      :datetime         not null
@@ -31,9 +32,11 @@ class User < ApplicationRecord
   before_validation :ensure_session_token
 
   has_many :articles, class_name: :Article, foreign_key: :author_id
-  has_many :likes
+  has_many :bookmarks, dependent: :destroy
+  has_many :likes, dependent: :destroy
 
   has_many :liked_articles, through: :likes, source: :articles
+  has_many :bookmarked_articles, through: :bookmarks, source: :articles
 
   def self.find_by_credentials(credential, password)
     if (URI::MailTo::EMAIL_REGEXP.match(credential))

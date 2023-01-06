@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import ProfileMenu from './ProfileMenu';
@@ -7,13 +7,27 @@ import user_logo from '../../assets/profile.png';
 import write_logo from '../../assets/write-logo.png'
 import Button from '../../components/Button';
 import LoginModal from '../../modals/LoginModal';
-import './Navigation.css';
+import './NavBar.css';
+import { useEffect } from 'react';
 
 
 function NavBar() {
   const sessionUser = useSelector(state => state.session.user);
+  const [fixed, setFixed] = useState("nav-bar");
 
-  const l = 9;
+  // useEffect(()=> {
+  //   if (window.scroll > 10) {
+  //     setFixed("nav-bar-wrapper fixed");
+  //   } else {
+  //     setFixed("nav-bar-wrapper");
+  //   }
+  // }, [window.scroll])
+
+  const magic = () => {
+    window.scrollY > 350
+      ? setFixed("nav-bar-wrapper fixed")
+      : setFixed("nav-bar-wrapper");
+  }
 
   let sessionLink;
   if (sessionUser) {
@@ -33,8 +47,10 @@ function NavBar() {
     );
   }
 
+
+  window.addEventListener("scroll", magic);
   return (
-    <div className="nav-bar-wrapper">
+    <div className={fixed}>
     <div className="nav-bar">
       <div className="homepage-link">
         <NavLink exact to="/"><img src={site_logo} alt="diamonds" height="30" /></NavLink>

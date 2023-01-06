@@ -17,11 +17,12 @@ const ArticleIndexItem = ({ article }) => {
     <div className="article-index-item" key={article.id} onClick={goToArticle}>
       <li><h4>Title: {article.title}</h4></li>
         <li>Author: {article.authorId}</li>
-        <div>Likes: TODO</div>
-        <div>Dislikes: TODO</div>
-        <div>Liked: TODO</div>
-        <div>Disliked: TODO</div>
-        <div>Bookmarked: TODO</div>
+        <li>Author: {article.topic}</li>
+        {/* <div>Likes: TODO</div> */}
+        {/* <div>Dislikes: TODO</div> */}
+        {/* <div>Liked: TODO</div> */}
+        {/* <div>Disliked: TODO</div> */}
+        {/* <div>Bookmarked: TODO</div> */}
     </div>
   )
 }

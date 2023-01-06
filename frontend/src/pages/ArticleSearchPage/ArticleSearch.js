@@ -48,23 +48,23 @@ export default function ArticleSearch(incomingTopic, incomingPageNum) {
     <div className="article-search-page">
       <div className="article-search-wrapper">
         <div className="articles-header"><h1>Articles</h1></div>
-        <div className="article-search">
-          {/* <form className="login-form-container" onSubmit={handleSubmit}> */}
-          {/* <form className="article-search-form" onSubmit={e=>e.preventDefault()}> */}
-            <Input
-              label="topic"
-              placeholder="Topic Search"
-              type="text"
-              value={topic}
-              onChange={setTopic}
-            />
-            {/* <Button type="submit" label="Search"/>
-          </form> */}
-        </div>
-        <ol>
-          {filteredArticles.map(article => <ArticleIndexItem article={article} key={article.id} />)}
-        </ol>
-        <div>Loading...</div>
+          <div className="article-search">
+            {/* <form className="login-form-container" onSubmit={handleSubmit}> */}
+            {/* <form className="article-search-form" onSubmit={e=>e.preventDefault()}> */}
+              <Input
+                label="topic"
+                placeholder="Topic Search"
+                type="text"
+                value={topic}
+                onChange={setTopic}
+              />
+              {/* <Button type="submit" label="Search"/>
+            </form> */}
+          </div>
+          <ol>
+            {filteredArticles.map(article => <ArticleIndexItem article={article} key={article.id} />)}
+          </ol>
+          <div>Loading...</div>
         <div>Error</div>
       </div>
       <div className="staff-picks">Staff Picks

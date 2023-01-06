@@ -13,7 +13,21 @@
 
 .nav-bar-wrapper {
   background-color: #fff;
+  transition: 0.5s ease-in-out;
+  position: sticky;
+  top: 0;
+
+
 }
+
+.nav-bar-wrapper.fixed  {
+  background-color: #F5C247;
+
+}
+/*
+.nav-bar-wrapper {
+  background-color: red;
+} */
 
 .other-links {
   display: flex;
@@ -27,8 +41,6 @@
 .login-modal-btn {
   background-color: transparent;
   border: none;
-
-
 }
 
 
@@ -37,3 +49,5 @@
   color: #0f4;
   border: none;
 }
+
+

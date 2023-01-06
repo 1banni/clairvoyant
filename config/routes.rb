@@ -11,8 +11,8 @@ Rails.application.routes.draw do
   namespace :api, defaults: { format: :json } do
     resource :session, only: [:show, :create, :destroy]
     resources :users, only: :create
-    resources :articles, only: [:show, :index, :draft, :create]
-    resources :queries, only: [:show, :index, :draft, :create]
+    resources :articles, only: [:show, :index, :create]
+    resources :queries, only: [:show, :index, :create]
     # singular resource causes show/destroy routes to have no :id wildcard
   end
 

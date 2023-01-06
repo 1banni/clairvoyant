@@ -12,9 +12,8 @@
 #  updated_at :datetime         not null
 #
 class Like < ApplicationRecord
+  validates :liked, :author_id, :article_id, presence: true
   validates :liked, numericality: { in: -1..1 }
-  validates :author_id, presence: true
-  validates :article_id, presence: true
 
   belongs_to :article
   belongs_to :user

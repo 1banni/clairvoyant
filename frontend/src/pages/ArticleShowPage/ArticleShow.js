@@ -6,10 +6,10 @@ import { fetchArticle } from "../../store/articles";
 
 const ArticleShow = (props) => {
   const dispatch = useDispatch();
-  const history = useHistory();
-
   const { articleId } = useParams();
   const article = useSelector(store => store.articles[articleId]);
+  const history = useHistory();
+
 
   useEffect(() => {
     dispatch(fetchArticle(articleId));
