@@ -13,7 +13,7 @@ import { useEffect } from 'react';
 
 function NavBar() {
   const sessionUser = useSelector(state => state.session.user);
-  const [fixed, setFixed] = useState("nav-bar");
+  const [fixed, setFixed] = useState("nav-bar-wrapper");
 
   // useEffect(()=> {
   //   if (window.scroll > 10) {
@@ -52,17 +52,20 @@ function NavBar() {
   return (
     <div className={fixed}>
     <div className="nav-bar">
-      <div className="homepage-link">
-        <NavLink exact to="/"><img src={site_logo} alt="diamonds" height="30" /></NavLink>
-      </div>
-      <div className="other-links">
-        <div className="write-link">
-          <NavLink exact to="/articles/new"><img src={write_logo} alt="diamonds" height="30" /></NavLink>
+      <div className="left-links">
+        <div className="nav-link homepage">
+          <NavLink exact to="/"><img src={site_logo} alt="diamonds" height="20" /></NavLink>
         </div>
-        <div className="session-link">
+      </div>
+      <div className="right-links">
+        <div className="nav-link write">
+          <NavLink exact to="/articles/new"><img src={write_logo} alt="diamonds" height="20" /></NavLink>
+        </div>
+        <div className="nav-link session">
           {sessionLink}
         </div>
       </div>
+
     </div>
     </div>
   );
