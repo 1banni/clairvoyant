@@ -1,3 +1,3 @@
 json.set! @article.id do
-    json.extract! @article, :id, :title, :author_id, :body
+    json.extract! article, :id, :title, :body, :topic, :author_id
 end

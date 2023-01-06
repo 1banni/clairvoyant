@@ -4,6 +4,8 @@
 #
 #  id         :bigint           not null, primary key
 #  liked      :integer          not null
+#  author     :integer          not null
+#  article    :integer          not null
 #  author_id  :bigint
 #  article_id :bigint
 #  created_at :datetime         not null

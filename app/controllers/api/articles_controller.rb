@@ -2,7 +2,7 @@
 
 class Api::ArticlesController < ApplicationController
   def index
-    @articles = Article.all
+    @articles = filter(Article.all)
     render :index
   end
 
@@ -29,6 +29,8 @@ class Api::ArticlesController < ApplicationController
     render :show
   end
 
+
+
   def searchByTopic
     @Articles = Article.where(topic: params[:topic])
     render :index
@@ -39,14 +41,26 @@ class Api::ArticlesController < ApplicationController
     render :index
   end
 
-
+  private
   def article_params
     # QUESTION: HOW DO YOU GET / USE USER ID HERE?
     # TODO: CONFIRM THIS WORKS
     # @params ||= params.require(:article).permit(:title, :body)
+    # Returns nested hash
     params.require(:article).permit(:title, :body, :topic)
     # front end can send data like { user: username: 'bob, password:: 'password'}
     # front end can also send it as { username: 'bob', password: 'password'}
     # ^ here, we would be able to get username column (automatically cause of controller name)
+  end
+
+  def filter_params
+    # Makes filter namespace optional in URL
+    # Returns nested parameters
+    params.fetch(:filter, {})
+  end
+
+   def filter(relation)
+    return relation if filter_params == {}
+    return relation.where(filter_params)
   end
 end

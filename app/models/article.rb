@@ -5,8 +5,8 @@
 #  id         :bigint           not null, primary key
 #  title      :string           not null
 #  body       :text             not null
-#  categories :string           default([]), is an Array
 #  author_id  :bigint           not null
+#  topic      :string           not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #

@@ -22,13 +22,14 @@ export const receiveArticle = article => {
 
 // THUNK ACTION CREATORS
 export const fetchArticles = () => async dispatch => {
-  const res = await csrfFetch('/api/articles');
+  const res = await csrfFetch('/api/articles/');
+  // const res = filter_params
+  //   ? await csrfFetch('/api/articles', {body: JSON.stringify(filter_params)})
+  //   : await csrfFetch('/api/articles')
 
   if (res.ok) {
     const articles = await res.json();
     dispatch(receiveArticles(articles));
-  } else {
-    console.log("errorrrrrr in fetchArticles thunk action creator")
   }
 }
 
