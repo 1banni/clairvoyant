@@ -12,7 +12,7 @@ h2 {
   padding-bottom: 50px;
 }
 
-p, input {
+p, input, li {
   font-family: sohne,
       "Helvetica Neue",
       Helvetica,
@@ -21,7 +21,8 @@ p, input {
 }
 
 p {
-  font-size: 18px;
+  font-size: 14px;
+  line-height: 20px;
   padding-bottom: 30px;
   width: 30vh;
   text-align: center;
@@ -31,9 +32,9 @@ input {
   font-size: 14px;
   font-weight: 400;
   letter-spacing: 0.1em;
-
-  width: 30vw;
+  width: 15vw;
   min-width: 250px;
+  max-width: 350px;
   text-align: left;
   text-indent: 3px;
   border-style: hidden;
@@ -182,7 +183,8 @@ input:focus {
 
 
 .login-errors {
-  padding-top: 20px;
+  padding-bottom: 20px;
+  color:darkred;
   text-align: center;
 }
 

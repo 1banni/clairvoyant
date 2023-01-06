@@ -1,8 +1,6 @@
 import React from 'react'
 
 const FormErrors = ({className, errors}) =>  {
-  console.log('form errors')
-  console.log(errors);
   return (
     <div className="form-errors">
       <ul className={className}>

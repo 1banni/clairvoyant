@@ -7,15 +7,25 @@ import { Modal } from '../../context/Modal';
 import Button from '../../components/Button';
 import {FormErrors, Input} from '../../components/Form';
 import SignUpModal from '../SignUpModal';
+import { useSelector } from 'react-redux';
 
 const closeButtonImg = require('../../assets/close-button.png')
 
 function LoginModal(props) {
+  const sessionUser = useSelector(state => state.session.user);
   const [credential, credentialChange] = useInput('');
   const [password, passwordChange] = useInput('');
+
   let [errors, handleSubmit] = useSubmit({
     createAction: () => login({ credential, password }),
-    onSuccess: () => props.close(),
+    onSuccess: () => {
+      console.count('in login success');
+      // if password
+      if (sessionUser) {
+        props.close()
+      }
+
+    },
   });
   let [, handleDemo] = useSubmit({
     createAction: () => login({ credential: "demo@demo.com", password: "password" }),
@@ -27,7 +37,7 @@ function LoginModal(props) {
       <div className="modal">
       <div className="modal-background">
         <h2>Sign in with email</h2>
-        <p>Enter your email address and password.</p>
+        <p>Enter the email address and password associated with your account. Or, click the Demo User button.</p>
         {errors ? <FormErrors className='login-errors' errors={errors}/> : ''}
         <form onSubmit={handleSubmit}>
           <Input label=""

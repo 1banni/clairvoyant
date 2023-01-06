@@ -12,15 +12,27 @@ function SignUpModal(props) {
   const [credential, credentialChange] = useInput('');
   const [password, passwordChange] = useInput('');
   const [confirmPassword, confirmPasswordChange] = useInput('');
+
+  const wrap = {
+    bool: (password === confirmPassword),
+    errors: ['Confirm Password field must be the same as the Password field']
+  }
+
+
   let [errors, handleSubmit] = useSubmit({
-    createAction: () => signup({ credential, password })
+    createAction: () => signup({ credential, password }),
+    wrap
   });
   let [, handleDemo] = useSubmit({
     createAction: () => login({ credential: "demo@demo.com", password: "password" }),
-    onSuccess: () => props.close(),
+    onSuccess: () => {
+      props.close()
+    },
   });
 
   const openLoginModal = () => ModalUtil.open(LoginModal);
+
+
 
   return (
     <Modal>
