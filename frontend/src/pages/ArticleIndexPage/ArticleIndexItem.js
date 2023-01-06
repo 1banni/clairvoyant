@@ -1,11 +1,11 @@
 import React from "react";
 import { withRouter, useHistory } from "react-router-dom";
 
-const ArticleListItem = ({ article }) => {
+const ArticleIndexItem = ({ article }) => {
   let history = useHistory();
 
   const goToArticle = () => {
-    console.count('in ArticleListItem#goToArticle');
+    console.count('in ArticleIndexItem#goToArticle');
     history.push(`/articles/${article.id}`)
   }
 
@@ -21,4 +21,4 @@ const ArticleListItem = ({ article }) => {
     </ul>
   )
 }
-export default withRouter(ArticleListItem);
+export default withRouter(ArticleIndexItem);

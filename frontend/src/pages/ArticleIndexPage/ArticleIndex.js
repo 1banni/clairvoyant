@@ -6,7 +6,7 @@ import ArticleIndexItem from './ArticleIndexItem';
 import './ArticleIndex.css';
 
 
-const ArticleList = props => {
+const ArticleIndex = props => {
   const articles = useSelector(state => Object.values(state.articles));
   const dispatch = useDispatch();
 
@@ -34,4 +34,4 @@ const ArticleList = props => {
 }
 
 
-export default ArticleList;
+export default ArticleIndex;

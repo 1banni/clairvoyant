@@ -17,8 +17,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_04_100609) do
   create_table "articles", force: :cascade do |t|
     t.string "title", null: false
     t.text "body", null: false
-    t.string "categories", default: [], array: true
     t.bigint "author_id", null: false
+    t.string "topic", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["author_id"], name: "index_articles_on_author_id"
@@ -36,6 +36,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_04_100609) do
 
   create_table "likes", force: :cascade do |t|
     t.integer "liked", null: false
+    t.integer "author", null: false
+    t.integer "article", null: false
     t.bigint "author_id"
     t.bigint "article_id"
     t.datetime "created_at", null: false

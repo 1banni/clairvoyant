@@ -54,26 +54,39 @@ ApplicationRecord.transaction do
   end
 
   puts "Creating articles..."
-  # TODO - create articles
+  seed_topics = [
+    'movies',
+    'books',
+    'shows',
+    'music',
+    'coding',
+    'DIY',
+    'recipes',
+  ]
+
   Article.create!(
-    title: 'model view controller explained',
+    title: 'best indie albums of the 90s',
     body: 'lorem ipsum...',
+    topic: 'music',
     author: user_test
   )
   Article.create!(
-    title: 'how to create user model with auth in rails',
+    title: 'Avatar Animation Explained',
     body: 'lorem ipsum...',
+    topic: 'movies',
     author: user_william
   )
   Article.create!(
-    title: 'rails generate user model with auth',
+    title: 'unity vs. unreal',
     body: 'lorem ipsum...',
+    topic: 'gaming',
     author: user_demo
   )
   50.times do
     Article.create!({
       title: Faker::Lorem.sentence(word_count: rand(2..12)).chomp('.'),
       body: Faker::Lorem.paragraphs(number: rand(3..15)).join('\n'),
+      topic: seed_topics.sample(),
       author: user_william
     })
   end

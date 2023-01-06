@@ -11,7 +11,7 @@
 #  updated_at :datetime         not null
 #
 class Article < ApplicationRecord
-  validates :title, :body, :author_id, presence: true
+  validates :title, :body, :topic, :author_id, presence: true
 
   belongs_to :author,
     class_name: :User,
