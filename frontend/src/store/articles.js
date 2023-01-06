@@ -36,6 +36,7 @@ export const fetchArticles = () => async dispatch => {
 export const fetchArticle = (articleId) => async dispatch => {
   const res = await csrfFetch(`/api/articles/${articleId}`);
 
+  console.log('in fetch article')
   if (res.ok) {
     const article = await res.json();
     dispatch(receiveArticle(article));
@@ -76,7 +77,7 @@ const articlesReducer = (state = {}, action) => {
       // let newState = {...state}
       // newState[action.article.id] = action.article;
       // POTENTIAL BUG - could just be action.article
-      return { ...state, ...action.article};
+      return { ...action.article};
     default:
       return state
   }

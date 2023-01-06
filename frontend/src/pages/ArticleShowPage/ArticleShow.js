@@ -13,16 +13,18 @@ const ArticleShow = (props) => {
 
   useEffect(() => {
     dispatch(fetchArticle(articleId));
-  }, [dispatch, articleId])
+  }, [dispatch, articleId]);
 
+  console.log('in ArticleShow');
+  console.log(article);
 
   if (!article) return null;
   return (
     <>
     <div>
       <h1>{article.title}</h1>
-      <h3>Author: {article.author_id}</h3>
-      <p>{article.categories}</p>
+      <h3>Author: {article.authorId}</h3>
+      <p>{article.topic}</p>
       <ul>
         <li>Likes: TODO</li>
         <li>Dislikes: TODO</li>
@@ -30,9 +32,9 @@ const ArticleShow = (props) => {
         <li>Disliked: TODO</li>
         <li>Bookmarked: TODO</li>
       </ul>
-      <button onClick={returnHome(history)}>Return Home
-        {/* <Link to="/">Return Home</Link> */}
-      </button>
+      {/* <button type="button" onClick={history.push('/')}>Return Home */}
+        <Link to="/">Return Home</Link>
+      {/* </button> */}
     </div>
     </>
   )

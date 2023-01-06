@@ -53,7 +53,7 @@ export default function ArticleSearch(incomingTopic, incomingPageNum) {
           {/* <form className="article-search-form" onSubmit={e=>e.preventDefault()}> */}
             <Input
               label="topic"
-              placeholder="hello out there"
+              placeholder="Topic Search"
               type="text"
               value={topic}
               onChange={setTopic}
