@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import ProfileMenu from './ProfileMenu';
-import site_logo from '../../assets/logo_with_name.png';
-import user_logo from '../../assets/profile.png';
+// import site_logo from '../../assets/logo_with_name.png';
+// import user_logo from '../../assets/profile.png';
 // import write_logo from '../../assets/svg/write-logo.svg';
 
 import Button from '../../components/Button';
@@ -16,6 +16,7 @@ import { ReactComponent as ClairvoyantLogo } from '../../assets/svg/clairvoyant-
 import { ReactComponent as ProfileIcon } from '../../assets/svg/profile.svg'
 import NavItem from './NavItem';
 
+// const myImg = require('./assets/Profilemethods.png');
 
 function NavBar() {
   const sessionUser = useSelector(state => state.session.user);

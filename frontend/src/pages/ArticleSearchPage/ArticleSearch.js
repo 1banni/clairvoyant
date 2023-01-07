@@ -9,7 +9,7 @@ import { login } from '../../store/session';
 import ArticleIndexItem from '../ArticleIndexPage/ArticleIndexItem';
 import bookmark from '../../assets/svg/bookmark.svg'
 
-export default function ArticleSearch(incomingTopic, incomingPageNum) {
+export default function ArticleSearch({incomingTopic, incomingPageNum}) {
   const dispatch = useDispatch();
   const history = useHistory();
   incomingTopic ||= '';
@@ -32,12 +32,6 @@ export default function ArticleSearch(incomingTopic, incomingPageNum) {
   // const handleTopicQuery = (e) => {
   //   dispatch(fetchArticles({topic: e.target.value}));
   // }
-  const [credential, credentialChange] = useInput('');
-  const [password, passwordChange] = useInput('');
-   const [errors, handleSubmit] = useSubmit({
-    createAction: () => login({ credential, password }),
-    onSuccess: () => history.push('/')
-  })
 
   return (
     <>

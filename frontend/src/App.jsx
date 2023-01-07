@@ -7,6 +7,7 @@ import ArticleCreatePage from "./pages/ArticleCreatePage";
 import ArticleShowPage from "./pages/ArticleShowPage";
 import ModalProvider from "./context/ModalProvider";
 import ArticleSearch from "./pages/ArticleSearchPage/ArticleSearch";
+import SplashPage from "./pages/SplashPage";
 
 function App() {
   return (
@@ -15,7 +16,7 @@ function App() {
       <ModalProvider />
       <Switch>
         <Route exact path='/'>
-          <ArticleSearch />
+          <SplashPage />
         </Route>
         <Route path='/signup'>
           <SignUpPage />
@@ -29,14 +30,17 @@ function App() {
         <Route exact path='/articles/all'>
           <ArticleIndexPage />
         </Route>
-        <Route path='/articles/search'>
-          <ArticleSearch />
-        </Route>
         <Route path='/articles/:articleId'>
           <ArticleShowPage />
         </Route>
+        <Route path='/articles/search'>
+          <ArticleSearch />
+        </Route>
+        <Route path='/articles/'>
+          <ArticleSearch />
+        </Route>
         <Route path='/'>
-          <ArticleIndexPage />
+          <SplashPage />
         </Route>
       </Switch>
     </>

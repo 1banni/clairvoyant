@@ -1,0 +1,42 @@
+.splash-1-1 {
+  width: 400px;
+  height: min-content;
+  /* 175px */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  padding: 0px 0px 0px 0px;
+  align-content: center;
+  flex-wrap: nowrap;
+  gap: 10;
+}
+
+
+.stay-curious_ {
+  padding-left: 20px;
+  flex-shrink: 0;
+  width: 100%;
+  height: 82px;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  word-break: break-word;
+  position: relative;
+  line-height: 1.2;
+}
+
+
+.discover-stories_ {
+  flex-shrink: 0;
+  width: 100%;
+  height: 83px;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  word-break: break-word;
+  text-align: left;
+  position: relative;
+  line-height: 1.2;
+}
+
+

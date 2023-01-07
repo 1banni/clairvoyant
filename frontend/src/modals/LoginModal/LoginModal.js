@@ -9,7 +9,7 @@ import {FormErrors, Input} from '../../components/Form';
 import SignUpModal from '../SignUpModal';
 import { useSelector } from 'react-redux';
 
-const closeButtonImg = require('../../assets/close-button.png')
+const closeButtonImg = require('../../assets/png/close-button.png')
 
 function LoginModal(props) {
   const [credential, credentialChange] = useInput('');
