@@ -18,20 +18,15 @@ export default function ArticleSearch(incomingTopic, incomingPageNum) {
   const [pageNum, setPageNum] = useInput(1);
   const articles = useSelector(state => Object.values(state.articles));
 
-  console.count(pageNum);
-  console.count(topic);
 
   useEffect(() => {
     dispatch(fetchArticles())
   }, [dispatch]);
 
   const filteredArticles = useMemo(() => {
-    if (topic) {
-      console.log(articles);
-      return articles.filter(article => article.topic === topic);
-    } else {
-      return articles;
-    }
+    return topic
+      ? articles.filter(article => article.topic === topic)
+      : articles
   })
 
   // const handleTopicQuery = (e) => {

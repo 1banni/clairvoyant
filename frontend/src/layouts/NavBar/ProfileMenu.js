@@ -33,9 +33,7 @@ function ProfileMenu({ user }) {
     dispatch(sessionActions.logout());
   };
 
-  console.count('ProfileMenu');
-  console.log(user);
-  // debugger;
+
   return (
     <>
       <Button className="nav-btn" onClick={openMenu}>

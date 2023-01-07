@@ -15,9 +15,6 @@ const ArticleShow = (props) => {
     dispatch(fetchArticle(articleId));
   }, [dispatch, articleId]);
 
-  console.log('in ArticleShow');
-  console.log(article);
-
   if (!article) return null;
   return (
     <>

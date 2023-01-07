@@ -16,4 +16,7 @@ Rails.application.routes.draw do
     # singular resource causes show/destroy routes to have no :id wildcard
   end
 
+
+  # catchall route (must remain at bottom)
+  get '*path', to: "static_pages#frontend_index"
 end

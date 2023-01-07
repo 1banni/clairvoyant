@@ -19,7 +19,7 @@ if (process.env.NODE_ENV !== 'production') {
   window.sessionActions = sessionActions;
   window.articleActions = articleActions;
 }
-// debugger
+
 const renderApplication = () => {
   function Modal() {
     return (

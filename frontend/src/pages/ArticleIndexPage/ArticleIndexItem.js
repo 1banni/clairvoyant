@@ -5,13 +5,8 @@ const ArticleIndexItem = ({ article }) => {
   let history = useHistory();
 
   const goToArticle = () => {
-    console.count('in ArticleIndexItem#goToArticle');
-    console.log('going to article:');
-    console.log(article);
     history.push(`/articles/${article.id}`)
   }
-
-  // console.log(article)
 
   return (
     <div className="article-index-item" key={article.id} onClick={goToArticle}>

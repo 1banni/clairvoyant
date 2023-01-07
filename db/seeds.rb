@@ -19,9 +19,11 @@ ApplicationRecord.transaction do
   # ApplicationRecord.connection.reset_pk_sequence!('articles')
   # ApplicationRecord.connection.reset_pk_sequence!('chatgptqueries')
   # TODO - clean this up
-  # puts 'Resetting id sequences...'\][]  # %w(actors movies castings).each do |table_name|
-    # ApplicationRecord.connection.reset_pk_sequence!(table_name)
-  # end
+  puts 'Resetting id sequences...'
+
+  %w(users articles likes bookmarks comments).each do |table_name|
+    ApplicationRecord.connection.reset_pk_sequence!(table_name)
+  end
 
   puts "Creating users..."
   # Create one user with an easy to remember username, email, and password:

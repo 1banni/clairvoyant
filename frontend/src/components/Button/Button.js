@@ -8,7 +8,7 @@ export default function Button({children, label, modal, ...props}) {
   props.containerName ||= "btn-container";
   props.className ||= "btn";
   props.type ||= "button";
-  props.onClick ||= (modal ? () => ModalUtil.open(modal) : () => {console.log('click missed')})
+  props.onClick ||= (modal ? () => ModalUtil.open(modal) : () => {})
 
   return (
     <div className={props.containerName}>

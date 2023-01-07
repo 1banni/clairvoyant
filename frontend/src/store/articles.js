@@ -36,17 +36,13 @@ export const fetchArticles = () => async dispatch => {
 export const fetchArticle = (articleId) => async dispatch => {
   const res = await csrfFetch(`/api/articles/${articleId}`);
 
-  console.log('in fetch article')
   if (res.ok) {
     const article = await res.json();
     dispatch(receiveArticle(article));
-  } else {
-    console.log("errorrrrrr in fetchArticles thunk action creator")
   }
 }
 
 export const createArticle = (articleData) => async dispatch => {
-  console.log('creating article')
   const res = await csrfFetch('/api/articles/', {
     method: "POST",
     headers: {
@@ -58,8 +54,6 @@ export const createArticle = (articleData) => async dispatch => {
   if (res.ok) {
     const article = await res.json();
     dispatch(receiveArticle(article));
-  } else {
-    console.log("errorrrrrr in fetchArticles thunk action creator")
   }
 }
 
@@ -73,7 +67,6 @@ const articlesReducer = (state = {}, action) => {
     case RECEIVE_ARTICLES:
       return { ...action.articles }
     case RECEIVE_ARTICLE:
-      console.log(action)
       // let newState = {...state}
       // newState[action.article.id] = action.article;
       // POTENTIAL BUG - could just be action.article

@@ -28,14 +28,12 @@ const storeCurrentUser = user => {
 
 // THUNK ACTION CREATORS
 export const login = ({ credential, password }) => async dispatch => {
-  // console.count('in session#login');
   const res = await csrfFetch('/api/session', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ credential,password })
   });
 
-  // console.log(res);
 
   if (res.ok) {
     const data = await res.json();
@@ -43,23 +41,17 @@ export const login = ({ credential, password }) => async dispatch => {
     dispatch(setCurrentUser(data.user));
     return res;
   } else {
-    // console.log(res.errors)
     return res;
   }
 };
 
 export const logout = () => async dispatch => {
-  console.count('in logout');
   const res = await csrfFetch(`/api/session`, { method: "DELETE" });
-  console.log('res');
-  console.log(res);
-  console.log(res.ok);
   if (res.ok) {
     storeCurrentUser(null);
     dispatch(removeCurrentUser());
     return res;
   } else {
-    console.log('Something went wrong in session#logout csrfFetch');
     return 'Something went wrong in session#logout csrfFetch'
   }
 }
@@ -75,7 +67,6 @@ export const restoreSession = () => async dispatch => {
 }
 
 export const signup = ({ username, email, password }) => async dispatch => {
-  console.count('in session@signup');
   const response = await csrfFetch('/api/users', {
     method: "POST",
     body: JSON.stringify({
@@ -98,7 +89,6 @@ const initialState = {
 const sessionReducer = (state = initialState, action) => {
   switch (action.type) {
     case SET_CURRENT_USER:
-      // debugger;
       return { ...state, user: action.payload };
     case REMOVE_CURRENT_USER:
       return { ...state, user: null };

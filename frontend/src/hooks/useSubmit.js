@@ -13,8 +13,6 @@ const useSubmit = ({createAction, onSuccess, wrap}) => {
       return setErrors(wrap.errors);
     } else {
       setErrors([]);
-      console.count('in bool true');
-      console.log(createAction);
       return dispatch(createAction())
         .catch(async res => {
             let data;

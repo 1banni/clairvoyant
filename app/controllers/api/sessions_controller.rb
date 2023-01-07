@@ -33,7 +33,6 @@ class Api::SessionsController < ApplicationController
 
   def destroy
     logout
-    p 'in destroy'
     render json: { message: 'success'}
   end
 

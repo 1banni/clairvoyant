@@ -2,7 +2,24 @@
   "name": "clairvoyant",
   "version": "1.0.0",
   "description": "if medium had a third eye",
-  "main": "index.js",
-  "scripts": {},
-  "author": "will b"
+  "scripts": {
+    "build": "npm install --prefix frontend && npm run build --prefix frontend"
+  },
+  "author": "will b",
+  "directories": {
+    "lib": "lib"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/3anni/clairvoyant.git"
+  },
+  "keywords": [],
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/3anni/clairvoyant/issues"
+  },
+  "homepage": "https://github.com/3anni/clairvoyant#readme",
+  "engines": {
+    "node": "16.x"
+  }
 }
