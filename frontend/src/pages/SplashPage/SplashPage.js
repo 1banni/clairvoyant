@@ -31,6 +31,7 @@ const SplashPage = props => {
   const history = useHistory();
   const articles = useSelector(state => Object.values(state.articles))
 
+  const dummy = '';
 
   useEffect(() => {
     dispatch(fetchArticles())
