@@ -7,6 +7,7 @@ import { useInput, useSubmit } from '../../hooks';
 import { fetchArticles } from '../../store/articles';
 import { login } from '../../store/session';
 import ArticleIndexItem from '../ArticleIndexPage/ArticleIndexItem';
+import bookmark from '../../assets/svg/bookmark.svg'
 
 export default function ArticleSearch(incomingTopic, incomingPageNum) {
   const dispatch = useDispatch();

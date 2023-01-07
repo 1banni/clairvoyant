@@ -3,6 +3,8 @@
 class Api::ArticlesController < ApplicationController
   def index
     @articles = filter(Article.all)
+    # debugger
+    @user = current_user
     render :index
   end
 

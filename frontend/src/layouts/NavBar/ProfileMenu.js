@@ -1,7 +1,11 @@
 
 import React, { useState, useEffect } from "react";
 import { useDispatch } from 'react-redux';
+import Button from "../../components/Button";
 import * as sessionActions from '../../store/session';
+
+import { ReactComponent as ProfileIcon } from '../../assets/svg/profile.svg'
+import MenuListItem from "./MenuItem";
 
 function ProfileMenu({ user }) {
   const dispatch = useDispatch();
@@ -29,20 +33,24 @@ function ProfileMenu({ user }) {
     dispatch(sessionActions.logout());
   };
 
+  console.count('ProfileMenu');
+  console.log(user);
   // debugger;
   return (
     <>
-      <button onClick={openMenu}>
-        <i className="fa-solid fa-user-circle" />
-      </button>
+      <Button className="nav-btn" onClick={openMenu}>
+        <ProfileIcon className="icon profile"/>
+      </Button>
       {showMenu && (
-        <ul className="profile-dropdown">
-          <li>{user.username}</li>
-          <li>{user.email}</li>
+        <div className="profile-dropdown">
+          <MenuListItem>{user.name}</MenuListItem>
+          <MenuListItem>{user.email}</MenuListItem>
+          {/* <li>{user.username}</li> */}
+          {/* <li>{user.email}</li> */}
           <li>
-            <button onClick={logout}>Log Out</button>
+            <Button onClick={logout}>Log Out</Button>
           </li>
-        </ul>
+        </div>
     )}
     </>
   );

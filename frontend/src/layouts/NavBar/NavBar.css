@@ -39,20 +39,45 @@
   padding-right: 10px;
   align-items: center;
 }
-.homepage {
+/* .homepage {
   padding-top: 10px;
 }
 
-.write {
-  padding-top: 3px;
-  padding-right: 20px;
-}
+
 
 .session {
   padding-top: 5px;
+} */
+
+.nav-btn {
+  background-color: transparent;
+  border: none;
+  display: flex;
+  align-items:flex-start;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon {
+  /* background-color: blue; */
+  height: var(--btn-height);
+}
+
+.write {
+  height: var(--btn-height * 0.5)
 }
 
 
+.icon-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
 
 
 .login-modal-btn {
@@ -68,3 +93,20 @@
 }
 
 
+.profile-dropdown {
+  position: absolute;
+  top: var(--nav-bar-height );
+  width: 250px;
+
+  transform: translateX(-70%);
+  border: var(--border);
+  border-radius: var(--border-radius);
+  background-color: var(--dropdown-bg);
+  overflow: hidden;
+}
+
+
+.menu-item {
+  height: 50px;
+  display: flex;
+}

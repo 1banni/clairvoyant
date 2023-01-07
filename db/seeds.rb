@@ -95,6 +95,8 @@ ApplicationRecord.transaction do
     })
   end
 
+
+
   puts "Done!"
 end
 

@@ -4,11 +4,17 @@ import { useSelector } from 'react-redux';
 import ProfileMenu from './ProfileMenu';
 import site_logo from '../../assets/logo_with_name.png';
 import user_logo from '../../assets/profile.png';
-import write_logo from '../../assets/write-logo.png'
+// import write_logo from '../../assets/svg/write-logo.svg';
+
 import Button from '../../components/Button';
 import LoginModal from '../../modals/LoginModal';
 import './NavBar.css';
 import { useEffect } from 'react';
+
+import { ReactComponent as WriteIcon } from '../../assets/svg/write-logo.svg'
+import { ReactComponent as ClairvoyantLogo } from '../../assets/svg/clairvoyant-logo.svg'
+import { ReactComponent as ProfileIcon } from '../../assets/svg/profile.svg'
+import NavItem from './NavItem';
 
 
 function NavBar() {
@@ -40,7 +46,7 @@ function NavBar() {
         <Button className="login-modal-btn"
                 containerName="login-modal-btn-container"
                 modal={ LoginModal }>
-          <img src={user_logo} alt="profile-img" height="30" />
+          <ProfileIcon className="icon profile"/>
         </Button>
         {/* <button onClick={ openTestModal } className="btn">Open Test Modal</button> */}
       </>
@@ -54,12 +60,18 @@ function NavBar() {
     <div className="nav-bar">
       <div className="left-links">
         <div className="nav-link homepage">
-          <NavLink exact to="/"><img src={site_logo} alt="diamonds" height="20" /></NavLink>
+          <NavLink exact to="/">
+            <ClairvoyantLogo className="icon logo" />
+          </NavLink>
         </div>
       </div>
       <div className="right-links">
         <div className="nav-link write">
-          <NavLink exact to="/articles/new"><img src={write_logo} alt="diamonds" height="20" /></NavLink>
+          <NavItem exact to="/articles/new">
+            <WriteIcon className="icon write"/>
+          {/* <NavLink exact to="/articles/new"> */}
+            {/* <img src={write_logo} alt="diamonds" height="20" /> */}
+          </NavItem>
         </div>
         <div className="nav-link session">
           {sessionLink}

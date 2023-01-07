@@ -4,8 +4,6 @@
 #
 #  id         :bigint           not null, primary key
 #  liked      :integer          not null
-#  author     :integer          not null
-#  article    :integer          not null
 #  author_id  :bigint
 #  article_id :bigint
 #  created_at :datetime         not null
@@ -16,6 +14,6 @@ class Like < ApplicationRecord
   validates :liked, numericality: { in: -1..1 }
 
   belongs_to :article
-  belongs_to :user
+  belongs_to :user, class_name: :User, foreign_key: :author_id
 
 end
