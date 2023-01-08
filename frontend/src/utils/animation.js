@@ -5,7 +5,7 @@ export const print2D = (arr) => {
   })
 }
 
-export const convertToM = (arr) => {
+export const convertToM = (arr, count) => {
   // show based on whether or not num % 2 is 0
   // elements that aren't 0/1
   let newArr = [];
@@ -13,7 +13,14 @@ export const convertToM = (arr) => {
   // debugger;
   arr.forEach(row => {
     let newRow = [];
-    row.forEach(el => el % 2 === 0 ? newRow.push(' ') : newRow.push('M'));
+    row.forEach(el => {
+      // console.log(el, count);
+      if (el === 0 || el >= count) {
+        newRow.push(' ')
+      } else {
+        newRow.push('M')
+      }
+    });
     newArr.push(newRow);
   })
 
@@ -46,7 +53,7 @@ export const flicker = (arr, dir) => {
   arr.forEach( (row, i) => {
     let newRow =  [];
     row.forEach( (el, j) => {
-      newRow.push(flickerEl(el));
+      newRow.push(flickerEl(el, dir));
     });
     newArr.push(newRow);
   })

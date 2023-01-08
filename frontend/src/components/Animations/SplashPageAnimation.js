@@ -26,21 +26,41 @@ const mAnimatedGrid = [
 const SplashAnimation = () => {
   // const [grid, setGrid] = useState(mAnimatedGrid);
   const grid = mAnimatedGrid;
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState(1);
   const [dir, setDir] = useState(1);
 
+  let i = 0;
 
   useEffect(() => {
     const interval = setInterval(() => {
-
       // setGrid(Animate.flicker(grid, dir));
-      setCount(count + dir);
-      if (count >= 30) {
-        setDir(-1);
-      } else if (count <= 0) {
-        setDir(1)
+      // testing/debugging
+      i++;
+      if (i > 100) {
+        console.log(count);
+        i = 0;
       }
-    }, 1000);
+      // console.log('count');
+      // console.log(count)
+      // console.count(count);
+
+      setCount(prevCount => {
+        let newCount = prevCount + dir;
+        console.log(newCount)
+        if (newCount > 30) {
+          newCount = 30;
+          setDir(prevDir => {
+            console.log('yahtzee')
+            console.log(prevDir)
+            return -1;
+          });
+        } else if (newCount < 1) {
+          newCount = 1;
+          setDir(prevDir => {return 1;})
+        }
+        return newCount;
+      });
+    }, 100);
 
     return () => {
       clearInterval(interval);
@@ -51,7 +71,7 @@ const SplashAnimation = () => {
 
   return (
     <div className="splash-animation">
-      {Animate.convertToM(grid).map(row => row.map(el => {
+      {Animate.convertToM(grid, count).map(row => row.map(el => {
         return <div className="splash-animation-el">{el}</div>
       }))}
       {/* {grid.map((row, idx) => {
