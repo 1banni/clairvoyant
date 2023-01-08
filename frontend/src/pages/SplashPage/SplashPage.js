@@ -1,11 +1,10 @@
 import './SplashPage.css';
-
-
 import React, { useEffect, useMemo } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { fetchArticles } from '../../store/articles';
 import SplashPageAnimation from '../../components/Animations/SplashPageAnimation';
+import Button from '../../components/Button'
 
 let mGrid = [
   [0,0,0,1,1,2,0,0,0,0,0,0,0,1,0,0],
@@ -49,6 +48,7 @@ const SplashPage = props => {
           <div className="splash-title">
             <h1 className="stay-curious_">Stay curious.</h1>
             <p className="discover-stories_">Discover stories, thinking, and expertise from writers on any topic.</p>
+            <Button className="btn get-started_" label="Start reading"/>
           </div>
           <div className="splash-animation-container">
             <SplashPageAnimation />

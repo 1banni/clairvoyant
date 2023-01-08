@@ -22,11 +22,39 @@
   /* border: 2px solid blue; */
 }
 
+/* First Panel - Left Side */
 .splash-title {
-  /* border: 2px solid blue; */
+  border: 2px solid orange;
+  padding-top: 70px;
   width: 100%;
 }
 
+.stay-curious_ {
+  font-family: var(--ff-header);
+  font-size: 64px;
+}
+
+.discover-stories_ {
+  width: 100%;
+  height: 83px;
+  border: 2px solid pink;
+  /* background: black; */
+  /* flex-shrink: 0;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  word-break: break-word; */
+  text-align: left;
+  /* position: relative; */
+  line-height: 1.2;
+}
+
+.get-started_ {
+  
+}
+
+
+
+/* First Panel - Right Side */
 .splash-animation-container {
   height: 98%;
   width: 100%;
@@ -112,6 +140,7 @@
 
 .splash-sidebar {
   width: 35%;
+
 }
 
 .discover-more {
@@ -119,11 +148,18 @@
   border-bottom: var(--border);
   /* TODO: REPLACE ME WITH PROPER BORDER BOTTOM */
   border: 2px solid yellow;
+  position: -webkit-sticky;
+  /* Safari */
+  position: sticky;
+  top: var(--nav-bar-height);
 }
 
 .sidebar-footer {
   height: 200px;
   border: 2px solid green;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 450px;
 }
 
 
@@ -161,16 +197,5 @@
 }
 
 
-.discover-stories_ {
-  flex-shrink: 0;
-  width: 100%;
-  height: 83px;
-  white-space: pre-wrap;
-  word-wrap: break-word;
-  word-break: break-word;
-  text-align: left;
-  position: relative;
-  line-height: 1.2;
-}
 
  */

@@ -26,7 +26,7 @@ const mAnimatedGrid = [
 const SplashAnimation = () => {
   // const [grid, setGrid] = useState(mAnimatedGrid);
   const grid = mAnimatedGrid;
-  const [count, setCount] = useState(1);
+  const [count, setCount] = useState([1,1]);
   const [dir, setDir] = useState(1);
 
   let i = 0;
@@ -35,32 +35,38 @@ const SplashAnimation = () => {
     const interval = setInterval(() => {
       // setGrid(Animate.flicker(grid, dir));
       // testing/debugging
-      i++;
-      if (i > 100) {
-        console.log(count);
-        i = 0;
-      }
       // console.log('count');
       // console.log(count)
       // console.count(count);
 
       setCount(prevCount => {
-        let newCount = prevCount + dir;
-        console.log(newCount)
-        if (newCount > 30) {
-          newCount = 30;
-          setDir(prevDir => {
-            console.log('yahtzee')
-            console.log(prevDir)
-            return -1;
-          });
-        } else if (newCount < 1) {
-          newCount = 1;
-          setDir(prevDir => {return 1;})
+        // console.log(prevCount)
+        // if (prevCount[0]<1) console.log('wtf')
+        // console.count('settingcount');
+        if (prevCount[0] > 30) {
+          // console.count('if')
+          return [30,-1];
+        } else if (prevCount[0] < 2) {
+          // console.count('else if');
+          return [2, 1]
+        } else {
+          // console.count('else');
+          // console.log(prevCount)
+          return [prevCount[0] + prevCount[1], prevCount[1]];
         }
-        return newCount;
+
+        // let newCount = prevCount + dir;
+        // console.log(newCount)
+        // if (newCount > 30) {
+        //   newCount = 30;
+        //   setDir(prevDir => {return -1;});
+        // } else if (newCount < 1) {
+        //   newCount = 1;
+        //   setDir(prevDir => {return 1;})
+        // }
+        // return newCount;
       });
-    }, 100);
+    }, 150);
 
     return () => {
       clearInterval(interval);
@@ -71,7 +77,7 @@ const SplashAnimation = () => {
 
   return (
     <div className="splash-animation">
-      {Animate.convertToM(grid, count).map(row => row.map(el => {
+      {Animate.convertToM(grid, count[0]).map(row => row.map(el => {
         return <div className="splash-animation-el">{el}</div>
       }))}
       {/* {grid.map((row, idx) => {

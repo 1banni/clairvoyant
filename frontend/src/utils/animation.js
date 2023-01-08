@@ -5,7 +5,7 @@ export const print2D = (arr) => {
   })
 }
 
-export const convertToM = (arr, count) => {
+export const convertToM = (arr, cap) => {
   // show based on whether or not num % 2 is 0
   // elements that aren't 0/1
   let newArr = [];
@@ -14,8 +14,11 @@ export const convertToM = (arr, count) => {
   arr.forEach(row => {
     let newRow = [];
     row.forEach(el => {
-      // console.log(el, count);
-      if (el === 0 || el >= count) {
+      // console.log(el, cap);
+      // if (el > 0) {
+      //   newRow.push('M');
+      // }
+      if (el === 0 || el >= cap) {
         newRow.push(' ')
       } else {
         newRow.push('M')

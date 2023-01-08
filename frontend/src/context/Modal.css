@@ -136,7 +136,7 @@
   color: #000;
   cursor: pointer;
   margin: 0 auto;
-  position: center;
+
   height: 36px;
   width: 200px;
   font-size: 16px;
@@ -148,8 +148,8 @@
     Arial,
     sans-serif;
   /* font-family: sans-serif, Roboto, Arial, sans-serif; */
-  justify-content: center;
-  justify-self: center;
+
+
   letter-spacing: .25px;
   line-height: normal;
   align-self: center;
@@ -157,6 +157,12 @@
   display: block;
   transition-duration: 0.3s;
   overflow: visible;
+}
+
+.modal .btn {
+  position: center;
+  justify-self: center;
+  justify-content: center;
 }
 
 .close-btn-container {
