@@ -1,7 +1,141 @@
+/* Page */
+.splash {
+  background-color: black;
+  display: flex;
+  flex-direction: column;
+}
+
+/* First Panel */
+.splash-1 {
+  height: 50vh;
+  background-color: var(--medium-yellow);
+  border: 2px solid blue;
+}
+
+.splash-1-1 {
+  height: 100%;
+  /* display: flex;
+  flex-direction: row;
+  justify-content: space-between; */
+  display: grid;
+  grid-template-columns: 60% 40%;
+  /* border: 2px solid blue; */
+}
+
+.splash-title {
+  /* border: 2px solid blue; */
+  width: 100%;
+}
+
+.splash-animation-container {
+  height: 98%;
+  width: 100%;
+  border: 2px solid blue;
+}
+
+.splash-animation {
+  height: 100%;
+  /* display: flex;
+  flex-direction: column;
+  justify-content: space-evenly; */
+  border: 2px solid green;
+  /* height: 80%; */
+  display: grid;
+  grid-template-columns: repeat(25, 4%);
+  grid-template-rows: repeat(16, 6.25%);
+}
+
+.splash-animation-el {
+  /* border: 2px solid red; */
+  /* text-align: center; */
+  display: block;
+  margin: auto;
+  font-family: var(--ff-m-logo);
+  font-size: 1.0em;
+
+}
+
+
+
+
+
+/* Second Panel */
+.splash-2 {
+  height: 400px;
+  background-color: #fff;
+  border-bottom: var(--border);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.splash-2-1 {
+  height: 90%;
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+}
+
+.trending-header {
+  height: 10%;
+  font-family: var(--ff-text);
+}
+
+.trending-articles {
+  height: 80%;
+  display: grid;
+  grid-template-columns: repeat(3, 33.33%);
+  grid-template-rows: 50% 50%;
+
+}
+
+/* Third Panel */
+.splash-3 {
+  background-color: #fff;
+  border-bottom: var(--border);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.splash-3-1 {
+  width: 90%;
+  display: flex;
+  flex-direction: row;
+}
+
+.splash-article-feed {
+  width: 65%;
+  border: 2px solid blue;
+  height: 3000px;
+}
+
+.splash-sidebar {
+  width: 35%;
+}
+
+.discover-more {
+  height: 400px;
+  border-bottom: var(--border);
+  /* TODO: REPLACE ME WITH PROPER BORDER BOTTOM */
+  border: 2px solid yellow;
+}
+
+.sidebar-footer {
+  height: 200px;
+  border: 2px solid green;
+}
+
+
+
+
+
+
+
+/*
 .splash-1-1 {
   width: 400px;
   height: min-content;
-  /* 175px */
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -39,4 +173,4 @@
   line-height: 1.2;
 }
 
-
+ */

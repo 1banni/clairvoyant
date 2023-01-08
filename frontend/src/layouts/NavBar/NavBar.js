@@ -31,7 +31,7 @@ function NavBar() {
   // }, [window.scroll])
 
   const magic = () => {
-    window.scrollY > 350
+    window.scrollY > 535
       ? setFixed("nav-bar-wrapper fixed")
       : setFixed("nav-bar-wrapper");
   }

@@ -1,7 +1,7 @@
 
 
 .nav-bar-wrapper {
-  background-color: #ffffff;
+  background-color: var(--medium-yellow);
   height: 50px;
   /* border-bottom: 5px solid black; */
   border-bottom: var(--border);
@@ -12,7 +12,7 @@
 }
 
 .nav-bar-wrapper.fixed {
-  background-color: #F5C247;
+  background-color: #fff;
 }
 
 .nav-bar {

@@ -1,6 +1,6 @@
 /* frontend/src/context/Modal.css */
 
-h2 {
+.modal h2 {
   font-family: gt-super,
     Georgia,
     Cambria,
@@ -12,7 +12,7 @@ h2 {
   padding-bottom: 50px;
 }
 
-p, input, li {
+.modal p, input, li {
   font-family: sohne,
       "Helvetica Neue",
       Helvetica,
@@ -20,7 +20,7 @@ p, input, li {
       sans-serif;
 }
 
-p {
+.modal p {
   font-size: 14px;
   line-height: 20px;
   padding-bottom: 30px;
@@ -28,7 +28,7 @@ p {
   text-align: center;
 }
 
-input {
+.modal input {
   font-size: 14px;
   font-weight: 400;
   letter-spacing: 0.1em;
@@ -43,7 +43,7 @@ input {
   padding: 0
 }
 
-input:focus {
+.modal input:focus {
   outline: none;
 }
 
