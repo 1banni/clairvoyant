@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
-
+import './SplashPageAnimation.css';
 import * as Animate from '../../utils/animation';
+
 
 
 const mAnimatedGrid = [
@@ -25,68 +26,40 @@ const mAnimatedGrid = [
 
 const SplashAnimation = () => {
   const grid = mAnimatedGrid;
-  const [count, setCount] = useState([1,1]); // [tick (count), tickDirection]
+  const [count, setCount] = useState({
+    tick: 1,
+    dir: 1
+  });
 
   useEffect(() => {
     const interval = setInterval(() => {
       const ceil = 30;
       const floor = 3;
-      // setGrid(Animate.flicker(grid, dir));
-      // testing/debugging
-      // console.log('count');
-      // console.log(count)
-      // console.count(count);
-
       setCount(prev => {
-        // console.log(prev)
-        // if (prev[0]<1) console.log('wtf')
-        // console.count('settingcount');
-        if (prev[0] > ceil) {
-          // console.count('if')
-          return [ceil,-1];
-        } else if (prev[0] < floor) {
-          // console.count('else if');
-          return [floor, 1];
+        if (prev.tick > ceil) {
+          return {tick: ceil, dir: -1}
+        } else if (prev.tick < floor) {
+          return {tick: floor, dir: 1};
         } else {
-          // console.count('else');
-          // console.log(prev)
-          return [prev[0] + prev[1], prev[1]];
+          const nextTick = prev.tick + prev.dir
+          return {tick: nextTick, dir: prev.dir}
         }
-
-        // let newCount = prevCount + dir;
-        // console.log(newCount)
-        // if (newCount > 30) {
-        //   newCount = 30;
-        //   setDir(prevDir => {return -1;});
-        // } else if (newCount < 1) {
-        //   newCount = 1;
-        //   setDir(prevDir => {return 1;})
-        // }
-        // return newCount;
       });
     }, 150);
 
     return () => {
       clearInterval(interval);
     }
-  }, [])
-
+  }, []);
 
 
   return (
-    <div className="splash-animation">
-      {Animate.convertToM(grid, count[0]).map(row => row.map(el => {
-        return <div className="splash-animation-el">{el}</div>
-      }))}
-      {/* {grid.map((row, idx) => {
-        return (
-          <div className="splash-animation-row">
-            {row.map(el => {
-              return <div className="splash-animation-col">m</div>
-            })}
-          </div>
-        )
-      })} */}
+    <div className="splash-animation-container">
+      <div className="splash-animation">
+        {Animate.convertToM(grid, count.tick).map(row => row.map(el => {
+          return <div className="splash-animation-el">{el}</div>
+        }))}
+      </div>
     </div>
   )
 }

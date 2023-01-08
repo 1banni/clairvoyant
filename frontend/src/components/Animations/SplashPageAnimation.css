@@ -1,0 +1,20 @@
+.splash-animation {
+  height: 100%;
+  /* display: flex;
+  flex-direction: column;
+  justify-content: space-evenly; */
+  border: 2px solid green;
+  /* height: 80%; */
+  display: grid;
+  grid-template-columns: repeat(25, 4%);
+  grid-template-rows: repeat(16, 6.25%);
+}
+
+.splash-animation-el {
+  /* border: 2px solid red; */
+  /* text-align: center; */
+  display: block;
+  margin: auto;
+  font-family: var(--ff-m-logo);
+  font-size: 1.0em;
+}
