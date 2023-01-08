@@ -2,12 +2,13 @@ import { Route, Switch } from "react-router-dom";
 import NavBar from "./layouts/NavBar/NavBar";
 import LoginPage from "./pages/LoginPage";
 import SignUpPage from "./pages/SignUpPage";
-import ArticleIndexPage from "./pages/ArticleIndexPage";
+import ArticleIndexPage from "./pages/UserPage";
 import ArticleCreatePage from "./pages/ArticleCreatePage";
 import ArticleShowPage from "./pages/ArticleShowPage";
 import ModalProvider from "./context/ModalProvider";
 import ArticleSearch from "./pages/ArticleSearchPage/ArticleSearch";
 import SplashPage from "./pages/SplashPage";
+import UserPage from "./pages/UserPage";
 
 function App() {
   return (
@@ -19,10 +20,15 @@ function App() {
           <SplashPage />
         </Route>
         <Route path='/signup'>
+          {/* TODO: MAKE THIS THE MEDIUM HOME PAGE WITH SIGNUP MODAL ACTIVE - 5 mins*/}
           <SignUpPage />
         </Route>
+          {/* TODO: MAKE THIS THE MEDIUM HOME PAGE WITH LOGIN MODAL ACTIVE - 5 mins*/}
         <Route path='/login'>
           <LoginPage />
+        </Route>
+        <Route path='/users/:userId'>
+          <UserPage />
         </Route>
         <Route exact path='/articles/new'>
           <ArticleCreatePage />

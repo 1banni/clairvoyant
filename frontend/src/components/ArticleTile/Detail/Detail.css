@@ -1,0 +1,21 @@
+/********** container **********/
+.article-tile-detail {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+/* sub-containers */
+.article-tile-detail-1 {
+  display: flex;
+  flex-direction: row;
+}
+
+.article-tile-detail-2 {}
+
+/********** components **********/
+.article-tile-date {
+
+}
+
+

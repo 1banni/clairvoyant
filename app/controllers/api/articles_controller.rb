@@ -7,16 +7,16 @@ class Api::ArticlesController < ApplicationController
     render :index
   end
 
+  def show
+    @article = Article.find(params[:id])
+    @comments = @channel.comments
+    render :show
+  end
+
   def create
-    @user = current_user
+    @article = Article.new(article_params)
+    @article.author_id = current_user.id
     # TODO: CONFIRM THIS WORKS
-    render '/login' if !@user
-    @article = Article.new({
-      author_id: @user.id,
-      title: article_params.title,
-      topic: article_params.topic,
-      body: article_params.body
-    })
 
     if @article&.save
       render :show
@@ -25,22 +25,58 @@ class Api::ArticlesController < ApplicationController
     end
   end
 
-  def show
-    @article = Article.find(params[:id])
-    render :show
+  def edit
+    @article = Article.find_by(id: params[:id])
   end
 
+  def update
+    @article = Article.find_by(id: params[:id])
 
+    if @article
+      if current_user == @article.author
+        if @article.update(article_params)
+          render :show
+        else
+          render json: {error: @article.errors.full_messages}, status: 422
+        end
+      else
+        render json: { errors: ["You must be logged in as author to edit the article."] }
+      end
+    else
+      render json: { errors: ["Article not found. Email support at api@clairvoyant.com"]}
+    end
+  end
 
   def searchByTopic
-    @Articles = Article.where(topic: params[:topic])
+    @Articles = Article.where("LOWER(topic) LIKE ?", topic.downcase)
     render :index
   end
 
   def searchByTitle
-    @Articles = Article.where(topic: params[:topic])
+    @articles = Article.where("LOWER(title) LIKE ?", title.downcase)
     render :index
   end
+
+  def searchByWhatever
+    @articles = Article.where(
+      "LOWER(title) LIKE ? OR
+        LOWER(topic) LIKE ? OR
+        LOWER(blurb) LIKE ? OR
+        LOWER(body) LIKE ?",
+      title.downcase, topic.downcase, blurb.downcase, body.downcase
+    )
+    render :index
+  end
+
+  def destroy
+    @article = Article.find(params[:id])
+    if @article && @article.owner_id == current_user.id
+      @article.destroy
+    else
+      render json: { errors: ["You must be logged in as author to edit the article."]}, status: 422
+    end
+  end
+
 
   private
   def article_params
@@ -48,7 +84,7 @@ class Api::ArticlesController < ApplicationController
     # TODO: CONFIRM THIS WORKS
     # @params ||= params.require(:article).permit(:title, :body)
     # Returns nested hash
-    params.require(:article).permit(:title, :body, :topic)
+    params.require(:article).permit(:title, :topic, :blurb, :body)
     # front end can send data like { user: username: 'bob, password:: 'password'}
     # front end can also send it as { username: 'bob', password: 'password'}
     # ^ here, we would be able to get username column (automatically cause of controller name)

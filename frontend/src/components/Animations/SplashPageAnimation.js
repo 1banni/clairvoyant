@@ -24,35 +24,33 @@ const mAnimatedGrid = [
 
 
 const SplashAnimation = () => {
-  // const [grid, setGrid] = useState(mAnimatedGrid);
   const grid = mAnimatedGrid;
-  const [count, setCount] = useState([1,1]);
-  const [dir, setDir] = useState(1);
-
-  let i = 0;
+  const [count, setCount] = useState([1,1]); // [tick (count), tickDirection]
 
   useEffect(() => {
     const interval = setInterval(() => {
+      const ceil = 30;
+      const floor = 3;
       // setGrid(Animate.flicker(grid, dir));
       // testing/debugging
       // console.log('count');
       // console.log(count)
       // console.count(count);
 
-      setCount(prevCount => {
-        // console.log(prevCount)
-        // if (prevCount[0]<1) console.log('wtf')
+      setCount(prev => {
+        // console.log(prev)
+        // if (prev[0]<1) console.log('wtf')
         // console.count('settingcount');
-        if (prevCount[0] > 30) {
+        if (prev[0] > ceil) {
           // console.count('if')
-          return [30,-1];
-        } else if (prevCount[0] < 2) {
+          return [ceil,-1];
+        } else if (prev[0] < floor) {
           // console.count('else if');
-          return [2, 1]
+          return [floor, 1];
         } else {
           // console.count('else');
-          // console.log(prevCount)
-          return [prevCount[0] + prevCount[1], prevCount[1]];
+          // console.log(prev)
+          return [prev[0] + prev[1], prev[1]];
         }
 
         // let newCount = prevCount + dir;

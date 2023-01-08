@@ -1,0 +1,21 @@
+.article-tile {
+  /* TODO: DELETE BORDER */
+  width: 700px;
+  height: 140px;
+  border: 2px solid blue;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.article-info{
+  display: flex;
+  flex-direction: column;
+  align-content: space-between;
+  align-items: space-between;
+  border: 2px solid green;
+}
+
+.spacing-between-tiles {
+  height: 20px;
+}

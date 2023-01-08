@@ -1,0 +1,32 @@
+/********** container **********/
+.title-and-blurb {
+  display: flex;
+  flex-direction: column;
+  align-content: space-between;
+  flex: 4;
+}
+
+
+
+/********** components **********/
+.title {
+  color: #292929;
+  cursor: pointer;
+  font-family: var(--ff-text);
+  font-size: 1.3rem;
+  font-weight: 700;
+  line-height: 25px;
+  max-height: 56px;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 2;
+  border: 2px solid black;
+}
+
+.blurb {
+  color: #757575;
+  font-family: var(--ff-text);
+  font-size: 1rem;
+  font-weight: 400;
+  border: 2px solid green;
+  justify-self: flex-end;
+}

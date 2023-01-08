@@ -6,7 +6,7 @@ import { FormErrors, Input } from '../../components/Form';
 import { useInput, useSubmit } from '../../hooks';
 import { fetchArticles } from '../../store/articles';
 import { login } from '../../store/session';
-import ArticleIndexItem from '../ArticleIndexPage/ArticleIndexItem';
+import ArticleIndexItem from '../../components/ArticleTile/ArticleTile';
 import bookmark from '../../assets/svg/bookmark.svg'
 
 export default function ArticleSearch({incomingTopic, incomingPageNum}) {
@@ -37,7 +37,7 @@ export default function ArticleSearch({incomingTopic, incomingPageNum}) {
     <>
     <div className="article-search-page">
       <div className="article-search-wrapper">
-        <div className="articles-header"><h1>Articles</h1></div>
+        <div className="articles-header"></div>
           <div className="article-search">
             {/* <form className="login-form-container" onSubmit={handleSubmit}> */}
             {/* <form className="article-search-form" onSubmit={e=>e.preventDefault()}> */}

@@ -1,0 +1,17 @@
+/********** container **********/
+.article-author {
+  display: flex;
+  flex-direction: row;
+  flex: 1;
+  margin: 4px;
+}
+
+/********** components **********/
+.user-icon {
+
+}
+
+.author-name {
+  font-family: var(--ff-text);
+  padding-left: 5px;
+}

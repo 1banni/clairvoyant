@@ -76,18 +76,21 @@ ApplicationRecord.transaction do
     topic: 'music',
     author: user_test
   )
+
   Article.create!(
     title: 'Avatar Animation Explained',
     body: 'lorem ipsum...',
     topic: 'movies',
     author: user_william
   )
+
   Article.create!(
     title: 'unity vs. unreal',
     body: 'lorem ipsum...',
     topic: 'gaming',
     author: user_demo
   )
+
   50.times do
     Article.create!({
       title: Faker::Lorem.sentence(word_count: rand(2..12)).chomp('.'),
@@ -97,6 +100,7 @@ ApplicationRecord.transaction do
     })
   end
 
+  
 
 
   puts "Done!"

@@ -7,7 +7,7 @@
   json.set! article.id do
     # value has to match key when doing extract
     # also creates keys/value pairs based on pre-existing columns
-    json.extract! article, :id, :title, :topic, :body,  :author_id
+    json.extract! article, :id, :title, :topic, :body,  :author_id, :created_at
     # equivalent to above
     # json.title article.title
     json.author_name article.author.name
