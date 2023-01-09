@@ -24,7 +24,10 @@ const Detail = ({article, ...props}) => {
           />
         </div>
         <div className="article-tile-detail-2">
-          <Bookmark/>
+          <Bookmark userBookmarkStatus={article.userBookmarkStatus}
+                    articleId={article.id}
+                    bookmarks={article.bookmarkId}
+          />
         </div>
       </div>
   );

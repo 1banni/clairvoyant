@@ -10,6 +10,7 @@
 #
 class Bookmark < ApplicationRecord
   validates :user_id, :article_id, presence: true
+  validates :user_id, uniqueness: { scope: :article_id }
 
   belongs_to :article
   belongs_to :user

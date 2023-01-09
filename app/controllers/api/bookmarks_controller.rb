@@ -16,24 +16,33 @@ class Api::BookmarksController < ApplicationController
   end
 
   def create
+    p 'look here'
+    p bookmark_params
     @bookmark = Bookmark.new(bookmark_params)
-    @poen.author_id = current_user.id
+    # @bookmark.author_id = current_user.id
     # render '/login' if !@user
+
+    @article = Article.find(bookmark_params["article_id"])
 
     if @bookmark&.save
       # render :show
       # # WHAT TO DO HERE
-      render json: {}, status: :ok
+      render :create
     else
       render json: { errors: @article.errors.full_messages }, status: 422
     end
   end
 
   def destroy
-    @bookmark = Article.find(article_params.articleId)
+    @bookmark = Bookmark
+      .where(article_id: bookmark_params['article_id'])
+      .where(user_id: bookmark_params['user_id'])
 
-    if @bookmark.destroy
-      render json: { message: 'success - bookmark saved'}
+    p "-------------------------"
+
+    if @bookmark[0] && @bookmark[0].destroy
+      @article = Article.find(bookmark_params['article_id'])
+      render '/api/articles/show'
     else
       render json: { errors: @bookmark.errors.full_messages }, status: 422
     end
@@ -42,6 +51,6 @@ class Api::BookmarksController < ApplicationController
   private
 
   def bookmark_params
-    params.require(:bookmark).permit(:article_id)
+    params.require(:bookmark).permit(:article_id, :user_id)
   end
 end

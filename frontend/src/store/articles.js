@@ -1,3 +1,4 @@
+import { receiveBookmark, RECEIVE_BOOKMARK, DELETE_BOOKMARK } from './bookmarks';
 import csrfFetch from './csrf';
 
 // ACTION CONSTANTS
@@ -58,6 +59,18 @@ export const createArticle = (articleData) => async dispatch => {
   }
 }
 
+export const createBookmark = (bookmarkData) => async dispatch => {
+  const res = await csrfFetch('/api/bookmarks', {
+    method: "POST",
+    body: JSON.stringify(bookmarkData)
+  });
+
+  if (res.ok) {
+    const bookmark = await res.json();
+    dispatch(receiveBookmark(bookmark));
+  }
+}
+
 
 
 
@@ -72,6 +85,17 @@ const articlesReducer = (state = {}, action) => {
       // newState[action.article.id] = action.article;
       // POTENTIAL BUG - could just be action.article
       return { ...action.article};
+    case RECEIVE_BOOKMARK:
+      console.log('looooooooook here')
+      console.log(action);
+      return { ...state, ...action.article };
+    case DELETE_BOOKMARK:
+      console.log('looooooooook here')
+      console.log(action);
+      return { ...state, ...action.article };
+      // delete newState[action.articleId]
+      // return newState;
+      // const { [action.articleId]: _remove, ...newState } = state;
     default:
       return state
   }

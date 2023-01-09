@@ -9,7 +9,6 @@ import ProfileMenu from '../../components/Menu/ProfileMenu';
 import Button from '../../components/Button';
 import LoginModal from '../../modals/LoginModal';
 import './NavBar.css';
-import { useEffect } from 'react';
 
 import { ReactComponent as WriteIcon } from '../../assets/svg/write-logo.svg'
 import { ReactComponent as ClairvoyantLogo } from '../../assets/svg/clairvoyant-logo.svg'

@@ -1,3 +1,5 @@
+
+# sets another key, but it's a dynamic key (@article.id)
 json.set! @article.id do
   # value has to match key when doing extract
   # also creates keys/value pairs based on pre-existing columns

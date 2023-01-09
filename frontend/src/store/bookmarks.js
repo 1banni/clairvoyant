@@ -4,7 +4,7 @@ import csrfFetch from './csrf';
 // ACTION CONSTANTS
 export const RECEIVE_BOOKMARK = 'bookmarks/RECEIVE_BOOKMARK'
 export const RECEIVE_BOOKMARKS = 'bookmarks/RECEIVE_BOOKMARKS'
-export const REMOVE_BOOKMARK = 'bookmarks/REMOVE_BOOKMARK'
+export const DELETE_BOOKMARK = 'bookmarks/REMOVE_BOOKMARK'
 
 // ACTION CREATORS
 export const receiveBookmarks = bookmarks => ({
@@ -12,14 +12,14 @@ export const receiveBookmarks = bookmarks => ({
   bookmarks
 })
 
-export const receiveBookmark = bookmark => ({
+export const receiveBookmark = article => ({
   type: RECEIVE_BOOKMARK,
-  bookmark
+  article
 })
 
-export const removeBookmark = bookmarkId => ({
-  type: REMOVE_BOOKMARK,
-  bookmarkId
+export const removeBookmark = article => ({
+  type: DELETE_BOOKMARK,
+  article
 })
 
 
@@ -44,26 +44,26 @@ export const fetchBookmark = (bookmarkId) => async dispatch => {
 }
 
 export const createBookmark = (bookmarkData) => async dispatch => {
-  const res = await csrfFetch('/api/bookmarks/', {
+  const res = await csrfFetch('/api/bookmarks', {
     method: "POST",
     body: JSON.stringify(bookmarkData)
   });
 
   if (res.ok) {
-    const bookmark = await res.json();
-    dispatch(receiveBookmark(bookmark));
+    const article = await res.json();
+    dispatch(receiveBookmark(article));
   }
 }
 
-export const deleteBookmark = (bookmarkId) => async dispatch => {
-  const res = await csrfFetch(`/api/bookmarks/${bookmarkId}`, {
-    method: "DELETE"
+export const deleteBookmark = (data) => async dispatch => {
+  const res = await csrfFetch(`/api/bookmarks/1`, {
+    method: "DELETE",
+    body: JSON.stringify(data)
   });
 
   if (res.ok) {
-    const bookmark = await res.json();
-    dispatch(removeBookmark(bookmarkId));
-    return bookmark;
+    const article = await res.json();
+    dispatch(removeBookmark(article));
   }
 }
 
@@ -76,11 +76,11 @@ const bookmarksReducer = (state = {}, action) => {
   switch (action.type) {
     case RECEIVE_BOOKMARKS:
       return { ...action.bookmarks };
-    case RECEIVE_BOOKMARK:
-      return { ...action.bookmark };
-    case REMOVE_BOOKMARK:
-      const { [action.bookmarkId]: _remove, ...newState } = state;
-      return newState;
+    // case RECEIVE_BOOKMARK:
+    //   return { ...action.bookmark };
+    // case REMOVE_BOOKMARK:
+    //   const { [action.bookmarkId]: _remove, ...newState } = state;
+    //   return newState;
     default:
       return state;
   }

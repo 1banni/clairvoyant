@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
-  post '/api/test', to: 'application#test'
+  get '/api/test', to: 'application#test'
   # post '/api/login_test', to: '/login'
 
 
@@ -12,6 +12,9 @@ Rails.application.routes.draw do
     resource :session, only: [:show, :create, :destroy]
     resources :users, only: :create
     resources :articles, only: [:show, :index, :create]
+    resources :bookmarks, only: [:show, :index, :create, :destroy]
+    resources :likes, only: [:show, :index, :create]
+    resources :comments, only: [:show, :index, :create]
     resources :queries, only: [:show, :index, :create]
     # singular resource causes show/destroy routes to have no :id wildcard
   end

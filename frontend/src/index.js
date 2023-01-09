@@ -10,6 +10,7 @@ import configureStore from './store';
 import csrfFetch, { restoreCSRF } from './store/csrf';
 import * as sessionActions from './store/session';
 import * as articleActions from './store/articles';
+import * as bookmarkActions from './store/bookmarks';
 
 const store = configureStore();
 
@@ -18,6 +19,7 @@ if (process.env.NODE_ENV !== 'production') {
   window.csrfFetch = csrfFetch;
   window.sessionActions = sessionActions;
   window.articleActions = articleActions;
+  window.bookmarkActions = bookmarkActions;
 }
 
 const renderApplication = () => {
