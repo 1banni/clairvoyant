@@ -26,23 +26,29 @@ let mGrid = [
 ]
 
 
+const featuredArticles = [
+  3, 5, 6, 8, 9, 12
+]
+
 const SplashPage = props => {
   const dispatch = useDispatch();
-  const history = useHistory();
-  const articles = useSelector(state => Object.values(state.articles))
+  const articles = useSelector(state => Object.values(state.articles));
+  // TODO: Implement line below and in useEffect
+  // const topics = useSelector(state => Object.values(state.topics));
 
-  const dummy = '';
 
   useEffect(() => {
-    dispatch(fetchArticles())
+    dispatch(fetchArticles());
+    // dispatch(fetchTopics());
   }, [dispatch])
 
-  const topSix = useMemo(() => articles.filter(article => article.id <= 6));
+  const topSix = useMemo( () => {
+    articles.filter( article => featuredArticles.includes(article.id) )
+  });
 
   return (
     <>
     <div className="splash">
-
       <div className="splash-1">
         <div className="splash-1-1">
           <div className="splash-title">
@@ -78,7 +84,7 @@ const SplashPage = props => {
           </div>
 
           <div className="splash-sidebar">
-            <div className="discover-more">Discover
+            <div className="discover-more">Discover - loop through topics
 
             </div>
 

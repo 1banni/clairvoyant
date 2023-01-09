@@ -44,12 +44,11 @@ function NavBar() {
   } else {
     sessionLink = (
       <>
-        <Button className="login-modal-btn"
-                containerName="login-modal-btn-container"
+        <Button className="icon-btn login-modal"
+                containerName="icon-btn-ctnr login-modal"
                 modal={ LoginModal }>
           <ProfileIcon className="icon profile"/>
         </Button>
-        {/* <button onClick={ openTestModal } className="btn">Open Test Modal</button> */}
       </>
     );
   }

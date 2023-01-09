@@ -1,6 +1,10 @@
-/********** Button Containers **********/
-.btn-container {
+/********** Button Containers | Parents **********/
+.btn-ctnr {
   padding-top: 15px;
+}
+
+.icon-btn-cntr {
+
 }
 
 .close-btn-container {
@@ -9,18 +13,18 @@
 }
 
 
-/********** Buttons **********/
+
+
+/********** Button Containers | Children **********/
+.btn-ctnr .bookmark {
+
+}
+
+
+/********** Buttons | Parents **********/
 .btn {
-  background-color: #fff;
-  border: 0.5px solid #000;
-  border-radius: 24px;
-  box-sizing: border-box;
-  color: #000;
   cursor: pointer;
-  margin: 0 auto;
-  height: 36px;
-  width: 200px;
-  font-size: 16px;
+  font-size: 1rem;
   font-kerning: normal;
   font-weight: 200;
   font-family: sohne,
@@ -28,12 +32,69 @@
     Helvetica,
     Arial,
     sans-serif;
-  /* font-family: sans-serif, Roboto, Arial, sans-serif; */
   letter-spacing: .25px;
   line-height: normal;
   transition-duration: 0.3s;
   overflow: visible;
+
+  margin: 0 auto;
+  background-color: #fff;
+
+  box-sizing: border-box;
+  color: #000;
+
 }
+
+.icon-btn {
+  background-color: transparent;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* align-items: flex-start; */
+}
+
+.icon-btn:hover {
+  /* TODO: make some magic happen here */
+  border: none;
+}
+
+/********** Buttons | Children **********/
+.btn.topic.round {
+  font-size: 0.8rem;
+  font-weight: 400;
+  color: var(--color-light-grey);
+  background-color: var(--color-off-white);
+  border-radius: 50px;
+  display: block;
+  border: none;
+}
+
+.btn.bookmark {
+  /* white-space: nowrap; */
+}
+
+
+
+.modal .btn {
+  position: center;
+  justify-self: center;
+  justify-content: center;
+  align-self: center;
+  text-align: center;
+  display: block;
+  border: 0.5px solid #000;
+  border-radius: 24px;
+  height: 36px;
+  width: 200px;
+}
+
+.modal .btn.demo {
+  /* TODO - get this to work! */
+  /* border: 4px solid var(--medium-yellow); */
+  background-color: var(--medium-yellow);
+}
+
 
 .modal .btn:hover {
   box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 1.0);
@@ -41,6 +102,10 @@
   color: #000;
   /* border: 2px solid #000; */
   font-weight: 300;
+}
+
+.icon-btn.login-modal {
+
 }
 
 

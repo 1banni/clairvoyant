@@ -30,25 +30,25 @@ ApplicationRecord.transaction do
 
   user_test = User.create!(
     username: 'test',
-    name:'test user',
+    name:'Test User',
     email: 'test@gmail.com',
     password: 'iuhiuh'
   )
 
   user_william = User.create!(
     username: 'williB',
-    name: 'William',
+    name: 'William B.',
     email: 'william@gmail.com',
     password: 'iuhiuh'
   )
 
   user_demo = User.create!(
     username: 'demo',
-    name: 'demo',
+    name: 'Demo User',
     email: 'demo@demo.com',
     password: 'password'
   )
-
+ 
   # More users
   10.times do
     User.create!({
@@ -61,13 +61,14 @@ ApplicationRecord.transaction do
 
   puts "Creating articles..."
   seed_topics = [
-    'movies',
-    'books',
-    'shows',
-    'music',
-    'coding',
+    'Movies',
+    'Books',
+    'Shows',
+    'Music',
+    'Coding',
+    'Home',
     'DIY',
-    'recipes',
+    'Recipes',
   ]
 
   Article.create!(
@@ -100,7 +101,7 @@ ApplicationRecord.transaction do
     })
   end
 
-  
+
 
 
   puts "Done!"

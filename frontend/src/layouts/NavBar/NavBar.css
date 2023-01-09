@@ -1,11 +1,8 @@
 
-
 .nav-bar-wrapper {
   background-color: var(--medium-yellow);
   height: 50px;
-  /* border-bottom: 5px solid black; */
   border-bottom: var(--border);
-  /* border-radius: 10px; */
   transition: 0.5s ease-in-out;
   position: sticky;
   top: 0;
@@ -16,16 +13,12 @@
 }
 
 .nav-bar {
-  /* padding: 10px; */
   display: flex;
   width: 100%;
   height: 100%;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-
-  /* border-bottom: 0.5px solid black; */
-  /* border: 3px solid red; */
 }
 
 .left-links {
@@ -39,22 +32,6 @@
   padding-right: 10px;
   align-items: center;
 }
-/* .homepage {
-  padding-top: 10px;
-}
-
-
-
-.session {
-  padding-top: 5px;
-} */
-
-.nav-btn {
-  background-color: transparent;
-  border: none;
-  display: flex;
-  align-items:flex-start;
-}
 
 .nav-item {
   display: flex;
@@ -63,33 +40,11 @@
 }
 
 .icon {
-  /* background-color: blue; */
   height: var(--btn-height);
 }
 
 .write {
   height: var(--btn-height * 0.5)
-}
-
-
-.icon-btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-}
-
-
-.login-modal-btn {
-  background-color: transparent;
-  border: none;
-}
-
-
-.login-modal-btn:hover {
-  background-color: transparent;
-  color: #0f4;
-  border: none;
 }
 
 
@@ -110,3 +65,12 @@
   height: 50px;
   display: flex;
 }
+
+
+/* TODO: CHALK? */
+/* .homepage {
+  padding-top: 10px;
+}
+.session {
+  padding-top: 5px;
+} */

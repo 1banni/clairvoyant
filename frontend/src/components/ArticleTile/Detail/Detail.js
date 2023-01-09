@@ -17,15 +17,15 @@ const Detail = ({article, ...props}) => {
             {dateLongForm(article.createdAt)}
           </div>
           <div>
-            <Button className="topic-btn-round"
+            <Button className="btn topic round"
                     label={article.topic} >
 
             </Button>
           </div>
         </div>
         <div className="article-tile-detail-2">
-          <Button className="bookmark-btn"
-                  containerName="bookmark-btn-container"
+          <Button className="icon-btn bookmark"
+                  containerName="icon-btn-ctnr bookmark"
                   onClick={ toggleBookmark }
                   label="bookmark">
           </Button>

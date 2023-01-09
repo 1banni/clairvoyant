@@ -5,12 +5,12 @@ import { NavLink } from 'react-router-dom';
 
 function NavItem({children, label, modal, ...props}) {
   props.containerName ||= "nav-item";
-  // props.className ||= "btn";
+  props.className ||= "nav-link";
   // props.type ||= "button";
 
   return (
     <div className="nav-item">
-      <NavLink {...props} className="icon-btn">
+      <NavLink {...props}>
         {label}
         {children}
       </NavLink>

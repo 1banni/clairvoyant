@@ -24,7 +24,6 @@ function ProfileMenu({ user }) {
     };
 
     document.addEventListener('click', closeMenu);
-
     return () => document.removeEventListener("click", closeMenu);
   }, [showMenu]);
 
@@ -36,18 +35,14 @@ function ProfileMenu({ user }) {
 
   return (
     <>
-      <Button className="nav-btn" onClick={openMenu}>
+      <Button className="icon-btn" onClick={openMenu}>
         <ProfileIcon className="icon profile"/>
       </Button>
       {showMenu && (
         <div className="profile-dropdown">
           <MenuListItem>{user.name}</MenuListItem>
           <MenuListItem>{user.email}</MenuListItem>
-          {/* <li>{user.username}</li> */}
-          {/* <li>{user.email}</li> */}
-          <li>
-            <Button onClick={logout}>Log Out</Button>
-          </li>
+          <Button onClick={logout}>Log Out</Button>
         </div>
     )}
     </>

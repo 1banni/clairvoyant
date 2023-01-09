@@ -76,10 +76,10 @@ function SignUpModal(props) {
           />
           <br/>
           <Button type="submit" label="Sign Up"  />
-          <Button label="Login" classname="btn login-modal-btn" modal={ LoginModal }/>
+          <Button label="Login" modal={LoginModal}/>
       </form>
-      <Button className="btn demo" onClick={ handleDemo } label="Demo User"/>
-      <Button className="close-btn" onClick={ props.close }>X</Button>
+      <Button className="btn demo" onClick={handleDemo} label="Demo User"/>
+      <Button className="close-btn" onClick={props.close}>X</Button>
     </div>
     </div>
     </Modal>

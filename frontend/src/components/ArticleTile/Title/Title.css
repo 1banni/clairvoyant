@@ -10,7 +10,7 @@
 
 /********** components **********/
 .title {
-  color: #292929;
+  color: var(--color-dark-grey);
   cursor: pointer;
   font-family: var(--ff-text);
   font-size: 1.3rem;
@@ -23,7 +23,7 @@
 }
 
 .blurb {
-  color: #757575;
+  color: var(--color-light-grey);
   font-family: var(--ff-text);
   font-size: 1rem;
   font-weight: 400;
