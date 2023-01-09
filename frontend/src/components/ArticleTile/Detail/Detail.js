@@ -1,20 +1,20 @@
 import React from 'react';
 import Button from '../../Button';
-import { dateLongForm } from '../../../utils/DateUtil';
+import DateUtil from '../../../utils/DateUtil';
 import './Detail.css';
 
 const Detail = ({article, ...props}) => {
 
 
   const toggleBookmark = () => {
-
+    
   }
 
   return (
     <div className="article-tile-detail">
         <div className="article-tile-detail-1">
           <div className="article-tile-date">
-            {dateLongForm(article.createdAt)}
+            {DateUtil.longForm(article.createdAt)}
           </div>
           <div>
             <Button className="btn topic round"

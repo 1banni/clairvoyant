@@ -1,12 +1,11 @@
 import React from 'react'
 import { FaUserCircle } from 'react-icons/fa'
-import nameToColor from '../../../utils/ColorUtil';
+import ColorUtil from '../../../utils/ColorUtil';
 import './Author.css';
 
 const Author = ({name, imageId, ...props}) => {
-  const color = nameToColor(name);
   const styleOptions = {
-    stroke: color,
+    stroke: ColorUtil.nameToColor(name),
     fill: "white",
     strokeWidth: "75"
   }
@@ -14,9 +13,8 @@ const Author = ({name, imageId, ...props}) => {
   return (
     <div className="article-author">
       <div className="user-icon-container">
-        <FaUserCircle
+        <FaUserCircle className="user-icon"
           style={styleOptions}
-          className="user-icon"
         />
       </div>
       <div className="author-name">{name}</div>

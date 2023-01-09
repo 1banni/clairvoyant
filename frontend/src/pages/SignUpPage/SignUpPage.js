@@ -9,11 +9,6 @@ import './SignUpPage.css'
 const SignUpPage = () => {
   const dispatch = useDispatch();
   const sessionUser = useSelector(state => state.session.user);
-  // const state = useSelector(state => state);
-  // const [email, setEmail] = useState('');
-  // const [username, setUsername] = useState('');
-  // const [password, setPassword] = useState('');
-  // const [confirmPassword, setConfirmPassword] = useState('');
   const [email, emailChange] = useInput('');
   const [username, usernameChange] = useInput('');
   const [password, passwordChange] = useInput('');
@@ -41,7 +36,6 @@ const SignUpPage = () => {
     } else {
       return setErrors['Passwords don\'t match']
     }
-
   }
 
   return (
