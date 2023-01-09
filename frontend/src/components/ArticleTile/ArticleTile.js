@@ -10,7 +10,6 @@ import Image from "./Image/Image";
 import Title from "./Title/Title";
 
 const ArticleTile = ({ article }) => {
-  console.log('in tile')
   return (
     <div>
     <div className="article-tile" key={article.id}>

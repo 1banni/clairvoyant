@@ -4,6 +4,7 @@ import csrfFetch from './csrf';
 // ACTION CONSTANTS
 const RECEIVE_ARTICLES = 'articles/RECEIVE_ARTICLES';
 const RECEIVE_ARTICLE = 'articles/RECEIVE_ARTICLE';
+const DELETE_ARTICLE = 'articles/DELETE_ARTICLE';
 
 // ACTION CREATORS
 export const receiveArticles = articles => {
@@ -80,20 +81,13 @@ const articlesReducer = (state = {}, action) => {
       // let newState = {...state}
       // newState[action.article.id] = action.article;
       // POTENTIAL BUG - could just be action.article
-      return { ...action.article};
-    // case RECEIVE_BOOKMARK:
-    //   console.log('looooooooook here')
-    //   console.log(action);
-    //   return { ...state, ...action.article };
-    // case REMOVE_BOOKMARK:
-    //   console.log('looooooooook here')
-    //   console.log(action);
-    //   return { ...state, ...action.article };
-    //   // delete newState[action.articleId]
-    //   // return newState;
-    //   // const { [action.articleId]: _remove, ...newState } = state;
+      return { ...state, ...action.article};
+    case DELETE_ARTICLE:
+      const newState = {...state};
+      delete newState(action.articleId);
+      return newState;
     default:
-      return state
+      return state;
   }
 }
 

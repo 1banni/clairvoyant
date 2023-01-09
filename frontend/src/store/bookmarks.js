@@ -15,8 +15,6 @@ export const receiveBookmarks = bookmarks => {
 }
 
 export const receiveBookmark = bookmark => {
-  console.log('bookmark');
-  console.log(bookmark);
   return {
     type: RECEIVE_BOOKMARK,
     bookmark
@@ -34,8 +32,6 @@ export const removeBookmark = articleId => {
 // TODO: Consider building these differently
 export const fetchBookmarks = () => async dispatch => {
   const res = await csrfFetch('/api/bookmarks');
-  console.log('res');
-  console.log(res);
 
   if (res.ok) {
     const bookmarks = await res.json();

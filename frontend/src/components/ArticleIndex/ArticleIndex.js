@@ -16,8 +16,6 @@ const ArticleIndex = props => {
     dispatch(fetchBookmarks());
   }, [dispatch]);
 
-  console.log('articles');
-  console.log(articles);
   return (
     <>
       <div className="article-idx-ctnr">

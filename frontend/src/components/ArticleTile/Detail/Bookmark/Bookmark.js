@@ -21,7 +21,6 @@ const Bookmark = ({articleId}) => {
   const options = {fill: "black"};
   const sessionUser = useSelector(state => state.session.user);
   const bookmark = useSelector(state => state.bookmarks[articleId]);
-  console.log(bookmark);
   const dispatch = useDispatch();
 
   let BookmarkIcon = bookmark
@@ -39,14 +38,8 @@ const Bookmark = ({articleId}) => {
     if (!sessionUser) throw  "you must be logged in to bookmark a post";
 
     if (bookmark) {
-      console.log('111')
-      console.log(bookmark)
-      console.log(bookmark.id)
       dispatch(deleteBookmark(bookmark));
     } else {
-      console.log('we\'re close')
-      console.log(articleId);
-      console.log(sessionUser.id);
       dispatch(createBookmark({
         user_id: sessionUser.id,
         article_id: articleId
