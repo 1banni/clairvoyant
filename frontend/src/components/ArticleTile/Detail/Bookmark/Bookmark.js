@@ -33,8 +33,8 @@ const Bookmark = ({articleId}) => {
 
     // TODO: Opeen login modal, and break / stop propogation if not logged in
     // TODO: Modal if not logged in
-    // Create an account to bookmark this story.
-    // Save stories to your personalized bookmarks and access them anytime, anywhere.
+    // "Create an account to bookmark this story."
+    // "Save stories to your personalized bookmarks and access them anytime, anywhere."
     if (!sessionUser) throw  "you must be logged in to bookmark a post";
 
     if (bookmark) {

@@ -1,16 +1,27 @@
 
+# TODO UTMOST IMPORTANCE
+# tighten all backend routes up
 
 class Api::ArticlesController < ApplicationController
   def index
     @articles = filter(Article.all)
     @user = current_user
-    p @user
-    render :index
+    if @articles
+      render :index
+    else
+      render json: {}, status: :ok
+    end
+  end
+
+  private
+  def filter(relation)
+    return relation if filter_params == {}
+    return relation.where(filter_params)
   end
 
   def show
     @article = Article.find(params[:id])
-    @comments = @channel.comments
+    @comments = @article.comments
     render :show
   end
 
@@ -97,8 +108,5 @@ class Api::ArticlesController < ApplicationController
     params.fetch(:filter, {})
   end
 
-   def filter(relation)
-    return relation if filter_params == {}
-    return relation.where(filter_params)
-  end
+
 end

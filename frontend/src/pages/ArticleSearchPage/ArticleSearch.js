@@ -7,10 +7,10 @@ import ArticleTile from '../../components/ArticleTile/ArticleTile';
 
 export default function ArticleSearch({incomingTopic, incomingPageNum}) {
   const dispatch = useDispatch();
-  incomingTopic ||= '';
-  incomingPageNum ||= 1;
+  // incomingTopic ||= '';
+  // incomingPageNum ||= 1;
   const [topic, setTopic] = useInput('')
-  const [pageNum, setPageNum] = useInput(1);
+  // const [pageNum, setPageNum] = useInput(1);
   const articles = useSelector(state => Object.values(state.articles));
 
 
@@ -24,18 +24,12 @@ export default function ArticleSearch({incomingTopic, incomingPageNum}) {
       : articles
   })
 
-  // const handleTopicQuery = (e) => {
-  //   dispatch(fetchArticles({topic: e.target.value}));
-  // }
-
   return (
     <>
     <div className="article-search-page">
       <div className="article-search-wrapper">
         <div className="articles-header"></div>
           <div className="article-search">
-            {/* <form className="login-form-container" onSubmit={handleSubmit}> */}
-            {/* <form className="article-search-form" onSubmit={e=>e.preventDefault()}> */}
               <Input
                 label="topic"
                 placeholder="Topic Search"
