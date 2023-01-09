@@ -10,7 +10,7 @@ import Bookmark from './Bookmark/Bookmark';
 
 const Detail = ({article, ...props}) => {
 
-
+  // Question: am i doing something wrong with all of this prop drilling
   return (
     <div className="article-tile-detail">
         <div className="article-tile-detail-1">
@@ -24,10 +24,8 @@ const Detail = ({article, ...props}) => {
           />
         </div>
         <div className="article-tile-detail-2">
-          <Bookmark userBookmarkStatus={article.userBookmarkStatus}
-                    articleId={article.id}
-                    bookmarks={article.bookmarkId}
-          />
+          <Bookmark articleId={article.id} />
+                    {/* bookmarks={article.bookmarkId} */}
         </div>
       </div>
   );

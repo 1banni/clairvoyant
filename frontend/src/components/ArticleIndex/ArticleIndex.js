@@ -8,7 +8,7 @@ import ArticleTile from '../../components/ArticleTile/ArticleTile';
 
 const ArticleIndex = props => {
   const articles = useSelector(state => Object.values(state.articles));
-  const bookmarks = useSelector(state => Object.values(state.bookmarks));
+  const bookmarks = useSelector(state => state.bookmarks);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -16,13 +16,18 @@ const ArticleIndex = props => {
     dispatch(fetchBookmarks());
   }, [dispatch]);
 
+  console.log('articles');
+  console.log(articles);
   return (
     <>
-      <div className="article-index-wrapper">
-        <div className="article-index"></div>
-        <ol>
-          {articles.map(article => <ArticleTile article={article} key={article.id} />)}
-        </ol>
+      <div className="article-idx-ctnr">
+        <div className="article-idx">
+          {articles.map( article => {
+            return <ArticleTile
+              article={article}
+              key={article.id} />
+          })}
+        </div>
       </div>
       <div className="staff-picks">Staff Picks
       </div>

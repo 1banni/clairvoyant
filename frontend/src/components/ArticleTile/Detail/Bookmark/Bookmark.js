@@ -17,63 +17,48 @@ import { useDispatch, useSelector } from 'react-redux'
 import { createBookmark, deleteBookmark } from '../../../../store/bookmarks'
 import { useEffect } from 'react'
 
-const Bookmark = ({bookmarkId, articleId, userBookmarkStatus}) => {
-  console.log('userBookmarkStatus');
-  console.log();
-  const dispatch = useDispatch();
+const Bookmark = ({articleId}) => {
+  const options = {fill: "black"};
   const sessionUser = useSelector(state => state.session.user);
-  const [bookmarkStatus, setBookmarkStatus] = useState(userBookmarkStatus);
+  const bookmark = useSelector(state => state.bookmarks[articleId]);
+  console.log(bookmark);
+  const dispatch = useDispatch();
 
-  const options = {
-    fill: "black"
-  };
+  let BookmarkIcon = bookmark
+    ? <MdOutlineBookmark className="icon bookmark" style={options}/>
+    : <MdOutlineBookmarkAdd className="icon bookmark" style={options}/>;
 
-
-  const toggleBookmark = e => {
-    console.log('clicked bookmark');
+  // Questin: should this be up in the parent?
+  const toggleBookmark = async e => {
     e.preventDefault();
 
-    console.log('articleId');
-    console.log(articleId);
-    console.log(sessionUser.id);
+    // TODO: Opeen login modal, and break / stop propogation if not logged in
+    // TODO: Modal if not logged in
+    // Create an account to bookmark this story.
+    // Save stories to your personalized bookmarks and access them anytime, anywhere.
+    if (!sessionUser) throw  "you must be logged in to bookmark a post";
 
-    if (bookmarkStatus) {
-      dispatch(deleteBookmark({
-        user_id: sessionUser.id,
-        article_id: articleId
-      }))
-      setBookmarkStatus(state => !state)
+    if (bookmark) {
+      console.log('111')
+      console.log(bookmark)
+      console.log(bookmark.id)
+      dispatch(deleteBookmark(bookmark));
     } else {
+      console.log('we\'re close')
+      console.log(articleId);
+      console.log(sessionUser.id);
       dispatch(createBookmark({
         user_id: sessionUser.id,
         article_id: articleId
       }))
-      setBookmarkStatus(state => !state)
     }
-    // TODO: Modal if not logged in
-    // Create an account to bookmark this story.
-    // Save stories to your personalized bookmarks and access them anytime, anywhere.
   };
-
-  let bookmark;
-  if (bookmarkStatus) {
-    console.log(bookmarkStatus);
-    bookmark = (
-      <MdOutlineBookmark className="icon bookmark" style={options}/>
-      );
-  } else {
-    console.log(bookmarkStatus);
-    bookmark = (
-      <MdOutlineBookmarkAdd className="icon bookmark" style={options}/>
-    );
-  }
-
 
   return (
     <Button className="icon-btn bookmark"
             containerName="icon-btn-ctnr bookmark"
             onClick={toggleBookmark}>
-      {bookmark}
+      {BookmarkIcon}
     </Button>
   )
 };

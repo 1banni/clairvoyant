@@ -1,17 +1,12 @@
-import { useState, useEffect, useMemo } from 'react';
+import { useEffect, useMemo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useHistory } from 'react-router-dom';
-import Button from '../../components/Button';
-import { FormErrors, Input } from '../../components/Form';
-import { useInput, useSubmit } from '../../hooks';
+import { Input } from '../../components/Form';
+import { useInput } from '../../hooks';
 import { fetchArticles } from '../../store/articles';
-import { login } from '../../store/session';
-import ArticleIndexItem from '../../components/ArticleTile/ArticleTile';
-import bookmark from '../../assets/svg/bookmark.svg'
+import ArticleTile from '../../components/ArticleTile/ArticleTile';
 
 export default function ArticleSearch({incomingTopic, incomingPageNum}) {
   const dispatch = useDispatch();
-  const history = useHistory();
   incomingTopic ||= '';
   incomingPageNum ||= 1;
   const [topic, setTopic] = useInput('')
@@ -52,7 +47,7 @@ export default function ArticleSearch({incomingTopic, incomingPageNum}) {
             </form> */}
           </div>
           <ol>
-            {filteredArticles.map(article => <ArticleIndexItem article={article} key={article.id} />)}
+            {filteredArticles.map(article => <ArticleTile article={article} key={article.id} />)}
           </ol>
           <div>Loading...</div>
         <div>Error</div>
