@@ -16,12 +16,10 @@ class Api::BookmarksController < ApplicationController
   end
 
   def create
-    p 'look here'
-    p bookmark_params
     @bookmark = Bookmark.new(bookmark_params)
     # @bookmark.user_id = current_user.id
     # render '/login' if !@user (or if @user.id != bookmark_params.user_id)
-    @article = Article.find(bookmark_params['article_id'])
+    # @article = Article.find(bookmark_params['article_id'])
     if @bookmark&.save
       render :create
     else
@@ -41,6 +39,7 @@ class Api::BookmarksController < ApplicationController
   private
 
   def bookmark_params
+    # TODO - Delete ID?
     params.require(:bookmark).permit(:id, :article_id, :user_id)
   end
 end

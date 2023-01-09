@@ -5,6 +5,7 @@ import { useHistory } from 'react-router-dom';
 import { fetchArticles } from '../../store/articles';
 import SplashPageAnimation from '../../components/Animations/SplashPageAnimation';
 import Button from '../../components/Button'
+import ArticleIndex from '../../components/ArticleIndex/ArticleIndex';
 
 let mGrid = [
   [0,0,0,1,1,2,0,0,0,0,0,0,0,1,0,0],
@@ -79,8 +80,8 @@ const SplashPage = props => {
       <div className="splash-3">
         <div className="splash-3-1">
 
-          <div className="splash-article-feed">Feed
-
+          <div className="splash-article-feed">
+            <ArticleIndex />
           </div>
 
           <div className="splash-sidebar">
