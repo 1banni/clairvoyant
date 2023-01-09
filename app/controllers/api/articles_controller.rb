@@ -4,6 +4,7 @@ class Api::ArticlesController < ApplicationController
   def index
     @articles = filter(Article.all)
     @user = current_user
+    p @user
     render :index
   end
 

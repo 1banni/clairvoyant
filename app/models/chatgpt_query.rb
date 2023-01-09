@@ -5,7 +5,7 @@
 #  id         :bigint           not null, primary key
 #  prompt     :string
 #  body       :string           not null
-#  author_id  :bigint
+#  author_id  :bigint           not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #

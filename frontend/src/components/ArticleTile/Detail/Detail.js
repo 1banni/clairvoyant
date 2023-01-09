@@ -1,14 +1,15 @@
 import React from 'react';
 import Button from '../../Button';
 import DateUtil from '../../../utils/DateUtil';
+import { BsBookmarks } from 'react-icons/bs';
+import { BsBookmarksFill } from 'react-icons/bs';
+import { ReactComponent as WriteIcon } from '../../../assets/svg/write-logo.svg'
 import './Detail.css';
+import Bookmark from './Bookmark/Bookmark';
+
 
 const Detail = ({article, ...props}) => {
 
-
-  const toggleBookmark = () => {
-    
-  }
 
   return (
     <div className="article-tile-detail">
@@ -16,19 +17,14 @@ const Detail = ({article, ...props}) => {
           <div className="article-tile-date">
             {DateUtil.longForm(article.createdAt)}
           </div>
-          <div>
-            <Button className="btn topic round"
-                    label={article.topic} >
-
-            </Button>
-          </div>
+          <div className="detail-separator">·</div>
+          <Button className="btn topic round"
+                  containerName="btn-container topic"
+                  label={article.topic}
+          />
         </div>
         <div className="article-tile-detail-2">
-          <Button className="icon-btn bookmark"
-                  containerName="icon-btn-ctnr bookmark"
-                  onClick={ toggleBookmark }
-                  label="bookmark">
-          </Button>
+          <Bookmark/>
         </div>
       </div>
   );

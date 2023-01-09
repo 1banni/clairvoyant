@@ -6,16 +6,24 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+
 }
 
 .article-info{
+  width: 480px;
   display: flex;
   flex-direction: column;
   align-content: space-between;
   align-items: space-between;
-  border: 2px solid green;
+  margin: 3px;
 }
 
 .spacing-between-tiles {
   height: 20px;
+}
+
+
+/* TODO: DELETE */
+.article-info {
+  border: 0.1px solid green;
 }

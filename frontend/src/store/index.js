@@ -2,10 +2,17 @@ import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 import session from './session';
 import articles from './articles';
+// TODO: AXE BELOW LINES IF UNUSED
+// import bookmarks from './bookmarks';
+// import comments from './comments';
+// import likes from './likes';
 
 const rootReducer = combineReducers({
   session,
-  articles
+  articles,
+  // comments,
+  // bookmarks,
+  // likes,
 });
 
 let enhancer;

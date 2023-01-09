@@ -45,9 +45,10 @@ export const fetchArticle = (articleId) => async dispatch => {
 export const createArticle = (articleData) => async dispatch => {
   const res = await csrfFetch('/api/articles/', {
     method: "POST",
-    headers: {
-      "Content-Type":"application/json"
-    },
+    // TODO: DELETE ME
+    // headers: {
+    //   "Content-Type":"application/json"
+    // },
     body: JSON.stringify(articleData)
   });
 

@@ -3,19 +3,47 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: center;
 }
 
 /* sub-containers */
 .article-tile-detail-1 {
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
 }
 
-.article-tile-detail-2 {}
+.article-tile-detail-2 {
+
+}
 
 /********** components **********/
 .article-tile-date {
 
 }
 
+.detail-separator {
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+
+/* TODO: AXE ANYTHING BELOW THIS LINE  - doublecheck it's not being used*/
+.article-tile-detail {
+
+}
+
+.article-tile-detail-1 {
+  border: 2px solid orange;
+}
+
+.article-tile-date {
+  border: 2px solid yellow;
+}
+.btn.topic.round {
+  /* border: 2px solid green; */
+}
+.icon-btn.bookmark {
+  border: 2px solid blue;
+}
 

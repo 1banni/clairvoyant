@@ -26,7 +26,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_06_193018) do
   end
 
   create_table "bookmarks", force: :cascade do |t|
-    t.boolean "bookmarked", null: false
     t.bigint "user_id", null: false
     t.bigint "article_id", null: false
     t.datetime "created_at", null: false
@@ -38,7 +37,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_06_193018) do
   create_table "chatgpt_queries", force: :cascade do |t|
     t.string "prompt"
     t.string "body", null: false
-    t.bigint "author_id"
+    t.bigint "author_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["author_id"], name: "index_chatgpt_queries_on_author_id"

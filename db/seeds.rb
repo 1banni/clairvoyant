@@ -48,7 +48,7 @@ ApplicationRecord.transaction do
     email: 'demo@demo.com',
     password: 'password'
   )
- 
+
   # More users
   10.times do
     User.create!({
@@ -71,28 +71,28 @@ ApplicationRecord.transaction do
     'Recipes',
   ]
 
-  Article.create!(
+  article1 = Article.create!(
     title: 'best indie albums of the 90s',
     body: 'lorem ipsum...',
     topic: 'music',
     author: user_test
   )
 
-  Article.create!(
+  article2 = Article.create!(
     title: 'Avatar Animation Explained',
     body: 'lorem ipsum...',
     topic: 'movies',
     author: user_william
   )
 
-  Article.create!(
+  article3 = Article.create!(
     title: 'unity vs. unreal',
     body: 'lorem ipsum...',
     topic: 'gaming',
     author: user_demo
   )
 
-  50.times do
+  30.times do
     Article.create!({
       title: Faker::Lorem.sentence(word_count: rand(2..12)).chomp('.'),
       body: Faker::Lorem.paragraphs(number: rand(3..15)).join('\n'),
@@ -102,6 +102,43 @@ ApplicationRecord.transaction do
   end
 
 
+  puts "Creating bookmarks..."
+  bookmark1 = Bookmark.create!(
+    article: article1,
+    user: user_william
+  )
+
+  bookmark2 = Bookmark.create!(
+    article: article1,
+    user: user_test
+  )
+
+  bookmark3 = Bookmark.create!(
+    article: article1,
+    user: user_demo
+    )
+
+  bookmark4 = Bookmark.create!(
+    article: article2,
+    user: user_test
+  )
+
+  puts "Creating comments..."
+
+
+
+  puts "Creating likes..."
+  like1 = Like.create!(
+    liked: 1,
+    article: article1,
+    user: user_demo
+  )
+
+  like2 = Like.create!(
+    liked: 1,
+    article: article2,
+    user: user_demo
+  )
 
 
   puts "Done!"

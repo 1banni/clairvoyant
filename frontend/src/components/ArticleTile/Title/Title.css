@@ -1,5 +1,6 @@
 /********** container **********/
 .title-and-blurb {
+  cursor: pointer;
   display: flex;
   flex-direction: column;
   align-content: space-between;
@@ -11,7 +12,6 @@
 /********** components **********/
 .title {
   color: var(--color-dark-grey);
-  cursor: pointer;
   font-family: var(--ff-text);
   font-size: 1.3rem;
   font-weight: 700;
@@ -19,7 +19,6 @@
   max-height: 56px;
   text-overflow: ellipsis;
   -webkit-line-clamp: 2;
-  border: 2px solid black;
 }
 
 .blurb {
@@ -27,6 +26,20 @@
   font-family: var(--ff-text);
   font-size: 1rem;
   font-weight: 400;
-  border: 2px solid green;
   justify-self: flex-end;
+  line-height: 1.25rem;
+  height: 2.5rem;
+  /* text-overflow: ellipsis; */
+  overflow: hidden;
+}
+
+
+/* TODO: DELETE ME */
+.blurb {
+  /* border: 2px solid green; */
+}
+
+
+.title {
+  /* border: 2px solid black; */
 }

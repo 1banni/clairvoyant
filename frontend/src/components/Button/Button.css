@@ -13,10 +13,12 @@
 }
 
 
-
-
 /********** Button Containers | Children **********/
-.btn-ctnr .bookmark {
+.btn-ctnr.bookmark {
+
+}
+
+.btn-ctnr.topic {
 
 }
 
@@ -63,7 +65,7 @@
 .btn.topic.round {
   font-size: 0.8rem;
   font-weight: 400;
-  color: var(--color-light-grey);
+  color: var(--color-dark-grey);
   background-color: var(--color-off-white);
   border-radius: 50px;
   display: block;

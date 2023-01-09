@@ -10,10 +10,10 @@
 #  updated_at :datetime         not null
 #
 class Like < ApplicationRecord
-  validates :liked, :author_id, :article_id, presence: true
+  validates :liked, :user_id, :article_id, presence: true
   validates :liked, numericality: { in: -1..1 }
 
   belongs_to :article
-  belongs_to :user, class_name: :User, foreign_key: :author_id
+  belongs_to :user
 
 end

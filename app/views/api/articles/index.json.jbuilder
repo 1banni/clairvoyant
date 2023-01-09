@@ -10,15 +10,27 @@
     json.extract! article, :id, :title, :topic, :body,  :author_id, :created_at
     # equivalent to above
     # json.title article.title
+
     json.author_name article.author.name
+
+    json.num_bookmarks article.bookmarks.count
 
     json.num_likes article.likes.select{|el| el == 1}.count
     json.num_dislikes article.likes.select{|el| el == -1}.count
 
     if @user
+      p 'in @articles@user'
+      logger.info "blah if"
+      p article.bookmarkers
+      p @user
+      p article.bookmarkers.include?(@user)
       json.user_like_status article.likers.include?(@user)
+      json.user_bookmark_status article.bookmarkers.include?(@user)
     else
-      json.user_like_status @user
+      p 'in else'
+      logger.info "blah else"
+      json.user_like_status 'false'
+      json.user_bookmark_status 'false'
     end
   end
 end
