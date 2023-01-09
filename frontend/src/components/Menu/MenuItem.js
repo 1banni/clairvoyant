@@ -5,7 +5,7 @@ function MenuItem({children, label, ...props}) {
     <div className="menu-item" {...props}>{label}
       {children}
     </div>
-  )
+  );
 }
 
-export default MenuItem
+export default MenuItem;

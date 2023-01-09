@@ -1,6 +1,6 @@
 import React from 'react'
 import { FaUserCircle } from 'react-icons/fa'
-import nameToColor from '../../../utils/nameToColor';
+import nameToColor from '../../../utils/ColorUtil';
 import './Author.css';
 
 const Author = ({name, imageId, ...props}) => {

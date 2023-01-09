@@ -1,6 +1,6 @@
 import React from 'react';
 import Button from '../../Button';
-import { dateLongForm } from '../../../utils/formatDate';
+import { dateLongForm } from '../../../utils/DateUtil';
 import './Detail.css';
 
 const Detail = ({article, ...props}) => {

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import './SplashPageAnimation.css';
-import * as Animate from '../../utils/animation';
+// import * as Animate from '../../utils/animation';
+import AnimationUtil from '../../utils/AnimationUtil';
 
 
 
@@ -56,7 +57,7 @@ const SplashAnimation = () => {
   return (
     <div className="splash-animation-container">
       <div className="splash-animation">
-        {Animate.convertToM(grid, count.tick).map(row => row.map(el => {
+        {AnimationUtil.convertToM(grid, count.tick).map(row => row.map(el => {
           return <div className="splash-animation-el">{el}</div>
         }))}
       </div>

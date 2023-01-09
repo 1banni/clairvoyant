@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import ProfileMenu from './ProfileMenu';
+import ProfileMenu from '../../components/Menu/ProfileMenu';
 // import site_logo from '../../assets/logo_with_name.png';
 // import user_logo from '../../assets/profile.png';
 // import write_logo from '../../assets/svg/write-logo.svg';
@@ -14,7 +14,7 @@ import { useEffect } from 'react';
 import { ReactComponent as WriteIcon } from '../../assets/svg/write-logo.svg'
 import { ReactComponent as ClairvoyantLogo } from '../../assets/svg/clairvoyant-logo.svg'
 import { ReactComponent as ProfileIcon } from '../../assets/svg/profile.svg'
-import NavItem from './NavItem';
+import NavItem from '../../components/NavItem/NavItem';
 
 // const myImg = require('./assets/Profilemethods.png');
 

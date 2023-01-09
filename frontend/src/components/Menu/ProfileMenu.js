@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect } from "react";
 import { useDispatch } from 'react-redux';
-import Button from "../../components/Button";
+import Button from "../Button";
 import * as sessionActions from '../../store/session';
 
 import { ReactComponent as ProfileIcon } from '../../assets/svg/profile.svg'
