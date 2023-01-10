@@ -73,7 +73,7 @@ export const deleteBookmark = (bookmark) => async dispatch => {
 
 // SELECTORS
 export const selectBookmarksByArticleId = (articleId) => (state) => {
-  let bookmarks = Object.values(state.bookmarks).filter(bookmark => bookmark.articleId === articleId);
+  let bookmarks = Object.values(state.bookmarks).filter(bookmark => bookmark['articleId'] === articleId);
   return (bookmarks.length > 0
     ? bookmarks[0]
     : {}

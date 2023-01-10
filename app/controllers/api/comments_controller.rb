@@ -18,7 +18,7 @@ class Api::CommentsController < ApplicationController
     if @comment&.save
       render :create
     else
-      render json: { @commment.errors.full_messages }, status: 422
+      render json: { errors: @commment.errors.full_messages }, status: 422
     end
   end
 
@@ -45,6 +45,7 @@ class Api::CommentsController < ApplicationController
       render json: {}, status: :ok
     else
       render json: { errors: @comment.errors.full_messages }, status: 422
+    end
   end
 
   private
