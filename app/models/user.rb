@@ -17,7 +17,7 @@ class User < ApplicationRecord
     uniqueness: true,
     length: { in: 3..30 },
     format: { without: URI::MailTo::EMAIL_REGEXP, message: "can't be an email"}
-  
+
   validates :email,
     uniqueness: true,
     length: { in: 3..255 },
@@ -34,7 +34,7 @@ class User < ApplicationRecord
 
   has_many :articles, class_name: :Article, foreign_key: :author_id
   has_many :bookmarks, dependent: :destroy
-  has_many :likes, class_name: :Like, foreign_key: :author_id, dependent: :destroy
+  has_many :likes, dependent: :destroy
 
   has_many :liked_articles, through: :likes, source: :articles
   has_many :bookmarked_articles, through: :bookmarks, source: :articles
