@@ -22,7 +22,7 @@ const ArticleDetail = ({article, children, ...props}) => {
           <ArticleReadTime body={article.body}/>
           <div className="detail-separator">·</div>
           <Button className="btn topic round"
-                  containerName="btn-container topic"
+                  containername="btn-container topic"
                   label={article.topic}
           />
         </div>

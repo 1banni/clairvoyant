@@ -69,10 +69,17 @@ export const createArticle = (articleData) => async dispatch => {
 
 // SELECTORS
 export const selectTopics = () => (state) => {
+  console.log('state');
+  console.log(state);
   const articles = Object.values(state.articles);
   const topics = [];
 
+  console.log('in selectTopics');
+  console.log('articles');
+  console.log(articles);
   articles.forEach(article => {
+    console.log('article');
+    console.log(article);
     if (!topics.includes(article.topic)) {
       topics.push(article.topic);
     }
@@ -81,7 +88,7 @@ export const selectTopics = () => (state) => {
   return topics;
 }
 
-export const selectTrending = (n) => (state) => {
+export const selectTrendingArticles = (n) => (state) => {
   const articles = Object.values(state.articles);
   return articles.sort((a, b) => a.numLikes > b.numLikes ? 1 : -1).slice(0,n);
 };
@@ -90,11 +97,11 @@ export const selectTrending = (n) => (state) => {
 
 
 // REDUCER
-const initialState = {
-  articles: JSON.parse(sessionStorage.getItem('articles'))
-};
+// const initialState = {
+//   articles: JSON.parse(sessionStorage.getItem('articles'))
+// };
 
-const articlesReducer = (state = initialState, action) => {
+const articlesReducer = (state = {}, action) => {
   Object.freeze(state);
 
   switch (action.type) {

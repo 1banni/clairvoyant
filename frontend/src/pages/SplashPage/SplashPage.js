@@ -17,7 +17,6 @@ const SplashPage = props => {
     dispatch(fetchArticles());
   }, [dispatch])
 
-
   return (
     <>
     <div className="splash">

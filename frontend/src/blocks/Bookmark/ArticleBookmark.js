@@ -49,7 +49,7 @@ const ArticleBookmark = ({articleId}) => {
 
   return (
     <Button className="icon-btn bookmark"
-            containerName="icon-btn-ctnr bookmark"
+            containername="icon-btn-ctnr bookmark"
             onClick={toggleBookmark}>
       {BookmarkIcon}
     </Button>

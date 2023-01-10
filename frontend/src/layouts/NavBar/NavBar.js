@@ -20,7 +20,7 @@ import NavItem from '../../components/NavItem/NavItem';
 function NavBar() {
   const sessionUser = useSelector(state => state.session.user);
   const [fixed, setFixed] = useState("nav-bar-wrapper");
-  
+
   // useEffect(()=> {
   //   if (window.scroll > 10) {
   //     setFixed("nav-bar-wrapper fixed");
@@ -44,7 +44,7 @@ function NavBar() {
     sessionLink = (
       <>
         <Button className="icon-btn login-modal"
-                containerName="icon-btn-ctnr login-modal"
+                containername="icon-btn-ctnr login-modal"
                 modal={ LoginModal }>
           <ProfileIcon className="icon profile"/>
         </Button>

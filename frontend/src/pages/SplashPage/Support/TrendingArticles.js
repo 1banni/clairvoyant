@@ -2,10 +2,10 @@
 import React from 'react'
 import { useSelector } from 'react-redux';
 import TrendingTile from '../../../components/ArticleTile/TrendingTile';
-import { selectTrending } from '../../../store/articles'
+import { selectTrendingArticles } from '../../../store/articles'
 
 const TrendingArticles = () => {
-  const trending = useSelector(selectTrending(6));
+  const trending = useSelector(selectTrendingArticles(6));
 
   return (
     <div className='trending-article-container'>

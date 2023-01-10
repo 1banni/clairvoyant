@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+import { Redirect, useParams } from "react-router-dom";
 import Image from "../../blocks/ArticleImage/ArticleImage";
 import Title from "../../blocks/ArticleTitle/ArticleTitle";
 import AuthorTile from "../../components/AuthorTile/AuthorTile";
@@ -20,9 +20,7 @@ const ArticleShow = (props) => {
     }
   }, [dispatch, articleId]);
 
-  // author={article.author}
-
-  if (!article) return null;
+   if (!article) return <Redirect to="/articles"/>;
   return (
     <>
     <div className="article-show-page">

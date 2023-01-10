@@ -56,7 +56,7 @@ function LoginModal(props) {
           <Button label="Sign Up" modal={SignUpModal} />
           <Button onClick={handleDemo}>Demo User</Button>
       </form>
-      <Button containerName="close-btn-container"
+      <Button containername="close-btn-container"
               className="close-btn"
               onClick={props.close}
               label="X"
