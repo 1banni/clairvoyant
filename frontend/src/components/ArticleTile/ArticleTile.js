@@ -1,5 +1,5 @@
 import React from "react";
-import { useHistory, withRouter} from "react-router-dom";
+import { Redirect, useHistory, withRouter} from "react-router-dom";
 import "./ArticleTile.css";
 import Author from "../../blocks/ArticleAuthor/ArticleAuthor";
 import Detail from "../../blocks/ArticleDetail/ArticleDetail";
@@ -12,6 +12,7 @@ const ArticleTile = ({ article }) => {
     history.push(`/articles/${article.id}`);
   }
 
+  if (!article) return <Redirect to="/"/>;
   return (
     <div>
     <div className="article-tile" key={article.id}>

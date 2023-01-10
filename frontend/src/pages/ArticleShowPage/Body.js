@@ -1,14 +1,14 @@
 import React from 'react'
 import { Redirect } from 'react-router-dom'
+import TextUtil from '../../utils/TextUtil';
 
 const Body = ({body, ...props}) => {
   if (!body) return <Redirect to="/articles"/>;
 
-  let bodyArray = body.split("\\n");
 
   return (
     <div className="article-body" {...props}>
-      {bodyArray.map(paragraph => {return (
+      {TextUtil.BodyToArray(body).map(paragraph => {return (
         <div className="article-paragraph">{paragraph}</div>
       )})}
     </div>

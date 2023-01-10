@@ -21,7 +21,6 @@ const ArticleCreatePage = props => {
   });
 
   if (!sessionUser) return <Redirect to="/login" />;
-
   return (
     <form onSubmit={handleSubmit} className="new-article-form">
       <Input label="Title"

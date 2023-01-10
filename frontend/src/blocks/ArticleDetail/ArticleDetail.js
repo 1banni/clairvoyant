@@ -19,7 +19,7 @@ const ArticleDetail = ({article, ...props}) => {
             {DateUtil.longForm(article.createdAt)}
           </div>
           <div className="detail-separator">·</div>
-          <ArticleReadTime />
+          <ArticleReadTime body={article.body}/>
           <div className="detail-separator">·</div>
           <Button className="btn topic round"
                   containerName="btn-container topic"
