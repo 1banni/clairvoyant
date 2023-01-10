@@ -1,3 +1,4 @@
+import './ArticleBookmark.css';
 import React, { useState } from 'react'
 import { BsBookmarks } from 'react-icons/bs'
 import { MdOutlineBookmarkAdd } from 'react-icons/md'
@@ -6,7 +7,6 @@ import { MdOutlineBookmarkRemove } from 'react-icons/md'
 import { MdOutlineBookmarkBorder } from 'react-icons/md'
 import { MdOutlineBookmark } from 'react-icons/md'
 import { MdOutlineBookmarks } from 'react-icons/md'
-import './ArticleBookmark.css';
 
 // TODO: DELETE this link
 // https://blog.logrocket.com/using-setstate-react-components/

@@ -16,7 +16,7 @@
 
 }
 
-.author-tile-1 .right {
+.author-tile-1 .a4 {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -37,3 +37,17 @@
   margin: 5px;
 }
 
+.author-tile-1 .share-bookmark {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+
+.a41 {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%
+    /* background: #000; */
+}

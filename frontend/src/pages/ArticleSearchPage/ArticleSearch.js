@@ -4,12 +4,15 @@ import { Input } from '../../blocks/Form';
 import { useInput } from '../../hooks';
 import { fetchArticles } from '../../store/articles';
 import ArticleTile from '../../components/ArticleTile/ArticleTile';
+import { useParams } from 'react-router-dom';
 
-export default function ArticleSearch({incomingTopic, incomingPageNum}) {
+export default function ArticleSearch({...props}) {
   const dispatch = useDispatch();
+  const {topicName} = useParams();
+
   // incomingTopic ||= '';
   // incomingPageNum ||= 1;
-  const [topic, setTopic] = useInput('')
+  const [topic, setTopic] = useInput(topicName)
   // const [pageNum, setPageNum] = useInput(1);
   const articles = useSelector(state => Object.values(state.articles));
 

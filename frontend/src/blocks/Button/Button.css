@@ -71,6 +71,26 @@
   display: block;
   border: none;
 }
+.btn-ctnr.topic.rect {
+  margin-left: 3px;
+  margin-right: 3px;
+  /* border: 10px solid pink; */
+}
+
+.btn.topic.rect {
+  font-size: 0.8rem;
+  font-weight: 300;
+  font-family: var(--ff-text);
+  color: var(--color-dark-grey);
+  background-color: transparent;
+  border: 0.2px solid var(--color-dark-grey);
+  letter-spacing: 0.053em;
+}
+
+.btn-text.topic.rect {
+  margin: 4px;
+}
+
 
 .btn.bookmark {
   /* white-space: nowrap; */

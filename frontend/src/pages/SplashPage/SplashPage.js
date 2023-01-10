@@ -2,10 +2,11 @@ import './SplashPage.css';
 import React, { useEffect, useMemo } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-import { fetchArticles } from '../../store/articles';
+import { fetchArticles, selectTopics } from '../../store/articles';
 import SplashPageAnimation from '../../components/Animations/SplashPageAnimation';
 import Button from '../../blocks/Button'
 import ArticleIndex from '../../components/ArticleIndex/ArticleIndex';
+import TopicButton from '../../blocks/Button/TopicButton';
 
 let mGrid = [
   [0,0,0,1,1,2,0,0,0,0,0,0,0,1,0,0],
@@ -34,7 +35,7 @@ const featuredArticles = [
 const SplashPage = props => {
   const dispatch = useDispatch();
   const articles = useSelector(state => Object.values(state.articles));
-  const categories = useSelector(state => Object.values(state.articles));
+  const topics = useSelector(selectTopics());
 
 
 
@@ -51,6 +52,8 @@ const SplashPage = props => {
   }, [dispatch])
 
 
+  console.log('topics');
+  console.log(topics);
   return (
     <>
     <div className="splash">
@@ -67,17 +70,7 @@ const SplashPage = props => {
 
       <div className="splash-2">
         <div className="splash-2-1">
-          <div className="trending-header">
-            <h6>Trending on Medium</h6>
-          </div>
-          <div className="trending-articles">
-            <div>1</div>
-            <div>2</div>
-            <div>3</div>
-            <div>4</div>
-            <div>5</div>
-            <div>6</div>
-          </div>
+  
         </div>
       </div>
 
@@ -89,8 +82,13 @@ const SplashPage = props => {
           </div>
 
           <div className="splash-sidebar">
-            <div className="discover-more">Discover - loop through topics
-
+            <div className="top">
+              <div className="discover-more_">DISCOVER MORE OF WHAT MATTERS TO YOU</div>
+              <div className="topics">
+              {topics.map(topic => {return (
+                <TopicButton key={topic.uniqueId} topic={topic}/>
+              )})}
+              </div>
             </div>
 
             <div className="sidebar-footer">Links

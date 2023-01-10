@@ -78,7 +78,7 @@
 .splash-animation-container {
   height: 98%;
   width: 100%;
-  border: 2px solid blue;
+  /* border: 2px solid blue; */
 }
 
 
@@ -141,8 +141,8 @@
   width: 35%;
 }
 
-.discover-more {
-  height: 400px;
+.splash-sidebar .top {
+  height: 200px;
   border-bottom: var(--border);
   /* TODO: REPLACE ME WITH PROPER BORDER BOTTOM */
   border: 2px solid yellow;
@@ -152,14 +152,31 @@
   top: var(--nav-bar-height);
 }
 
+.discover-more_ {
+  text-transform: uppercase;
+  letter-spacing: 0.07rem;
+  font-size: 0.8rem;
+  border: 2px solid blue;
+  font-weight: 700;
+  font-family: var(--ff-text);
+}
+
 .sidebar-footer {
   height: 200px;
   border: 2px solid green;
   position: -webkit-sticky;
   position: sticky;
-  top: 450px;
+  top: 250px;
 }
 
+
+.topics {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  overflow: auto;
+}
 
 
 

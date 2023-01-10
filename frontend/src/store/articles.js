@@ -68,8 +68,26 @@ export const createArticle = (articleData) => async dispatch => {
 //   }
 // }
 
+// SELECTORS
+export const selectTopics = () => (state) => {
+  const articles = Object.values(state.articles);
+  const topics = [];
+
+  articles.forEach(article => {
+    if (!topics.includes(article.topic)) {
+      topics.push(article.topic);
+    }
+  });
+
+  return topics;
+}
 
 
+
+// REDUCER
+const initialState = {
+  articles: JSON.parse(sessionStorage.getItem('articles'))
+};
 
 const articlesReducer = (state = {}, action) => {
   Object.freeze(state);

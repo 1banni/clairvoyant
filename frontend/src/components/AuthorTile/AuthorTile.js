@@ -1,18 +1,15 @@
+import './AuthorTile.css';
 import React from 'react'
 import { FaUserCircle } from 'react-icons/fa';
-import { useSelector } from 'react-redux';
 import ColorUtil from '../../utils/ColorUtil';
-import ArticleAuthor from '../../blocks/ArticleAuthor/';
-import './AuthorTile.css';
 import ArticleDetail from '../../blocks/ArticleDetail';
 import { Redirect } from 'react-router-dom';
-
+import Bookmark from '../../blocks/Bookmark';
+import ShareLink from '../../blocks/ShareLink';
 
 const AuthorTile = ({article}) => {
 
 
-  console.log('article');
-  console.log(article);
 
   if (!article) return <Redirect to="/articles"/>;
   const styleOptions = {
@@ -22,17 +19,25 @@ const AuthorTile = ({article}) => {
     // size: "5x"
   }
   return (
-    <div className="author-tile-1">
-      <div className="left">
+    <div className="author-tile-1 at1">
+      <div className="left a3">
         <FaUserCircle className="user-icon"
           size="40px"
           style={styleOptions}
         />
       </div>
       <div>
-        <div className='right'>
-          <div className="author-name">{article.author.name}</div>
-          <ArticleDetail article={article}/>
+        <div className='right a4'>
+          <div className="right a41">
+            <div className="author-name">{article.author.name}</div>
+            <div className='share-bookmark'>
+              <ShareLink />
+              <Bookmark articleId={article.id} />
+            </div>
+          </div>
+          <div className="abb">
+            <ArticleDetail article={article}/>
+          </div>
         </div>
         <div>
 
@@ -40,18 +45,6 @@ const AuthorTile = ({article}) => {
       </div>
     </div>
   )
-
-
-
-  return (
-    <div className="author-tile-1">
-      <ArticleAuthor name={article.author.name}>
-        <div className=""></div>
-      </ArticleAuthor>
-    </div>
-
-
-  )
 }
 
-export default AuthorTile
+export default AuthorTile;

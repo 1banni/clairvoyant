@@ -40,6 +40,9 @@ function App() {
         <Route path='/articles/'>
           <ArticleIndex />
         </Route>
+        <Route path='/:topicName'>
+          <ArticleSearch />
+        </Route>
         <Route path='/'>
           <SplashPage />
         </Route>
