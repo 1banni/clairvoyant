@@ -68,7 +68,6 @@ export const deleteBookmark = (bookmark) => async dispatch => {
 
   if (res.ok) {
     dispatch(removeBookmark(articleId));
-    // dispatch(removeBookmark(bookmarkId));
   }
 };
 

@@ -34,9 +34,9 @@ class User < ApplicationRecord
 
   has_many :articles, class_name: :Article, foreign_key: :author_id, dependent: :destroy
   has_many :bookmarks, dependent: :destroy
-  has_many :claps, dependent: :destroy
+  has_many :likes, dependent: :destroy
 
-  has_many :clapped_articles, through: :claps, source: :articles
+  has_many :liked_articles, through: :likes, source: :articles
   has_many :bookmarked_articles, through: :bookmarks, source: :articles
 
   def self.find_by_credentials(credential, password)

@@ -4,8 +4,8 @@ import React from 'react'
 const ArticleLinks = () => {
   return (
     <div className="article-links">
-      <div className="clap-comment">
-        <div className='clap'>Like</div>
+      <div className="like-comment">
+        <div className='like'>Like</div>
         <div className='comment'>Comment</div>
       </div>
       <div className="share-bookmark">

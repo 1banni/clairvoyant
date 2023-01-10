@@ -8,15 +8,16 @@ import Bookmark from '../../blocks/Bookmark';
 import ShareLink from '../../blocks/ShareLink';
 
 const AuthorTile = ({article}) => {
-  if (!article) return <Redirect to="/articles"/>;
 
+
+
+  if (!article) return <Redirect to="/articles"/>;
   const styleOptions = {
     stroke: ColorUtil.nameToColor(article.author.name),
     fill: "white",
     strokeWidth: "50",
     // size: "5x"
   }
-
   return (
     <div className="author-tile-1 at1">
       <div className="left a3">

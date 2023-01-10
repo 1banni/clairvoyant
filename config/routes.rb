@@ -13,7 +13,7 @@ Rails.application.routes.draw do
     resources :users, only: :create
     resources :articles, only: [:show, :index, :create, :update, :destroy]
     resources :bookmarks, only: [:show, :index, :create, :destroy]
-    resources :claps, only: [:show, :index, :create, :destroy]
+    resources :likes, only: [:show, :index, :create]
     resources :comments, only: [:show, :index, :create]
     resources :queries, only: [:show, :index, :create]
     # singular resource causes show/destroy routes to have no :id wildcard

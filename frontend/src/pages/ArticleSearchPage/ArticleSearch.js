@@ -46,9 +46,10 @@ export default function ArticleSearch({...props}) {
           <ol>
             {filteredArticles.map(article => <ArticleTile article={article} key={article.id} />)}
           </ol>
-          <div>TODO - Implement 'Loading...'</div>
+          <div>Loading...</div>
+        <div>Error</div>
       </div>
-      <div className="staff-picks">TODO - Staff Picks
+      <div className="staff-picks">Staff Picks
       </div>
     </div>
     </>
