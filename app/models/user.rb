@@ -32,7 +32,7 @@ class User < ApplicationRecord
 
   before_validation :ensure_session_token
 
-  has_many :articles, class_name: :Article, foreign_key: :author_id
+  has_many :articles, class_name: :Article, foreign_key: :author_id, dependent: :destroy
   has_many :bookmarks, dependent: :destroy
   has_many :likes, dependent: :destroy
 

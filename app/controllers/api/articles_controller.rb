@@ -82,9 +82,13 @@ class Api::ArticlesController < ApplicationController
   def destroy
     @article = Article.find(params[:id])
     if @article && @article.owner_id == current_user.id
-      @article.destroy
+      if @article.destroy
+        render 'api/users/show'
+      else
+        render json: { errors: ["You must be logged in as author to edit the article."]}, status: 422
+      end
     else
-      render json: { errors: ["You must be logged in as author to edit the article."]}, status: 422
+      render json: {errors: ["Article not found"]}, status: 422
     end
   end
 

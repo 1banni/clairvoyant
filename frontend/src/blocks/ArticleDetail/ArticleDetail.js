@@ -6,6 +6,7 @@ import { BsBookmarks } from 'react-icons/bs';
 import { BsBookmarksFill } from 'react-icons/bs';
 import { ReactComponent as WriteIcon } from '../../assets/svg/write-logo.svg'
 import './ArticleDetail.css';
+import ArticleReadTime from '../ArticleReadTime';
 
 
 const ArticleDetail = ({article, ...props}) => {
@@ -17,6 +18,8 @@ const ArticleDetail = ({article, ...props}) => {
           <div className="article-tile-date">
             {DateUtil.longForm(article.createdAt)}
           </div>
+          <div className="detail-separator">·</div>
+          <ArticleReadTime />
           <div className="detail-separator">·</div>
           <Button className="btn topic round"
                   containerName="btn-container topic"
