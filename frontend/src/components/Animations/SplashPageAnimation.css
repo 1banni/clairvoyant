@@ -3,7 +3,6 @@
   /* display: flex;
   flex-direction: column;
   justify-content: space-evenly; */
-  border: 2px solid green;
   /* height: 80%; */
   display: grid;
   /* grid-template-columns: repeat(25, 4%); */

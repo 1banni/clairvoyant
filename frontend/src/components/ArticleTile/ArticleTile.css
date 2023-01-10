@@ -2,11 +2,10 @@
   /* TODO: DELETE BORDER */
   width: 700px;
   height: 140px;
-  border: 2px solid blue;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-
+  margin: 14px;
 }
 
 .article-info{
@@ -25,5 +24,5 @@
 
 /* TODO: DELETE */
 .article-info {
-  border: 0.1px solid green;
+  /* border: 0.1px solid green; */
 }

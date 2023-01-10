@@ -22,6 +22,10 @@
 
 }
 
+.article-tile-read-time {
+
+}
+
 .detail-separator {
   padding-left: 5px;
   padding-right: 5px;
@@ -34,16 +38,20 @@
 }
 
 .article-tile-detail-1 {
-  border: 2px solid orange;
+  /* border: 2px solid orange; */
 }
 
 .article-tile-date {
-  border: 2px solid yellow;
+  /* border: 2px solid yellow; */
+}
+
+.article-tile-read-time {
+  /* border: 2px solid pink; */
 }
 .btn.topic.round {
   /* border: 2px solid green; */
 }
 .icon-btn.bookmark {
-  border: 2px solid blue;
+  /* border: 2px solid blue; */
 }
 
