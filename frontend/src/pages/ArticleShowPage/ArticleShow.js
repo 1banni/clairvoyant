@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useHistory, useParams, Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import Image from "../../blocks/ArticleImage/ArticleImage";
 import Title from "../../blocks/ArticleTitle/ArticleTitle";
 import AuthorTile from "../../components/AuthorTile/AuthorTile";
@@ -13,7 +13,6 @@ const ArticleShow = (props) => {
   const dispatch = useDispatch();
   const { articleId } = useParams();
   const article = useSelector(store => store.articles[articleId]);
-  const history = useHistory();
 
   useEffect(() => {
     if (articleId) {

@@ -1,7 +1,6 @@
 
 import React from 'react'
 import { useSelector } from 'react-redux';
-import ArticleTile from '../../../components/ArticleTile/ArticleTile';
 import TrendingTile from '../../../components/ArticleTile/TrendingTile';
 import { selectTrending } from '../../../store/articles'
 

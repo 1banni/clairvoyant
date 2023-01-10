@@ -1,4 +1,3 @@
-import { RECEIVE_BOOKMARK, REMOVE_BOOKMARK } from './bookmarks';
 import csrfFetch from './csrf';
 
 // ACTION CONSTANTS
@@ -73,7 +72,7 @@ export const deleteComment = (comment) => async dispatch => {
 // SELECTOR
 // get comments without parents
 
-// 
+//
 
 // STORE
 const initialState = {

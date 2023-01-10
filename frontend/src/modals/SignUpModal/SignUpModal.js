@@ -1,12 +1,9 @@
 import { useInput, useSubmit } from "../../hooks";
 import { login, signup } from "../../store/session";
-import ModalUtil from "../../context/ModalUtil";
 import { Modal } from "../../context/Modal";
 import { FormErrors, Input } from "../../blocks/Form";
 import LoginModal from "../LoginModal";
-import LoginModalButton from "../LoginModal/LoginModalButton";
 import Button from "../../blocks/Button";
-import { useHistory } from "react-router-dom";
 
 
 function SignUpModal(props) {
@@ -14,7 +11,6 @@ function SignUpModal(props) {
   const [username, usernameChange] = useInput('');
   const [password, passwordChange] = useInput('');
   const [confirmPassword, confirmPasswordChange] = useInput('');
-  const history = useHistory();
 
   const wrap = {
     bool: (password === confirmPassword),

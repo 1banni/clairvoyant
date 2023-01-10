@@ -1,4 +1,3 @@
-import { receiveBookmark, RECEIVE_BOOKMARK, REMOVE_BOOKMARK } from './bookmarks';
 import csrfFetch from './csrf';
 
 // ACTION CONSTANTS
@@ -95,7 +94,7 @@ const initialState = {
   articles: JSON.parse(sessionStorage.getItem('articles'))
 };
 
-const articlesReducer = (state = {}, action) => {
+const articlesReducer = (state = initialState, action) => {
   Object.freeze(state);
 
   switch (action.type) {

@@ -1,6 +1,4 @@
-// frontend/src/components/LoginFormModal/LoginForm.js
 import React, {  } from 'react';
-import { NavLink } from 'react-router-dom';
 import { useInput, useSubmit } from '../../hooks';
 import { login } from '../../store/session';
 import { Modal } from '../../context/Modal';
@@ -9,7 +7,7 @@ import {FormErrors, Input} from '../../blocks/Form';
 import SignUpModal from '../SignUpModal';
 import { useSelector } from 'react-redux';
 
-const closeButtonImg = require('../../assets/png/close-button.png')
+// const closeButtonImg = require('../../assets/png/close-button.png')
 
 function LoginModal(props) {
   const [credential, credentialChange] = useInput('');
