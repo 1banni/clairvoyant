@@ -3,12 +3,6 @@
 
 
 const AnimationUtil = {
-  print2D (arr) {
-    arr.forEach(row => {
-      console.log(row.join(' '));
-    })
-  },
-
   convertToM (arr, cap) {
     let newArr = [];
 

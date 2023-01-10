@@ -15,10 +15,6 @@ const ArticleShow = (props) => {
   const article = useSelector(store => store.articles[articleId]);
   const history = useHistory();
 
-  console.log(useParams());
-  console.log(articleId)
-
-
   useEffect(() => {
     if (articleId) {
       dispatch(fetchArticle(articleId));

@@ -5,8 +5,6 @@ const Body = ({body, ...props}) => {
   if (!body) return <Redirect to="/articles"/>;
 
   let bodyArray = body.split("\\n");
-  console.log('bodyArray');
-  console.log(bodyArray);
 
   return (
     <div className="article-body" {...props}>
