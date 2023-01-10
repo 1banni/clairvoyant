@@ -13,13 +13,9 @@ class Api::ArticlesController < ApplicationController
     end
   end
 
-
   def show
     @article = Article.find(params[:id])
     # @comments = @article.comments
-    p "-----------------------------"
-    p "in article show"
-    p "-----------------------------"
 
     if @article
       render :show

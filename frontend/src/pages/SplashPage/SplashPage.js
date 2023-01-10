@@ -34,6 +34,10 @@ const featuredArticles = [
 const SplashPage = props => {
   const dispatch = useDispatch();
   const articles = useSelector(state => Object.values(state.articles));
+  const categories = useSelector(state => Object.values(state.articles));
+
+
+
   const topSix = useMemo( () => {
     articles.filter( article => featuredArticles.includes(article.id) )
   });
