@@ -20,7 +20,7 @@ import NavItem from '../../components/NavItem/NavItem';
 function NavBar() {
   const sessionUser = useSelector(state => state.session.user);
   const [fixed, setFixed] = useState("nav-bar-wrapper");
-
+  
   // useEffect(()=> {
   //   if (window.scroll > 10) {
   //     setFixed("nav-bar-wrapper fixed");
@@ -38,7 +38,7 @@ function NavBar() {
   let sessionLink;
   if (sessionUser) {
     sessionLink = (
-      <ProfileMenu user={sessionUser} />
+      <ProfileMenu className="icon profile" user={sessionUser} />
     );
   } else {
     sessionLink = (
