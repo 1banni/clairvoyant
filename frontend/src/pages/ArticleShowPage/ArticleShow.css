@@ -1,0 +1,87 @@
+/* Page */
+.article-show-page {
+  display: flex;
+  flex-direction: row;
+}
+
+/* Left Side */
+.article-show-left {
+  width: 65%;
+  display: flex;
+  flex-direction: column;
+}
+
+.title-and-blurb {
+
+
+}
+
+.article-image-ctnr {
+
+}
+
+.article-body {
+
+}
+
+.article-body .article-paragraph {
+
+}
+
+
+.article-links {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.article-links .like-comment {
+  display: flex;
+  flex-direction: row;
+}
+.like {
+  margin-right: 10px
+
+}
+
+.article-links .share-bookmark {
+  display: flex;
+  flex-direction: row;
+}
+
+.bookmark {
+  margin-left: 10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* Right Side */
+.article-show-right {
+  display: flex;
+  flex-direction: column;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

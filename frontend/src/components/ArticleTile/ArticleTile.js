@@ -1,24 +1,30 @@
 import React from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { withRouter} from "react-router-dom";
-import { removeBookmark } from "../../store/bookmarks";
-import Button from "../Button";
+import { useHistory, withRouter} from "react-router-dom";
 import "./ArticleTile.css";
-import Author from "./Author/Author";
-import Detail from "./Detail/Detail";
-import Image from "./Image/Image";
-import Title from "./Title/Title";
+import Author from "../../blocks/ArticleAuthor/ArticleAuthor";
+import Detail from "../../blocks/ArticleDetail/ArticleDetail";
+import Image from "../../blocks/ArticleImage/ArticleImage";
+import Title from "../../blocks/ArticleTitle/ArticleTitle";
 
 const ArticleTile = ({ article }) => {
+  let history = useHistory();
+  const goToArticle = () => {
+    history.push(`/articles/${article.id}`);
+  }
+
   return (
     <div>
     <div className="article-tile" key={article.id}>
       <div className="article-info">
         <Author name={article.authorName}/>
-        <Title article={article}/>
+        <Title article={article} onClick={goToArticle}/>
         <Detail article={article}/>
       </div>
-      <Image />
+      <Image
+        className="article-tile-image"
+        src="https://miro.medium.com/fit/c/400/268/0*CV8SZagj7nhTYtYn"
+        height="134px"
+        width="200px" />
     </div>
       {/* <div className="spacing-between-tiles"/> */}
     </div>

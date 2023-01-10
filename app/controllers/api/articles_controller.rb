@@ -13,16 +13,19 @@ class Api::ArticlesController < ApplicationController
     end
   end
 
-  private
-  def filter(relation)
-    return relation if filter_params == {}
-    return relation.where(filter_params)
-  end
 
   def show
     @article = Article.find(params[:id])
-    @comments = @article.comments
-    render :show
+    # @comments = @article.comments
+    p "-----------------------------"
+    p "in article show"
+    p "-----------------------------"
+
+    if @article
+      render :show
+    else
+      render json: { errors: @article.errors.full_messages }, status: 422
+    end
   end
 
   def create
@@ -72,9 +75,9 @@ class Api::ArticlesController < ApplicationController
   def searchByWhatever
     @articles = Article.where(
       "LOWER(title) LIKE ? OR
-        LOWER(topic) LIKE ? OR
-        LOWER(blurb) LIKE ? OR
-        LOWER(body) LIKE ?",
+       LOWER(topic) LIKE ? OR
+       LOWER(blurb) LIKE ? OR
+       LOWER(body) LIKE ?",
       title.downcase, topic.downcase, blurb.downcase, body.downcase
     )
     render :index
@@ -92,14 +95,9 @@ class Api::ArticlesController < ApplicationController
 
   private
   def article_params
-    # QUESTION: HOW DO YOU GET / USE USER ID HERE?
-    # TODO: CONFIRM THIS WORKS
-    # @params ||= params.require(:article).permit(:title, :body)
-    # Returns nested hash
-    params.require(:article).permit(:title, :topic, :blurb, :body)
     # front end can send data like { user: username: 'bob, password:: 'password'}
     # front end can also send it as { username: 'bob', password: 'password'}
-    # ^ here, we would be able to get username column (automatically cause of controller name)
+    params.require(:article).permit(:title, :topic, :blurb, :body, :author_id)
   end
 
   def filter_params
@@ -108,5 +106,9 @@ class Api::ArticlesController < ApplicationController
     params.fetch(:filter, {})
   end
 
+  def filter(relation)
+    return relation if filter_params == {}
+    return relation.where(filter_params)
+  end
 
 end

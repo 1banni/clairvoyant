@@ -4,8 +4,8 @@ import { useSelector } from 'react-redux'
 import { Redirect, useHistory } from 'react-router-dom';
 import './LoginPage.css'
 import { useInput, useSubmit } from '../../hooks';
-import { FormErrors, Input } from '../../components/Form';
-import Button from '../../components/Button';
+import { FormErrors, Input } from '../../blocks/Form';
+import Button from '../../blocks/Button';
 import { login } from '../../store/session'
 
 const LoginPage = () => {

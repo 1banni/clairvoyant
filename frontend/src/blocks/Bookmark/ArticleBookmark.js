@@ -6,21 +6,21 @@ import { MdOutlineBookmarkRemove } from 'react-icons/md'
 import { MdOutlineBookmarkBorder } from 'react-icons/md'
 import { MdOutlineBookmark } from 'react-icons/md'
 import { MdOutlineBookmarks } from 'react-icons/md'
-import './Bookmark.css';
+import './ArticleBookmark.css';
 
 // TODO: DELETE this link
 // https://blog.logrocket.com/using-setstate-react-components/
 
 
-import Button from '../../../Button'
+import Button from '../Button'
 import { useDispatch, useSelector } from 'react-redux'
-import { createBookmark, deleteBookmark } from '../../../../store/bookmarks'
-import { useEffect } from 'react'
+import { createBookmark, deleteBookmark, selectBookmarksByArticleId } from '../../store/bookmarks'
 
-const Bookmark = ({articleId}) => {
+const ArticleBookmark = ({articleId}) => {
   const options = {fill: "black"};
   const sessionUser = useSelector(state => state.session.user);
   const bookmark = useSelector(state => state.bookmarks[articleId]);
+  const bookmark2 = useSelector(selectBookmarksByArticleId(articleId));
   const dispatch = useDispatch();
 
   let BookmarkIcon = bookmark
@@ -43,7 +43,7 @@ const Bookmark = ({articleId}) => {
       dispatch(createBookmark({
         user_id: sessionUser.id,
         article_id: articleId
-      }))
+      }));
     }
   };
 
@@ -53,9 +53,9 @@ const Bookmark = ({articleId}) => {
             onClick={toggleBookmark}>
       {BookmarkIcon}
     </Button>
-  )
+  );
 };
 
-export default Bookmark;
+export default ArticleBookmark;
 
 

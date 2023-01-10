@@ -1,4 +1,10 @@
 
 
+const HistoryUtil = {
+  goHome(history) {
+    history.push('/');
+  },
 
-export const returnHome = (history) =>  history.push('/');
+
+}
+

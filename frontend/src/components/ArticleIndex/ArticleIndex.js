@@ -15,7 +15,7 @@ const ArticleIndex = props => {
     dispatch(fetchArticles());
     dispatch(fetchBookmarks());
   }, [dispatch]);
-
+  
   return (
     <>
       <div className="article-idx-ctnr">

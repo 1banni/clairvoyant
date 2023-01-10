@@ -2,8 +2,8 @@ import { useSelector } from 'react-redux';
 import { useHistory, Redirect } from 'react-router-dom';
 import { createArticle } from '../../store/articles';
 import { useInput, useSubmit } from '../../hooks';
-import { Input } from '../../components/Form';
-import Button from '../../components/Button';
+import { Input } from '../../blocks/Form';
+import Button from '../../blocks/Button';
 
 
 const ArticleCreatePage = props => {

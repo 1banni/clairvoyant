@@ -46,7 +46,7 @@ const SplashAnimation = () => {
           return {tick: nextTick, dir: prev.dir}
         }
       });
-    }, 150);
+    }, 50);
 
     return () => {
       clearInterval(interval);

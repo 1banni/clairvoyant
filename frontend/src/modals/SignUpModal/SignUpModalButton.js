@@ -1,5 +1,5 @@
 import React from 'react'
-import Button from '../../components/Button'
+import Button from '../../blocks/Button'
 import SignUpModal from './SignUpModal'
 
 function SignUpModalButton() {
@@ -10,4 +10,4 @@ function SignUpModalButton() {
   )
 }
 
-export default SignUpModalButton
+export default SignUpModalButton;

@@ -1,11 +1,9 @@
-
 import React, { useState, useEffect } from "react";
 import { useDispatch } from 'react-redux';
-import Button from "../Button";
-import * as sessionActions from '../../store/session';
-
 import { ReactComponent as ProfileIcon } from '../../assets/svg/profile.svg'
-import MenuListItem from "./MenuItem";
+import * as sessionActions from '../../store/session';
+import MenuItem from "./MenuItem";
+import Button from "../../blocks/Button";
 
 function ProfileMenu({ user }) {
   const dispatch = useDispatch();
@@ -32,7 +30,6 @@ function ProfileMenu({ user }) {
     dispatch(sessionActions.logout());
   };
 
-
   return (
     <>
       <Button className="icon-btn" onClick={openMenu}>
@@ -40,8 +37,8 @@ function ProfileMenu({ user }) {
       </Button>
       {showMenu && (
         <div className="profile-dropdown">
-          <MenuListItem>{user.name}</MenuListItem>
-          <MenuListItem>{user.email}</MenuListItem>
+          <MenuItem>{user.name}</MenuItem>
+          <MenuItem>{user.email}</MenuItem>
           <Button onClick={logout}>Log Out</Button>
         </div>
     )}

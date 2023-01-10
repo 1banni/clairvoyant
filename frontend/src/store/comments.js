@@ -70,7 +70,10 @@ export const deleteComment = (comment) => async dispatch => {
     dispatch(removeComment(commentId));
   }
 };
+// SELECTOR
+// get comments without parents
 
+// 
 
 // STORE
 const initialState = {

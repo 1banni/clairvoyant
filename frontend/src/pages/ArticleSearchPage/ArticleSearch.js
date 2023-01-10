@@ -1,6 +1,6 @@
 import { useEffect, useMemo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Input } from '../../components/Form';
+import { Input } from '../../blocks/Form';
 import { useInput } from '../../hooks';
 import { fetchArticles } from '../../store/articles';
 import ArticleTile from '../../components/ArticleTile/ArticleTile';

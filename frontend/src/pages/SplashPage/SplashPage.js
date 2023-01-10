@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { fetchArticles } from '../../store/articles';
 import SplashPageAnimation from '../../components/Animations/SplashPageAnimation';
-import Button from '../../components/Button'
+import Button from '../../blocks/Button'
 import ArticleIndex from '../../components/ArticleIndex/ArticleIndex';
 
 let mGrid = [
@@ -34,6 +34,9 @@ const featuredArticles = [
 const SplashPage = props => {
   const dispatch = useDispatch();
   const articles = useSelector(state => Object.values(state.articles));
+  const topSix = useMemo( () => {
+    articles.filter( article => featuredArticles.includes(article.id) )
+  });
   // TODO: Implement line below and in useEffect
   // const topics = useSelector(state => Object.values(state.topics));
 
@@ -43,9 +46,6 @@ const SplashPage = props => {
     // dispatch(fetchTopics());
   }, [dispatch])
 
-  const topSix = useMemo( () => {
-    articles.filter( article => featuredArticles.includes(article.id) )
-  });
 
   return (
     <>

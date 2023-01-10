@@ -1,14 +1,14 @@
 import React from 'react';
-import Button from '../../Button';
-import DateUtil from '../../../utils/DateUtil';
+import Button from '../Button';
+import Bookmark from '../Bookmark';
+import DateUtil from '../../utils/DateUtil';
 import { BsBookmarks } from 'react-icons/bs';
 import { BsBookmarksFill } from 'react-icons/bs';
-import { ReactComponent as WriteIcon } from '../../../assets/svg/write-logo.svg'
-import './Detail.css';
-import Bookmark from './Bookmark/Bookmark';
+import { ReactComponent as WriteIcon } from '../../assets/svg/write-logo.svg'
+import './ArticleDetail.css';
 
 
-const Detail = ({article, ...props}) => {
+const ArticleDetail = ({article, ...props}) => {
 
   // Question: am i doing something wrong with all of this prop drilling
   return (
@@ -31,4 +31,4 @@ const Detail = ({article, ...props}) => {
   );
 }
 
-export default Detail
+export default ArticleDetail;

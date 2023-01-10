@@ -5,8 +5,8 @@
   end
 
   # QUESTION COMMENTS - does this work?
-  json.set! comment.parent_id do
-    json.extract! :id, :body, :author_id, :parent_id, :created_at
-  end
+  # json.set! comment.parent_id do
+  #   json.extract! :id, :body, :author_id, :parent_id, :created_at
+  # end
 end
 

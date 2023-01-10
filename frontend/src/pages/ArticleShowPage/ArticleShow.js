@@ -1,8 +1,13 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory, useParams, Link } from "react-router-dom";
+import Image from "../../blocks/ArticleImage/ArticleImage";
+import Title from "../../blocks/ArticleTitle/ArticleTitle";
 import { returnHome } from "../../history";
 import { fetchArticle } from "../../store/articles";
+import ArticleLinks from "./ArticleLinks";
+import './ArticleShow.css';
+import Body from "./Body";
 
 const ArticleShow = (props) => {
   const dispatch = useDispatch();
@@ -10,27 +15,58 @@ const ArticleShow = (props) => {
   const article = useSelector(store => store.articles[articleId]);
   const history = useHistory();
 
+  console.log(useParams());
+  console.log(articleId)
+
 
   useEffect(() => {
-    dispatch(fetchArticle(articleId));
+    if (articleId) {
+      dispatch(fetchArticle(articleId));
+    }
   }, [dispatch, articleId]);
 
   if (!article) return null;
   return (
     <>
-    <div>
-      <h1>{article.title}</h1>
-      <h3>Author: {article.authorId}</h3>
-      <p>{article.topic}</p>
-      <ul>
-        <li>Likes: TODO</li>
-        <li>Dislikes: TODO</li>
-        <li>Liked: TODO</li>
-        <li>Disliked: TODO</li>
-        <li>Bookmarked: TODO</li>
-      </ul>
-      {/* <button type="button" onClick={history.push('/')}>Return Home */}
-        <Link to="/">Return Home</Link>
+    <div className="article-show-page">
+      <div className="article-show-left">
+        <div className="author-tile-1">Author Tile
+
+        </div>
+
+        <div className="article-view">ArticleView
+          <div className="artcle-title">
+            <Title article={article}/>
+            <Image className="article-image-ctnr"
+                   src="https://miro.medium.com/fit/c/400/268/0*CV8SZagj7nhTYtYn"
+                   height="134px"
+                   width="200px"
+            />
+            <Body body={article.body} />
+            <ArticleLinks />
+          </div>
+        </div>
+
+        <div className="more-from-author">More from author_name</div>
+        <div className="share-your-ideas">Share your ideas with millions of readers. TODO: WRITE ON MEDIUM button</div>
+        <div className="recommended">
+          <h4>Recommended from Medium</h4>
+          <div>TODO: Add 2col/4row of article tiles</div>
+        </div>
+      </div>
+      <div className="article-show-right">
+        <div className="author-tile-1">Author Tile 2
+
+        </div>
+        <div className="more-from-medium_">Four Article Tiles
+
+        </div>
+        <div className="footer-links">
+
+        </div>
+      </div>
+      {/* <button type="button" onClick={() => history.push('/')}>Return Home */}
+        {/* <Link to="/">Return Home</Link> */}
       {/* </button> */}
     </div>
     </>

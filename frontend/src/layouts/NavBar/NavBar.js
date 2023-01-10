@@ -6,7 +6,7 @@ import ProfileMenu from '../../components/Menu/ProfileMenu';
 // import user_logo from '../../assets/profile.png';
 // import write_logo from '../../assets/svg/write-logo.svg';
 
-import Button from '../../components/Button';
+import Button from '../../blocks/Button';
 import LoginModal from '../../modals/LoginModal';
 import './NavBar.css';
 

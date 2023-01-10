@@ -4,8 +4,8 @@ import { NavLink } from 'react-router-dom';
 import { useInput, useSubmit } from '../../hooks';
 import { login } from '../../store/session';
 import { Modal } from '../../context/Modal';
-import Button from '../../components/Button';
-import {FormErrors, Input} from '../../components/Form';
+import Button from '../../blocks/Button';
+import {FormErrors, Input} from '../../blocks/Form';
 import SignUpModal from '../SignUpModal';
 import { useSelector } from 'react-redux';
 
