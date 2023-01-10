@@ -9,9 +9,8 @@
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
-class Like < ApplicationRecord
-  validates :liked, :user_id, :article_id, presence: true
-  validates :liked, numericality: { in: -1..1 }
+class Clap < ApplicationRecord
+  validates :user_id, :article_id, presence: true
 
   belongs_to :article
   belongs_to :user

@@ -21,7 +21,7 @@ ApplicationRecord.transaction do
   # TODO - clean this up
   puts 'Resetting id sequences...'
 
-  %w(users articles likes bookmarks comments).each do |table_name|
+  %w(users articles claps bookmarks comments chatgpt_queries).each do |table_name|
     ApplicationRecord.connection.reset_pk_sequence!(table_name)
   end
 
@@ -138,15 +138,13 @@ ApplicationRecord.transaction do
 
 
 
-  puts "Creating likes..."
-  like1 = Like.create!(
-    liked: 1,
+  puts "Creating claps..."
+  clap1 = Clap.create!(
     article: article1,
     user: user_demo
   )
 
-  like2 = Like.create!(
-    liked: 1,
+  clap2 = Clap.create!(
     article: article2,
     user: user_demo
   )

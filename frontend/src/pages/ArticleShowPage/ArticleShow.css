@@ -35,11 +35,11 @@
   justify-content: space-between;
 }
 
-.article-links .like-comment {
+.article-links .clap-comment {
   display: flex;
   flex-direction: row;
 }
-.like {
+.clap {
   margin-right: 10px
 
 }

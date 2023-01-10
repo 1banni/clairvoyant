@@ -17,7 +17,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { createBookmark, deleteBookmark, /*selectBookmarksByArticleId*/ } from '../../store/bookmarks'
 
 const ArticleBookmark = ({articleId}) => {
-  const options = {fill: "black"};
+const options = {fill: "black"};
   const sessionUser = useSelector(state => state.session.user);
   const bookmark = useSelector(state => state.bookmarks[articleId]);
   // const bookmark2 = useSelector(selectBookmarksByArticleId(articleId));

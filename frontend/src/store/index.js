@@ -12,7 +12,7 @@ const rootReducer = combineReducers({
   articles,
   // comments,
   bookmarks,
-  // likes,
+  // claps,
 });
 
 let enhancer;
