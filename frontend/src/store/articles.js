@@ -82,9 +82,9 @@ export const selectTopics = () => (state) => {
   return topics;
 }
 
-export const selectTrending = () => (state) => {
+export const selectTrending = (n) => (state) => {
   const articles = Object.values(state.articles);
-  return articles.sort((a, b) => a.numLikes > b.numLikes ? 1 : -1).slice(0,5);
+  return articles.sort((a, b) => a.numLikes > b.numLikes ? 1 : -1).slice(0,n);
 };
 
 

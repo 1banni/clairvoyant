@@ -1,8 +1,12 @@
 
 import React from 'react'
+import { useSelector } from 'react-redux';
+import ArticleTile from '../../../components/ArticleTile/ArticleTile';
+import TrendingTile from '../../../components/ArticleTile/TrendingTile';
+import { selectTrending } from '../../../store/articles'
 
 const TrendingArticles = () => {
-  
+  const trending = useSelector(selectTrending(6));
 
   return (
     <div className='trending-article-container'>
@@ -12,12 +16,9 @@ const TrendingArticles = () => {
     </div>
 
     <div className="trending-articles">
-      <div>1</div>
-      <div>2</div>
-      <div>3</div>
-      <div>4</div>
-      <div>5</div>
-      <div>6</div>
+      {trending && trending.map((article, idx) => { return (
+        <TrendingTile key={article.uniqueId} idx={idx} article={article}/>
+      )})}
     </div>
 
     </div>

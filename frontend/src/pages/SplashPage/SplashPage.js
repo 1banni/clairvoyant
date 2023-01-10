@@ -7,6 +7,7 @@ import SplashPageAnimation from '../../components/Animations/SplashPageAnimation
 import Button from '../../blocks/Button'
 import ArticleIndex from '../../components/ArticleIndex/ArticleIndex';
 import TopicButton from '../../blocks/Button/TopicButton';
+import TrendingArticles from './Support/TrendingArticles';
 
 let mGrid = [
   [0,0,0,1,1,2,0,0,0,0,0,0,0,1,0,0],
@@ -70,7 +71,7 @@ const SplashPage = props => {
 
       <div className="splash-2">
         <div className="splash-2-1">
-  
+          <div><TrendingArticles /></div>
         </div>
       </div>
 

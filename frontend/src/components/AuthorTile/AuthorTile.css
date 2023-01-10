@@ -2,7 +2,6 @@
   display: flex;
   flex-direction: row;
   height: 60px;
-  border: 2px solid blue;
 }
 
 .author-tile-1 .left {
@@ -50,4 +49,12 @@
   justify-content: space-between;
   width: 100%
     /* background: #000; */
+}
+
+.trending-tile h4 {
+  font-size: 1rem;
+}
+
+.trending-tile {
+  /* border: 2px solid blue; */
 }

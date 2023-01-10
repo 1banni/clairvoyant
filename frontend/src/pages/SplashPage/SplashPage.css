@@ -109,11 +109,23 @@
   font-family: var(--ff-text);
 }
 
+
 .trending-articles {
-  height: 80%;
+  height: 300px;
   display: grid;
   grid-template-columns: repeat(3, 33.33%);
   grid-template-rows: 50% 50%;
+}
+
+.trending-tile-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+
+.trending-number {
+  color: #ccc;
+  font-size: 3rem;
+  font-family: var(--ff-text);
 
 }
 
@@ -134,7 +146,7 @@
 
 .splash-article-feed {
   width: 65%;
-  height: 3000px;
+  /* height: 3000px; */
 }
 
 .splash-sidebar {
@@ -156,7 +168,6 @@
   text-transform: uppercase;
   letter-spacing: 0.07rem;
   font-size: 0.8rem;
-  border: 2px solid blue;
   font-weight: 700;
   font-family: var(--ff-text);
 }

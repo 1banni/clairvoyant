@@ -4,7 +4,6 @@ import { useHistory, useParams, Link } from "react-router-dom";
 import Image from "../../blocks/ArticleImage/ArticleImage";
 import Title from "../../blocks/ArticleTitle/ArticleTitle";
 import AuthorTile from "../../components/AuthorTile/AuthorTile";
-import { returnHome } from "../../history";
 import { fetchArticle } from "../../store/articles";
 import ArticleLinks from "./ArticleLinks";
 import './ArticleShow.css';
