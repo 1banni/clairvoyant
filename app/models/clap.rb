@@ -1,9 +1,8 @@
 # == Schema Information
 #
-# Table name: likes
+# Table name: claps
 #
 #  id         :bigint           not null, primary key
-#  liked      :integer          not null
 #  user_id    :bigint           not null
 #  article_id :bigint           not null
 #  created_at :datetime         not null

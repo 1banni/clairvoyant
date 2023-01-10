@@ -10,7 +10,10 @@ ApplicationRecord.transaction do
   puts "Destroying tables..."
   # Unnecessary if using `rails db:seed:replant`
   User.destroy_all
-  # Article.destroy_all
+  Article.destroy_all
+  Bookmark.destroy_all
+  Clap.destroy_all
+  Comment.destroy_all
   # ChatgptQuery.destroy_all
 
   puts "Resetting primary keys..."
@@ -21,7 +24,7 @@ ApplicationRecord.transaction do
   # TODO - clean this up
   puts 'Resetting id sequences...'
 
-  %w(users articles likes bookmarks comments).each do |table_name|
+  %w(users articles claps bookmarks comments).each do |table_name|
     ApplicationRecord.connection.reset_pk_sequence!(table_name)
   end
 
@@ -30,7 +33,7 @@ ApplicationRecord.transaction do
 
   user_test = User.create!(
     username: 'test',
-    name:'Test User',
+    name: 'Test User',
     email: 'test@gmail.com',
     password: 'iuhiuh'
   )
@@ -115,17 +118,17 @@ ApplicationRecord.transaction do
 
   puts "Creating bookmarks..."
   bookmark1 = Bookmark.create!(
-    article: article1,
+    article: article29,
     user: user_william
   )
 
   bookmark2 = Bookmark.create!(
-    article: article1,
+    article: article29,
     user: user_test
   )
 
   bookmark3 = Bookmark.create!(
-    article: article1,
+    article: article29,
     user: user_demo
     )
 
@@ -138,15 +141,13 @@ ApplicationRecord.transaction do
 
 
 
-  puts "Creating likes..."
-  like1 = Like.create!(
-    liked: 1,
-    article: article1,
+  puts "Creating claps..."
+  clap1 = Clap.create!(
+    article: article29,
     user: user_demo
   )
 
-  like2 = Like.create!(
-    liked: 1,
+  clap2 = Clap.create!(
     article: article2,
     user: user_demo
   )

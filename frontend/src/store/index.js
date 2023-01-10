@@ -5,14 +5,14 @@ import articles from './articles';
 // TODO: AXE BELOW LINES IF UNUSED
 import bookmarks from './bookmarks';
 // import comments from './comments';
-// import likes from './likes';
+// import claps from './claps';
 
 const rootReducer = combineReducers({
   session,
   articles,
   // comments,
   bookmarks,
-  // likes,
+  // claps,
 });
 
 let enhancer;
