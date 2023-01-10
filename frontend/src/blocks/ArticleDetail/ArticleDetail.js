@@ -9,7 +9,7 @@ import './ArticleDetail.css';
 import ArticleReadTime from '../ArticleReadTime';
 
 
-const ArticleDetail = ({article, ...props}) => {
+const ArticleDetail = ({article, children, ...props}) => {
 
   // Question: am i doing something wrong with all of this prop drilling
   return (
@@ -27,7 +27,7 @@ const ArticleDetail = ({article, ...props}) => {
           />
         </div>
         <div className="article-tile-detail-2">
-          <Bookmark articleId={article.id} />
+          {children}
                     {/* bookmarks={article.bookmarkId} */}
         </div>
       </div>

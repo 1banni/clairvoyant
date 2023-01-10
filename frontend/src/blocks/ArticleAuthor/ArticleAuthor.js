@@ -3,11 +3,11 @@ import { FaUserCircle } from 'react-icons/fa'
 import ColorUtil from '../../utils/ColorUtil';
 import './ArticleAuthor.css';
 
-const ArticleAuthor = ({name, imageId, ...props}) => {
+const ArticleAuthor = ({name, children, imageId, ...props}) => {
   const styleOptions = {
     stroke: ColorUtil.nameToColor(name),
     fill: "white",
-    strokeWidth: "75"
+    strokeWidth: "50"
   }
 
   return (
@@ -18,6 +18,7 @@ const ArticleAuthor = ({name, imageId, ...props}) => {
         />
       </div>
       <div className="author-name">{name}</div>
+      {children}
     </div>
   )
 }

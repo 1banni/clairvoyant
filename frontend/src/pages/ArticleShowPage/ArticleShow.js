@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useHistory, useParams, Link } from "react-router-dom";
 import Image from "../../blocks/ArticleImage/ArticleImage";
 import Title from "../../blocks/ArticleTitle/ArticleTitle";
+import AuthorTile from "../../components/AuthorTile/AuthorTile";
 import { returnHome } from "../../history";
 import { fetchArticle } from "../../store/articles";
 import ArticleLinks from "./ArticleLinks";
@@ -21,14 +22,14 @@ const ArticleShow = (props) => {
     }
   }, [dispatch, articleId]);
 
+  // author={article.author}
+
   if (!article) return null;
   return (
     <>
     <div className="article-show-page">
       <div className="article-show-left">
-        <div className="author-tile-1">Author Tile
-
-        </div>
+        <AuthorTile article={article}/>
 
         <div className="article-view">ArticleView
           <div className="artcle-title">

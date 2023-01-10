@@ -1,10 +1,11 @@
 import React from "react";
 import { Redirect, useHistory, withRouter} from "react-router-dom";
 import "./ArticleTile.css";
-import Author from "../../blocks/ArticleAuthor/ArticleAuthor";
-import Detail from "../../blocks/ArticleDetail/ArticleDetail";
-import Image from "../../blocks/ArticleImage/ArticleImage";
-import Title from "../../blocks/ArticleTitle/ArticleTitle";
+import Author from "../../blocks/ArticleAuthor";
+import ArticleDetail from "../../blocks/ArticleDetail";
+import Image from "../../blocks/ArticleImage";
+import Title from "../../blocks/ArticleTitle";
+import Bookmark from '../../blocks/Bookmark'
 
 const ArticleTile = ({ article }) => {
   let history = useHistory();
@@ -19,7 +20,9 @@ const ArticleTile = ({ article }) => {
       <div className="article-info">
         <Author name={article.authorName}/>
         <Title article={article} onClick={goToArticle}/>
-        <Detail article={article}/>
+        <ArticleDetail article={article}>
+          <Bookmark articleId={article.id} />
+        </ArticleDetail>
       </div>
       <Image
         className="article-tile-image"

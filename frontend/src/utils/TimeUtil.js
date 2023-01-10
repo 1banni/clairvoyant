@@ -5,8 +5,8 @@ const TimeUtil = {
     console.log(body);
     const wordCount = body.join(" ").split(" ").length;
     const minutes = Math.ceil(wordCount / 200);
-
-    return minutes.toString() + ' mins';
+    const minutesString = minutes > 1 ? " mins" : " min";
+    return minutes.toString() + minutesString;
   }
 }
 
