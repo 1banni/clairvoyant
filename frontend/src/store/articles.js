@@ -69,14 +69,9 @@ export const createArticle = (articleData) => async dispatch => {
 
 // SELECTORS
 export const selectTopics = () => (state) => {
-  console.log('state');
-  console.log(state);
   const articles = Object.values(state.articles);
   const topics = [];
 
-  console.log('in selectTopics');
-  console.log('articles');
-  console.log(articles);
   articles.forEach(article => {
     console.log('article');
     console.log(article);
@@ -92,6 +87,7 @@ export const selectTrendingArticles = (n) => (state) => {
   const articles = Object.values(state.articles);
   return articles.sort((a, b) => a.numClaps > b.numClaps ? 1 : -1).slice(0,n);
 };
+
 
 
 

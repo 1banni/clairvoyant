@@ -15,7 +15,7 @@
 
     json.num_bookmarks article.bookmarks.count
 
-    json.num_claps article.claps.count
+    # json.num_claps article.claps.count
 
     # if @user
     #   json.user_like_status article.likers.include?(@user)

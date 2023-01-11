@@ -5,6 +5,7 @@ import Image from "../../blocks/ArticleImage/ArticleImage";
 import Title from "../../blocks/ArticleTitle/ArticleTitle";
 import AuthorTile from "../../components/AuthorTile/AuthorTile";
 import { fetchArticle } from "../../store/articles";
+import { fetchClaps } from "../../store/claps";
 import ArticleLinks from "./ArticleLinks";
 import './ArticleShow.css';
 import Body from "./Body";
@@ -15,6 +16,11 @@ const ArticleShow = (props) => {
   const article = useSelector(store => store.articles[articleId]);
 
   useEffect(() => {
+    dispatch(fetchClaps());
+  }, [dispatch]);
+  
+  useEffect(() => {
+    dispatch(fetchClaps());
     if (articleId) {
       dispatch(fetchArticle(articleId));
     }
@@ -38,7 +44,7 @@ const ArticleShow = (props) => {
                   //  width="200px"
             />
             <Body body={article.body} />
-            <ArticleLinks />
+            <ArticleLinks article={article}/>
         </div>
 
         <div className="more-from-author">More from author_name</div>

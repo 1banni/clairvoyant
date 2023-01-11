@@ -1,6 +1,6 @@
 /********** Button Containers | Parents **********/
 .btn-ctnr {
-  padding-top: 15px;
+  /* margin-top: 15px; */
 }
 
 .icon-btn-cntr {
@@ -8,7 +8,7 @@
 }
 
 .close-btn-container {
-  padding-top: 40px;
+  margin-top: 40px;
   background-color: transparent;
 }
 
@@ -20,6 +20,10 @@
 
 .btn-ctnr.topic {
 
+}
+
+.modal .btn-ctnr {
+  margin-top: 15px;
 }
 
 
@@ -38,13 +42,10 @@
   line-height: normal;
   transition-duration: 0.3s;
   overflow: visible;
-
   margin: 0 auto;
   background-color: #fff;
-
   box-sizing: border-box;
   color: #000;
-
 }
 
 .icon-btn {

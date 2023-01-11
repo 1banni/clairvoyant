@@ -2,17 +2,29 @@ class Api::ClapsController < ApplicationController
   def index
     # Error here was that you rendered :index even when @claps empty
     # It was causing issues in your store
-    if current_user
-      @claps = Clap.where(user_id: current_user.id)
-      if @claps
-        render :index
-      else
-        render json: {}, status: :ok
-      end
+    # @article = Article.find(params[:id])
+    # @claps = current_user.claps
+    # @claps = Clap.where(user_id: current_user.id)
+    @claps = Clap.all
+    if @claps
+      render :index
     else
       render json: {}, status: :ok
     end
   end
+
+  def show
+    @article = Article.find(params[:id])
+    @clap = Clap.where(user_id: current_user.id)&.first()
+
+    if @clap
+      render :show
+    else
+      render json: {}, status: :ok
+    end
+
+  end
+
 
   def create
     @clap = Clap.new(clap_params)

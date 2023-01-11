@@ -1,0 +1,39 @@
+
+
+
+.article-create-page {
+  margin: 50px;
+}
+
+.article-create-form {
+  margin: 0px;
+}
+
+.ql {
+  border: 2px solid blue;
+}
+
+
+.ql-editor strong {
+  font-weight: bold;
+}
+
+.ql-editor em {
+  font-style: italic;
+}
+
+
+
+.article-create-page .title-label {
+  font-family: var(--ff-text);
+  font-size: 2rem;
+}
+.article-create-page .topic-label {
+
+}
+.article-create-page .blurb-label {
+
+}
+.article-create-page .body-label {
+
+}

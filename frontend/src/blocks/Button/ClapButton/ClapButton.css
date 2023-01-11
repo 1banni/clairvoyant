@@ -1,0 +1,27 @@
+.clap {
+  display: flex;
+  flex-direction: row;
+}
+
+.icon-btn.clap {
+  height: 40px;
+  width: 40px;
+  /* border: 2px solid blue; */
+
+}
+
+.clap-img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.clap-ct {
+  font-family: var(--ff-text);
+  color: var(--color-dark-grey);
+  border: var(--border-grn);
+  align-self: center;
+}
+
+
+

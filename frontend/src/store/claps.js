@@ -60,9 +60,8 @@ export const createClap = (clap) => async dispatch => {
   }
 };
 
-export const deleteClap = (clap) => async dispatch => {
-  let clapId = clap.id;
-  const res = await csrfFetch(`/api/claps/${clap.id}`, {
+export const deleteClap = (clapId) => async dispatch => {
+  const res = await csrfFetch(`/api/claps/${clapId}`, {
       method: "DELETE"
   });
 
@@ -72,22 +71,39 @@ export const deleteClap = (clap) => async dispatch => {
 };
 
 // SELECTORS
-export const selectClapsByArticleId = (articleId) => (state) => {
-  let claps = Object.values(state.claps).filter(clap => clap['articleId'] === articleId);
+export const selectClapsByArticleId = articleId => state => {
+  if (!articleId) return 0;
+
+  let claps = Object.values(state.claps)
 
   if (claps) {
-    return claps.length;
+    console.log('claps');
+    console.log(claps);
+    let articleClaps = claps.filter(clap => clap['articleId'] === articleId);
+    return articleClaps;
   } else {
     return 0;
   }
 };
 
+export const selectClapId = (articleId, userId) => state => {
+  let clapId;
 
-const initialState = {
-  claps: JSON.parse(sessionStorage.getItem('claps'))
+  Object.values(state.claps).forEach(clap => {
+    if (clap.userId === userId && clap.articleId === articleId) {
+      clapId = clap.id;
+    }
+  });
+
+  return clapId;
 };
 
-const clapsReducer = (state = initialState, action) => {
+
+// const initialState = {
+//   claps: JSON.parse(sessionStorage.getItem('claps'))
+// };
+
+const clapsReducer = (state = {}, action) => {
   switch (action.type) {
     case RECEIVE_CLAPS:
       return { ...action.claps };

@@ -1,18 +1,24 @@
-/********** container **********/
-.article-author {
+/* Container */
+.user-name-icon-ctnr {
   display: flex;
   flex-direction: row;
   flex: 1;
   margin: 4px;
 }
 
-/********** components **********/
-.user-icon {
+/* User Icon */
+.user-name-icon-ctnr .user-icon-ctnr {
 
 
 }
 
-.author-name {
+.user-name-icon-ctnr .user-icon-ctnr .user-icon {
+
+}
+
+
+/* User Name */
+.user-name-icon-ctnr .user-name {
   font-family: var(--ff-text);
   margin-left: 5px;
 }

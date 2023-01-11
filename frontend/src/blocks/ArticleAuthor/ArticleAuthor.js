@@ -11,13 +11,13 @@ const ArticleAuthor = ({name, children, imageId, ...props}) => {
   }
 
   return (
-    <div className="article-author">
-      <div className="user-icon-container">
+    <div className="user-name-icon-ctnr">
+      <div className="user-icon-ctnr">
         <FaUserCircle className="user-icon"
           style={styleOptions}
         />
       </div>
-      <div className="author-name">{name}</div>
+      <div className="user-name">{name}</div>
       {children}
     </div>
   )

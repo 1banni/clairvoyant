@@ -1,11 +1,12 @@
 
 import React from 'react'
+import Clap from '../../blocks/Button/ClapButton'
 
-const ArticleLinks = () => {
+const ArticleLinks = ({article}) => {
   return (
     <div className="article-links">
       <div className="clap-comment">
-        <div className='clap'>Clap</div>
+        <Clap article={article}/>
         <div className='comment'>Comment</div>
       </div>
       <div className="share-bookmark">

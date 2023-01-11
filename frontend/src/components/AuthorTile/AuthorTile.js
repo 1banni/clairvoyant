@@ -11,11 +11,6 @@ const AuthorTile = ({article, author}) => {
   const color = () => ColorUtil.nameToColor(article.authorName);
   if (!article) return <Redirect to="/articles"/>;
 
-  console.log('article');
-  console.log(article.author);
-  console.log('article.authorName');
-  console.log(article['authorName']);
-
   const styleOptions = {
     stroke: color(),
     fill: "white",
