@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_01_10_192130) do
+ActiveRecord::Schema[7.0].define(version: 2023_01_11_180610) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -35,14 +35,14 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_10_192130) do
     t.index ["user_id"], name: "index_bookmarks_on_user_id"
   end
 
-  create_table "chatgpt_queries", force: :cascade do |t|
+  create_table "chat", force: :cascade do |t|
     t.string "prompt"
     t.string "body", null: false
     t.bigint "author_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["author_id"], name: "index_chatgpt_queries_on_author_id"
-    t.index ["prompt"], name: "index_chatgpt_queries_on_prompt"
+    t.index ["author_id"], name: "index_chat_on_author_id"
+    t.index ["prompt"], name: "index_chat_on_prompt"
   end
 
   create_table "claps", force: :cascade do |t|
@@ -51,6 +51,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_10_192130) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["article_id"], name: "index_claps_on_article_id"
+    t.index ["user_id", "article_id"], name: "index_claps_on_user_id_and_article_id", unique: true
     t.index ["user_id"], name: "index_claps_on_user_id"
   end
 
@@ -82,7 +83,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_10_192130) do
   add_foreign_key "articles", "users", column: "author_id"
   add_foreign_key "bookmarks", "articles"
   add_foreign_key "bookmarks", "users"
-  add_foreign_key "chatgpt_queries", "users", column: "author_id"
+  add_foreign_key "chat", "users", column: "author_id"
   add_foreign_key "claps", "articles"
   add_foreign_key "claps", "users"
   add_foreign_key "comments", "articles"

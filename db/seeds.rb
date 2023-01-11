@@ -14,7 +14,7 @@ ApplicationRecord.transaction do
   Bookmark.destroy_all
   Clap.destroy_all
   Comment.destroy_all
-  # ChatgptQuery.destroy_all
+  # Chat.destroy_all
 
   puts "Resetting primary keys..."
   # For easy testing, so that after seeding, the first `User` has `id` of 1

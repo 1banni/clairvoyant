@@ -89,7 +89,11 @@ export const selectClapsByArticleId = articleId => state => {
 export const selectClapId = (articleId, userId) => state => {
   let clapId;
 
+  console.log('userId');
+  console.log(userId);
   Object.values(state.claps).forEach(clap => {
+    console.log('clap');
+    console.log(clap);
     if (clap.userId === userId && clap.articleId === articleId) {
       clapId = clap.id;
     }

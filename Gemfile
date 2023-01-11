@@ -23,6 +23,8 @@ gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 
 gem "faker"
 
+gem "dotenv-rails", groups: [:development, :test]
+
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "byebug", platforms: %i[ mri mingw x64_mingw ]
@@ -40,3 +42,7 @@ end
 
 # APIs
 gem 'openai'
+
+gem "httparty", "~> 0.21.0"
+
+gem "dotenv", "~> 2.8"

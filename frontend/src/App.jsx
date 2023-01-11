@@ -9,6 +9,7 @@ import ModalProvider from "./context/ModalProvider";
 import ArticleSearch from "./pages/ArticleSearchPage/ArticleSearch";
 import SplashPage from "./pages/SplashPage";
 import UserPage from "./pages/UserPage";
+import Chat from "./components/Chat/Chat";
 
 function App() {
   return (
@@ -39,6 +40,9 @@ function App() {
         </Route>
         <Route path='/articles/'>
           <ArticleIndex />
+        </Route>
+        <Route exact path='/chats/new'>
+          <Chat />
         </Route>
         <Route path='/:topicName'>
           <ArticleSearch />
