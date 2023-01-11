@@ -1,0 +1,119 @@
+/* Page */
+.article-show {
+  display: flex;
+  flex-direction: row;
+}
+
+/* Left Side */
+.article-show-l {
+  width: 65%;
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+}
+
+.title-and-blurb {
+
+}
+.article-view .title {
+  max-height: none;
+  font-size: 2.5rem;
+  margin-top: 15px;
+  margin-bottom: 8px;
+  line-height: normal;
+  letter-spacing: -0.016em;
+}
+
+.article-view .blurb {
+  line-height: unset;
+  font-size: 1.2rem;
+  margin-bottom: 12px;
+}
+
+
+.article-image-ctnr {
+  /* width: 800px; */
+}
+
+.article-image {
+  width: 100%;
+  height: 100%;
+  /* shrink, cover, etc. */
+  object-fit: cover;
+}
+.article-body {
+
+}
+
+.article-body .article-paragraph {
+  font-family: source-serif-pro,
+    Georgia,
+    Cambria,
+    "Times New Roman",
+    Times,
+    serif;
+  font-size: 1.1rem;
+  letter-spacing: -0.02rem;
+  line-height: 30px;
+  margin-top: 5px;
+  color:var(--color-dark-grey);
+  font-weight: 300;
+  word-wrap: break-word;
+}
+
+.article-links {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.article-links .clap-comment {
+  display: flex;
+  flex-direction: row;
+}
+.clap {
+  margin-right: 10px
+
+}
+
+.article-links .share-bookmark {
+  display: flex;
+  flex-direction: row;
+}
+
+.bookmark {
+  margin-left: 10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* Right Side */
+.article-show-right {
+  display: flex;
+  flex-direction: column;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

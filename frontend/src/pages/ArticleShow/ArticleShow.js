@@ -20,24 +20,25 @@ const ArticleShow = (props) => {
     }
   }, [dispatch, articleId]);
 
-   if (!article) return <Redirect to="/articles"/>;
+   if (!article) return <></>;
+  //  console.log('article');
+  //  console.log(article);
   return (
     <>
-    <div className="article-show-page">
-      <div className="article-show-left">
-        <AuthorTile article={article}/>
+    <div className="article-show">
+      <div className="article-show-l">
+        <AuthorTile article={article} />
 
-        <div className="article-view">ArticleView
-          <div className="artcle-title">
+        <div className="article-view">
             <Title article={article}/>
-            <Image className="article-image-ctnr"
+            <Image containername="article-image-ctnr"
+                   className="article-image"
                    src="https://miro.medium.com/fit/c/400/268/0*CV8SZagj7nhTYtYn"
-                   height="134px"
-                   width="200px"
+                  //  height="134px"
+                  //  width="200px"
             />
             <Body body={article.body} />
             <ArticleLinks />
-          </div>
         </div>
 
         <div className="more-from-author">More from author_name</div>

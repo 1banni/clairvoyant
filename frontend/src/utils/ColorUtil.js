@@ -4,6 +4,9 @@ const userIconColors = [
 
 const ColorUtil = {
   nameToColor (name) {
+    if (!name) {
+      return 'black';
+    }
     let idx = name.length % userIconColors.length;
     return userIconColors[idx];
   }

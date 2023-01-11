@@ -3,16 +3,16 @@ import thunk from 'redux-thunk';
 import session from './session';
 import articles from './articles';
 // TODO: AXE BELOW LINES IF UNUSED
-import bookmarks from './bookmarks';
 // import comments from './comments';
-// import claps from './claps';
+import bookmarks from './bookmarks';
+import claps from './claps';
 
 const rootReducer = combineReducers({
   session,
   articles,
   // comments,
   bookmarks,
-  // claps,
+  claps,
 });
 
 let enhancer;

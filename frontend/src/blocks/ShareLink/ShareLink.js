@@ -15,6 +15,7 @@ const ShareLink = () => {
     let url = document.location.href
 
     navigator.clipboard.writeText(url).then(function() {
+      // TODO: UPDATE with alert
       console.log('Copied!');
     }, function() {
       console.log('Copy error')
@@ -22,7 +23,7 @@ const ShareLink = () => {
   }
 
   return (
-    <Button className="icon-btn bookmark" onClick={copyUrlToClipboard}>
+    <Button containername="icon-ctnr" className="icon-btn bookmark" onClick={copyUrlToClipboard}>
       <FiLink className="icon share"
               style={options}
               size="40px"

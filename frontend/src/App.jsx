@@ -4,7 +4,7 @@ import LoginPage from "./pages/LoginPage";
 import SignUpPage from "./pages/SignUpPage";
 import ArticleIndex from './components/ArticleIndex';
 import ArticleCreatePage from "./pages/ArticleCreatePage";
-import ArticleShowPage from "./pages/ArticleShowPage";
+import ArticleShow from "./pages/ArticleShow";
 import ModalProvider from "./context/ModalProvider";
 import ArticleSearch from "./pages/ArticleSearchPage/ArticleSearch";
 import SplashPage from "./pages/SplashPage";
@@ -32,7 +32,7 @@ function App() {
           <ArticleCreatePage />
         </Route>
         <Route path='/articles/:articleId'>
-          <ArticleShowPage />
+          <ArticleShow />
         </Route>
         <Route path='/articles/search'>
           <ArticleSearch />

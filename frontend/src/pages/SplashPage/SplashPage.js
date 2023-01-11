@@ -7,6 +7,8 @@ import Button from '../../blocks/Button'
 import ArticleIndex from '../../components/ArticleIndex/ArticleIndex';
 import TopicButton from '../../blocks/Button/TopicButton';
 import TrendingArticles from './Support/TrendingArticles';
+import UniqUtil from '../../utils/UniqUtil';
+
 
 
 const SplashPage = props => {
@@ -49,7 +51,7 @@ const SplashPage = props => {
               <div className="discover-more_">DISCOVER MORE OF WHAT MATTERS TO YOU</div>
               <div className="topics">
               {topics.map(topic => {return (
-                <TopicButton key={topic.uniqueId} topic={topic}/>
+                <TopicButton key={UniqUtil.key(topic)} topic={topic}/>
               )})}
               </div>
             </div>

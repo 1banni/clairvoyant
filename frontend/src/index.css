@@ -36,6 +36,11 @@ html {
   --nav-bar-height: 50px;
   --btn-height: 30px;
   --border: 0.5px solid #505050;
+  --border-grn: 4px solid #1b998b;
+  --border-pnk: 4px solid #ed217c;
+  --border-blu: 4px solid #2d3047;
+  --border-ylw: 4px solid #fffd82;
+  --border-rng: 4px solid #ff9b71;
   --border-radius: 10px solid #505050;
   --speed: 400ms;
   font-size: 16px;

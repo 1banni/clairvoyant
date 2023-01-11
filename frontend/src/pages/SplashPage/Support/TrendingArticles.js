@@ -16,7 +16,7 @@ const TrendingArticles = () => {
 
     <div className="trending-articles">
       {trending && trending.map((article, idx) => { return (
-        <TrendingTile key={article.uniqueId} idx={idx} article={article}/>
+        <TrendingTile key={article.id} idx={idx} article={article}/>
       )})}
     </div>
 

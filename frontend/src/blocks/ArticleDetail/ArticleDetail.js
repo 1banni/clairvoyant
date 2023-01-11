@@ -10,8 +10,6 @@ import ArticleReadTime from '../ArticleReadTime';
 
 
 const ArticleDetail = ({article, children, ...props}) => {
-
-  // Question: am i doing something wrong with all of this prop drilling
   return (
     <div className="article-tile-detail">
         <div className="article-tile-detail-1">
@@ -28,7 +26,6 @@ const ArticleDetail = ({article, children, ...props}) => {
         </div>
         <div className="article-tile-detail-2">
           {children}
-                    {/* bookmarks={article.bookmarkId} */}
         </div>
       </div>
   );

@@ -3,7 +3,6 @@ import { useHistory } from 'react-router-dom';
 import './ArticleTitle.css';
 
 const ArticleTitle = ({article, ...props}) => {
-
   return (
     <div className="title-and-blurb" key={article.id} {...props}>
       <h4 className="title">{article.title}</h4>

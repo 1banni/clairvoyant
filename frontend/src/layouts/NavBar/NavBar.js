@@ -57,14 +57,14 @@ function NavBar() {
   return (
     <div className={fixed}>
     <div className="nav-bar">
-      <div className="left-links">
+      <div className="l">
         <div className="nav-link homepage">
           <NavLink exact to="/">
             <ClairvoyantLogo className="icon logo" />
           </NavLink>
         </div>
       </div>
-      <div className="right-links">
+      <div className="r">
         <div className="nav-link write">
           <NavItem exact to="/articles/new">
             <WriteIcon className="icon write"/>

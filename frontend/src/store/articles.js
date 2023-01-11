@@ -90,7 +90,7 @@ export const selectTopics = () => (state) => {
 
 export const selectTrendingArticles = (n) => (state) => {
   const articles = Object.values(state.articles);
-  return articles.sort((a, b) => a.numLikes > b.numLikes ? 1 : -1).slice(0,n);
+  return articles.sort((a, b) => a.numClaps > b.numClaps ? 1 : -1).slice(0,n);
 };
 
 

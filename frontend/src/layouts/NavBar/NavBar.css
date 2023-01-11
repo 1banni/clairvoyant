@@ -21,12 +21,12 @@
   /* align-items: center; */
 }
 
-.left-links {
+.nav-bar .l {
   display: flex;
   flex-direction: row;
   padding-left: 10px;
 }
-.right-links {
+.nav-bar .r {
   display: flex;
   flex-direction: row;
   padding-right: 10px;

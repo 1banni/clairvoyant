@@ -1,3 +1,6 @@
 .icon.share {
-  border: red;
+  /* border: 2px solid red; */
+  height: 16px;
+  width: 16px;
+  margin: auto;
 }

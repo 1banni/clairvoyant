@@ -8,24 +8,25 @@ import { useParams } from 'react-router-dom';
 
 export default function ArticleSearch({...props}) {
   const dispatch = useDispatch();
-  const {topicName} = useParams();
+  const articles = useSelector(state => Object.values(state.articles));
 
   // incomingTopic ||= '';
   // incomingPageNum ||= 1;
-  const [topic, setTopic] = useInput(topicName)
-  // const [pageNum, setPageNum] = useInput(1);
-  const articles = useSelector(state => Object.values(state.articles));
-
-
-  useEffect(() => {
-    dispatch(fetchArticles())
-  }, [dispatch]);
+  const {topicName} = useParams();
+  const [topic, changeTopic] = useInput(topicName);
 
   const filteredArticles = useMemo(() => {
     return topic
       ? articles.filter(article => article.topic === topic)
       : articles
   })
+  // const [pageNum, setPageNum] = useInput(1);
+
+
+  useEffect(() => {
+    dispatch(fetchArticles())
+  }, [dispatch]);
+
 
   return (
     <>
@@ -38,7 +39,7 @@ export default function ArticleSearch({...props}) {
                 placeholder="Topic Search"
                 type="text"
                 value={topic}
-                onChange={setTopic}
+                onChange={changeTopic}
               />
               {/* <Button type="submit" label="Search"/>
             </form> */}
