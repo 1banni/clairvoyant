@@ -25,7 +25,8 @@
 
 # Ignore API keys
 /frontend/env.development.local
-/config/.env
+.env
+
 
 # ignore files in public directory (b/c you want Render to generate them)
 /public
