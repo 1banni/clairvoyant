@@ -1,6 +1,6 @@
 
 
-
+/* Containers */
 .article-create-page {
   margin: 50px;
 }
@@ -9,7 +9,60 @@
   margin: 0px;
 }
 
-.ql {
+.pair {
+  margin-top: 50px;
+}
+
+.article-create-form-ctnr-title {
+  /* width: clamp(300px, 80vw, 700px); */
+  padding-right: 100px;
+  background: black;
+}
+.article-create-form-ctnr-blurb {
+  /* width: clamp(300px, 80vw, 700px); */
+  padding-right: 100px;
+  background: black;
+}
+
+.article-create-form-ctnr-topic {
+  /* width: clamp(300px, 80vw, 700px); */
+  padding-right: 500px;
+  background: black;
+}
+.article-create-form-ctnr-topic {
+  /* width: clamp(300px, 80vw, 700px); */
+  border: 10px solid pink;
+  width: 100px;
+  padding-right: 500px;
+  background: black;
+}
+
+/* Inputs */
+.article-create-form-title {
+  width: 100%;
+  font-size: larger;
+  font-weight: 600;
+}
+
+.article-create-form-blurb {
+  width: 100%;
+  font-size: larger;
+  font-weight: 400;
+}
+
+.article-create-form-topic {
+  width: 100%;
+  font-size: larger;
+  font-weight: 500;
+}
+
+.article-create-form-body {
+  width: 100%;
+  font-weight: 300;
+  font-size: 1rem;
+}
+
+/* .ql {
   border: 2px solid blue;
 }
 
@@ -20,20 +73,34 @@
 
 .ql-editor em {
   font-style: italic;
-}
+} */
 
 
-
-.article-create-page .title-label {
+/* Input Labels */
+.article-create-page-title-label {
   font-family: var(--ff-text);
-  font-size: 2rem;
+  font-size: 1.5rem;
 }
-.article-create-page .topic-label {
-
+.article-create-page-topic-label {
+  font-family: var(--ff-text);
+  font-size: 1.5rem;
 }
-.article-create-page .blurb-label {
-
+.article-create-page-blurb-label {
+  font-family: var(--ff-text);
+  font-size: 1.5rem;
 }
-.article-create-page .body-label {
+.article-create-page-body-label {
+  font-family: var(--ff-text);
+  font-size: 1.5rem;
+}
 
+
+.textarea {
+  box-sizing: border-box;
+  font-size: 1rem;
+  height: 2rem;
+  min-height: 50rem;
+  overflow: hidden;
+  resize: none;
+  /* background: black; */
 }

@@ -43,15 +43,18 @@ export const fetchArticle = (articleId) => async dispatch => {
   }
 }
 
-export const createArticle = (articleData) => async dispatch => {
+export const createArticle = (article) => async dispatch => {
+  console.log('article');
+  console.log(article);
   const res = await csrfFetch('/api/articles/', {
     method: "POST",
-    body: JSON.stringify(articleData)
+    body: JSON.stringify(article)
   });
 
   if (res.ok) {
-    const article = await res.json();
-    dispatch(receiveArticle(article));
+    const data = await res.json();
+    dispatch(receiveArticle(data));
+    return data;
   }
 }
 

@@ -35,7 +35,7 @@ const ArticleBookmark = ({articleId}) => {
     // TODO: Modal if not logged in
     // "Create an account to bookmark this story."
     // "Save stories to your personalized bookmarks and access them anytime, anywhere."
-    if (!sessionUser) throw  "you must be logged in to bookmark a post";
+    if (!sessionUser) throw  "you must be logged in to bookmark a post";;
 
     if (bookmark) {
       dispatch(deleteBookmark(bookmark));
