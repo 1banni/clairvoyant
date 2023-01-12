@@ -29,7 +29,7 @@ const ArticleCreatePage = props => {
 
   // const handleChange = e => {}
   $('textarea').on('input', function() {
-    $(this).outerHeight(38).outerHeight(this.scrollHeight);
+    $(this).outerHeight(40).outerHeight(this.scrollHeight);
   });
 
   const handleSubmit = async e => {

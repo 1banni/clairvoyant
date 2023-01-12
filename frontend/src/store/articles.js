@@ -54,7 +54,7 @@ export const createArticle = (article) => async dispatch => {
   if (res.ok) {
     const data = await res.json();
     dispatch(receiveArticle(data));
-    return data;
+    return Object.keys(data[0]);
   }
 }
 
