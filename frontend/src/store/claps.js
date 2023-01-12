@@ -77,8 +77,6 @@ export const selectClapsByArticleId = articleId => state => {
   let claps = Object.values(state.claps)
 
   if (claps) {
-    console.log('claps');
-    console.log(claps);
     let articleClaps = claps.filter(clap => clap['articleId'] === articleId);
     return articleClaps;
   } else {
@@ -89,11 +87,7 @@ export const selectClapsByArticleId = articleId => state => {
 export const selectClapId = (articleId, userId) => state => {
   let clapId;
 
-  console.log('userId');
-  console.log(userId);
   Object.values(state.claps).forEach(clap => {
-    console.log('clap');
-    console.log(clap);
     if (clap.userId === userId && clap.articleId === articleId) {
       clapId = clap.id;
     }

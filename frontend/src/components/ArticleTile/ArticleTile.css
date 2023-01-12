@@ -1,7 +1,6 @@
 .article-tile {
-  /* TODO: DELETE BORDER */
   width: 700px;
-  height: 140px;
+  height: 200px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -12,9 +11,12 @@
   width: 480px;
   display: flex;
   flex-direction: column;
-  align-content: space-between;
-  align-items: space-between;
+  justify-content: space-around;
+    /* align-content: space-around; */
+  /* align-items: space-around; */
   margin: 3px;
+  margin-bottom: 10px;
+  border: var(--border-grn);
 }
 
 .spacing-between-tiles {
@@ -22,7 +24,19 @@
 }
 
 
-/* TODO: DELETE */
-.article-info {
-  /* border: 0.1px solid green; */
+
+
+
+.image-ctnr .article-tile-image {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 150px;
+}
+
+.article-tile-image {
+  width: 80%;
+  /* margin: auto; */
+  /* height: 100px; */
 }

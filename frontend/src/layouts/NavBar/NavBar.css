@@ -1,7 +1,7 @@
 
 .nav-bar-wrapper {
   background-color: var(--medium-yellow);
-  height: 75px;
+  height: var(--nav-bar-height);
   border-bottom: var(--border);
   position: sticky;
   transition: 0.5s ease-in-out;

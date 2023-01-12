@@ -23,10 +23,6 @@ const ArticleCreatePage = props => {
   // format each word to look like tag within input box
   const [topic, topicChange] = useInput('');
 
-
-  console.log('blurb');
-  console.log(blurb);
-
   const [errors, handleSubmit] = useSubmit({
     createAction: () => createArticle({title, body, blurb, topic}),
     onSuccess: () => history.push('/')

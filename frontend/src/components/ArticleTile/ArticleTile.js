@@ -1,10 +1,10 @@
 import React from "react";
 import { Redirect, useHistory, withRouter} from "react-router-dom";
 import "./ArticleTile.css";
-import Author from "../../blocks/ArticleAuthor";
+import ArticleAuthor from "../../blocks/ArticleAuthor";
 import ArticleDetail from "../../blocks/ArticleDetail";
-import Image from "../../blocks/ArticleImage";
-import Title from "../../blocks/ArticleTitle";
+import ArticleImage from "../../blocks/ArticleImage";
+import ArticleTitle from "../../blocks/ArticleTitle";
 import Bookmark from '../../blocks/Bookmark'
 
 const ArticleTile = ({ article }) => {
@@ -18,13 +18,13 @@ const ArticleTile = ({ article }) => {
     <div>
     <div className="article-tile" key={article.id}>
       <div className="article-info">
-        <Author name={article.authorName}/>
-        <Title article={article} onClick={goToArticle}/>
+        <ArticleAuthor name={article.authorName}/>
+        <ArticleTitle article={article} onClick={goToArticle}/>
         <ArticleDetail article={article}>
           <Bookmark articleId={article.id} />
         </ArticleDetail>
       </div>
-      <Image
+      <ArticleImage
         className="article-tile-image"
         src="https://miro.medium.com/fit/c/400/268/0*CV8SZagj7nhTYtYn"
         height="134px"

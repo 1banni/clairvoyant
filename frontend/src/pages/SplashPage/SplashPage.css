@@ -1,6 +1,5 @@
 /* Page */
 .splash {
-  background-color: black;
   display: flex;
   flex-direction: column;
 }
@@ -12,6 +11,8 @@
   border-bottom: var(--border);
 }
 
+
+
 .splash-1-1 {
   height: 100%;
   /* display: flex;
@@ -22,42 +23,43 @@
   /* border: 2px solid blue; */
 }
 
-
-
 /* First Panel - Left Side */
 .splash-title {
-  margin-top: 30px;
+  margin-top: 80px;
   padding-left: 4vw;
   width: 100%;
 }
 
 .stay-curious_ {
   font-family: var(--ff-header);
-  font-size: clamp(5rem, 3vw, 8rem);
+  font-size: clamp(5rem, 8vw, 10rem);
 }
 
 .discover-stories_ {
-  padding-top: 20px;
-  padding-bottom: 5px;
+  font-size: clamp(1.25rem, 2vw, 1.48rem);
+  font-family: var(--ff-text);
+  font-weight: 400;
+  color: var(--alt-text-color);
+  margin-top: 20px;
+  margin-bottom: 30px;
+  letter-spacing: 0.05rem;
+
   /* width: 65%; */
-  width: clamp(250px, 80%, 400px);
-  /* height: 83px; */
-  /* border: 2px solid pink; */
-  font-size: 1.5rem;
-  /* background: black; */
-  /* flex-shrink: 0;
+  width: clamp(250px, 80%, 500px);
+  flex-shrink: 0;
   white-space: pre-wrap;
   word-wrap: break-word;
-  word-break: break-word; */
+  word-break: break-word;
   text-align: left;
   /* position: relative; */
-  line-height: 1.2;
+  line-height: 1.05;
 }
 
 .get-started_ {
   color: white;
   font-weight: 300;
   background-color: black;
+  margin-top: 30px;
 }
 
 .splash .btn.get-started_ {
@@ -68,8 +70,10 @@
   /* text-align: center; */
   /* display: block; */
   border: 0.5px solid #000;
+  font-size: 1.2rem;
+  font-weight: 330;
   border-radius: 24px;
-  height: 36px;
+  height: 40px;
   width: 200px;
 }
 
@@ -110,11 +114,12 @@
 } */
 
 .trending-on-medium {
-  margin-bottom: 20px;
+  margin-top: 30px;
+  margin-bottom: 25px;
 }
 
 .trending-articles {
-  height: 300px;
+  height: 240px;
   display: grid;
   grid-template-columns: repeat(3, 33.33%);
   grid-template-rows: 50% 50%;
@@ -138,6 +143,7 @@
 }
 .trending-tile-2 {
   flex: 1.2;
+
 }
 .trending-tile-3 {
   flex: 1;
@@ -153,6 +159,8 @@
 .trending-tile h4 {
   font-size: 1rem;
   align-self: center;
+  line-height: 1.2;
+  margin-bottom: 7px;
 }
 
 
@@ -163,6 +171,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-top: 40px;
 }
 
 .splash-3-1 {
@@ -172,6 +181,8 @@
 }
 
 .splash-article-feed {
+  margin-top: -15px;
+  padding: 0;
   width: 65%;
   /* height: 3000px; */
 }
@@ -181,25 +192,26 @@
 }
 
 .splash-sidebar .top {
-  height: 200px;
+  height: 180px;
   border-bottom: var(--border);
   /* TODO: REPLACE ME WITH PROPER BORDER BOTTOM */
-  border: 2px solid yellow;
   position: -webkit-sticky;
   /* Safari */
   position: sticky;
-  top: var(--nav-bar-height);
+  top: 110px;
 }
 
-.discover-more_ {}
+.discover-more_ {
+  /* margin-top: 10px; */
+}
 
-.sidebar-footer {
-  height: 200px;
+/* .sidebar-footer {
+  height: 100px;
   border: 2px solid green;
   position: -webkit-sticky;
   position: sticky;
-  top: 250px;
-}
+  top: 250px; */
+/* } */
 
 
 .topics {
@@ -208,7 +220,7 @@
   flex-wrap: wrap;
   /* justify-content: ; */
   overflow: auto;
-  margin-right: 150px;
+  margin-right: clamp(75px, 50%, 150px);
 }
 
 

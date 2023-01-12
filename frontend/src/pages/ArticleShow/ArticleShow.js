@@ -18,7 +18,7 @@ const ArticleShow = (props) => {
   useEffect(() => {
     dispatch(fetchClaps());
   }, [dispatch]);
-  
+
   useEffect(() => {
     dispatch(fetchClaps());
     if (articleId) {
@@ -26,9 +26,8 @@ const ArticleShow = (props) => {
     }
   }, [dispatch, articleId]);
 
-   if (!article) return <></>;
-  //  console.log('article');
-  //  console.log(article);
+  if (!article) return <></>;
+
   return (
     <>
     <div className="article-show">

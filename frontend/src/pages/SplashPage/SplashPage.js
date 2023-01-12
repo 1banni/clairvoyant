@@ -49,7 +49,7 @@ const SplashPage = props => {
 
           <div className="splash-sidebar">
             <div className="top">
-              <div className="label-1">DISCOVER MORE OF WHAT MATTERS TO YOU</div>
+              <div className="label-1 discover-more_">DISCOVER MORE OF WHAT MATTERS TO YOU</div>
               <div className="topics">
               {topics.map(topic => {return (
                 <TopicButton key={UniqUtil.key(topic)} topic={topic}

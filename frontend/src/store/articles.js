@@ -73,8 +73,6 @@ export const selectTopics = () => (state) => {
   const topics = [];
 
   articles.forEach(article => {
-    console.log('article');
-    console.log(article);
     if (!topics.includes(article.topic)) {
       topics.push(article.topic);
     }

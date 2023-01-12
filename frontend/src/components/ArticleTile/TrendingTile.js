@@ -22,7 +22,7 @@ const TrendingTile = ({ article, idx }) => {
           <Author name={article.authorName}/>
         </div>
         <div className="trending-tile-2">
-          <h4 className="title" onClick={goToArticle}>
+          <h4 className="title line-clamp-2" onClick={goToArticle}>
             {article.title}
           </h4>
         </div>

@@ -20,6 +20,7 @@
 /* User Name */
 .user-name-icon-ctnr .user-name {
   font-family: var(--ff-text);
+  color: var(--alt-text-color)
   margin-left: 5px;
 }
 

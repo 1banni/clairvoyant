@@ -12,23 +12,7 @@ const ClapButton = ({article, ...props}) => {
   const sessionUser = useSelector(state => state.session.user);
   const claps = useSelector(selectClapsByArticleId(article?.id));
   const clapId = useSelector(selectClapId(article?.id, sessionUser?.id))
-  // const clapId = () => {
-  //   if (sessionUser) {
-  //     ObjectUtil
 
-
-  //   } else {
-  //     return null;
-  //   }
-  // }
-
-
-  // console.log('sessionUser.id');
-  // console.log(sessionUser.id);
-  // console.log('claps');
-  // console.log(claps);
-  // console.log('clapId');
-  // console.log(clapId);
   const toggleClap = async e => {
 
     e.preventDefault();

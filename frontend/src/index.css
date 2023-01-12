@@ -33,7 +33,7 @@ html {
   --color-light-grey: #757575;
   --color-off-white: #f2f2f2;
   --medium-yellow: #FFBF17;
-  --nav-bar-height: 50px;
+  --nav-bar-height: 75px;
   --btn-height: 30px;
   --border: 0.5px solid #505050;
   --border-grn: 4px solid #1b998b;
@@ -43,6 +43,11 @@ html {
   --border-rng: 4px solid #ff9b71;
   --border-radius: 10px solid #505050;
   --speed: 400ms;
+  font-family: sohne,
+    "Helvetica Neue",
+    Helvetica,
+    Arial,
+    sans-serif;
   font-size: 16px;
 }
 
@@ -52,6 +57,15 @@ html {
   font-size: 0.8rem;
   font-weight: 700;
   font-family: var(--ff-text);
+}
+
+.line-clamp-2 {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+          line-clamp: 2;
+  -webkit-box-orient: vertical;
 }
 
 /* h1 {

@@ -15,8 +15,8 @@ const Chat = () => {
 
   const handleInput = async (e) => {
     e.preventDefault()
-    console.log('tokenApp');
-    console.log(tokenApp);
+    // console.log('tokenApp');
+    // console.log(tokenApp);
 
 
   const res = await csrfFetch('/api/chat', {
@@ -25,11 +25,11 @@ const Chat = () => {
   })
 
   if (res.ok) {
-    console.log('res');
-    console.log(res.body);
+    // console.log('res');
+    // console.log(res.body);
     const data = await res.json()
-    console.log('data');
-    console.log(data);
+    // console.log('data');
+    // console.log(data);
   }
   // axios.post('/api/chat', prompt, {
     //     withCredentials: true,
@@ -46,8 +46,8 @@ const Chat = () => {
   }
 
 
-  console.log('response');
-  console.log(response);
+  // console.log('response');
+  // console.log(response);
   return (
     <div>
     <form>
