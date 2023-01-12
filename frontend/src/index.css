@@ -46,6 +46,14 @@ html {
   font-size: 16px;
 }
 
+.label-1 {
+  text-transform: uppercase;
+  letter-spacing: 0.07rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  font-family: var(--ff-text);
+}
+
 /* h1 {
   font-family: gt-super,
     Georgia,

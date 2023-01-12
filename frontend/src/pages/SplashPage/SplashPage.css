@@ -7,7 +7,7 @@
 
 /* First Panel */
 .splash-1 {
-  height: 50vh;
+  height: 450px;
   background-color: var(--medium-yellow);
   border-bottom: var(--border);
 }
@@ -89,7 +89,7 @@
 
 /* Second Panel */
 .splash-2 {
-  height: 400px;
+  height: 350px;
   background-color: #fff;
   border-bottom: var(--border);
   display: flex;
@@ -104,11 +104,14 @@
   flex-direction: column;
 }
 
-.trending-header {
+/* .trending-header {
   height: 10%;
   font-family: var(--ff-text);
-}
+} */
 
+.trending-on-medium {
+  margin-bottom: 20px;
+}
 
 .trending-articles {
   height: 300px;
@@ -120,7 +123,26 @@
 .trending-tile-wrapper {
   display: flex;
   flex-direction: row;
+  height: 150px;
 }
+
+.trending-tile {
+  display: flex;
+  flex-direction: column;
+  height: 100px;
+  margin-left: 10px;
+}
+
+.trending-tile-1 {
+  flex: 1;
+}
+.trending-tile-2 {
+  flex: 1.2;
+}
+.trending-tile-3 {
+  flex: 1;
+}
+
 
 .trending-number {
   color: #ccc;
@@ -128,6 +150,11 @@
   font-family: var(--ff-text);
 
 }
+.trending-tile h4 {
+  font-size: 1rem;
+  align-self: center;
+}
+
 
 /* Third Panel */
 .splash-3 {
@@ -164,13 +191,7 @@
   top: var(--nav-bar-height);
 }
 
-.discover-more_ {
-  text-transform: uppercase;
-  letter-spacing: 0.07rem;
-  font-size: 0.8rem;
-  font-weight: 700;
-  font-family: var(--ff-text);
-}
+.discover-more_ {}
 
 .sidebar-footer {
   height: 200px;
@@ -185,10 +206,10 @@
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-between;
+  /* justify-content: ; */
   overflow: auto;
+  margin-right: 150px;
 }
-
 
 
 

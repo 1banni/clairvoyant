@@ -5,6 +5,7 @@ const PNG = {
   LOGO_WITH_NAME: require('./png/logo-with-name.png'),
   LOGO: require('./png/logo.png'),
   PEN_PAPER: require('./png/pen-paper.png'),
+  TRENDING: require('./png/trending.png')
 }
 
 const SVG = {

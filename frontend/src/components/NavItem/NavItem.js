@@ -3,13 +3,13 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom';
 
-function NavItem({children, label, modal, ...props}) {
-  props.containername ||= "nav-item";
+function NavItem({children, containername, label, modal, ...props}) {
+  containername ||= "nav-item-ctnr";
   props.className ||= "nav-link";
   // props.type ||= "button";
 
   return (
-    <div className="nav-item">
+    <div className={containername}>
       <NavLink {...props}>
         {label}
         {children}

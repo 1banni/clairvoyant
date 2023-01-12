@@ -17,8 +17,13 @@
   font-weight: 700;
   line-height: 25px;
   max-height: 56px;
+  overflow: hidden;
   text-overflow: ellipsis;
+  display: -webkit-box;
   -webkit-line-clamp: 2;
+  /* number of lines to show */
+          line-clamp: 2;
+  -webkit-box-orient: vertical;
 }
 
 .blurb {
@@ -28,9 +33,10 @@
   font-weight: 400;
   justify-self: flex-end;
   line-height: 1.25rem;
-  height: 2.5rem;
+  margin-top: 5px;
   /* text-overflow: ellipsis; */
   overflow: hidden;
+  /* background-color: black; */
 }
 
 

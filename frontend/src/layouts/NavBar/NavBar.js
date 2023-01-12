@@ -1,33 +1,30 @@
-import React, { useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import { ReactComponent as WriteIcon } from '../../assets/svg/write-logo.svg'
+import { ReactComponent as ClairvoyantLogo } from '../../assets/svg/clairvoyant-logo.svg'
+import { ReactComponent as ProfileIcon } from '../../assets/svg/profile.svg'
 import ProfileMenu from '../../components/Menu/ProfileMenu';
-// import site_logo from '../../assets/logo_with_name.png';
-// import user_logo from '../../assets/profile.png';
-// import write_logo from '../../assets/svg/write-logo.svg';
-
+import NavItem from '../../components/NavItem/NavItem';
 import Button from '../../blocks/Button';
 import LoginModal from '../../modals/LoginModal';
 import './NavBar.css';
 
-import { ReactComponent as WriteIcon } from '../../assets/svg/write-logo.svg'
-import { ReactComponent as ClairvoyantLogo } from '../../assets/svg/clairvoyant-logo.svg'
-import { ReactComponent as ProfileIcon } from '../../assets/svg/profile.svg'
-import NavItem from '../../components/NavItem/NavItem';
-
 // const myImg = require('./assets/Profilemethods.png');
 
 function NavBar() {
+  const location = useLocation();
   const sessionUser = useSelector(state => state.session.user);
+  const [colorToggle, setColorToggle] = useState("white");
   const [fixed, setFixed] = useState("nav-bar-wrapper");
 
-  // useEffect(()=> {
-  //   if (window.scroll > 10) {
-  //     setFixed("nav-bar-wrapper fixed");
-  //   } else {
-  //     setFixed("nav-bar-wrapper");
-  //   }
-  // }, [window.scroll])
+  useEffect(()=> {
+    if (location.pathname === '/') {
+      setColorToggle(prev => "yellow");
+    } else {
+      setColorToggle(prev => "white");
+    }
+  }, [location])
 
   const magic = () => {
     window.scrollY > 535
@@ -42,36 +39,30 @@ function NavBar() {
     );
   } else {
     sessionLink = (
-      <>
         <Button className="icon-btn login-modal"
                 containername="icon-btn-ctnr login-modal"
                 modal={ LoginModal }>
           <ProfileIcon className="icon profile"/>
         </Button>
-      </>
     );
   }
 
 
   window.addEventListener("scroll", magic);
   return (
-    <div className={fixed}>
+    <div className={fixed + " " + colorToggle}>
     <div className="nav-bar">
-      <div className="l">
+      <div className="nav-bar-l">
         <div className="nav-link homepage">
-          <NavLink exact to="/">
+          <NavItem exact to="/">
             <ClairvoyantLogo className="icon logo" />
-          </NavLink>
-        </div>
-      </div>
-      <div className="r">
-        <div className="nav-link write">
-          <NavItem exact to="/articles/new">
-            <WriteIcon className="icon write"/>
-          {/* <NavLink exact to="/articles/new"> */}
-            {/* <img src={write_logo} alt="diamonds" height="20" /> */}
           </NavItem>
         </div>
+      </div>
+      <div className="nav-bar-r">
+        <NavItem exact to="/articles/new" className="nav-link write">
+          <WriteIcon className="icon write"/>
+        </NavItem>
         <div className="nav-link session">
           {sessionLink}
         </div>

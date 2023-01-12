@@ -1,11 +1,14 @@
 
 .nav-bar-wrapper {
   background-color: var(--medium-yellow);
-  height: 50px;
+  height: 75px;
   border-bottom: var(--border);
-  transition: 0.5s ease-in-out;
   position: sticky;
+  transition: 0.5s ease-in-out;
   top: 0;
+}
+.nav-bar-wrapper.white {
+  background-color: white;
 }
 
 .nav-bar-wrapper.fixed {
@@ -21,15 +24,32 @@
   /* align-items: center; */
 }
 
-.nav-bar .l {
-  display: flex;
-  flex-direction: row;
-  padding-left: 10px;
+.white .nav-bar {
+  background-color: white;
 }
-.nav-bar .r {
+
+/* Left Side */
+.nav-bar-l {
   display: flex;
   flex-direction: row;
-  padding-right: 10px;
+  margin-left: 10px;
+}
+/* Clairvoyant Logo */
+.nav-link.homepage {
+  border: var(--border-grn);
+  align-self: center;
+  margin-top: 5px;
+}
+.icon-logo {
+  align-self: center;
+}
+
+
+
+.nav-bar-r {
+  display: flex;
+  flex-direction: row;
+  margin-right: 10px;
   align-items: center;
 }
 
@@ -39,12 +59,23 @@
   justify-content: center;
 }
 
-.icon {
+.icon.profile {
   height: var(--btn-height);
 }
 
-.write {
-  height: var(--btn-height * 0.5)
+.nav-link.write  {
+  /* height: var(--btn-height * 0.5); */
+  /* width: 300px; */
+  /* height: 40px; */
+  /* background-color: black; */
+}
+
+.icon.write {
+  width: 50%;
+  /* height: 100%; */
+  /* shrink, cover, etc. */
+  /* object-fit: cover; */
+  /* background: black; */
 }
 
 
@@ -61,10 +92,10 @@
 }
 
 
-.menu-item {
+/* .menu-item {
   height: 50px;
   display: flex;
-}
+} */
 
 
 /* TODO: CHALK? */

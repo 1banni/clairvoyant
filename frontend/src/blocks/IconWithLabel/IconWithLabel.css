@@ -1,0 +1,21 @@
+
+/* Container */
+.icon-with-label-ctnr {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+/* Icon */
+.icon-with-label.icon {
+  width: 25px;
+  margin-right: 10px;
+}
+.trending-img {
+  width: 100%;
+}
+
+/* Label */
+.icon-with-label.label {
+
+}

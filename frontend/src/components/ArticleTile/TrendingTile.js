@@ -3,9 +3,6 @@ import { Redirect, useHistory, withRouter} from "react-router-dom";
 import "./ArticleTile.css";
 import Author from "../../blocks/ArticleAuthor";
 import ArticleDetail from "../../blocks/ArticleDetail";
-import Image from "../../blocks/ArticleImage";
-import Title from "../../blocks/ArticleTitle";
-import Bookmark from '../../blocks/Bookmark'
 
 const TrendingTile = ({ article, idx }) => {
   let history = useHistory();
@@ -21,13 +18,16 @@ const TrendingTile = ({ article, idx }) => {
       </div>
 
       <div className="trending-tile" key={article.id}>
-        <div className="trending-info">
+        <div className="trending-tile-1">
           <Author name={article.authorName}/>
+        </div>
+        <div className="trending-tile-2">
           <h4 className="title" onClick={goToArticle}>
             {article.title}
           </h4>
-          <ArticleDetail article={article}>
-          </ArticleDetail>
+        </div>
+        <div className="trending-tile-3">
+          <ArticleDetail article={article}/>
         </div>
       </div>
         {/* <div className="spacing-between-tiles"/> */}

@@ -32,7 +32,9 @@ function ProfileMenu({ user }) {
 
   return (
     <>
-      <Button className="icon-btn" onClick={openMenu}>
+      <Button className="icon-btn login-modal"
+              container-name="icon-btn-ctnr"
+              onClick={openMenu}>
         <ProfileIcon className="icon profile"/>
       </Button>
       {showMenu && (

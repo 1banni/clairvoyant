@@ -16,7 +16,7 @@ class Article < ApplicationRecord
 
   belongs_to :author, class_name: :User, foreign_key: :author_id
 
-  has_one_attached :photos
+  has_one_attached :photo
   has_many :claps, dependent: :destroy
   has_many :bookmarks, dependent: :destroy
   # has_many :comments, dependent: :destroy

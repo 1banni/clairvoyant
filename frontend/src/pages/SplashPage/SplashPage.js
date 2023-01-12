@@ -8,6 +8,7 @@ import ArticleIndex from '../../components/ArticleIndex/ArticleIndex';
 import TopicButton from '../../blocks/Button/TopicButton';
 import TrendingArticles from './Support/TrendingArticles';
 import UniqUtil from '../../utils/UniqUtil';
+import SignUpModal from '../../modals/SignUpModal';
 
 
 
@@ -27,7 +28,7 @@ const SplashPage = props => {
           <div className="splash-title">
             <h1 className="stay-curious_">Stay curious.</h1>
             <p className="discover-stories_">Discover stories, thinking, and expertise from writers on any topic.</p>
-            <Button className="btn get-started_" label="Start reading"/>
+            <Button className="btn get-started_" label="Start reading" modal={SignUpModal}/>
           </div>
           <SplashPageAnimation />
         </div>
@@ -48,7 +49,7 @@ const SplashPage = props => {
 
           <div className="splash-sidebar">
             <div className="top">
-              <div className="discover-more_">DISCOVER MORE OF WHAT MATTERS TO YOU</div>
+              <div className="label-1">DISCOVER MORE OF WHAT MATTERS TO YOU</div>
               <div className="topics">
               {topics.map(topic => {return (
                 <TopicButton key={UniqUtil.key(topic)} topic={topic}
@@ -59,13 +60,7 @@ const SplashPage = props => {
               )})}
               </div>
             </div>
-
-            <div className="sidebar-footer">Links
-
-            </div>
-
           </div>
-
         </div>
       </div>
     </div>
