@@ -2,7 +2,7 @@
 .user-name-icon-ctnr {
   display: flex;
   flex-direction: row;
-  flex: 1;
+  /* flex: 1; TODOLOOKHERE*/
   margin: 4px;
 }
 
@@ -20,7 +20,7 @@
 /* User Name */
 .user-name-icon-ctnr .user-name {
   font-family: var(--ff-text);
-  color: var(--alt-text-color)
+  color: var(--alt-text-color);
   margin-left: 5px;
 }
 

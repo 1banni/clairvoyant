@@ -8,6 +8,6 @@
 <path d="M52.1269 57.1165L55.0281 57.9537L52.9508 60.0215L52.1269 57.1165Z" fill="black"/>
 <path d="M3.68563 7.68565L0.782566 6.85512L2.8551 4.78259L3.68563 7.68565Z" fill="black"/>
 <path d="M3.92961 56.8778L2.91612 59.9638L0.843593 57.8913L3.92961 56.8778Z" fill="black"/>
-<path d="M44 9L52 17" stroke="black" stroke-width="2"/>
-<path d="M50 1L59 10" stroke="black" stroke-width="2"/>
+<path d="M44 9L52 17" stroke="black" stroke-width="1"/>
+<path d="M50 1L59 10" stroke="black" stroke-width="1"/>
 </svg>

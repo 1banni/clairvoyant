@@ -9,13 +9,12 @@ import ArticleTile from '../../components/ArticleTile/ArticleTile';
 const ArticleIndex = props => {
   const dispatch = useDispatch();
   const articles = useSelector(state => Object.values(state.articles));
-  // const bookmarks = useSelector(state => state.bookmarks);
 
   useEffect(() => {
     dispatch(fetchArticles());
     dispatch(fetchBookmarks());
   }, [dispatch]);
-  
+
   return (
     <>
       <div className="article-idx-ctnr">
@@ -26,8 +25,6 @@ const ArticleIndex = props => {
               key={article.id} />
           })}
         </div>
-      </div>
-      <div className="staff-picks">Staff Picks
       </div>
     </>
   )

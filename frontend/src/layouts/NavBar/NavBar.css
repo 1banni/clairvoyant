@@ -36,7 +36,7 @@
 }
 /* Clairvoyant Logo */
 .nav-link.homepage {
-  border: var(--border-grn);
+  /* border: var(--border-grn); */
   align-self: center;
   margin-top: 5px;
 }

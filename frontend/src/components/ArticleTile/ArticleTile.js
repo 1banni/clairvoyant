@@ -30,7 +30,7 @@ const ArticleTile = ({ article }) => {
         height="134px"
         width="200px" />
     </div>
-      {/* <div className="spacing-between-tiles"/> */}
+      <div className="spacing-between-tiles"/>
     </div>
   )
 }
