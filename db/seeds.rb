@@ -180,10 +180,14 @@ ApplicationRecord.transaction do
   #   topic: "",
   #   author: "",
   # )
-
-  # article10 = Article.create!(
-
+  # article13 = Article.create(
+  #   title: "",
+  #   body: "",
+  #   topic: "",
+  #   author: "",
   # )
+
+
 
   article25 = Article.create!(
     title: 'Unity vs. Unreal',
@@ -207,7 +211,6 @@ ApplicationRecord.transaction do
     topic: 'Coding',
     author: user_test
   )
-
 
   10.times do
     Article.create!({
