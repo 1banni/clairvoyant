@@ -32,7 +32,7 @@
 .nav-bar-l {
   display: flex;
   flex-direction: row;
-  margin-left: 10px;
+  margin-left: 4vw;
 }
 /* Clairvoyant Logo */
 .nav-link.homepage {
@@ -61,6 +61,7 @@
 
 .icon.profile {
   height: var(--btn-height);
+  margin-right: 2vw;
 }
 
 .nav-link.write  {

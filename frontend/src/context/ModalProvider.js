@@ -16,17 +16,17 @@ export default function ModalProvider({ children }) {
     });
   }, []);
 
-  const ModalComponent= modal.component ? modal.component : null;
+  const ModalComponent = modal.component ? modal.component : null;
 
   // the magic of this is that events bubble up to the parent (propogate it up to div)
   return ReactDOM.createPortal(
-    <div className={ ModalComponent? 'portal' : '' }>
-      { ModalComponent&& (
+    <div className={ ModalComponent ? 'portal' : '' }>
+      { ModalComponent && (
         <ModalComponent
           { ...modal.props }
           close={ modal.close }
           // defaults to display: none
-          className={ ModalComponent? 'disp-block' : '' }
+          className={ ModalComponent ? 'disp-block' : '' }
         />
       )}
       <div ref={modalRef} />

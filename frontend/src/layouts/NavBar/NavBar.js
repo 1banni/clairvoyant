@@ -47,7 +47,6 @@ function NavBar() {
     );
   }
 
-
   window.addEventListener("scroll", magic);
   return (
     <div className={fixed + " " + colorToggle}>
