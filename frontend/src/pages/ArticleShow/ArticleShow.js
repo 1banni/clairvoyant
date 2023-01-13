@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Redirect, useParams } from "react-router-dom";
 import Image from "../../blocks/ArticleImage/ArticleImage";
 import Title from "../../blocks/ArticleTitle/ArticleTitle";
+import EditDelete from "../../blocks/EditDelete/EditDelete";
 import AuthorTile from "../../components/AuthorTile/AuthorTile";
 import { fetchArticle } from "../../store/articles";
 import { fetchClaps } from "../../store/claps";
@@ -12,8 +13,12 @@ import Body from "./Body";
 
 const ArticleShow = (props) => {
   const dispatch = useDispatch();
+  const sessionUser = useSelector(state => state.session.user);
   const { articleId } = useParams();
   const article = useSelector(store => store.articles[articleId]);
+  const editDeleteToggle = () => {
+    return article?.authorId === sessionUser.id;
+  }
 
   useEffect(() => {
     dispatch(fetchClaps());
@@ -26,14 +31,16 @@ const ArticleShow = (props) => {
     }
   }, [dispatch, articleId]);
 
-  if (!article) return <></>;
-
+  if (!article) return <Redirect to="/"/>;
   return (
     <>
     <div className="article-show">
       <div className="article-show-l">
-        <AuthorTile article={article} />
-
+        <AuthorTile article={article}>
+        {editDeleteToggle() &&
+          <EditDelete article={article}  />
+        }
+        </AuthorTile>
         <div className="article-view">
             <Title article={article}/>
             <Image containername="article-image-ctnr"

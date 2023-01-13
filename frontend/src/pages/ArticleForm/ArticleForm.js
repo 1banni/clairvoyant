@@ -1,12 +1,12 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { useHistory, Redirect } from 'react-router-dom';
-import { createArticle } from '../../store/articles';
+import { useHistory, Redirect, useParams } from 'react-router-dom';
+import { createArticle, selectArticle, updateArticle } from '../../store/articles';
 import { useInput, useSubmit } from '../../hooks';
 import { Input } from '../../blocks/Form';
 import Button from '../../blocks/Button';
 import $ from 'jquery';
 
-import './ArticleCreatePage.css'
+import './ArticleForm.css'
 
 import React, { useState } from 'react';
 import ReactQuill from 'react-quill';
@@ -14,20 +14,28 @@ import 'react-quill/dist/quill.snow.css';
 import 'react-quill/dist/quill.bubble.css';
 
 
-const ArticleCreatePage = props => {
+const ArticleForm = props => {
   const history = useHistory();
   const dispatch = useDispatch();
   const sessionUser = useSelector(state => state.session.user)
-  const [title, titleChange] = useInput('');
-  const [body, bodyChange] = useInput('');
-  const [blurb, blurbChange] = useInput('');
+
+  let { articleId } = useParams();
+  let article = useSelector(selectArticle(articleId));
+  const formType = articleId ? 'Update' : 'Create';
+
+  if (formType === 'Create') {
+    article = { title: "", body: "", blurb: "", topic: "" }
+  }
+
+  const [title, titleChange] = useInput(article.title);
+  const [body, bodyChange] = useInput(article.body);
+  const [blurb, blurbChange] = useInput(article.blurb);
   // TODO -> make the setter convert into array, and then render split with spaces
   // format each word to look like tag within input box
-  const [topic, topicChange] = useInput('');
+  const [topic, topicChange] = useInput(article.body);
 
   // const [title, setTitle] = useState();
 
-  // const handleChange = e => {}
   $('textarea').on('input', function() {
     $(this).outerHeight(40).outerHeight(this.scrollHeight);
   });
@@ -35,8 +43,15 @@ const ArticleCreatePage = props => {
   const handleSubmit = async e => {
     e.preventDefault();
     if (!sessionUser) throw "you must be logged in to bookmark a post";
-    let articleId = await dispatch(createArticle({title, topic, blurb, body}));
-    if (articleId) history.push(`/articles/${articleId}`);
+
+    article = {...article, title, topic, blurb, body};
+    if (formType === 'Create') {
+      articleId = await dispatch(createArticle(article));
+      if (articleId) history.push(`/articles/${articleId}`);
+    } else {
+      dispatch(updateArticle(article))
+        .then(history.push(`/articles/${articleId}`));
+    }
   }
 
 
@@ -108,4 +123,4 @@ const ArticleCreatePage = props => {
   )
 }
 
-export default ArticleCreatePage;
+export default ArticleForm;

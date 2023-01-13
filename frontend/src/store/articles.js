@@ -3,7 +3,7 @@ import csrfFetch from './csrf';
 // ACTION CONSTANTS
 const RECEIVE_ARTICLES = 'articles/RECEIVE_ARTICLES';
 const RECEIVE_ARTICLE = 'articles/RECEIVE_ARTICLE';
-const DELETE_ARTICLE = 'articles/DELETE_ARTICLE';
+const REMOVE_ARTICLE = 'articles/REMOVE_ARTICLE';
 
 // ACTION CREATORS
 export const receiveArticles = articles => {
@@ -19,6 +19,13 @@ export const receiveArticle = article => {
     article
   }
 };
+
+export const removeArticle = articleId => {
+  return {
+    type: REMOVE_ARTICLE,
+    articleId
+  }
+}
 
 
 // THUNK ACTION CREATORS
@@ -41,11 +48,9 @@ export const fetchArticle = (articleId) => async dispatch => {
     const article = await res.json();
     dispatch(receiveArticle(article));
   }
-}
+};
 
 export const createArticle = (article) => async dispatch => {
-  console.log('article');
-  console.log(article);
   const res = await csrfFetch('/api/articles/', {
     method: "POST",
     body: JSON.stringify(article)
@@ -54,7 +59,31 @@ export const createArticle = (article) => async dispatch => {
   if (res.ok) {
     const data = await res.json();
     dispatch(receiveArticle(data));
-    return Object.keys(data[0]);
+    return Object.keys(data)[0];
+  }
+};
+
+export const deleteArticle = articleId => async dispatch => {
+  console.log('articleId');
+  console.log(articleId);
+
+  const res = await csrfFetch(`/api/articles/${articleId}`, {
+    method: "DELETE"
+  });
+
+  if (res.ok) dispatch(removeArticle(articleId));
+}
+
+export const updateArticle = article => async dispatch => {
+
+  const res = await csrfFetch(`/api/articles/${article.id}`, {
+    method: "PATCH",
+    body: JSON.stringify(article)
+  })
+
+  if (res.ok) {
+    const data = await res.json();
+    dispatch(receiveArticle(data));
   }
 }
 
@@ -71,8 +100,12 @@ export const createArticle = (article) => async dispatch => {
 // }
 
 // SELECTORS
-export const selectTopics = () => (state) => {
-  const articles = Object.values(state.articles);
+export const selectArticle = articleId => store => {
+  return store?.articles ? store.articles[articleId] : null;
+}
+
+export const selectTopics = () => store => {
+  const articles = Object.values(store.articles);
   const topics = [];
 
   articles.forEach(article => {
@@ -84,9 +117,9 @@ export const selectTopics = () => (state) => {
   return topics;
 }
 
-export const selectTrendingArticles = (n) => (state) => {
-  const articles = Object.values(state.articles);
-  return articles.sort((a, b) => a.numClaps > b.numClaps ? 1 : -1).slice(0,n);
+export const selectTrendingArticles = len => store => {
+  const articles = Object.values(store.articles);
+  return articles.sort((a, b) => a.numClaps > b.numClaps ? 1 : -1).slice(0,len);
 };
 
 
@@ -109,9 +142,9 @@ const articlesReducer = (state = {}, action) => {
       // newState[action.article.id] = action.article;
       // POTENTIAL BUG - could just be action.article
       return { ...state, ...action.article};
-    case DELETE_ARTICLE:
-      const newState = {...state};
-      delete newState(action.articleId);
+    case REMOVE_ARTICLE:
+      let newState = {...state};
+      delete newState[action.articleId];
       return newState;
     default:
       return state;

@@ -1,0 +1,19 @@
+
+
+.edit-delete-ctnr {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  color: var(--color-grn);
+}
+
+.text-btn-ctnr {
+  background: transparent;
+  border-radius: 24px;
+}
+
+.text-btn {
+  margin-left: 5px;
+  margin-right: 5px;
+  background: transparent;
+}

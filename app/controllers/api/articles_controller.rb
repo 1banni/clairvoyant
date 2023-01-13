@@ -36,10 +36,6 @@ class Api::ArticlesController < ApplicationController
     end
   end
 
-  def edit
-    @article = Article.find_by(id: params[:id])
-  end
-
   def update
     @article = Article.find_by(id: params[:id])
 
@@ -54,7 +50,7 @@ class Api::ArticlesController < ApplicationController
         render json: { errors: ["You must be logged in as author to edit the article."] }
       end
     else
-      render json: { errors: ["Article not found. Email support at api@clairvoyant.com"]}
+      render json: { errors: ["Article not found. Email support at backend@clairvoyant.com"]}
     end
   end
 
@@ -81,9 +77,10 @@ class Api::ArticlesController < ApplicationController
 
   def destroy
     @article = Article.find(params[:id])
-    if @article && @article.owner_id == current_user.id
+    if @article && @article.author_id == current_user.id
       if @article.destroy
-        render 'api/users/show'
+        # render 'api/users/show'
+        render json: {}, status: :ok
       else
         render json: { errors: ["You must be logged in as author to edit the article."]}, status: 422
       end

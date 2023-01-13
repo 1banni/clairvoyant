@@ -4,12 +4,7 @@ import './ArticleTitle.css';
 const ArticleTitle = ({article, ...props}) => {
   const blurb = article => {
     let _blurb = article.blurb ? article.blurb : article.body;
-    console.log('_blurb');
-    console.log(_blurb);
-
     let parsed_blurb = _blurb.split('\\n').join(' ')
-    console.log('parsed_blurb');
-    console.log(parsed_blurb);
     return parsed_blurb.length > 115
       ? parsed_blurb.slice(0,115) + '...'
       : parsed_blurb;

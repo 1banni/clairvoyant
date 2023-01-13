@@ -7,7 +7,7 @@ import { Redirect } from 'react-router-dom';
 import Bookmark from '../../blocks/Bookmark';
 import ShareLink from '../../blocks/ShareLink';
 
-const AuthorTile = ({article, author}) => {
+const AuthorTile = ({article, children, author}) => {
   const color = () => ColorUtil.nameToColor(article.authorName);
   if (!article) return <Redirect to="/articles"/>;
 
@@ -36,7 +36,9 @@ const AuthorTile = ({article, author}) => {
             </div>
           </div>
           <div className="rb">
-            <ArticleDetail article={article}/>
+            <ArticleDetail article={article}>
+              {children}
+            </ArticleDetail>
           </div>
         </div>
         <div>

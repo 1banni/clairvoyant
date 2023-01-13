@@ -1,16 +1,16 @@
-import { Route, Switch } from "react-router-dom";
-import NavBar from "./layouts/NavBar/NavBar";
-import LoginPage from "./pages/LoginPage";
-import SignUpPage from "./pages/SignUpPage";
+import { Route, Switch } from 'react-router-dom';
+import NavBar from './layouts/NavBar/NavBar';
+import LoginPage from './pages/LoginPage';
+import SignUpPage from './pages/SignUpPage';
 import ArticleIndex from './components/ArticleIndex';
-import ArticleCreatePage from "./pages/ArticleCreatePage";
-import ArticleShow from "./pages/ArticleShow";
-import ModalProvider from "./context/ModalProvider";
-import ArticleSearch from "./pages/ArticleSearchPage/ArticleSearch";
-import SplashPage from "./pages/SplashPage";
-import UserPage from "./pages/UserPage";
-import Chat from "./components/Chat/Chat";
-import ResetScroll from "./context/ResetScroll";
+import ArticleForm from './pages/ArticleForm';
+import ArticleShow from './pages/ArticleShow';
+import ModalProvider from './context/ModalProvider';
+import ArticleSearch from './pages/ArticleSearchPage/ArticleSearch';
+import SplashPage from './pages/SplashPage';
+import UserPage from './pages/UserPage';
+import Chat from './components/Chat/Chat';
+import ResetScroll from './context/ResetScroll';
 
 function App() {
   return (
@@ -32,7 +32,10 @@ function App() {
           <UserPage />
         </Route> */}
         <Route exact path='/articles/new'>
-          <ArticleCreatePage />
+          <ArticleForm />
+        </Route>
+        <Route path='/articles/:articleId/edit'>
+          <ArticleForm />
         </Route>
         <Route path='/articles/:articleId'>
           <ArticleShow />

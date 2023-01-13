@@ -65,9 +65,7 @@ export const deleteClap = (clapId) => async dispatch => {
       method: "DELETE"
   });
 
-  if (res.ok) {
-    dispatch(removeClap(clapId));
-  }
+  if (res.ok) dispatch(removeClap(clapId));
 };
 
 // SELECTORS
