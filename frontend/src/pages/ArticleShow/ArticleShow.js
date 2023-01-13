@@ -19,7 +19,7 @@ const ArticleShow = (props) => {
   const { articleId } = useParams();
   const article = useSelector(store => store.articles[articleId]);
   const editDeleteToggle = () => {
-    return article?.authorId === sessionUser.id;
+    return article?.authorId === sessionUser?.id;
   }
 
   useEffect(() => {

@@ -3,16 +3,16 @@ import { useSelector } from 'react-redux';
 import './Comments.css';
 
 const Comments = ({article}) => {
-  const comments = useSelector(store => store.comments);
+  const comments = useSelector(store => Object.values(store.comments));
 
   return (
     <div>
-      {comments.map(comment => {return (
+      {/* {comments && comments.map(comment => {return (
         <div key={comment.id} comment={comment}>
           {comment.body}
           {comment.author}
         </div>
-      )})},
+      )})}, */}
     </div>
   );
 };
