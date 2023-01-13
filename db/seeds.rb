@@ -11,11 +11,11 @@ require 'open-uri'
 ApplicationRecord.transaction do
   puts "Destroying tables..."
   # Unnecessary if using `rails db:seed:replant`
-  User.destroy_all
-  Article.destroy_all
-  Bookmark.destroy_all
-  Clap.destroy_all
   Comment.destroy_all
+  Clap.destroy_all
+  Bookmark.destroy_all
+  Article.destroy_all
+  User.destroy_all
   # Chat.destroy_all
 
   puts "Resetting primary keys..."
