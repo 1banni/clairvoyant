@@ -39,10 +39,8 @@ export const login = ({ credential, password }) => async dispatch => {
     const data = await res.json();
     storeCurrentUser(data.user);
     dispatch(setCurrentUser(data.user));
-    return res;
-  } else {
-    return res;
   }
+  return res;
 };
 
 export const logout = () => async dispatch => {
@@ -99,51 +97,3 @@ const sessionReducer = (state = initialState, action) => {
 
 export default sessionReducer;
 
-
-// import csrfFetch from './csrf'
-
-// // ACTION CONSTANTS
-// const RECEIVE_USER = 'session/RECEIVE_USER';
-// const REMOVE_USER = 'session/REMOVE_USER';
-
-// // ACTION CREATORS
-// export const receiveUser = (user) => ({
-//   type: RECEIVE_USER,
-//   payload: user
-// })
-
-// export const removeUser = () => ({
-//   type: REMOVE_USER
-// })
-
-// // THUNK ACTIONS
-// export const loginUser = user => async dispatch => {
-//   const { username, password } = user;
-
-//   let res = await csrfFetch('/api/session', {
-//     method: 'POST',
-//     body: JSON.stringify({
-//       username,
-//       password
-//     })
-//   });
-//   let data = await res.json();
-//   dispatch(receiveUser(data.user));
-//   return data;
-// }
-
-
-// const initialState = { user: null };
-
-// // REDUCER
-// const sessionReducer = (state=initialState, action) => {
-//   switch (action.type) {
-//     case RECEIVE_USER:
-//       return { ...state, user: action.payload };
-//     case REMOVE_USER:
-//       return { ...state, user: null };
-//     default:
-//       return state;
-//   }
-// };
-// export default sessionReducer;

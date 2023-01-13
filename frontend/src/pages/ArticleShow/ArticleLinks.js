@@ -1,6 +1,6 @@
 
-import React from 'react'
-import Clap from '../../blocks/Button/ClapButton'
+import React from 'react';
+import Clap from '../../blocks/Button/ClapButton';
 
 const ArticleLinks = ({article}) => {
   return (
@@ -14,7 +14,7 @@ const ArticleLinks = ({article}) => {
         <div className='bookmark'>Bookmark</div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default ArticleLinks
+export default ArticleLinks;

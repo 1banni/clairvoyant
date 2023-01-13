@@ -5,10 +5,6 @@ const useInput = (initialValue) => {
   const [value, setValue] = useState(initialValue);
   // Create changeHandler for input form
   const changeHandler = e => {
-    console.log('e');
-    console.log(e);
-    console.log('e.target');
-    console.log(e.target);
     setValue(e.target?.value);
   }
 

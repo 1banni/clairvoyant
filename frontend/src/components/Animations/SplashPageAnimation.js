@@ -24,13 +24,9 @@ const mAnimatedGrid = [
   [0,0,0,0,0,0,0,0,0,1,0,7,3,1,1,1,0,0,1,1,0,0,26,0,18]
 ]
 
-
 const SplashAnimation = () => {
   const grid = mAnimatedGrid;
-  const [count, setCount] = useState({
-    tick: 1,
-    dir: 1
-  });
+  const [count, setCount] = useState({ tick: 1, dir: 1 });
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -57,7 +53,7 @@ const SplashAnimation = () => {
   return (
     <div className="splash-animation-container">
       <div className="splash-animation">
-        {AnimationUtil.convertToM(grid, count.tick).map(row => row.map(el => {
+        {AnimationUtil.convertToC(grid, count.tick).map(row => row.map(el => {
           return <div className="splash-animation-el">{el}</div>
         }))}
       </div>

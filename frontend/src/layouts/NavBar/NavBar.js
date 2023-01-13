@@ -16,21 +16,21 @@ function NavBar() {
   const location = useLocation();
   const sessionUser = useSelector(state => state.session.user);
   const [colorToggle, setColorToggle] = useState("white");
-  const [fixed, setFixed] = useState("nav-bar-wrapper");
+  const [fixed, setFixed] = useState("floating");
 
   useEffect(()=> {
-    if (location.pathname === '/') {
-      setColorToggle(prev => "yellow");
-    } else {
-      setColorToggle(prev => "white");
-    }
+    location.pathname === '/'
+      ? setColorToggle(prev => "yellow")
+      : setColorToggle(prev => "white");
   }, [location])
 
-  const magic = () => {
+  // TODO - see if you can do this with a useEffect
+  const toggleFixed = () => {
     window.scrollY > 535
-      ? setFixed("nav-bar-wrapper fixed")
-      : setFixed("nav-bar-wrapper");
+      ? setFixed("fixed")
+      : setFixed("floating"); // "floating" not used in CSS
   }
+  window.addEventListener("scroll", toggleFixed);
 
   let sessionLink;
   if (sessionUser) {
@@ -47,9 +47,8 @@ function NavBar() {
     );
   }
 
-  window.addEventListener("scroll", magic);
   return (
-    <div className={fixed + " " + colorToggle}>
+    <div className={"nav-bar-wrapper" + fixed + " " + colorToggle}>
     <div className="nav-bar">
       <div className="nav-bar-l">
         <div className="nav-link homepage">
@@ -66,7 +65,6 @@ function NavBar() {
           {sessionLink}
         </div>
       </div>
-
     </div>
     </div>
   );

@@ -19,35 +19,21 @@ const Chat = () => {
     // console.log(tokenApp);
 
 
-  const res = await csrfFetch('/api/chat', {
-    method: "POST",
-    body: {prompt: prompt}
-  })
+    const res = await csrfFetch('/api/chat', {
+      method: "POST",
+      body: {prompt: prompt}
+    })
 
-  if (res.ok) {
-    // console.log('res');
-    // console.log(res.body);
-    const data = await res.json()
-    // console.log('data');
-    // console.log(data);
-  }
-  // axios.post('/api/chat', prompt, {
-    //     withCredentials: true,
-    //     xsrfHeaderName: 'X-XSRF-TOKEN',
-    //     headers: {
-    //       Bearer: `${tokenApp}`,
-    //       "Content-Type": "multipart/form-data"
-    //     },
-    //     // prompt: prompt})
-    //     })
-    //   .then((response) => {
-    //     setResponse(response.data.output);
-    //   });
+    if (res.ok) {
+      // console.log('res');
+      // console.log(res.body);
+      const data = await res.json()
+      console.log('data');
+      console.log(data);
+    }
   }
 
 
-  // console.log('response');
-  // console.log(response);
   return (
     <div>
     <form>
@@ -57,7 +43,6 @@ const Chat = () => {
             value={prompt}
             onChange={promptChange}
       />
-
       <Button className="btn draft" label="draft"
         type="submit"
         onClick={handleInput}
@@ -70,4 +55,4 @@ const Chat = () => {
   )
 }
 
-export default Chat
+export default Chat;

@@ -3,7 +3,7 @@
 
 
 const AnimationUtil = {
-  convertToM (arr, cap) {
+  convertToC (arr, cap) {
     let newArr = [];
 
     // debugger;
@@ -13,7 +13,7 @@ const AnimationUtil = {
         if (el === 0 || el >= cap) {
           newRow.push(' ')
         } else {
-          newRow.push('M')
+          newRow.push('C')
         }
       });
       newArr.push(newRow);

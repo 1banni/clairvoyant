@@ -5,8 +5,10 @@ import Image from "../../blocks/ArticleImage/ArticleImage";
 import Title from "../../blocks/ArticleTitle/ArticleTitle";
 import EditDelete from "../../blocks/EditDelete/EditDelete";
 import AuthorTile from "../../components/AuthorTile/AuthorTile";
+import Comments from "../../components/Comments";
 import { fetchArticle } from "../../store/articles";
 import { fetchClaps } from "../../store/claps";
+import { fetchComments } from "../../store/comments";
 import ArticleLinks from "./ArticleLinks";
 import './ArticleShow.css';
 import Body from "./Body";
@@ -28,29 +30,31 @@ const ArticleShow = (props) => {
     dispatch(fetchClaps());
     if (articleId) {
       dispatch(fetchArticle(articleId));
+      dispatch(fetchComments(articleId));
     }
   }, [dispatch, articleId]);
 
-  if (!article) return <Redirect to="/"/>;
+  if (!article) return null;
   return (
     <>
     <div className="article-show">
       <div className="article-show-l">
         <AuthorTile article={article}>
         {editDeleteToggle() &&
-          <EditDelete article={article}  />
+          <EditDelete article={article}/>
         }
         </AuthorTile>
         <div className="article-view">
-            <Title article={article}/>
+            <Title article={article} />
             <Image containername="article-image-ctnr"
                    className="article-image"
                    src="https://miro.medium.com/fit/c/400/268/0*CV8SZagj7nhTYtYn"
                   //  height="134px"
                   //  width="200px"
             />
-            <Body body={article.body} />
+            <Body body={article.body}/>
             <ArticleLinks article={article}/>
+            <Comments article={article}/>
         </div>
 
         <div className="more-from-author">More from author_name</div>
