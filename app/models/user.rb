@@ -35,7 +35,7 @@ class User < ApplicationRecord
   has_many :articles, class_name: :Article, foreign_key: :author_id, dependent: :destroy
   has_many :bookmarks, dependent: :destroy
   has_many :claps, dependent: :destroy
-  has_many :comments, dependent: :destroy
+  has_many :comments, class_name: :Comment, foreign_key: :author_id, dependent: :destroy
 
   has_many :clapped_articles, through: :claps, source: :articles
   has_many :bookmarked_articles, through: :bookmarks, source: :articles
