@@ -16,7 +16,7 @@ class Api::CommentsController < ApplicationController
     # @article = Article.find_by(comment_params.article_id)
 
     if @comment&.save
-      render :create
+      render :show
     else
       render json: { errors: @commment.errors.full_messages }, status: 422
     end
@@ -27,12 +27,13 @@ class Api::CommentsController < ApplicationController
     # @article = Article.find_by(comment_params.article_id)
     if @comment
       if @comment.author_id == current_user.id
-        if @comment.update
+        if @comment.update(comment_params)
+          render :show
         else
           render json: { errors: @comment.errors.full_messages }, status: 422
         end
       else
-        render json: { errors: ["You must be logged in as author to edit the article."] }
+        render json: { errors: ["You must be logged in as author to edit the comment."] }
       end
     else
       render json: { errors: ['Comment not found in database'] }, status: 422
@@ -41,8 +42,12 @@ class Api::CommentsController < ApplicationController
 
   def destroy
     @comment = Comment.find(params[:id])
-    if @comment&.destroy
-      render json: {}, status: :ok
+    if @comment && @comment.author_id == current_user.id
+      if @comment.destroy
+        render json: {}, status: :ok
+      else
+        render json: { errors: ["You must be logged in as author to delete the comment."] }
+      end
     else
       render json: { errors: @comment.errors.full_messages }, status: 422
     end
@@ -53,5 +58,4 @@ class Api::CommentsController < ApplicationController
     # potential bug missing ID
     params.require(:comment).permit(:body, :author_id, :article_id, :parent_id)
   end
-
 end

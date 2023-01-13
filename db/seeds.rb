@@ -211,14 +211,14 @@ ApplicationRecord.transaction do
     author: user_test
   )
 
-  10.times do
-    Article.create!({
-      title: Faker::Lorem.sentence(word_count: rand(2..12)).chomp('.'),
-      body: Faker::Lorem.paragraphs(number: rand(10..30)).join('\n'),
-      topic: seed_topics.sample(),
-      author: user_william
-    })
-  end
+  # 10.times do
+  #   Article.create!({
+  #     title: Faker::Lorem.sentence(word_count: rand(2..12)).chomp('.'),
+  #     body: Faker::Lorem.paragraphs(number: rand(10..30)).join('\n'),
+  #     topic: seed_topics.sample(),
+  #     author: user_william
+  #   })
+  # end
 
 
   puts "Creating bookmarks..."
@@ -243,7 +243,16 @@ ApplicationRecord.transaction do
   )
 
   puts "Creating comments..."
-
+  comment1 = Comment.create!(
+    article: article1,
+    author: user_demo,
+    body: "amazing article!"
+  )
+  comment2 = Comment.create!(
+    article: article1,
+    author: user_demo,
+    body: "truly!"
+  )
 
 
   puts "Creating claps..."
@@ -264,6 +273,8 @@ ApplicationRecord.transaction do
     article: article2,
     user: user_demo
   )
+
+
 
 
   # Attach article photos

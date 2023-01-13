@@ -15,7 +15,7 @@ class Comment < ApplicationRecord
 
   belongs_to :author, class_name: :User, foreign_key: :author_id
   belongs_to :article
-  belongs_to :parent, class_name: :Comment
+  belongs_to :parent, class_name: :Comment, optional: true
 
   # has_many :children, foreign_key: :parent_id, class_name: :Comment
   # has_many :children defines a method, so when you call Comment.first
