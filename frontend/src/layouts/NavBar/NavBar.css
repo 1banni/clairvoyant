@@ -71,12 +71,17 @@
   /* background-color: black; */
 }
 
+.icon-write-btn-ctnr {
+  background-color: transparent;
+  border: none;
+}
+
 .icon.write {
   width: 50%;
   /* height: 100%; */
   /* shrink, cover, etc. */
-  /* object-fit: cover; */
-  /* background: black; */
+  /* object-fit: cover;
+  background: black; */
 }
 
 

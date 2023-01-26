@@ -11,7 +11,7 @@ const ModalUtil = {
     document.addEventListener(event, (e) => cb(e.detail));
   },
   // sends modal events
-  // whenver a modal is open, it's dispatching a new event called open with the values
+  // whenever a modal is open, it's dispatching a new event called open with the values
   // detail: {component, props}
   open(component, props = {}) {
     document.dispatchEvent(new CustomEvent('open', { detail: {

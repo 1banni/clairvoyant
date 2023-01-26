@@ -70,7 +70,7 @@ export const deleteComment = (comment) => async dispatch => {
   }
 };
 
-// SELECTOR
+// SELECTORS
 
 
 

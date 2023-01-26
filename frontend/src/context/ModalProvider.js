@@ -8,7 +8,7 @@ export default function ModalProvider({ children }) {
   const modalRef = useRef();
   const close = () => setModal({});
 
-  // this activate the button that opens the modal on the page
+  // activates the button that opens the modal on the page
   // modal will send two pieces of data: component and props
   useEffect(() => {
     ModalUtil.listen('open', ({ component, props }) => {
