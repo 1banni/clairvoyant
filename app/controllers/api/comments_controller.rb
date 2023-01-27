@@ -1,15 +1,23 @@
 class Api::CommentsController < ApplicationController
 
-  def index
-    # POTENTIAL BUG TODO QUESTION
-    @comments = Comment.where(article_id: params[:article_id])
+  # def index
+  #   # POTENTIAL BUG TODO QUESTION
+  #   p 'in index'
+  #   p '--------------------------------------------------------'
+  #   p '--------------------------------------------------------'
+  #   p '--------------------------------------------------------'
+  #   @comments = Comment.where(article_id: params[:article_id])
 
-    if @comments
-      render :index
-    else
-      render json: {}, status: :ok
-    end
-  end
+  #   p 'CommentsController#Index'
+  #   p '@comments'
+  #   p @comments
+
+  #   if @comments
+  #     render :index
+  #   else
+  #     render json: {}, status: :ok
+  #   end
+  # end
 
   def create
     @comment = Comment.new(comment_params)

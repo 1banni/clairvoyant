@@ -1,4 +1,5 @@
 import csrfFetch from './csrf';
+import { RECEIVE_ARTICLE } from './articles';
 
 // ACTION CONSTANTS
 export const RECEIVE_COMMENT = 'comments/RECEIVE_COMMENT';
@@ -37,8 +38,10 @@ export const fetchComment = () => async dispatch => {
   }
 }
 
-export const fetchComments = () => async dispatch => {
-  const res = await csrfFetch('/api/comments');
+export const fetchComments = (articleId) => async dispatch => {
+  console.log('in fetchComments');
+
+  const res = await csrfFetch(`/api/comments/${articleId}`);
 
   if (res.ok) {
     const comments = await res.json();
@@ -83,6 +86,8 @@ const initialState = {
 
 const commentsReducer = (state = initialState, action) => {
   switch(action.type) {
+    case RECEIVE_ARTICLE:
+      return { ...state, ...action.comment };
     case RECEIVE_COMMENT:
       return { ...state, ...action.comment };
     case RECEIVE_COMMENTS:

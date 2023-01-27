@@ -1,8 +1,9 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Redirect, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import Image from "../../blocks/ArticleImage/ArticleImage";
 import Title from "../../blocks/ArticleTitle/ArticleTitle";
+// import EditDelete from "../../blocks/EditDelete/EditDelete";
 import EditDelete from "../../blocks/EditDelete/EditDelete";
 import AuthorTile from "../../components/AuthorTile/AuthorTile";
 import Comments from "../../components/Comments";

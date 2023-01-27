@@ -7,7 +7,7 @@ const REMOVE_CURRENT_USER = 'session/removeCurrentUser';
 // ACTION CREATORS
 const setCurrentUser = (user) => ({
   type: SET_CURRENT_USER,
-  payload: user
+  user
 });
 
 const removeCurrentUser = () => ({
@@ -87,7 +87,7 @@ const initialState = {
 const sessionReducer = (state = initialState, action) => {
   switch (action.type) {
     case SET_CURRENT_USER:
-      return { ...state, user: action.payload };
+      return { ...state, user: action.user };
     case REMOVE_CURRENT_USER:
       return { ...state, user: null };
     default:

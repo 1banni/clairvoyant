@@ -14,7 +14,13 @@ class Api::ArticlesController < ApplicationController
 
   def show
     @article = Article.find(params[:id])
-    # @comments = @article.comments
+
+    p '-------------------------------------------------'
+    p 'show'
+    p '-------------------------------------------------'
+    @comments = Comment.where(article_id: params[:id])
+    p @comments
+
 
     if @article
       render :show

@@ -1,9 +1,10 @@
+import { receiveComments } from './comments';
 import csrfFetch from './csrf';
 
 // ACTION CONSTANTS
-const RECEIVE_ARTICLES = 'articles/RECEIVE_ARTICLES';
-const RECEIVE_ARTICLE = 'articles/RECEIVE_ARTICLE';
-const REMOVE_ARTICLE = 'articles/REMOVE_ARTICLE';
+export const RECEIVE_ARTICLES = 'articles/RECEIVE_ARTICLES';
+export const RECEIVE_ARTICLE = 'articles/RECEIVE_ARTICLE';
+export const REMOVE_ARTICLE = 'articles/REMOVE_ARTICLE';
 
 // ACTION CREATORS
 export const receiveArticles = articles => {
@@ -45,8 +46,14 @@ export const fetchArticle = (articleId) => async dispatch => {
   const res = await csrfFetch(`/api/articles/${articleId}`);
 
   if (res.ok) {
-    const article = await res.json();
+    const {article, comments} = await res.json();
+    console.log('article');
+    console.log(article);
+    // This payload will go to every reducer
+    // receiveComment - polug it into state
+    // filter in useSelector for comment
     dispatch(receiveArticle(article));
+    dispatch(receiveComments(comments));
   }
 };
 

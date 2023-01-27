@@ -1,9 +1,9 @@
-import React, {  } from 'react';
+import React, {} from 'react';
 import { useInput, useSubmit } from '../../hooks';
 import { login } from '../../store/session';
 import { Modal } from '../../context/Modal';
 import Button from '../../blocks/Button';
-import {FormErrors, Input} from '../../blocks/Form';
+import { FormErrors, Input } from '../../blocks/Form';
 import SignUpModal from '../SignUpModal';
 import { useSelector } from 'react-redux';
 
