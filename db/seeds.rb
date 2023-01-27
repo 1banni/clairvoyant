@@ -244,12 +244,12 @@ ApplicationRecord.transaction do
 
   puts "Creating comments..."
   comment1 = Comment.create!(
-    article: article1,
+    article: article27,
     author: user_demo,
     body: "amazing article!"
   )
   comment2 = Comment.create!(
-    article: article1,
+    article: article27,
     author: user_demo,
     body: "truly!"
   )

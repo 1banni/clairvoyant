@@ -22,14 +22,14 @@ function NavBar() {
     location.pathname === '/'
       ? setColorToggle(prev => "yellow")
       : setColorToggle(prev => "white");
-  }, [location])
+  }, [location]);
 
   // TODO - see if you can do this with a useEffect
   const toggleFixed = () => {
     window.scrollY > 535
       ? setFixed("nav-bar-wrapper fixed")
       : setFixed("nav-bar-wrapper"); // "floating" not used in CSS
-  }
+  };
   window.addEventListener("scroll", toggleFixed);
 
   let sessionLink;
@@ -70,9 +70,9 @@ function NavBar() {
           <WriteIcon className="icon write"/>
         </Button>)
       }
-        <NavItem exact to="/articles/new" className="nav-link write">
+        {/* <NavItem exact to="/articles/new" className="nav-link write">
           <WriteIcon className="icon write"/>
-        </NavItem>
+        </NavItem> */}
         <div className="nav-link session">
           {sessionLink}
         </div>
