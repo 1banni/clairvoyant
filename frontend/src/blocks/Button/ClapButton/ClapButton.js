@@ -4,8 +4,6 @@ import { PNG } from '../../../assets';
 import Button from '..';
 import { createClap, deleteClap, selectClapId, selectClapsByArticleId } from '../../../store/claps';
 import './ClapButton.css';
-import { isNil } from 'lodash';
-
 
 const ClapButton = ({article, ...props}) => {
   const dispatch = useDispatch();
@@ -16,7 +14,7 @@ const ClapButton = ({article, ...props}) => {
   const toggleClap = async e => {
 
     e.preventDefault();
-    if (!sessionUser) throw "you must be logged in to bookmark a post"
+    if (!sessionUser) throw new Error("you must be logged in to bookmark a post")
 
     if (clapId) {
       dispatch(deleteClap(clapId));

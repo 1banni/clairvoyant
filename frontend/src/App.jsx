@@ -8,7 +8,7 @@ import ArticleShow from './pages/ArticleShow';
 import ModalProvider from './context/ModalProvider';
 import ArticleSearch from './pages/ArticleSearchPage/ArticleSearch';
 import SplashPage from './pages/SplashPage';
-import UserPage from './pages/UserPage';
+// import UserPage from './pages/UserPage';
 import Chat from './components/Chat/Chat';
 import ResetScroll from './context/ResetScroll';
 

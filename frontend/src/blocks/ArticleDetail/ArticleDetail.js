@@ -1,10 +1,10 @@
 import React from 'react';
-import Button from '../Button';
-import Bookmark from '../Bookmark';
+// import Button from '../Button';
+// import Bookmark from '../Bookmark';
 import DateUtil from '../../utils/DateUtil';
-import { BsBookmarks } from 'react-icons/bs';
-import { BsBookmarksFill } from 'react-icons/bs';
-import { ReactComponent as WriteIcon } from '../../assets/svg/write-logo.svg'
+// import { BsBookmarks } from 'react-icons/bs';
+// import { BsBookmarksFill } from 'react-icons/bs';
+// import { ReactComponent as WriteIcon } from '../../assets/svg/write-logo.svg'
 import './ArticleDetail.css';
 import ArticleReadTime from '../ArticleReadTime';
 import TopicButton from '../Button/TopicButton';

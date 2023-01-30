@@ -19,7 +19,9 @@ export default function ArticleSearch({...props}) {
     return topic
       ? articles.filter(article => article.topic === topic)
       : articles
-  })
+  }, [articles, topic]);
+  // TODO: Confirm that adding articles and topic to the above dependency array didn't mess anything up
+
   // const [pageNum, setPageNum] = useInput(1);
 
 

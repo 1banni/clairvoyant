@@ -1,15 +1,15 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, Redirect, useParams } from 'react-router-dom';
 import { createArticle, selectArticle, updateArticle } from '../../store/articles';
-import { useInput, useSubmit } from '../../hooks';
+import { useInput } from '../../hooks';
 import { Input } from '../../blocks/Form';
 import Button from '../../blocks/Button';
 import $ from 'jquery';
 
 import './ArticleForm.css'
 
-import React, { useState } from 'react';
-import ReactQuill from 'react-quill';
+import React, {} from 'react';
+// import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import 'react-quill/dist/quill.bubble.css';
 
@@ -42,7 +42,7 @@ const ArticleForm = props => {
 
   const handleSubmit = async e => {
     e.preventDefault();
-    if (!sessionUser) throw "you must be logged in to bookmark a post";
+    if (!sessionUser) throw new Error("you must be logged in to bookmark a post");
 
     article = {...article, title, topic, blurb, body};
     if (formType === 'Create') {

@@ -7,7 +7,7 @@ import './index.css';
 import './reset.css';
 import App from './App';
 import configureStore from './store';
-import csrfFetch, { restoreCSRF } from './store/csrf';
+import csrfFetch, {} from './store/csrf';
 import * as sessionActions from './store/session';
 import * as articleActions from './store/articles';
 import * as bookmarkActions from './store/bookmarks';
@@ -25,13 +25,11 @@ if (process.env.NODE_ENV !== 'production') {
 const renderApplication = () => {
   function Modal() {
     return (
-      // <ModalProvider>
         <Provider store={store}>
           <BrowserRouter>
             <App />
           </BrowserRouter>
         </Provider>
-      // </ModalProvider>
     );
   }
 

@@ -1,7 +1,6 @@
 import React from 'react';
-import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { fetchComments } from '../../store/comments';
+import { useSelector } from 'react-redux';
+// import { fetchComments } from '../../store/comments';
 import CommentIndexItem from './CommentIndexItem';
 import './Comments.css';
 
@@ -16,11 +15,11 @@ const CommentIndex = ({article}) => {
   console.log('comments');
   console.log(comments);
 
-  if (!comments) return <></>;
+  if (!comments || comments === [null]) return <></>;
   return (
     <div className="comment-index">
-      {comments.map(comment => {return (
-        <CommentIndexItem key={comment.uniqueId} comment={comment}/>
+      {comments && comments.map(comment => {return (
+        <CommentIndexItem key={comment?.id} comment={comment}/>
       )})},
       {/* {comments && comments.map(comment => {return (
         <div key={comment.id} comment={comment}>

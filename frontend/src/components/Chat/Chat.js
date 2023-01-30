@@ -1,16 +1,16 @@
 import React, { useState } from 'react'
-import axios from 'axios';
+// import axios from 'axios';
 import { Input } from '../../blocks/Form';
-import { useEffect } from 'react';
+// import { useEffect } from 'react';
 import Button from '../../blocks/Button';
 import { useInput } from '../../hooks';
 import csrfFetch from '../../store/csrf';
 
-const tokenApp = window.sessionStorage.getItem('X-CSRF-Token');
+// const tokenApp = window.sessionStorage.getItem('X-CSRF-Token');
 
 
 const Chat = () => {
-  const [response, setResponse] = useState();
+  const [response,] = useState();
   const [prompt, promptChange] = useInput('');
 
   const handleInput = async (e) => {

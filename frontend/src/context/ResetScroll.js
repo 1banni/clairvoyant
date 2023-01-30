@@ -9,7 +9,7 @@ function ResetScroll({ history }) {
     return () => {
       callback();
     }
-  }, []);
+  }, [history]); // TODO: confirm that adding history here did not introduce a bug
   return null;
 }
 

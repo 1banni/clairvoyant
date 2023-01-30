@@ -7,7 +7,7 @@ import { ReactComponent as ProfileIcon } from '../../assets/svg/profile.svg'
 import ProfileMenu from '../../components/Menu/ProfileMenu';
 import NavItem from '../../components/NavItem/NavItem';
 import Button from '../../blocks/Button';
-import LoginModal, { LoginModalButton } from '../../modals/LoginModal';
+import LoginModal from '../../modals/LoginModal';
 import './NavBar.css';
 
 // const myImg = require('./assets/Profilemethods.png');
