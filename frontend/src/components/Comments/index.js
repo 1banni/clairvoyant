@@ -1,3 +1,3 @@
-import Comments from './Comments';
+import CommentIndex from './CommentIndex';
 
-export default Comments;
+export default CommentIndex;

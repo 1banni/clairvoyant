@@ -2,9 +2,10 @@ import React from 'react';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchComments } from '../../store/comments';
+import CommentIndexItem from './CommentIndexItem';
 import './Comments.css';
 
-const Comments = ({article}) => {
+const CommentIndex = ({article}) => {
   // const dispatch = useDispatch();
   const comments = useSelector(store => Object.values(store.comments));
 
@@ -14,8 +15,13 @@ const Comments = ({article}) => {
 
   console.log('comments');
   console.log(comments);
+
+  if (!comments) return <></>;
   return (
-    <div>
+    <div className="comment-index">
+      {comments.map(comment => {return (
+        <CommentIndexItem key={comment.uniqueId} comment={comment}/>
+      )})},
       {/* {comments && comments.map(comment => {return (
         <div key={comment.id} comment={comment}>
           {comment.body}
@@ -26,4 +32,4 @@ const Comments = ({article}) => {
   );
 };
 
-export default Comments;
+export default CommentIndex;

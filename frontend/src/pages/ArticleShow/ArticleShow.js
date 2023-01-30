@@ -57,7 +57,6 @@ const ArticleShow = (props) => {
             <ArticleLinks article={article}/>
             <Comments article={article}/>
         </div>
-
         <div className="more-from-author">More from author_name</div>
         <div className="share-your-ideas">Share your ideas with millions of readers. TODO: WRITE ON MEDIUM button</div>
         <div className="recommended">
