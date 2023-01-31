@@ -2,11 +2,12 @@
 .article-show {
   display: flex;
   flex-direction: row;
+  justify-content: space-around;
 }
 
 /* Left Side */
 .article-show-l {
-  width: 65%;
+  width: var(--width-article);
   display: flex;
   flex-direction: column;
   margin: 10px;
@@ -85,22 +86,12 @@
   margin-left: 10px;
 }
 
-
-
-
-
-
-
-
-
-
-
-
 /* Right Side */
 .article-show-right {
   display: flex;
   flex-direction: column;
-
+  width: var(--width-sidebar);
+  border: var(--border-rng);
 }
 
 .comment-sidebar {
@@ -110,16 +101,23 @@
   z-index: 1;
   /* top: 0; */
   /* left: 0; */
-  background-color: #efefef;
+  background-color: #fcfcfc;
   border: 2px solid red;
   display: none; /* comment sidebar hidden */
   overflow-x: hidden; /* disables horizontal scroll */
   /* transition: width 5s; */
   /* transition: 3s; */
+
+  /* TODO: DELETE ME WHEN DONE BUILDING THE SIDEBAR */
+  /* ************************************************* */
+  display: flex;
+  flex-direction: column;
+  width: var(--width-sidebar);
+  /* ************************************************* */
 }
 
 .comment-sidebar.show {
-  width: 100%;
+  /* width: 100%; */
   display: flex;
   /* transition: 3s; */
 }

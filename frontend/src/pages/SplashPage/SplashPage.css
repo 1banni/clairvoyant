@@ -187,8 +187,7 @@
 }
 
 .splash-sidebar {
-  width: 35%;
-  width: clamp(200px, 30vw, 350px);
+  width: var(--width-sidebar);
 }
 
 @media (max-width: 800px) {

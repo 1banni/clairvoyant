@@ -42,6 +42,8 @@ html {
   --border-ylw: 4px solid #fffd82;
   --border-rng: 4px solid #ff9b71;
   --border-radius: 10px solid #505050;
+  --width-article: clamp(300px, 70vw, 800px);
+  --width-sidebar: clamp(200px, 30vw, 350px);
   --speed: 400ms;
   font-family: sohne,
     "Helvetica Neue",

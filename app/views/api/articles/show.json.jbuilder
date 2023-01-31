@@ -15,6 +15,8 @@ json.set! 'comments' do
   @comments.each do |comment|
     json.set! comment.id do
       json.extract! comment, :id, :body, :author_id, :parent_id, :created_at
+
+      json.author_name comment.author.name
     end
   end
 end

@@ -9,7 +9,6 @@ import ShareLink from '../../blocks/ShareLink';
 
 const AuthorTile = ({article, children, author}) => {
   const color = () => ColorUtil.nameToColor(article.authorName);
-  if (!article) return <Redirect to="/articles"/>;
 
   const styleOptions = {
     stroke: color(),
@@ -18,6 +17,7 @@ const AuthorTile = ({article, children, author}) => {
     // size: "5x"
   }
 
+  if (!article) return <Redirect to="/articles"/>;
   return (
     <div className="author-tile-1 ">
       <div className="l">

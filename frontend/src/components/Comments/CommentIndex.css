@@ -1,0 +1,84 @@
+
+
+
+.comment-index {
+  /* width: 100px; */
+  width: 100%;
+}
+
+
+.comment-index-item {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  /* border: var(--border-blu); */
+  border-bottom: var(--border);
+  border-width: 90%;
+}
+
+
+
+.comment-index-item .author {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-between;
+  /* border: var(--border-pnk); */
+}
+
+.comment-index-item .author-l {
+  display: flex;
+  flex-direction: row;
+  border: var(--border-ylw);
+}
+
+.comment-index-item .author-r {
+  border: var(--border-grn);
+
+}
+
+.comment-index-item .body {
+  /* border: var(--border-rng); */
+  margin-top: 8px;
+  margin-bottom: 8px;
+
+}
+
+
+.comment-index-item .author-l .image {
+  /* border: var(--border-blu); */
+  display: flex;
+  justify-content: center; /* align horizontal */
+  align-items: center; /* align vertical */
+  margin: 5px;
+}
+
+.comment-index-item .author-l .name-and-date {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-left: 5px;
+}
+
+.comment-index-item .author-l .name-and-date .name {
+
+}
+
+.comment-index-item .author-l .name-and-date .date {
+
+}
+
+
+.comment-index-item .author-r .report-btn-ctnr {
+  height: 20px;
+  display: flex;
+}
+.comment-index-item .author-r .report-btn {
+  border: none;
+  font: var(--ff-text);
+  font-size: larger;
+  display: flex;
+  align-self: center;
+  justify-self: center;
+  /* height: 10px; */
+}
