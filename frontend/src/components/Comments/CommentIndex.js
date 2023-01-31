@@ -21,12 +21,6 @@ const CommentIndex = ({article}) => {
       {comments && comments.map(comment => {return (
         <CommentIndexItem key={comment?.id} comment={comment}/>
       )})},
-      {/* {comments && comments.map(comment => {return (
-        <div key={comment.id} comment={comment}>
-          {comment.body}
-          {comment.author}
-        </div>
-      )})}, */}
     </div>
   );
 };

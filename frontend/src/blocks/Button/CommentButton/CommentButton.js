@@ -1,9 +1,17 @@
 import React from 'react'
+import Button from '../Button'
 
-const CommentButton = () => {
+const CommentButton = ({toggleCommentDisplay}) => {
   return (
-    <div>CommentButton</div>
+    <div className="comment">
+      <Button className="icon-btn comment"
+              containername="icon-ctnr comment"
+              onClick={toggleCommentDisplay}>Comment
+        {/* <img className="comment-img" src={CommentImg} size="100px" alt="comment-img"/> */}
+      </Button>
+      {/* <div className="comment-ct">{comments?.length}</div> */}
+    </div>
   )
 }
 
-export default CommentButton
+export default CommentButton;

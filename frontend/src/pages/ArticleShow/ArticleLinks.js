@@ -1,13 +1,16 @@
 
 import React from 'react';
-import Clap from '../../blocks/Button/ClapButton';
+import ClapButton from '../../blocks/Button/ClapButton';
+import CommentButton from '../../blocks/Button/CommentButton/CommentButton';
 
-const ArticleLinks = ({article}) => {
+const ArticleLinks = ({article, toggleCommentDisplay}) => {
   return (
     <div className="article-links">
       <div className="clap-comment">
-        <Clap article={article}/>
-        <div className='comment'>Comment</div>
+        <ClapButton article={article}/>
+        <CommentButton article={article}
+          toggleCommentDisplay={toggleCommentDisplay}
+        />
       </div>
       <div className="share-bookmark">
         <div className='share'>Share</div>

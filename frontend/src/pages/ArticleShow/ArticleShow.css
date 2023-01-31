@@ -103,8 +103,32 @@
 
 }
 
+.comment-sidebar {
+  height: 100%;
+  width: 0%;
+  position: fixed;
+  z-index: 1;
+  /* top: 0; */
+  /* left: 0; */
+  background-color: #efefef;
+  border: 2px solid red;
+  display: none; /* comment sidebar hidden */
+  overflow-x: hidden; /* disables horizontal scroll */
+  /* transition: width 5s; */
+  /* transition: 3s; */
+}
+
+.comment-sidebar.show {
+  width: 100%;
+  display: flex;
+  /* transition: 3s; */
+}
 
 
+/* .article-show-wrapper { */
+  /* display: flex; */
+  /* flex-direction: */
+/* } */
 
 
 
