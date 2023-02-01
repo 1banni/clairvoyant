@@ -110,9 +110,9 @@
 
   /* TODO: DELETE ME WHEN DONE BUILDING THE SIDEBAR */
   /* ************************************************* */
-  /* display: flex;
+  display: flex;
   flex-direction: column;
-  width: var(--width-sidebar); */
+  width: var(--width-sidebar);
   /* ************************************************* */
 }
 

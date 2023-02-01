@@ -1,10 +1,12 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { FaUserCircle } from 'react-icons/fa';
 import Button from '../../blocks/Button';
+import Tooltip from '../../blocks/Tooltip/Tooltip';
 import ColorUtil from '../../utils/ColorUtil';
 import DateUtil from '../../utils/DateUtil';
 
 const CommentTile = ({comment}) => {
+  const [showEditDelete, setShowEditDelete] = useState(false);
   const color = () => ColorUtil.nameToColor('TODO - UPDATE');
   const styleOptions = {
     stroke: color(),
@@ -13,8 +15,18 @@ const CommentTile = ({comment}) => {
     // size: "5x"
   }
 
-  console.log('comment');
-  console.log(comment);
+  console.log('showEditDelete');
+  console.log(showEditDelete);
+
+  const handleEdit = (e) => {
+    e.preventDefault();
+    console.log('handling edit');
+  }
+
+  const handleDelete = (e) => {
+    e.preventDefault();
+    console.log('handling delete');
+  }
 
   if (!comment) return <></>;
   return (
@@ -37,13 +49,17 @@ const CommentTile = ({comment}) => {
           </div>
         </div>
         <div className='author-r'>
+          <Tooltip>
+            <Button onClick={handleEdit} label="Edit this response"/>
+            <Button onClick={handleDelete} label="Delete"/>
+          </Tooltip>
           {/* <Button className="report-btn"
             containername="report-btn-ctnr"
-            onClick={() => console.log("TODO - Implement Me!")}
+            onClick={() => setShowEditDelete(state => !state)}
             label="..."
           >
           </Button> */}
-          
+
         </div>
       </div>
       <div className='body'>

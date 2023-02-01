@@ -39,10 +39,7 @@ export const fetchComment = () => async dispatch => {
 }
 
 export const fetchComments = (articleId) => async dispatch => {
-  console.log('in fetchComments');
-
   const res = await csrfFetch(`/api/comments/${articleId}`);
-
   if (res.ok) {
     const comments = await res.json();
     dispatch(receiveComment(comments));
@@ -79,8 +76,6 @@ export const selectCommentsByArticleId = articleId => state => {
   let comments = Object.values(state.comments);
   if (!comments) return 0;
   if (comments[0] === null) return 0;
-  console.log('comments');
-  console.log(comments);
   return comments.filter(comment => comment['articleId'] === articleId);
 };
 

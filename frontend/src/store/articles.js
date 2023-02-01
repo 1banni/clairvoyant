@@ -47,8 +47,6 @@ export const fetchArticle = (articleId) => async dispatch => {
 
   if (res.ok) {
     const {article, comments} = await res.json();
-    console.log('article');
-    console.log(article);
     // This payload will go to every reducer
     // receiveComment - polug it into state
     // filter in useSelector for comment
@@ -66,16 +64,11 @@ export const createArticle = (article) => async dispatch => {
   if (res.ok) {
     const data = await res.json();
     dispatch(receiveArticle(data));
-    console.log('data');
-    console.log(data);
     return Object.keys(data.article)[0];
   }
 };
 
 export const deleteArticle = articleId => async dispatch => {
-  console.log('articleId');
-  console.log(articleId);
-
   const res = await csrfFetch(`/api/articles/${articleId}`, {
     method: "DELETE"
   });

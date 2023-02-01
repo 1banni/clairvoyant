@@ -22,15 +22,9 @@ const CommentIndex = ({article}) => {
   //   dispatch(fetchComments(article.id))
   // }, [dispatch, article])
 
-  // console.log('comments');
-  // console.log(comments);
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!sessionUser) throw new Error("you must be logged in to comment on an article");
-    console.log('article');
-    console.log(article);
-    console.log('article.id');
-    console.log(article.id);
     const comment = {
       body,
       article_id: article.id

@@ -1,0 +1,33 @@
+
+
+
+
+
+
+.tooltip-wrapper {
+  display: inline-block;
+  position: relative;
+}
+
+.tooltip {
+  position: absolute;
+  border-radius: 2px;
+  left: 50%;
+  transform: translateX(-95%);
+  margin-top: 10px;
+  font-family: var(--ff-text);
+  color: var(--alt-text-color);
+  background: white;
+  /* border: var(--border-pnk); */
+  z-index: 2;
+  white-space: nowrap;
+}
+
+.tooltip.bottom {
+  bottom: calc(var(10px) * -1);
+}
+
+.tooltip.bottom::before {
+  bottom: 100%;
+  /* border-bottom: var(--border-grn); */
+}
