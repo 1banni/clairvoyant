@@ -24,19 +24,9 @@ class Api::CommentsController < ApplicationController
     @comment.author_id = current_user.id
     # @article = Article.find_by(comment_params.article_id)
 
-    p '-----------------------------------TODO - DELETE ME------'
-    p 'comment_params'
-    p comment_params
-    p 'in comments_controller#create'
-    p @comment
-
     if @comment&.save
-      p @comment
-      p 'comment save successful'
       render :show
     else
-      p 'comment save failed'
-      p @comment
       render json: { errors: @commment.errors.full_messages }, status: 422
     end
   end

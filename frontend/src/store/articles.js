@@ -66,7 +66,9 @@ export const createArticle = (article) => async dispatch => {
   if (res.ok) {
     const data = await res.json();
     dispatch(receiveArticle(data));
-    return Object.keys(data)[0];
+    console.log('data');
+    console.log(data);
+    return Object.keys(data.article)[0];
   }
 };
 
@@ -148,7 +150,7 @@ const articlesReducer = (state = {}, action) => {
       // let newState = {...state}
       // newState[action.article.id] = action.article;
       // POTENTIAL BUG - could just be action.article
-      return { ...state, ...action.article};
+      return { ...action.article};
     case REMOVE_ARTICLE:
       let newState = {...state};
       delete newState[action.articleId];

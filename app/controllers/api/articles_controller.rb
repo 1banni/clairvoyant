@@ -14,12 +14,7 @@ class Api::ArticlesController < ApplicationController
 
   def show
     @article = Article.find(params[:id])
-
-    p '-------------------------------------------------'
-    p 'show'
-    p '-------------------------------------------------'
     @comments = Comment.where(article_id: params[:id])
-    p @comments
 
 
     if @article
@@ -32,7 +27,6 @@ class Api::ArticlesController < ApplicationController
   def create
     @article = Article.new(article_params)
     @article.author_id = current_user.id
-    # TODO: CONFIRM THIS WORKS
 
     if @article&.save
       render :show

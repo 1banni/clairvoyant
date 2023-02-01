@@ -26,10 +26,6 @@ const ArticleShow = (props) => {
 
   useEffect(() => {
     dispatch(fetchClaps());
-  }, [dispatch]);
-
-  useEffect(() => {
-    dispatch(fetchClaps());
     if (articleId) {
       dispatch(fetchArticle(articleId));
       dispatch(fetchComments(articleId));

@@ -74,7 +74,15 @@ export const deleteComment = (comment) => async dispatch => {
 };
 
 // SELECTORS
-
+export const selectCommentsByArticleId = articleId => state => {
+  if (!articleId) return 0;
+  let comments = Object.values(state.comments);
+  if (!comments) return 0;
+  if (comments[0] === null) return 0;
+  console.log('comments');
+  console.log(comments);
+  return comments.filter(comment => comment['articleId'] === articleId);
+};
 
 
 

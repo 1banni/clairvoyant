@@ -2,6 +2,7 @@ const PNG = {
   CLAP_ICON_FALSE: require('./png/clap0.png'),
   CLAP_ICON_TRUE: require('./png/clap1.png'),
   CLOSE_BUTTON_ICON: require('./png/close-button.png'),
+  COMMENT_BUTTON: require('./png/comment.png'),
   LOGO_WITH_NAME: require('./png/logo-with-name.png'),
   LOGO: require('./png/logo.png'),
   PEN_PAPER: require('./png/pen-paper.png'),

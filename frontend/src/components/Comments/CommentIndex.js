@@ -7,20 +7,23 @@ import './CommentIndex.css';
 import { useInput } from '../../hooks';
 import { createComment } from '../../store/comments';
 import Button from '../../blocks/Button';
+import { useParams } from 'react-router-dom';
 
 const CommentIndex = ({article}) => {
   const dispatch = useDispatch();
+  // let { articleId } = useParams();
   const comments = useSelector(store => Object.values(store.comments));
   const sessionUser = useSelector(state => state.session.user);
-  const [body, bodyChange] = useInput("");
+  // const formType =
 
+  const [body, bodyChange] = useInput("");
 
   // useEffect(() => {
   //   dispatch(fetchComments(article.id))
   // }, [dispatch, article])
 
-  console.log('comments');
-  console.log(comments);
+  // console.log('comments');
+  // console.log(comments);
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!sessionUser) throw new Error("you must be logged in to comment on an article");

@@ -73,7 +73,7 @@
   flex-direction: row;
 }
 .clap {
-  margin-right: 10px
+  /* margin-right: 10px */
 
 }
 
@@ -110,15 +110,17 @@
 
   /* TODO: DELETE ME WHEN DONE BUILDING THE SIDEBAR */
   /* ************************************************* */
-  display: flex;
+  /* display: flex;
   flex-direction: column;
-  width: var(--width-sidebar);
+  width: var(--width-sidebar); */
   /* ************************************************* */
 }
 
 .comment-sidebar.show {
   /* width: 100%; */
   display: flex;
+  flex-direction: column;
+  width: var(--width-sidebar);
   /* transition: 3s; */
 }
 

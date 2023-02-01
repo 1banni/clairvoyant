@@ -1,7 +1,7 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { PNG } from '../../../assets';
-import Button from '..';
+import Button from '../Button';
 import { createClap, deleteClap, selectClapId, selectClapsByArticleId } from '../../../store/claps';
 import './ClapButton.css';
 

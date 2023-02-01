@@ -37,13 +37,13 @@ const CommentTile = ({comment}) => {
           </div>
         </div>
         <div className='author-r'>
-          <Button className="report-btn"
+          {/* <Button className="report-btn"
             containername="report-btn-ctnr"
             onClick={() => console.log("TODO - Implement Me!")}
             label="..."
           >
-
-          </Button>
+          </Button> */}
+          
         </div>
       </div>
       <div className='body'>

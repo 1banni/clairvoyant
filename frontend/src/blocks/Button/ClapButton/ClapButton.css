@@ -1,25 +1,27 @@
 .clap {
   display: flex;
   flex-direction: row;
+  margin: 0px;
 }
 
 .icon-btn.clap {
   height: 40px;
   width: 40px;
   /* border: 2px solid blue; */
-
+  margin: 0px;
 }
 
 .clap-img {
   width: 100%;
   height: auto;
   object-fit: cover;
+  margin: 0px;
 }
 
 .clap-ct {
   font-family: var(--ff-text);
   color: var(--color-dark-grey);
-  border: var(--border-grn);
+  /* border: var(--border-grn); */
   align-self: center;
 }
 
