@@ -2,12 +2,19 @@ import React, { useState } from 'react';
 import './Tooltip.css';
 
 const Tooltip = (props) => {
+  let timeout;
   const [active, setActive] = useState(false);
 
-  const toggleTooltip = () => active ? setActive(false) : setActive(true);
 
-  console.log('active');
-  console.log(active);
+  const toggleTooltip = () => {
+    if (active) setActive(false);
+    else {
+      setActive(true)
+      timeout = setTimeout(() => {
+        setActive(false);
+      }, 5000)
+    }
+  }
 
   return (
     <div>

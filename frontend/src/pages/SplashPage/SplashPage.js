@@ -2,7 +2,7 @@ import './SplashPage.css';
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchArticles, selectTopics } from '../../store/articles';
-import SplashPageAnimation from '../../components/Animations/SplashPageAnimation';
+import SplashPageAnimation from '../../blocks/Animations/SplashPageAnimation';
 import Button from '../../blocks/Button'
 import ArticleIndex from '../../components/ArticleIndex/ArticleIndex';
 import TopicButton from '../../blocks/Button/TopicButton';
