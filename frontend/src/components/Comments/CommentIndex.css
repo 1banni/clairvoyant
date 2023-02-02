@@ -1,12 +1,19 @@
 .comment-form-ctnr {
   transition: height 0.4s linear;
-  height: 48px;
+  min-height: 48px;
   margin: 10px;
   box-shadow: 0 0 1.5px #444;
 }
 
 .comment-form-ctnr.active {
-  height: 100px;
+  min-height: 150px;
+  /* margin-top: 0; */
+  /* height: auto; */
+  border: var(--border-pnk);
+}
+
+.outer-1 {
+  margin: -100%;
 }
 
 .activator-btn-ctnr {
@@ -46,32 +53,14 @@ span {
   padding-right: 10px;
 }
 
-.input {
-    /* padding: 0;
-      margin: 10px;
-      box-shadow: 0 0 4px #bbb;
-      border: none;
-      width: 100%;
-      height: 48px;
-      font-weight: 400;
-      letter-spacing: 0.03ch;
-      background-color: white;
-      text-align: left;
-      text-justify: left;
-      font-family: var(--ff-text);
-      color: var(--color-ultralight-grey);
-      font-size: 0.87rem;
-      margin: auto; */
-      text-indent: 0.4em;
-}
-
-button {
-  float: right;
-}
 
 .comment-form-ctnr .input {
   width: 100%;
   text-indent: 0.4em;
+  overflow-wrap: break-word;
+  /* resize:vertical; */
+  display: inline-block;
+  border: 1px solid orange;
   /* RESUME HERE */
   /* WE'RE TRYING TO GET THE TEXT TO WRAP */
   /* LIKELY NEED TO USE TEXTAREA? */
@@ -98,9 +87,6 @@ button {
       color: var(--color-ultralight-grey);
       font-size: 0.87rem;
       margin: auto;*/
-
-
-
 
 
 
@@ -147,6 +133,14 @@ button {
   margin-bottom: 8px;
 
 }
+
+.comment-index-item .body strong {
+  font-weight: bold;
+}
+.comment-index-item .body em {
+  font-style: italic;
+}
+
 
 
 .comment-index-item .author-l .image {
@@ -198,6 +192,9 @@ button {
 
 
 .buttons {
+  height: 40px;
+  border: var(--border-blu);
+  margin-bottom: 10px;
   display: flex;
   justify-content: end;
 }

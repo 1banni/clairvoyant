@@ -7,6 +7,7 @@ import { deleteComment } from '../../store/comments';
 import ColorUtil from '../../utils/ColorUtil';
 import DateUtil from '../../utils/DateUtil';
 import CommentForm from './CommentForm';
+import { Markup } from 'interweave';
 
 const CommentTile = ({commentId}) => {
   const dispatch = useDispatch()
@@ -77,8 +78,9 @@ const CommentTile = ({commentId}) => {
                           formtype="edit"
                           comment={comment}
                           setEditToggle={setEditToggle}
+                          editToggle={editToggle}
             />)
-          : comment.body
+          : <Markup content={comment?.body} />
         }
 
       </div>
