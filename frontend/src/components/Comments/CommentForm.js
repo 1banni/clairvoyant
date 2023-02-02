@@ -1,14 +1,19 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { FaPassport } from 'react-icons/fa';
 import { useDispatch, useSelector } from 'react-redux';
+import ArticleAuthor from '../../blocks/ArticleAuthor/ArticleAuthor';
 import Button from '../../blocks/Button'
 import { Input } from '../../blocks/Form'
 import { useInput } from '../../hooks';
+import useStateChange from '../../hooks/useStateChange';
 import { createComment, updateComment } from '../../store/comments';
 
 const CommentForm = ({articleId, formtype, comment, setEditToggle}) => {
   const dispatch = useDispatch();
   const sessionUser = useSelector(state => state.session.user);
-  const [body, bodyChange] = useInput("");
+  const [body, setBody, handleBody] = useStateChange(comment?.body);
+  const [active, setActive] = useState(false);
+  const create = formtype === "create";
 
 
   const handleSubmit = (e) => {
@@ -23,33 +28,69 @@ const CommentForm = ({articleId, formtype, comment, setEditToggle}) => {
 
     if (formtype === "edit") {
       dispatch(updateComment(commentData));
-      setEditToggle(false);
+      // setEditToggle(false);
+      setActive(false);
     } else {
       dispatch(createComment(commentData));
     }
   }
 
+  const handleCancel = (e) => {
+    e.preventDefault();
+    setBody("");
+    setActive(false);
+    return "";
+  }
+
+
   return (
-      <div className={formtype + "-comment-ctnr"}>
-        <div className={formtype + "-comment"}>
+    <>
+      {create && !(body || active)
+
+      ?
+        <Button containername="activator-btn-ctnr"
+                className="activator-btn"
+                onClick={() => setActive(true)}
+                label="What are your thoughts?"
+        />
+      :
+      <div className={`comment-form-ctnr ${formtype}`}>
+        <div className="user">
+          <ArticleAuthor name={sessionUser?.name} />
+        </div>
+        <form>
+        <div className={formtype + "-inputs"}>
           <Input label=""
-            containername={"comment-" + formtype + "-form-ctnr-body"}
-            className={"comment-" + formtype + "-form-body"}
+            containername={"comment-" + formtype + "-form-ctnr"}
+            className={"comment-" + formtype + "-form"}
             type="text"
             value={body}
-            onChange={bodyChange}
+            onChange={handleBody}
             placeholder="What are your thoughts?"
             // size="140"
             required
           />
+        </div>
+        {create &&
+        (<div className="buttons">
           <Button
-            containername="comment-create-btn-ctnr"
-            className="comment-create-btn"
-            label="respond"
+            containername="cancel-btn-ctnr"
+            className="cancel-btn"
+            label="Cancel"
+            onClick={handleCancel}
+          />
+          <Button
+            containername="respond-btn-ctnr"
+            className="respond-btn"
+            label="Respond"
             onClick={handleSubmit}
           />
+        </div>)
+        }
+        </form>
         </div>
-      </div>
+      }
+    </>
   )
 }
 

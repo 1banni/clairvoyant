@@ -1,3 +1,38 @@
+.activator-btn-ctnr {
+  /* display: flex; */
+  /* flex-direction: row; */
+  /* justify-content: flex-start; */
+  /* align-items: flex-start; */
+}
+
+.activator-btn {
+  margin: 10px;
+  box-shadow: 0 0 4px #bbb;
+  border: none;
+  width: 100%;
+  height: 48px;
+  font-weight: 400;
+  letter-spacing: 0.03ch;
+  /* color: white; */
+  background-color: white;
+  text-align: left;
+  text-justify: left;
+  font-family: var(--ff-text);
+  color: var(--color-ultralight-grey);
+  font-size: 0.87rem;
+}
+
+
+.comment-form-ctnr.edit {
+}
+
+.comment-form-ctnr.create {
+  /* border: var(--border-blu); */
+
+  margin: 10px;
+  box-shadow: 0 0 1.5px #444;
+
+}
 
 
 
@@ -82,3 +117,64 @@
   justify-self: center;
   /* height: 10px; */
 }
+
+
+
+.comment-create-form-ctnr {
+  border: var(--border-pnk);
+}
+.comment-create-form-ctnr {
+  border: var(--border-ylw);
+}
+
+
+.buttons {
+  display: flex;
+  justify-content: end;
+}
+
+.respond-btn-ctnr {
+
+}
+
+.respond-btn {
+  position: center;
+  justify-self: center;
+  justify-content: center;
+  align-self: center;
+  text-align: center;
+  display: block;
+  background: #1a8917;
+  color: white;
+  border: 0.5px solid transparent;
+  border-radius: 24px;
+  font-size: 0.87rem;
+  height: 30px;
+  width: 80px;
+  margin: 5px;
+  font-weight: 100;
+}
+
+.cancel-btn-ctnr {
+
+}
+
+.cancel-btn {
+  position: center;
+  justify-self: center;
+  justify-content: center;
+  align-self: center;
+  text-align: center;
+  display: block;
+  background: transparent;
+  font-weight: 100;
+  /* color: white; */
+  border: 0.5px solid transparent;
+  border-radius: 24px;
+  font-size: 0.87rem;
+  height: 30px;
+  width: 80px;
+  margin: 5px;
+}
+
+

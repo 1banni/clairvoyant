@@ -4,10 +4,6 @@ import { Input } from '../../blocks/Form';
 // import { fetchComments } from '../../store/comments';
 import CommentTile from './CommentTile';
 import './CommentIndex.css';
-import { useInput } from '../../hooks';
-import { createComment } from '../../store/comments';
-import Button from '../../blocks/Button';
-import { useParams } from 'react-router-dom';
 import CommentForm from './CommentForm';
 
 const CommentIndex = ({article}) => {

@@ -17,7 +17,6 @@ class User < ApplicationRecord
     uniqueness: true,
     length: { in: 3..30 },
     format: { without: URI::MailTo::EMAIL_REGEXP, message: "can't be an email"}
-
   validates :email,
     uniqueness: true,
     length: { in: 3..255 },

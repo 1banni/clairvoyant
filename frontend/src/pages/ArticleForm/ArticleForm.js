@@ -44,8 +44,6 @@ const ArticleForm = props => {
     'link', 'image'
   ];
 
-  // const [title, setTitle] = useState();
-
   $('textarea').on('input', function() {
     $(this).outerHeight(40).outerHeight(this.scrollHeight);
   });
@@ -53,7 +51,6 @@ const ArticleForm = props => {
   const handleSubmit = async e => {
     e.preventDefault();
     if (!sessionUser) throw new Error("you must be logged in to bookmark a post");
-
     article = {...article, title, topic, blurb, body};
     if (formType === 'Create') {
       let articleId = await dispatch(createArticle(article));
@@ -64,12 +61,6 @@ const ArticleForm = props => {
     }
   }
 
-
-  // const [errors, handleSubmit] = useSubmit({
-  //   createAction: () => createArticle({title, body, blurb, topic}),
-  //   onSuccess: () => history.push('/')
-  // });
-
   console.log('body');
   console.log(body);
 
@@ -78,24 +69,24 @@ const ArticleForm = props => {
     <div className='article-create-page'>
       <form className="article-create-form" onSubmit={handleSubmit} >
       <div className="pair">
-        <div className="article-create-page-title-label">Title</div>
+        <div className="label title">Title</div>
         {/* <ReactQuill theme="bubble" value={title} placeholder='What will you name it?' onChange={titleChange} /> */}
         <Input label=""
-            containername="article-create-form-ctnr-title"
-            className="article-create-form-title"
+            containername="input-ctnr title"
+            className="input title"
             type="text"
             value={title}
             onChange={titleChange}
-            placeholder="Title"
+            placeholder=""
             // size="140"
             required
           />
       </div>
       <div className="pair">
-        <div className="article-create-page-topic-label">Topic</div>
+        <div className="label topic">Topic</div>
         <Input label=""
-            containername="article-create-form-ctnr-topic"
-            className="article-create-form-topic"
+            containername="input-ctnr topic"
+            className="input topic"
             type="text"
             value={topic}
             onChange={topicChange}
@@ -107,10 +98,11 @@ const ArticleForm = props => {
         {/* <ReactQuill theme="bubble" value={blurb} onChange={blurbChange} /> */}
       </div>
       <div className="pair">
-        <div className="article-create-page-blurb-label">Blurb</div>
+        <div className="label blurb">Blurb</div>
         {/* <ReactQuill theme="bubble" value={topic} onChange={topicChange} /> */}
         <Input label=""
-            className="article-create-form-blurb"
+            containername="input-ctnr blurb"
+            className="input blurb"
             type="text"
             value={blurb}
             onChange={blurbChange}

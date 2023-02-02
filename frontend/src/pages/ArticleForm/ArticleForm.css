@@ -9,39 +9,86 @@
   margin: 0px;
 }
 
-.pair {
-  margin-top: 50px;
+.article-create-form .pair {
+  display: flex;
+  flex-direction: row;
+  /* justify-content: center; */
+  /* align-content: center; */
+  justify-items: center;
+  align-items: center;
+
+  margin-top: 5px;
+}
+
+.article-create-form .pair .label {
+  width: 80px;
+  height: 100px;
+  font-family: var(--ff-text);
+  font-size: 1.5rem;
+  /* border: var(--border-blu); */
+  border: var(--border-rng);
+  /* justify-self: center; */
+  /* align-self: center; */
+  /* margin: auto; */
+  /* text-justify: center; */
+  text-align: center;
+  display: inline-block;
+}
+
+
+
+.input {
+  border: var(--border-ylw);
+
+}
+
+.input-ctnr {
+  border: var(--border-pnk);
 }
 
 .article-create-form-ctnr-title {
   /* width: clamp(300px, 80vw, 700px); */
-  padding-right: 100px;
+  margin-right: 100px;
   background: black;
 }
 .article-create-form-ctnr-blurb {
   /* width: clamp(300px, 80vw, 700px); */
-  padding-right: 100px;
+  margin-right: 100px;
   background: black;
 }
 
 .article-create-form-ctnr-topic {
   /* width: clamp(300px, 80vw, 700px); */
-  padding-right: 500px;
+  margin-right: 500px;
   background: black;
 }
 .article-create-form-ctnr-topic {
   /* width: clamp(300px, 80vw, 700px); */
   border: 10px solid pink;
   width: 100px;
-  padding-right: 500px;
+  margin-right: 500px;
   background: black;
 }
 
 /* Inputs */
-.article-create-form-title {
-  width: 100%;
-  font-size: larger;
-  font-weight: 600;
+
+.article-create-form .pair .input {
+  font-family: var(--ff-header);
+  /* border: var(--border-grn); */
+  height: 50px;
+}
+
+.article-create-form .pair .input.title {
+  font-family: var(--ff-header);
+  /* width: 100%; */
+  font-size: x-large;
+  font-weight: 300;
+  height: 50px;
+  width: clamp(300px, 70vw, 800px)
+}
+
+.article-create-form .pair .input-ctnr.title {
+  border: var(--border-rng);
 }
 
 .article-create-form-blurb {
@@ -77,22 +124,18 @@
 
 
 /* Input Labels */
-.article-create-page-title-label {
-  font-family: var(--ff-text);
-  font-size: 1.5rem;
+
+
+.article-create-form .pair .label.title {
+
+
 }
-.article-create-page-topic-label {
-  font-family: var(--ff-text);
-  font-size: 1.5rem;
+
+.article-create-form .input-ctnr.title {
+
 }
-.article-create-page-blurb-label {
-  font-family: var(--ff-text);
-  font-size: 1.5rem;
-}
-.article-create-page-body-label {
-  font-family: var(--ff-text);
-  font-size: 1.5rem;
-}
+
+
 
 
 .textarea {
