@@ -14,10 +14,13 @@ const CommentForm = ({articleId, formtype, comment, setEditToggle}) => {
   const [body, setBody, handleBody] = useStateChange(comment?.body);
   const [active, setActive] = useState(false);
   const create = formtype === "create";
+  const activeTag = active ? "active" : "";
 
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    console.log("in handle submit");
+
     if (!sessionUser) throw new Error("you must be logged in to comment on an article");
     let commentData = {
       body,
@@ -26,6 +29,8 @@ const CommentForm = ({articleId, formtype, comment, setEditToggle}) => {
     if (sessionUser) commentData.author_id = sessionUser.id;
     if (comment) commentData.id = comment.id;
 
+    console.log('formtype');
+    console.log(formtype);
     if (formtype === "edit") {
       dispatch(updateComment(commentData));
       // setEditToggle(false);
@@ -45,8 +50,8 @@ const CommentForm = ({articleId, formtype, comment, setEditToggle}) => {
 
   return (
     <>
+      <div className={`comment-form-ctnr ${formtype} ${activeTag}`}>
       {create && !(body || active)
-
       ?
         <Button containername="activator-btn-ctnr"
                 className="activator-btn"
@@ -54,16 +59,16 @@ const CommentForm = ({articleId, formtype, comment, setEditToggle}) => {
                 label="What are your thoughts?"
         />
       :
-      <div className={`comment-form-ctnr ${formtype}`}>
+      <div>
         <div className="user">
           <ArticleAuthor name={sessionUser?.name} />
         </div>
-        <form>
-        <div className={formtype + "-inputs"}>
+        {/* <form> */}
+        <div className={"input-wrapper "+ formtype}>
           <Input label=""
-            containername={"comment-" + formtype + "-form-ctnr"}
-            className={"comment-" + formtype + "-form"}
-            type="text"
+            containername={"input-ctnr " + formtype}
+            className={"input " + formtype}
+            type="textarea"
             value={body}
             onChange={handleBody}
             placeholder="What are your thoughts?"
@@ -71,8 +76,8 @@ const CommentForm = ({articleId, formtype, comment, setEditToggle}) => {
             required
           />
         </div>
-        {create &&
-        (<div className="buttons">
+        {/* {create && (*/}
+        <div className="buttons">
           <Button
             containername="cancel-btn-ctnr"
             className="cancel-btn"
@@ -85,11 +90,12 @@ const CommentForm = ({articleId, formtype, comment, setEditToggle}) => {
             label="Respond"
             onClick={handleSubmit}
           />
-        </div>)
-        }
-        </form>
+        </div>
+      {/*) } */}
+        {/* </form> */}
         </div>
       }
+      </div>
     </>
   )
 }

@@ -1,6 +1,6 @@
-import React from 'react';
+import React from 'react'
 
-function Input({...props}) {
+const TextArea = ({...props}) => {
   props.containername ||= "input";
   props.className ||= "input-label";
   props.label ||= "";
@@ -11,9 +11,9 @@ function Input({...props}) {
         {props.label}
       </h4>
       <br/>
-      <input {...props} />
+      <textarea readOnly="false" {...props}></textarea>
     </div>
   )
 }
 
-export default Input;
+export default TextArea

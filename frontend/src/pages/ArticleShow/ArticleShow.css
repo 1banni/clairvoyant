@@ -103,7 +103,7 @@
   /* top: 0; */
   /* left: 0; */
   background-color: #fcfcfc;
-  border: 2px solid red;
+  /* border: 2px solid red; */
   display: none; /* comment sidebar hidden */
   overflow-x: hidden; /* disables horizontal scroll */
   /* transition: width 5s; */
