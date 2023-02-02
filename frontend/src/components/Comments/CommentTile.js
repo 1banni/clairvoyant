@@ -1,12 +1,22 @@
 import React, { useState } from 'react'
 import { FaUserCircle } from 'react-icons/fa';
+import { useDispatch, useSelector } from 'react-redux';
 import Button from '../../blocks/Button';
 import Tooltip from '../../blocks/Tooltip/Tooltip';
+import { deleteComment } from '../../store/comments';
 import ColorUtil from '../../utils/ColorUtil';
 import DateUtil from '../../utils/DateUtil';
+import CommentForm from './CommentForm';
 
-const CommentTile = ({comment}) => {
-  const [showEditDelete, setShowEditDelete] = useState(false);
+const CommentTile = ({commentId}) => {
+  const dispatch = useDispatch()
+  const comment = useSelector(store => store.comments[commentId]);
+  const sessionUser = useSelector(state => state.session.user);
+  const userToggle = () => {
+    return comment?.authorId === sessionUser?.id;
+  };
+  const [editToggle, setEditToggle] = useState(false);
+
   const color = () => ColorUtil.nameToColor('TODO - UPDATE');
   const styleOptions = {
     stroke: color(),
@@ -15,17 +25,16 @@ const CommentTile = ({comment}) => {
     // size: "5x"
   }
 
-  console.log('showEditDelete');
-  console.log(showEditDelete);
 
   const handleEdit = (e) => {
     e.preventDefault();
-    console.log('handling edit');
+    setEditToggle(true);
   }
 
   const handleDelete = (e) => {
     e.preventDefault();
-    console.log('handling delete');
+    console.log("frontend CommentTile handleDelete");
+    dispatch(deleteComment(comment.id))
   }
 
   if (!comment) return <></>;
@@ -63,7 +72,15 @@ const CommentTile = ({comment}) => {
         </div>
       </div>
       <div className='body'>
-        {comment.body}
+        {editToggle
+          ? (<CommentForm articleId={comment.articleId}
+                          formtype="edit"
+                          comment={comment}
+                          setEditToggle={setEditToggle}
+            />)
+          : comment.body
+        }
+
       </div>
     </div>
   )

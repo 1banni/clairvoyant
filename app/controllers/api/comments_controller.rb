@@ -34,6 +34,7 @@ class Api::CommentsController < ApplicationController
   def update
     @comment = Comment.find(params[:id])
     # @article = Article.find_by(comment_params.article_id)
+    p 'in api/comments_controller#update'
     if @comment
       if @comment.author_id == current_user.id
         if @comment.update(comment_params)
@@ -65,6 +66,6 @@ class Api::CommentsController < ApplicationController
   private
   def comment_params
     # potential bug missing ID
-    params.require(:comment).permit(:body, :article_id, :parent_id)
+    params.require(:comment).permit(:body, :article_id, :author_id, :parent_id)
   end
 end

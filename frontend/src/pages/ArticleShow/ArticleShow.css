@@ -16,6 +16,7 @@
 .title-and-blurb {
 
 }
+
 .article-view .title {
   max-height: none;
   font-size: 2.5rem;
@@ -110,9 +111,9 @@
 
   /* TODO: DELETE ME WHEN DONE BUILDING THE SIDEBAR */
   /* ************************************************* */
-  display: flex;
+  /* display: flex;
   flex-direction: column;
-  width: var(--width-sidebar);
+  width: var(--width-sidebar); */
   /* ************************************************* */
 }
 

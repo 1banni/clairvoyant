@@ -3,9 +3,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import Button from '../../blocks/Button'
 import { Input } from '../../blocks/Form'
 import { useInput } from '../../hooks';
-import { createComment } from '../../store/comments';
+import { createComment, updateComment } from '../../store/comments';
 
-const CommentForm = ({articleId}) => {
+const CommentForm = ({articleId, formtype, comment, setEditToggle}) => {
   const dispatch = useDispatch();
   const sessionUser = useSelector(state => state.session.user);
   const [body, bodyChange] = useInput("");
@@ -14,19 +14,27 @@ const CommentForm = ({articleId}) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!sessionUser) throw new Error("you must be logged in to comment on an article");
-    const comment = {
+    let commentData = {
       body,
-      article_id: articleId
+      article_id: articleId,
+    };
+    if (sessionUser) commentData.author_id = sessionUser.id;
+    if (comment) commentData.id = comment.id;
+
+    if (formtype === "edit") {
+      dispatch(updateComment(commentData));
+      setEditToggle(false);
+    } else {
+      dispatch(createComment(commentData));
     }
-    dispatch(createComment(comment));
   }
 
   return (
-      <div className='create-comment-ctnr'>
-        <div className='create-comment'>
+      <div className={formtype + "-comment-ctnr"}>
+        <div className={formtype + "-comment"}>
           <Input label=""
-            containername="comment-create-form-ctnr-body"
-            className="comment-create-form-body"
+            containername={"comment-" + formtype + "-form-ctnr-body"}
+            className={"comment-" + formtype + "-form-body"}
             type="text"
             value={body}
             onChange={bodyChange}

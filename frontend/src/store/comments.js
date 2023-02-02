@@ -23,7 +23,7 @@ export const receiveComments = comments => {
 
 export const removeComment = commentId => {
   return {
-    type: RECEIVE_COMMENT,
+    type: REMOVE_COMMENT,
     commentId
   };
 };
@@ -47,19 +47,20 @@ export const fetchComments = (articleId) => async dispatch => {
 };
 
 export const createComment = (comment) => async dispatch => {
+  console.log("why am i here in createComment");
   const res = await csrfFetch('/api/comments/', {
     method: "POST",
     body: JSON.stringify(comment)
   });
 
   if (res.ok) {
-    const comment = await res.json();
-    dispatch(receiveComment(comment));
+    const data = await res.json();
+    dispatch(receiveComment(data));
   }
 };
 
-export const deleteComment = (comment) => async dispatch => {
-  const commentId = comment.id;
+export const deleteComment = (commentId) => async dispatch => {
+  // const commentId = commentId;
 
   const res = await csrfFetch(`/api/comments/${commentId}`, {
     method: "DELETE",
@@ -69,6 +70,20 @@ export const deleteComment = (comment) => async dispatch => {
     dispatch(removeComment(commentId));
   }
 };
+
+export const updateComment = comment => async dispatch => {
+  console.log("in comments(store)#updateComment");
+
+  const res = await csrfFetch(`/api/comments/${comment.id}`, {
+    method: "PATCH",
+    body: JSON.stringify(comment)
+  })
+
+  if (res.ok) {
+    const data = await res.json();
+    dispatch(receiveComment(data))
+  }
+}
 
 // SELECTORS
 export const selectCommentsByArticleId = articleId => state => {
