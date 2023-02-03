@@ -101,9 +101,9 @@
   position: absolute;
   top: 50px;
   height: 120px;
-  width: 250px;
+  width: 310px;
 
-  transform: translateX(-70%);
+  transform: translateX(-66%);
   /* border: var(--border); */
   box-shadow: 0 0 4px #bbb;
   border-radius: var(--border-radius);
