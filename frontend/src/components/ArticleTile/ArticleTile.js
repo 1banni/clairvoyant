@@ -19,7 +19,7 @@ const ArticleTile = ({ article }) => {
     <div className="article-tile" key={article.id}>
       <div className="article-info">
         <ArticleAuthor name={article.authorName}/>
-        <ArticleTitle article={article} onClick={goToArticle}/>
+        <ArticleTitle article={article} includeBlurb={true} onClick={goToArticle}/>
         <ArticleDetail article={article}>
           <Bookmark articleId={article.id} />
         </ArticleDetail>

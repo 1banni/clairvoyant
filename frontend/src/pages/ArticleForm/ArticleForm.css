@@ -14,8 +14,8 @@
   /* align-content: center; */
   justify-items: center;
   align-items: center;
-
   margin-top: 5px;
+  border: var(--border-pnk);
 }
 
 .article-create-form .pair .label {
@@ -23,8 +23,7 @@
   height: 100px;
   font-family: var(--ff-text);
   font-size: 1.5rem;
-  /* border: var(--border-blu); */
-  /* border: var(--border-rng); */
+  border: var(--border-rng);
   /* justify-self: center; */
   /* align-self: center; */
   /* margin: auto; */
@@ -33,9 +32,10 @@
   display: inline-block;
 }
 
+/* border: var(--border-blu); */
 
 
-.input {
+.article-create-form .input {
   /* border: var(--border-ylw); */
   border: none;
   -webkit-tap-highlight-color: transparent;
@@ -45,7 +45,9 @@
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-  -webkit-tap-highlight-color: rgba(255, 255, 255, 0.2)
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0.2);
+  border: 2px solid blue;
+  width: clamp(300px, 80vw, 1000px);
 }
 
 .input:focus {
@@ -95,7 +97,7 @@
   font-size: x-large;
   font-weight: 300;
   height: 50px;
-  width: clamp(300px, 70vw, 800px)
+  /* width: clamp(300px, 70vw, 800px) */
 }
 
 .article-create-form .pair .input-ctnr.title {
@@ -114,7 +116,7 @@
   font-weight: 500;
 }
 
-.article-create-form-body {
+.article-create-form .body-input {
   width: 100%;
   font-weight: 300;
   font-size: 1rem;
@@ -149,15 +151,14 @@
 
 
 
-.textarea {
+/* .textarea {
   box-sizing: border-box;
   font-size: 1rem;
   height: 2rem;
   min-height: 50rem;
   overflow: hidden;
   resize: none;
-  /* background: black; */
-}
+} */
 
 .ql-editor strong {
   font-weight: bold;
