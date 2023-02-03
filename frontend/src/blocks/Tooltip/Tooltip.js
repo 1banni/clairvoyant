@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Button from '../Button';
 import './Tooltip.css';
 
 const Tooltip = (props) => {
@@ -10,15 +11,15 @@ const Tooltip = (props) => {
     if (active) setActive(false);
     else {
       setActive(true)
-      timeout = setTimeout(() => {
-        setActive(false);
-      }, 5000)
+      // timeout = setTimeout(() => {
+      //   setActive(false);
+      // }, 5000)
     }
   }
 
   return (
     <div>
-      <div className="tooltip-wrapper"
+      <div className="tooltip-btn"
         onClick={toggleTooltip}
       >...
         {active && (

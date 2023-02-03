@@ -68,7 +68,7 @@ const CommentForm = ({articleId, formtype, comment, editToggle, setEditToggle}) 
                 label="What are your thoughts?"
         />
       :
-      <div>
+      <div className={`create-form ${activeTag}`}>
         {create &&
         (<div className="user">
           <ArticleAuthor name={sessionUser?.name} />

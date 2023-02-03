@@ -60,8 +60,12 @@ const CommentTile = ({commentId}) => {
         </div>
         <div className='author-r'>
           <Tooltip>
-            <Button onClick={handleEdit} label="Edit this response"/>
-            <Button onClick={handleDelete} label="Delete"/>
+            <Button className="btn edit"
+                    label="Edit this response"
+                    onClick={handleEdit}/>
+            <Button className="btn delete"
+                    label="Delete"
+                    onClick={handleDelete}/>
           </Tooltip>
           {/* <Button className="report-btn"
             containername="report-btn-ctnr"

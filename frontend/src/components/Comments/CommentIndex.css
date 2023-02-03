@@ -1,15 +1,17 @@
 .comment-form-ctnr {
-  transition: height 0.4s linear;
+  transition: min-height 1s ease;
+  /* transition-timing-function: ; */
   min-height: 48px;
   margin: 10px;
   box-shadow: 0 0 1.5px #444;
+  border: none;
 }
 
 .comment-form-ctnr.active {
   min-height: 150px;
   /* margin-top: 0; */
   /* height: auto; */
-  border: var(--border-pnk);
+  /* border: var(--border-pnk); */
 }
 
 .outer-1 {
@@ -21,6 +23,7 @@
   /* flex-direction: row; */
   /* justify-content: flex-start; */
   /* align-items: flex-start; */
+  cursor: pointer;
 }
 
 .activator-btn {
@@ -41,8 +44,21 @@
   font-size: 0.87rem;
   margin: auto;
   text-indent: 0.4em;
+  cursor: pointer;
 }
 
+.comment-form-ctnr .create-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.comment-form-ctnr .user {
+  /* background: black; */
+  height: 40px;
+  margin-top: 10px;
+  /* justify-self: center; */
+  /* align-self: center; */
+}
 
 .comment-form-ctnr.edit {
 }
@@ -50,9 +66,14 @@
 span {
   display: block;
   overflow: hidden;
-  padding-right: 10px;
+  /* padding-right: 10px; */
 }
 
+.input-wrapper  {
+  /* background-color: #1a8917; */
+  border: none;
+  margin: 5px;
+}
 
 .comment-form-ctnr .input {
   width: 100%;
@@ -60,7 +81,7 @@ span {
   overflow-wrap: break-word;
   /* resize:vertical; */
   display: inline-block;
-  border: 1px solid orange;
+  /* border: 1px solid rgb(240, 164, 23); */
   /* RESUME HERE */
   /* WE'RE TRYING TO GET THE TEXT TO WRAP */
   /* LIKELY NEED TO USE TEXTAREA? */
@@ -100,10 +121,9 @@ span {
 .comment-index-item {
   display: flex;
   flex-direction: column;
-  width: 100%;
-  /* border: var(--border-blu); */
-  border-bottom: var(--border);
-  border-width: 90%;
+  width: 90%;
+  margin: 10px;
+  /* border-bottom: var(--border); */
 }
 
 
@@ -123,15 +143,39 @@ span {
 }
 
 .comment-index-item .author-r {
-  border: var(--border-grn);
+  /* border: var(--border-grn); */
 
 }
 
+.comment-index-item .author-r .tooltip-btn {
+  font-size: 1.3rem;
+  /* margin-right: 5px; */
+  font-weight: 600;
+  cursor:pointer;
+
+  /* border-radius: 100px;
+  border: none;
+  border: var(--border-grn);
+    position: center;
+      justify-self: center;
+      justify-content: center;
+  text-justify: center;
+  text-align: center;
+  display: block;
+  line-height: 1rem;
+  margin-bottom: 5px; */
+
+}
+
+.comment-index-item .author-r .tooltip-bottom {
+  border: none;
+}
+
+
 .comment-index-item .body {
-  /* border: var(--border-rng); */
   margin-top: 8px;
   margin-bottom: 8px;
-
+  margin-left: 10px;
 }
 
 .comment-index-item .body strong {
@@ -144,7 +188,6 @@ span {
 
 
 .comment-index-item .author-l .image {
-  /* border: var(--border-blu); */
   display: flex;
   justify-content: center; /* align horizontal */
   align-items: center; /* align vertical */
@@ -193,7 +236,6 @@ span {
 
 .buttons {
   height: 40px;
-  border: var(--border-blu);
   margin-bottom: 10px;
   display: flex;
   justify-content: end;
@@ -219,6 +261,7 @@ span {
   width: 80px;
   margin: 5px;
   font-weight: 100;
+  cursor: pointer;
 }
 
 .cancel-btn-ctnr {
@@ -241,6 +284,7 @@ span {
   height: 30px;
   width: 80px;
   margin: 5px;
+  cursor: pointer;
 }
 
 

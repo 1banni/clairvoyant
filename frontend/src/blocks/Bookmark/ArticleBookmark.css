@@ -3,3 +3,7 @@
   width: 20px;
   /* background-color: black; */
 }
+
+.icon-btn {
+  cursor: pointer;
+}
