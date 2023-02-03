@@ -253,9 +253,9 @@
 }
 
 .splash-sidebar .linked-img {
-  width: 30px;
+  width: 90px;
   margin-left: 20px;
-  margin-bottom: 2px;
+  /* margin-bottom: 2px; */
 }
 
 /* .sidebar-footer {

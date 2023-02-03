@@ -4,7 +4,7 @@ const PNG = {
   CLOSE_BUTTON_ICON: require('./png/close-button.png'),
   COMMENT_BUTTON: require('./png/comment.png'),
   GITHUB: require('./png/github-emblem.png'),
-  LINKEDIN: require('./png/linkedin.png'),
+  LINKEDIN: require('./png/linkedin2.png'),
   LOGO_WITH_NAME: require('./png/logo-with-name.png'),
   LOGO: require('./png/logo.png'),
   PEN_PAPER: require('./png/pen-paper.png'),

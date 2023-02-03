@@ -71,8 +71,8 @@ const ArticleForm = props => {
       <div className="pair">
         <div className="label title">Title</div>
         {/* <ReactQuill theme="bubble" value={title} placeholder='What will you name it?' onChange={titleChange} /> */}
-        <Input label=""
-            containername="input-ctnr title"
+        <input label=""
+            // containername="input-ctnr title"
             className="input title"
             type="text"
             value={title}
@@ -84,8 +84,8 @@ const ArticleForm = props => {
       </div>
       <div className="pair">
         <div className="label topic">Topic</div>
-        <Input label=""
-            containername="input-ctnr topic"
+        <input label=""
+            // containername="input-ctnr topic"
             className="input topic"
             type="text"
             value={topic}
@@ -100,8 +100,8 @@ const ArticleForm = props => {
       <div className="pair">
         <div className="label blurb">Blurb</div>
         {/* <ReactQuill theme="bubble" value={topic} onChange={topicChange} /> */}
-        <Input label=""
-            containername="input-ctnr blurb"
+        <input label=""
+            // containername="input-ctnr blurb"
             className="input blurb"
             type="text"
             value={blurb}
@@ -112,26 +112,26 @@ const ArticleForm = props => {
           />
       </div>
       <div className="pair">
-        <div className="article-create-page-body-label">Body</div>
-                <ReactQuill theme="snow"
-                            modules={modules}
-                            formats={formats}
-                            value={body}
-                            onChange={setBody}
-                            id="reactquill">
-                </ReactQuill>
-              </div>
-              <div className='submit-compose-buttons'>
-                <div className='upload-images'>
-                  <label>Images</label>
-                  {/* <input
-                    type="file"
-                    accept=".jpg, .jpeg, .png"
-                    multiple
-                    onChange={updateFiles}
-                    id="choose-files"
-                  /> */}
-                  </div>
+        <div className="label body">Body</div>
+        <ReactQuill theme="snow"
+                    modules={modules}
+                    formats={formats}
+                    value={body}
+                    onChange={setBody}
+                    id="reactquill">
+        </ReactQuill>
+      </div>
+        <div className='submit-compose-buttons'>
+          <div className='upload-images'>
+            <label>Images</label>
+            {/* <input
+              type="file"
+              accept=".jpg, .jpeg, .png"
+              multiple
+              onChange={updateFiles}
+              id="choose-files"
+            /> */}
+          </div>
       </div>
         <Button type="submit" label="Submit Article"/>
       </form>
