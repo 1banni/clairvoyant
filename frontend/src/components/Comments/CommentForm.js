@@ -64,17 +64,20 @@ const CommentForm = ({articleId, formtype, comment, editToggle, setEditToggle}) 
       ?
         <Button containername="activator-btn-ctnr"
                 className="activator-btn"
-                onClick={() => setActive(true)}
+                onClick={() => {
+                  console.log('activating')
+                  setActive(true);
+                }}
                 label="What are your thoughts?"
         />
       :
       <div className={`create-form ${activeTag}`}>
         {create &&
-        (<div className="user">
+        (<div className={`user ${activeTag}`}>
           <ArticleAuthor name={sessionUser?.name} />
-        </div>)}
-        {/* <form> */}
-        <div className={"input-wrapper "+ formtype}>
+        </div>
+        )}
+        <div className={`input-wrapper ${formtype}`}>
           <ReactQuill theme="snow"
                       modules={{toolbar: false}}
                       formats={['bold', 'italic']}
@@ -100,13 +103,13 @@ const CommentForm = ({articleId, formtype, comment, editToggle, setEditToggle}) 
         <div className="buttons">
           <Button
             containername="cancel-btn-ctnr"
-            className="cancel-btn"
+            className={`cancel-btn ${formtype} ${activeTag}`}
             label="Cancel"
             onClick={handleCancel}
           />
           <Button
             containername="respond-btn-ctnr"
-            className="respond-btn"
+            className={`respond-btn ${formtype} ${activeTag}`}
             label="Respond"
             onClick={handleSubmit}
           />

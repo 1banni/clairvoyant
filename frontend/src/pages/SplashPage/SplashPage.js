@@ -6,9 +6,10 @@ import SplashPageAnimation from '../../blocks/Animations/SplashPageAnimation';
 import Button from '../../blocks/Button'
 import ArticleIndex from '../../components/ArticleIndex/ArticleIndex';
 import TopicButton from '../../blocks/Button/TopicButton';
-import TrendingArticles from './Support/TrendingArticles';
+import TrendingArticles from '../../blocks/Articles/Trending';
 import UniqUtil from '../../utils/UniqUtil';
 import SignUpModal from '../../modals/SignUpModal';
+import { PNG } from '../../assets';
 
 
 
@@ -51,13 +52,27 @@ const SplashPage = props => {
             <div className="top">
               <div className="label-1 discover-more_">DISCOVER MORE OF WHAT MATTERS TO YOU</div>
               <div className="topics">
-              {topics.map(topic => {return (
+                {topics.slice(8).map(topic => {return (
                 <TopicButton key={UniqUtil.key(topic)} topic={topic}
                   containername="btn-ctnr topic rect"
                   className="btn topic rect"
                   textname="btn-text topic rect"
-                />
-              )})}
+                />)})}
+              </div>
+              <div className='separator'>
+
+              </div>
+              <div className="links">
+                <div className="label-1">
+                  BY WILL BANNISTER
+                </div>
+                <div className='external-links'>
+                <a href="https://github.com/1banni" target="_blank" rel="noopener noreferrer"><img id="github" className='github-img' src={PNG.GITHUB} alt="github link" /></a>
+                <a href="https://www.linkedin.com/in/will-bannister/" target="_blank" rel="noopener noreferrer"><img id ="linkedin" className='linked-img' src={PNG.LINKEDIN} alt="linkedin link" /></a>
+                  {/* <Button className="btn-external"> */}
+                    {/* <img className='github-img' src={PNG.GITHUB} size='10px' alt='github-img'/> */}
+                  {/* </Button> */}
+                </div>
               </div>
             </div>
           </div>

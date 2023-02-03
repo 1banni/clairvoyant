@@ -1,10 +1,45 @@
 .comment-form-ctnr {
-  transition: min-height 1s ease;
+  /* transition: min-height 1s ease; */
   /* transition-timing-function: ; */
-  min-height: 48px;
+  /* min-height: 48px; */
   margin: 10px;
-  box-shadow: 0 0 1.5px #444;
+  box-shadow: 0 0 3.5px #444;
   border: none;
+}
+
+.comment-form-ctnr.create {
+  min-height: 48px;
+  transition: min-height 1.25s ease-out;
+}
+
+.comment-form-ctnr.create.active {
+  display: flex;
+  flex-direction: column;
+  min-height: 150px;
+  transition: min-height 1.25s ease-in;
+}
+
+
+.respond-btn.create {
+  opacity: 0;
+  transition: opacity 3s linear;
+
+}
+
+.cancel-btn.create {
+  opacity: 0;
+  transition: opacity 3s linear;
+}
+
+.respond-btn.create.active {
+  opacity: 1;
+  transition: opacity 3s linear;
+
+}
+
+.cancel-btn.create.active {
+  opacity: 1;
+  transition: opacity 3s linear;
 }
 
 .comment-form-ctnr.active {
@@ -51,6 +86,7 @@
   display: flex;
   flex-direction: column;
 }
+
 
 .comment-form-ctnr .user {
   /* background: black; */
