@@ -288,3 +288,10 @@ span {
 }
 
 
+.comment-index-item .border {
+  background: var(--color-ultralight-grey);
+  height: 1px;
+  width: 98%;
+  /* justify-self: center; */
+  align-self: center;
+}

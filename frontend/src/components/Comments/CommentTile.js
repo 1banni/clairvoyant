@@ -88,6 +88,9 @@ const CommentTile = ({commentId}) => {
         }
 
       </div>
+      <div className='border'>
+
+      </div>
     </div>
   )
 }
