@@ -15,9 +15,10 @@ import Body from "./Body";
 
 const ArticleShow = (props) => {
   const dispatch = useDispatch();
-  const sessionUser = useSelector(state => state.session.user);
   const { articleId } = useParams();
+  const sessionUser = useSelector(state => state.session.user);
   const article = useSelector(store => store.articles[articleId]);
+  // TODO: ABSTRACT STATE TOGGLE INTO ITS OWN HOOK
   const [commentDisplay, setCommentDisplay] = useState(false);
   const commentToggle = commentDisplay ? "comment-sidebar show" : "comment-sidebar";
   const editDeleteToggle = () => {
@@ -35,8 +36,6 @@ const ArticleShow = (props) => {
   const toggleCommentDisplay = () => {
     setCommentDisplay(state => !state);
   }
-
-
 
   if (!article) return null;
   return (

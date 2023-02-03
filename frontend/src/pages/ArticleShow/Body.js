@@ -1,3 +1,4 @@
+import { Markup } from 'interweave';
 import React from 'react'
 import { Redirect } from 'react-router-dom'
 import TextUtil from '../../utils/TextUtil';
@@ -11,7 +12,7 @@ const Body = ({body, ...props}) => {
     <div className="article-body" {...props}>
       {TextUtil.BodyToArray(body).map(paragraph => {return (
         <div key={UniqUtil.key(paragraph)} className="article-paragraph">
-          {paragraph}
+          <Markup content={paragraph} />
         </div>
       )})}
     </div>

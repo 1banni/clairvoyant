@@ -6,17 +6,22 @@ import Button from '../../blocks/Button';
 import { FormErrors, Input } from '../../blocks/Form';
 import SignUpModal from '../SignUpModal';
 import { useSelector } from 'react-redux';
+import { Redirect, useHistory } from 'react-router-dom';
 
 // const closeButtonImg = require('../../assets/png/close-button.png')
 
 function LoginModal(props) {
+  const history = useHistory();
   const [credential, credentialChange] = useInput('');
   const [password, passwordChange] = useInput('');
   const sessionUser = useSelector(state => state.session.user);
 
   let [errors, handleSubmit] = useSubmit({
     createAction: () => login({ credential, password }),
-    onSuccess: () => {if (sessionUser) { props.close(); } },
+    onSuccess: () => {if (sessionUser) {
+      props.close();
+      if (props.redirect) history.push(props.redirect)
+    } },
   });
 
   let [, handleDemo] = useSubmit({
@@ -25,9 +30,13 @@ function LoginModal(props) {
       password: "password"
     }),
     onSuccess: () => {
-      props.close()
+      props.close();
+      if (props.redirect) history.push(props.redirect);
     },
   });
+
+  console.log('props');
+  console.log(props);
 
   return (
     sessionUser ? (<></>)

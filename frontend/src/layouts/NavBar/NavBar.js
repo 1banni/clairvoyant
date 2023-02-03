@@ -66,7 +66,8 @@ function NavBar() {
         </Link>)
         : (
         <Button modal={LoginModal}
-                containername="icon-write-btn-ctnr" >
+                containername="icon-write-btn-ctnr"
+                className="icon-write-btn">
           <WriteIcon className="icon write"/>
         </Button>)
       }

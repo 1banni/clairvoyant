@@ -77,6 +77,12 @@
   border: none;
 }
 
+.icon-write-btn {
+  border: none;
+  background-color: transparent;
+
+}
+
 .icon.write {
   width: 50%;
   /* height: 100%; */

@@ -132,14 +132,6 @@ const ArticleForm = props => {
                     id="choose-files"
                   /> */}
                   </div>
-        {/* <textarea label=""
-          className="article-create-form-body textarea"
-          type="textarea"
-          value={body}
-          onChange={setBody}
-          placeholder="Body"
-          required
-        /> */}
       </div>
         <Button type="submit" label="Submit Article"/>
       </form>

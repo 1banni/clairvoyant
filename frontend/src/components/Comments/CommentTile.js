@@ -17,6 +17,7 @@ const CommentTile = ({commentId}) => {
     return comment?.authorId === sessionUser?.id;
   };
   const [editToggle, setEditToggle] = useState(false);
+  const isAuthor = sessionUser?.id === comment?.authorId;
 
   const color = () => ColorUtil.nameToColor('TODO - UPDATE');
   const styleOptions = {
@@ -59,6 +60,7 @@ const CommentTile = ({commentId}) => {
           </div>
         </div>
         <div className='author-r'>
+          {isAuthor && (
           <Tooltip>
             <Button className="btn edit"
                     label="Edit this response"
@@ -67,6 +69,7 @@ const CommentTile = ({commentId}) => {
                     label="Delete"
                     onClick={handleDelete}/>
           </Tooltip>
+          )}
           {/* <Button className="report-btn"
             containername="report-btn-ctnr"
             onClick={() => setShowEditDelete(state => !state)}
