@@ -68,18 +68,25 @@ const ArticleShow = (props) => {
           </div>
         </div>
         <div className="article-show-right">
-          <div className={commentToggle} >
-            <CommentIndex article={article}/>
-          </div>
-          <div className="author-tile-1">Author Tile 2
+          {commentDisplay
+          ? (<div className={commentToggle} >
+              <CommentIndex article={article}/>
+            </div>)
+          : (<div>
 
-          </div>
-          <div className="more-from-medium_">Four Article Tiles
+              <div className="author-tile-1">Author Tile 2
 
-          </div>
-          <div className="footer-links">
+              </div>
+              <div className="more-from-medium_">Four Article Tiles
 
-          </div>
+              </div>
+              <div className="footer-links">
+
+              </div>
+            </div>)
+          }
+
+
         </div>
         {/* <button type="button" onClick={() => history.push('/')}>Return Home */}
           {/* <Link to="/">Return Home</Link> */}

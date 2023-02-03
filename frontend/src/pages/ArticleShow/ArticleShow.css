@@ -93,13 +93,15 @@
   flex-direction: column;
   width: var(--width-sidebar);
   border: var(--border-rng);
+  position: relative;
+  z-index: -12;
 }
 
 .comment-sidebar {
   height: 100%;
   width: 0%;
-  position: fixed;
-  z-index: 1;
+  position: relative;
+  z-index: -1;
   /* top: 0; */
   /* left: 0; */
   background-color: #fcfcfc;
@@ -111,9 +113,9 @@
 
   /* TODO: DELETE ME WHEN DONE BUILDING THE SIDEBAR */
   /* ************************************************* */
-  display: flex;
+  /* display: flex;
   flex-direction: column;
-  width: var(--width-sidebar);
+  width: var(--width-sidebar); */
   /* ************************************************* */
 }
 
@@ -121,7 +123,7 @@
   /* width: 100%; */
   display: flex;
   flex-direction: column;
-  width: var(--width-sidebar);
+  width: 100%;
   /* transition: 3s; */
 }
 

@@ -37,15 +37,40 @@ function ProfileMenu({ user }) {
               onClick={openMenu}>
         <ProfileIcon className="icon profile"/>
       </Button>
+
       {showMenu && (
         <div className="profile-dropdown">
+          <div className="profile-dropdown-inner">
           <MenuItem>{user.name}</MenuItem>
           <MenuItem>{user.email}</MenuItem>
-          <Button onClick={logout}>Log Out</Button>
+          <Button label="Sign out"
+                  onClick={logout}
+                  containername="btn-ctnr dropdown"
+                  className="btn dropdown"
+          />
+          </div>
         </div>
-    )}
+      )}
     </>
   );
 }
+
+    //  <div className='author-l'>
+    //       <div className='image'>
+    //         <FaUserCircle className="user-icon"
+    //           size="30px"
+    //           style={styleOptions}
+    //         />
+    //       </div>
+    //       <div className='name-and-date'>
+    //         <div className='name'>
+    //           {comment.authorName}
+    //         </div>
+    //         <div className='date'>
+    //           {DateUtil.longForm(comment.createdAt)}
+    //         </div>
+    //       </div>
+    //     </div>
+
 
 export default ProfileMenu;
