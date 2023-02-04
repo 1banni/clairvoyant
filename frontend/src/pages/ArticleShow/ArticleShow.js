@@ -43,12 +43,12 @@ const ArticleShow = (props) => {
     <div className="article-show-wrapper">
       <div className="article-show">
         <div className="article-show-l">
+          <div className="article-view">
           <AuthorTile article={article}>
           {editDeleteToggle() &&
             <EditDelete article={article}/>
           }
           </AuthorTile>
-          <div className="article-view">
               <Title article={article} />
               <Image containername="article-image-ctnr"
                     className="article-image"
@@ -67,7 +67,7 @@ const ArticleShow = (props) => {
           </div>
         </div>
         <div className="article-show-right">
-          {commentDisplay
+          {/* {commentDisplay
           ? (<div className={commentToggle} >
               <CommentIndex article={article}/>
             </div>)
@@ -83,9 +83,22 @@ const ArticleShow = (props) => {
 
               </div>
             </div>)
-          }
+          } */}
+          {commentDisplay && (
+          <div className={commentToggle} >
+            <CommentIndex article={article}/>
+          </div>)}
+          <div>
+            <div className="author-tile-1">Author Tile 2
 
+            </div>
+            <div className="more-from-medium_">Four Article Tiles
 
+            </div>
+            <div className="footer-links">
+
+            </div>
+          </div>
         </div>
         {/* <button type="button" onClick={() => history.push('/')}>Return Home */}
           {/* <Link to="/">Return Home</Link> */}

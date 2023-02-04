@@ -1,3 +1,60 @@
+.comment-sidebar {
+  height: 100%;
+  width: 0%;
+  position: relative;
+  /* z-index: 0; */
+  /* top: 0; */
+  /* left: 0; */
+  background-color: #fcfcfc;
+  /* border: 2px solid red; */
+  display: none;
+  /* comment sidebar hidden */
+  overflow-x: hidden;
+  /* disables horizontal scroll */
+  /* transition: width 5s; */
+  /* transition: 3s; */
+
+  /* TODO: DELETE ME WHEN DONE BUILDING THE SIDEBAR */
+  /* ************************************************* */
+  /* display: flex; */
+  /* flex-direction: column; */
+  /* width: var(--width-sidebar); */
+  /* ************************************************* */
+}
+
+
+
+.comment-sidebar.show {
+  /* width: 100%; */
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  animation-name: loadSidebar;
+  animation-duration: 1s;
+  animation-timing-function: ease-in;
+  animation-fill-mode: forwards;
+  left: 30em;
+  /* transition: 3s; */
+}
+
+@keyframes loadSidebar {
+  from {
+    left: 30em;
+    /* opacity: 0; */
+  }
+
+  to {
+    left: 0;
+    /* opacity: 1; */
+  }
+}
+
+/* .article-show-wrapper { */
+/* display: flex; */
+/* flex-direction: */
+/* } */
+
+
 .comment-form-ctnr {
   /* transition: min-height 1s ease; */
   /* transition-timing-function: ; */
@@ -9,37 +66,80 @@
 
 .comment-form-ctnr.create {
   min-height: 48px;
-  transition: min-height 1.25s ease-out;
+
+  /* transition: min-height 1.25s ease-out; */
 }
 
+/* .comment-form-ctnr.create.active {
+  display: flex;
+  flex-direction: column;
+  min-height: 48px;
+  animation-name: expand;
+  animation-duration: 2s;
+  min-height: 300px;
+  transition: min-height 1.25s ease-in;
+} */
+/* .create-form.active { */
 .comment-form-ctnr.create.active {
   display: flex;
   flex-direction: column;
-  min-height: 150px;
-  transition: min-height 1.25s ease-in;
+  min-height: 48px;
+  animation-name: expand;
+  animation-duration: 2s;
+  animation-timing-function: ease-in-out;
+  /* min-height: 300px; */
+  /* transition: min-height 1.25s ease-in; */
+}
+
+@keyframes expand {
+  from {max-height: 48px;}
+  to {max-height: 300px;}
 }
 
 
 .respond-btn.create {
   opacity: 0;
-  transition: opacity 3s linear;
+  /* transition: opacity 3s linear; */
 
+}
+.respond-btn.create.active {
+  /* opacity: 1; */
+  animation-name: loadButtons;
+  /* animation-delay: 0.5s; */
+  animation-duration: 0.5s;
+  animation-timing-function: ease-in;
+  animation-fill-mode: forwards;
+  /* transition: opacity 3s linear; */
+}
+
+@keyframes loadButtons {
+  from {opacity: 0;}
+  to {opacity: 1;}
 }
 
 .cancel-btn.create {
   opacity: 0;
-  transition: opacity 3s linear;
-}
-
-.respond-btn.create.active {
-  opacity: 1;
-  transition: opacity 3s linear;
-  
+  /* transition: opacity 3s linear; */
 }
 
 .cancel-btn.create.active {
-  opacity: 1;
-  transition: opacity 3s linear;
+  /* opacity: 1; */
+  /* transition: opacity 3s linear; */
+  animation-name: loadButtons2;
+  /* animation-delay: 0.5s; */
+  animation-duration: 0.5s;
+  animation-timing-function: ease-in;
+  animation-fill-mode: forwards;
+}
+
+@keyframes loadButtons2 {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
 }
 
 .comment-form-ctnr.active {
@@ -85,7 +185,17 @@
 .comment-form-ctnr .create-form {
   display: flex;
   flex-direction: column;
+  opacity: 0;
+  animation-name: loadButtons2;
+  animation-delay: 2s;
+  animation-duration: 2s;
+  animation-timing-function: ease-in;
+  animation-fill-mode: forwards;
 }
+
+/* .comment-form-ctnr .create-form {
+
+} */
 
 
 .comment-form-ctnr .user {
@@ -117,14 +227,6 @@ span {
   overflow-wrap: break-word;
   /* resize:vertical; */
   display: inline-block;
-  /* border: 1px solid rgb(240, 164, 23); */
-  /* RESUME HERE */
-  /* WE'RE TRYING TO GET THE TEXT TO WRAP */
-  /* LIKELY NEED TO USE TEXTAREA? */
-  /* 1) SEE EXAMPLE IN ARTICLEFORM BODY */
-  /* 2) GOOGLE */
-  /* 3) SEE EXAMPLE IN QUILL */
-
 }
   /* height: 100%; */
   /* height: 64px; */
@@ -330,4 +432,15 @@ span {
   width: 98%;
   /* justify-self: center; */
   align-self: center;
+}
+
+.quill {
+  width: 100%;
+}
+
+.ql-editor {
+  min-height: 100px;
+  font-size: 1rem;
+  /* width: 100%; */
+  /* background-color: black; */
 }
