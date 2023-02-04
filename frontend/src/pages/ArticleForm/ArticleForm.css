@@ -15,27 +15,51 @@
   justify-items: center;
   align-items: center;
   margin-top: 5px;
-  border: var(--border-pnk);
+  /* border: var(--border-pnk); */
+  min-height: 100px;
+}
+
+.article-create-form .pair.body {
+  justify-items:baseline;
+  align-items:flex-start;
 }
 
 .article-create-form .pair .label {
   width: 80px;
-  height: 100px;
+  min-height: 100px;
   font-family: var(--ff-text);
   font-size: 1.5rem;
-  border: var(--border-rng);
+  /* border: var(--border-rng); */
   /* justify-self: center; */
   /* align-self: center; */
   /* margin: auto; */
-  /* text-justify: center; */
+  text-justify: center;
   text-align: center;
   display: inline-block;
+  line-height: 100px;
+  color: var(--color-ultralight-grey2);
+}
+
+.article-create-form .pair .label.active {
+  color: var(--color-light-grey);
+  /* color: pink; */
+}
+
+.article-create-form .pair .label {
+
+}
+
+.article-create-form .pair .label.body {
+  /* display:inline; */
+  /* justify-self:flex-start; */
+  /* border: var(--border-ylw); */
+  /* line-height: normal; */
 }
 
 /* border: var(--border-blu); */
 
 
-.article-create-form .input {
+.article-create-form .pair .input {
   /* border: var(--border-ylw); */
   border: none;
   -webkit-tap-highlight-color: transparent;
@@ -46,8 +70,32 @@
   -ms-user-select: none;
   user-select: none;
   -webkit-tap-highlight-color: rgba(255, 255, 255, 0.2);
-  border: 2px solid blue;
+  /* border: 2px solid blue; */
   width: clamp(300px, 80vw, 1000px);
+  font-family: var(--ff-header);
+  border-bottom: var(--border);
+  min-height: 50px;
+}
+
+.article-create-form .pair .input.title {
+  font-family: var(--ff-header);
+  /* width: 100%; */
+  font-size: 1.6rem;
+  font-weight: 300;
+  min-height: 50px;
+  /* width: clamp(300px, 70vw, 800px) */
+}
+
+.article-create-form .pair .input.topic {
+  font-size: 1.4rem;
+  font-weight: 300;
+}
+
+.article-create-form .pair .input.blurb {
+  font-size: 1.25rem;
+}
+.article-create-form .pair .input.body {
+  font-size: 1.2rem;
 }
 
 .input:focus {
@@ -59,52 +107,63 @@
   border: none;
 }
 
-.article-create-form-ctnr-title {
-  /* width: clamp(300px, 80vw, 700px); */
-  margin-right: 100px;
-  background: black;
-}
-.article-create-form-ctnr-blurb {
-  /* width: clamp(300px, 80vw, 700px); */
-  margin-right: 100px;
-  background: black;
+.article-create-form .body-input {
+
 }
 
-.article-create-form-ctnr-topic {
-  /* width: clamp(300px, 80vw, 700px); */
+
+/* REACT QUILL */
+.quill {
+  width: clamp(300px, 80vw, 1000px);
+  /* min-height: 400px; */
+}
+
+.ql-editor {
+  min-height: 300px;
+  font-size: 1rem;
+}
+
+.ql-editor strong {
+  font-weight: bold;
+}
+
+
+.ql-editor em {
+  font-style: italic;
+}
+
+.ql-editor u {
+  text-decoration: underline;
+}
+
+/* .article-create-form-ctnr-title {
+  width: clamp(300px, 80vw, 700px);
+  margin-right: 100px;
+  background: black;
+} */
+/* .article-create-form-ctnr-blurb {
+  width: clamp(300px, 80vw, 700px);
+  margin-right: 100px;
+  background: black;
+} */
+
+/* .article-create-form-ctnr-topic {
+  width: clamp(300px, 80vw, 700px);
   margin-right: 500px;
   background: black;
-}
-.article-create-form-ctnr-topic {
-  /* width: clamp(300px, 80vw, 700px); */
+} */
+/* .article-create-form-ctnr-topic {
+  width: clamp(300px, 80vw, 700px);
   border: 10px solid pink;
   width: 100px;
   margin-right: 500px;
   background: black;
-}
+} */
 
 /* Inputs */
 
-.article-create-form .pair .input {
-  font-family: var(--ff-header);
-  /* border: var(--border-grn); */
-  height: 50px;
-}
 
-.article-create-form .pair .input.title {
-  font-family: var(--ff-header);
-  /* width: 100%; */
-  font-size: x-large;
-  font-weight: 300;
-  height: 50px;
-  /* width: clamp(300px, 70vw, 800px) */
-}
-
-.article-create-form .pair .input-ctnr.title {
-  /* border: var(--border-rng); */
-}
-
-.article-create-form-blurb {
+/* .article-create-form-blurb {
   width: 100%;
   font-size: larger;
   font-weight: 400;
@@ -114,13 +173,8 @@
   width: 100%;
   font-size: larger;
   font-weight: 500;
-}
+} */
 
-.article-create-form .body-input {
-  width: 100%;
-  font-weight: 300;
-  font-size: 1rem;
-}
 
 /* .ql {
   border: 2px solid blue;
@@ -139,14 +193,7 @@
 /* Input Labels */
 
 
-.article-create-form .pair .label.title {
 
-
-}
-
-.article-create-form .input-ctnr.title {
-
-}
 
 
 
@@ -160,15 +207,3 @@
   resize: none;
 } */
 
-.ql-editor strong {
-  font-weight: bold;
-}
-
-
-.ql-editor em {
-  font-style: italic;
-}
-
-.ql-editor u {
-  text-decoration: underline;
-}

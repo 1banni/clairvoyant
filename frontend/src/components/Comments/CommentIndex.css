@@ -34,7 +34,7 @@
 .respond-btn.create.active {
   opacity: 1;
   transition: opacity 3s linear;
-
+  
 }
 
 .cancel-btn.create.active {
