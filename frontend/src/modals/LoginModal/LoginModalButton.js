@@ -7,7 +7,7 @@ function LoginModalButton({redirect}) {
   // TODO: link redirect here
   return (
     <div className="LoginModalButton">
-      <Button label="Login" modal={ LoginModal() } redirect="/write" />
+      <Button label="Login" modal={ LoginModal({redirect: "/write"}) } redirect="/write" />
     </div>
   )
 }

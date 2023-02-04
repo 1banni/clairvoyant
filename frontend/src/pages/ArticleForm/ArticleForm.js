@@ -19,8 +19,9 @@ const ArticleForm = props => {
   const sessionUser = useSelector(state => state.session.user)
   let article = useSelector(selectArticle(articleId));
   const formType = articleId ? 'Update' : 'Create';
+  const active = (object) => object ? 'active' : '';
   if (formType === 'Create') {
-    article = { title: "", body: "", blurb: "", topic: "" }
+    article = { title: '', body: '', blurb: '', topic: '' }
   }
   const [title, titleChange] = useInput(article.title);
   const [body, setBody] = useState(article.body);
@@ -30,7 +31,7 @@ const ArticleForm = props => {
   const [topic, topicChange] = useInput(article.body);
   const modules = {
     toolbar: [
-      [{ 'header': [1, 2, false] }],
+      // [{ 'header': [false] }],
       ['bold', 'italic', 'underline','strike', 'blockquote'],
       [{'list': 'ordered'}, {'list': 'bullet'}, {'indent': '-1'}, {'indent': '+1'}],
       ['link', 'image'],
@@ -38,7 +39,7 @@ const ArticleForm = props => {
     ],
   };
   const formats = [
-    'header',
+    // 'header',
     'bold', 'italic', 'underline', 'strike', 'blockquote',
     'list', 'bullet', 'indent',
     'link', 'image'
@@ -50,10 +51,10 @@ const ArticleForm = props => {
 
   const handleSubmit = async e => {
     e.preventDefault();
-    if (!sessionUser) throw new Error("you must be logged in to bookmark a post");
+    if (!sessionUser) throw new Error('you must be logged in to bookmark a post');
     article = {...article, title, topic, blurb, body};
     if (formType === 'Create') {
-      let articleId = await dispatch(createArticle(article));
+      articleId = await dispatch(createArticle(article));
       if (articleId) history.push(`/articles/${articleId}`);
     } else {
       dispatch(updateArticle(article))
@@ -64,76 +65,76 @@ const ArticleForm = props => {
   console.log('body');
   console.log(body);
 
-  if (!sessionUser) return <Redirect to="/login" />;
+  if (!sessionUser) return <Redirect to='/login' />;
   return (
     <div className='article-create-page'>
-      <form className="article-create-form" onSubmit={handleSubmit} >
-      <div className="pair">
-        <div className="label title">Title</div>
-        {/* <ReactQuill theme="bubble" value={title} placeholder='What will you name it?' onChange={titleChange} /> */}
-        <input label=""
-            // containername="input-ctnr title"
-            className="input title"
-            type="text"
+      <form className='article-create-form' onSubmit={handleSubmit} >
+      <div className='pair'>
+        <div className={`label title ${active(title)}`}>Title</div>
+        {/* <ReactQuill theme='bubble' value={title} placeholder='What will you name it?' onChange={titleChange} /> */}
+        <input label=''
+            // containername='input-ctnr title'
+            className='input title'
+            type='text'
             value={title}
             onChange={titleChange}
-            placeholder=""
-            // size="140"
+            placeholder=''
+            // size='140'
             required
           />
       </div>
-      <div className="pair">
-        <div className="label topic">Topic</div>
-        <input label=""
-            // containername="input-ctnr topic"
-            className="input topic"
-            type="text"
+      <div className='pair'>
+        <div className={`label topic ${active(topic)}`}>Topic</div>
+        <input label=''
+            // containername='input-ctnr topic'
+            className='input topic'
+            type='text'
             value={topic}
             onChange={topicChange}
-            placeholder="Up to 20 characters)"
-            size="140"
-            maxlength="20"
+            placeholder='Up to 20 characters'
+            size='140'
+            maxlength='20'
             required
           />
-        {/* <ReactQuill theme="bubble" value={blurb} onChange={blurbChange} /> */}
+        {/* <ReactQuill theme='bubble' value={blurb} onChange={blurbChange} /> */}
       </div>
-      <div className="pair">
-        <div className="label blurb">Blurb</div>
-        {/* <ReactQuill theme="bubble" value={topic} onChange={topicChange} /> */}
-        <input label=""
-            // containername="input-ctnr blurb"
-            className="input blurb"
-            type="text"
+      <div className='pair'>
+        <div className={`label blurb ${active(blurb)}`}>Blurb</div>
+        {/* <ReactQuill theme='bubble' value={topic} onChange={topicChange} /> */}
+        <input label=''
+            // containername='input-ctnr blurb'
+            className='input blurb'
+            type='text'
             value={blurb}
             onChange={blurbChange}
-            placeholder="Up to 120 characters (optional)"
-            maxlength="120"
+            placeholder='Up to 120 characters (optional)'
+            maxlength='120'
             // required
           />
       </div>
-      <div className="pair">
-        <div className="label body">Body</div>
-        <ReactQuill theme="snow"
+      <div className='pair body'>
+        <div className={`label body ${active(body)}`}>Body</div>
+        <ReactQuill theme='snow'
                     modules={modules}
                     formats={formats}
                     value={body}
                     onChange={setBody}
-                    id="reactquill">
+                    id='reactquill'>
         </ReactQuill>
       </div>
         <div className='submit-compose-buttons'>
           <div className='upload-images'>
             <label>Images</label>
             {/* <input
-              type="file"
-              accept=".jpg, .jpeg, .png"
+              type='file'
+              accept='.jpg, .jpeg, .png'
               multiple
               onChange={updateFiles}
-              id="choose-files"
+              id='choose-files'
             /> */}
           </div>
       </div>
-        <Button type="submit" label="Submit Article"/>
+        <Button type='submit' label='Submit Article'/>
       </form>
     </div>
   )

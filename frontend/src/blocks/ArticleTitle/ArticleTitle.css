@@ -10,7 +10,7 @@
 
 
 /********** components **********/
-.title {
+.title-and-blurb .title {
   color: var(--color-dark-grey);
   font-family: var(--ff-text);
   font-size: 1.3rem;
@@ -25,7 +25,7 @@
   -webkit-box-orient: vertical; */
 }
 
-.blurb {
+.title-and-blurb .blurb {
   color: var(--color-light-grey);
   font-family: var(--ff-text);
   font-size: 1rem;
@@ -33,15 +33,4 @@
   /* justify-self: flex-end; */
   line-height: 1.25rem;
   margin-top: 5px;
-}
-
-
-/* TODO: DELETE ME */
-.blurb {
-  /* border: 2px solid green; */
-}
-
-
-.title {
-  /* border: var(--border-rng); */
 }
