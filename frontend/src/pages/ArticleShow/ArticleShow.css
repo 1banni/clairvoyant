@@ -82,10 +82,15 @@
 .article-links .share-bookmark {
   display: flex;
   flex-direction: row;
+
 }
 
 .bookmark {
-  margin-left: 10px;
+  margin-left: 0px;
+}
+
+.share {
+  margin-top: 2px;
 }
 
 /* Right Side */
@@ -94,51 +99,10 @@
   flex-direction: column;
   width: var(--width-sidebar);
   border: var(--border-rng);
+  /* margin: 10px; */
   position: relative;
   /* z-index: -12; */
 }
-
-.comment-sidebar {
-  height: 100%;
-  width: 0%;
-  position: relative;
-  /* z-index: 0; */
-  /* top: 0; */
-  /* left: 0; */
-  background-color: #fcfcfc;
-  /* border: 2px solid red; */
-  display: none; /* comment sidebar hidden */
-  overflow-x: hidden; /* disables horizontal scroll */
-  /* transition: width 5s; */
-  /* transition: 3s; */
-
-  /* TODO: DELETE ME WHEN DONE BUILDING THE SIDEBAR */
-  /* ************************************************* */
-  display: flex;
-  flex-direction: column;
-  width: var(--width-sidebar);
-  /* ************************************************* */
-}
-
-.comment-sidebar.show {
-  /* width: 100%; */
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  /* transition: 3s; */
-}
-
-
-/* .article-show-wrapper { */
-  /* display: flex; */
-  /* flex-direction: */
-/* } */
-
-
-
-
-
-
 
 
 

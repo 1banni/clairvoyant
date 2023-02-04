@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { FaPassport } from 'react-icons/fa';
 import ReactQuill from 'react-quill';
 import { useDispatch, useSelector } from 'react-redux';
@@ -16,7 +16,20 @@ const CommentForm = ({articleId, formtype, comment, editToggle, setEditToggle}) 
   const [active, setActive] = useState(false);
   const create = formtype === "create";
   const activeTag = (active || editToggle) ? "active" : "";
+  const animationDivRef = useRef(null);
+  let buttonsActive = false;
+  console.log('animationDivRef');
+  console.log(animationDivRef);
 
+
+  useEffect(() => {
+    console.log("updating buttonsActive");
+    console.log('animationDivRef?.current?.height');
+    console.log(animationDivRef?.current?.clientHeight);
+    animationDivRef?.current?.clientHeight >= 48
+    ? buttonsActive=true
+    : buttonsActive=false;
+  })
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -59,7 +72,9 @@ const CommentForm = ({articleId, formtype, comment, editToggle, setEditToggle}) 
   return (
     <>
       <div className={`outer-1 ${activeTag}`}>
-      <div className={`comment-form-ctnr ${formtype} ${activeTag}`}>
+      <div className={`comment-form-ctnr ${formtype} ${activeTag}`}
+           ref={animationDivRef}
+      >
       {create && !(body || active)
       ?
         <Button containername="activator-btn-ctnr"

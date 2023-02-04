@@ -126,7 +126,7 @@
 
 
 .login-errors {
-  padding-bottom: 20px;
+  margin-bottom: 20px;
   color:darkred;
   text-align: center;
 }
