@@ -24,11 +24,13 @@ const ArticleForm = props => {
     article = { title: '', body: '', blurb: '', topic: '' }
   }
   const [title, titleChange] = useInput(article.title);
+  const [topic, topicChange] = useInput(article.body);
   const [body, setBody] = useState(article.body);
   const [blurb, blurbChange] = useInput(article.blurb);
+  const [photoFiles, setPhotoFiles] = useState([]);
+  const [photoUrls, setPhotoUrls] = useState(article?.photoUrls || []);
   // TODO -> make the setter convert into array, and then render split with spaces
   // format each word to look like tag within input box
-  const [topic, topicChange] = useInput(article.body);
   const modules = {
     toolbar: [
       // [{ 'header': [false] }],
@@ -52,18 +54,48 @@ const ArticleForm = props => {
   const handleSubmit = async e => {
     e.preventDefault();
     if (!sessionUser) throw new Error('you must be logged in to bookmark a post');
-    article = {...article, title, topic, blurb, body};
+    const formData = new FormData();
+    formData.append('article[title]',title);
+    formData.append('article[topic]',topic);
+    if (blurb) formData.append('article[blurb]',blurb);
+    formData.append('article[body]',body);
+
+    if (photoFiles?.length > 0) {
+      photoFiles.forEach(photo => {
+        formData.append('article[photos][]',photo);
+      });
+    }
+
+    // article = {...article, title, topic, blurb, body, photoFiles };
     if (formType === 'Create') {
-      articleId = await dispatch(createArticle(article));
+      articleId = await dispatch(createArticle(formData));
       if (articleId) history.push(`/articles/${articleId}`);
     } else {
-      dispatch(updateArticle(article))
+      dispatch(updateArticle(formData, articleId))
         .then(history.push(`/articles/${articleId}`));
     }
   }
 
-  console.log('body');
-  console.log(body);
+  const updateImages = async e => {
+    const files = Array.from(e.target.files);
+    console.log('files');
+    console.log(files);
+    if (files) {
+      files.forEach(file => {
+        const fileReader = new FileReader();
+        fileReader.readAsDataURL(file);
+        fileReader.onload = () => {
+          // setPhotoFiles(prev => prev.push(file));
+          // setPhotoUrls(prev => prev.push(fileReader.result));
+          setPhotoFiles(prev => [...prev, file]);
+          setPhotoUrls(prev => [...prev, fileReader.result]);
+        };
+      });
+    }
+  };
+
+  // console.log('body');
+  // console.log(body);
 
   if (!sessionUser) return <Redirect to='/login' />;
   return (
@@ -125,13 +157,20 @@ const ArticleForm = props => {
         <div className='submit-compose-buttons'>
           <div className='upload-images'>
             <label>Images</label>
-            {/* <input
+            <input
               type='file'
               accept='.jpg, .jpeg, .png'
               multiple
-              onChange={updateFiles}
+              onChange={updateImages}
               id='choose-files'
-            /> */}
+            />
+          </div>
+          <div className='preview-images'>
+            <h4>Image Preview</h4>
+            {/* TODO - if photoUrl is truthy, render an image of that photo with a heading of Image preview */}
+            {photoUrls && photoUrls.map(photoUrl => {return (
+              <img src={photoUrl} key={photoUrl.uniqeId} alt='preview' height='100px'/>
+            )})},
           </div>
       </div>
         <Button type='submit' label='Submit Article'/>

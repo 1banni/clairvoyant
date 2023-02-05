@@ -55,10 +55,10 @@ export const fetchArticle = (articleId) => async dispatch => {
   }
 };
 
-export const createArticle = (article) => async dispatch => {
+export const createArticle = (formData) => async dispatch => {
   const res = await csrfFetch('/api/articles/', {
     method: "POST",
-    body: JSON.stringify(article)
+    body: formData
   });
 
   if (res.ok) {

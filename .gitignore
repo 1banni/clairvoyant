@@ -30,3 +30,14 @@
 
 # ignore files in public directory (b/c you want Render to generate them)
 /public
+
+
+# Ignore local storage
+/storage/*
+!/storage/.keep
+# A '!' in a .gitignore file serves to negate the pattern, i.e., it signifies
+# that the following pattern should be included. It is used when a previously
+# specified pattern would call for a necessary file to be ignored. So these
+# two lines together say to ignore everything (*) in the top-level (/)
+# storage/ directory except (!) .keep. A .keep file serves simply to keep the
+# directory from being empty so that git will include it 
