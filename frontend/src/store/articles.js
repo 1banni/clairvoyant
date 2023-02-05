@@ -76,11 +76,11 @@ export const deleteArticle = articleId => async dispatch => {
   if (res.ok) dispatch(removeArticle(articleId));
 }
 
-export const updateArticle = article => async dispatch => {
+export const updateArticle = (formData, articleId) => async dispatch => {
 
-  const res = await csrfFetch(`/api/articles/${article.id}`, {
+  const res = await csrfFetch(`/api/articles/${articleId}`, {
     method: "PATCH",
-    body: JSON.stringify(article)
+    body: formData
   })
 
   if (res.ok) {
