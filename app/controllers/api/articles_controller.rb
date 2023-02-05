@@ -31,17 +31,6 @@ class Api::ArticlesController < ApplicationController
     @article = Article.new(article_params)
     @article.author_id = current_user.id
 
-
-
-    p '-----------------------------------------------------------------------'
-    p '-----------------------------------------------------------------------'
-    p '-----------------------------------------------------------------------'
-    p 'in articles_controller#create'
-    p 'article_params'
-    p article_params
-    p '@article'
-    p @article
-
     if @article&.save
       render :show
       return
