@@ -32,6 +32,28 @@ ApplicationRecord.transaction do
 
   puts "Creating users..."
   # Create one user with an easy to remember username, email, and password:
+  bios = [
+    # 1
+    "Tech enthusiast and writer exploring the latest advancements in AI and blockchain. Passionate about helping people understand the potential of these technologies to shape our future.",
+    # 2
+    "Aspiring journalist and storyteller, sharing my experiences and insights on topics ranging from mental health to travel. Believer in the power of empathy and connection through writing.",
+    # 3
+    "Data scientist and analyst with a love for turning complex information into simple, actionable insights. On a mission to demystify the world of data and help others make informed decisions.",
+    # 4
+    "Self-taught web developer and entrepreneur, building new and innovative solutions for a better and more connected world. Excited to share my journey and knowledge with others.",
+    # 5
+    "Lifelong learner and polymath with a passion for philosophy, psychology, and technology. Seeking to understand the human condition and the role of technology in our lives.",
+    # 6
+    "Experienced marketer and branding expert, helping companies tell their story and connect with customers in meaningful ways. Keen on sharing my knowledge and insights on marketing and branding.",
+    # 7
+    "Passionate environmentalist and sustainability advocate, using my voice to raise awareness and inspire change. Believes that small actions can lead to big impact and is dedicated to a greener future.",
+    # 8
+    "Financial advisor and economist, breaking down complex financial concepts and providing practical advice for everyday people. On a mission to empower individuals to take control of their financial future.",
+    # 9
+    "Experienced teacher and educational leader, committed to transforming education and creating lifelong learners. Sharing my thoughts and ideas on education, pedagogy, and the future of learning.",
+    # 10
+    "Avid traveler and cultural explorer, sharing my adventures and discoveries from around the world. Believes that travel is the best teacher and is on a mission to inspire others to embrace new experiences."
+  ]
 
   user_test = User.create!(
     username: 'test',
@@ -44,31 +66,37 @@ ApplicationRecord.transaction do
     username: 'williB',
     name: 'William B.',
     email: 'william@gmail.com',
-    password: 'iuhiuh'
+    password: 'iuhiuh',
+    bio: 'Maker of clairvoyant.'
   )
 
   user_demo = User.create!(
     username: 'demo',
     name: 'Demo User',
     email: 'demo@demo.com',
-    password: 'password'
+    password: 'password',
+    bio: ''
   )
 
   user_ryan = User.create!(
     username: 'randy',
     name: 'Ryan Anderson',
     email: 'randy@gmail.com',
-    password: 'randy111'
+    password: 'randy111',
+    bio: "I'm Ryan, attempting to write out of my home in Los Angeles and elsewhere. I've established this blog as both a medium for distribution of my writing and an external, real (but virtual) force compelling me to write more."
   )
 
   # More users
-  10.times do
+  i = 0
+  while (i < 10)
     User.create!({
       username: Faker::Internet.unique.username(specifier: 3),
       name: Faker::Internet.name,
       email: Faker::Internet.unique.email,
-      password: 'password'
+      password: 'password',
+      bio: bios[i]
     })
+    i = i + 1
   end
 
   puts "Creating articles..."

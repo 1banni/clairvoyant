@@ -247,7 +247,7 @@
   flex-direction: column;
 }
 
-.splash-sidebar .external-links {
+/* .splash-sidebar .external-links {
   display: flex;
   flex-direction: row;
   justify-content: left;
@@ -258,14 +258,12 @@
 .splash-sidebar .github-img {
   width: 80px;
   margin-left: 10px;
-  /* height: 40px; */
 }
 
 .splash-sidebar .linked-img {
   width: 90px;
   margin-left: 20px;
-  /* margin-bottom: 2px; */
-}
+} */
 
 /* .sidebar-footer {
   height: 100px;

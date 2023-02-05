@@ -10,6 +10,7 @@
 #  session_token   :string           not null
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
+#  bio             :string
 #
 class User < ApplicationRecord
   # VALIDATIONS
@@ -38,6 +39,8 @@ class User < ApplicationRecord
 
   has_many :clapped_articles, through: :claps, source: :articles
   has_many :bookmarked_articles, through: :bookmarks, source: :articles
+
+  has_one_attached :photo
 
   def self.find_by_credentials(credential, password)
     if (URI::MailTo::EMAIL_REGEXP.match(credential))
