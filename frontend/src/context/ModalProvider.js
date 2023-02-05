@@ -16,6 +16,9 @@ export default function ModalProvider({ children }) {
     });
   }, []);
 
+  // console.log('props');
+  // console.log(props);
+
   const ModalComponent = modal.component ? modal.component : null;
 
   // the magic of this is that events bubble up to the parent (propogates it up to div)
