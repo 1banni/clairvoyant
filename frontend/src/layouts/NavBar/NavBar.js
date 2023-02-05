@@ -15,67 +15,64 @@ import './NavBar.css';
 function NavBar() {
   const location = useLocation();
   const sessionUser = useSelector(state => state.session.user);
-  const [colorToggle, setColorToggle] = useState("white");
-  const [fixed, setFixed] = useState("nav-bar-wrapper");
+  const [colorToggle, setColorToggle] = useState('white');
+  const [fixed, setFixed] = useState('nav-bar-wrapper');
 
   useEffect(()=> {
     location.pathname === '/'
-      ? setColorToggle(prev => "yellow")
-      : setColorToggle(prev => "white");
+      ? setColorToggle(prev => 'yellow')
+      : setColorToggle(prev => 'white');
   }, [location]);
 
   // TODO - see if you can do this with a useEffect
   const toggleFixed = () => {
     window.scrollY > 535
-      ? setFixed("nav-bar-wrapper fixed")
-      : setFixed("nav-bar-wrapper"); // "floating" not used in CSS
+      ? setFixed('nav-bar-wrapper fixed')
+      : setFixed('nav-bar-wrapper'); // 'floating' not used in CSS
   };
-  window.addEventListener("scroll", toggleFixed);
+  window.addEventListener('scroll', toggleFixed);
 
   let sessionLink;
   if (sessionUser) {
     sessionLink = (
-      <ProfileMenu className="icon profile" user={sessionUser} />
+      <ProfileMenu className='icon profile' user={sessionUser} />
     );
   } else {
     sessionLink = (
-        <Button className="icon-btn login-modal"
-                containername="icon-btn-ctnr login-modal"
+        <Button className='icon-btn login-modal'
+                containername='icon-btn-ctnr login-modal'
                 modal={ LoginModal }>
-          <ProfileIcon className="icon profile"/>
+          <ProfileIcon className='icon profile'/>
         </Button>
     );
   }
 
   return (
-    <div className={fixed + " " + colorToggle}>
-    <div className="nav-bar">
-      <div className="nav-bar-l">
-        <div className="nav-link homepage">
-          <NavItem exact to="/">
-            <ClairvoyantLogo className="icon logo" />
+    <div className={fixed + ' ' + colorToggle}>
+    <div className='nav-bar'>
+      <div className='nav-bar-l'>
+        <div className='nav-link homepage'>
+          <NavItem exact to='/'>
+            <ClairvoyantLogo className='icon logo' />
           </NavItem>
         </div>
       </div>
-      <div className="nav-bar-r">
+      <div className='nav-bar-r'>
         {/* TODO: rename 'articles/new' to 'write' */}
         {sessionUser
         ? (
-        <Link to="/articles/new">
-          <WriteIcon className="icon write"/>
+        <Link to='/articles/new'>
+          <WriteIcon className='icon write'/>
         </Link>)
         : (
         <Button modal={LoginModal}
-                containername="icon-write-btn-ctnr"
-                className="icon-write-btn"
-                redirect="/write">
-          <WriteIcon className="icon write"/>
+                containername='icon-write-btn-ctnr'
+                className='icon-write-btn'
+                redirect='/write'>
+          <WriteIcon className='icon write'/>
         </Button>)
       }
-        {/* <NavItem exact to="/articles/new" className="nav-link write">
-          <WriteIcon className="icon write"/>
-        </NavItem> */}
-        <div className="nav-link session">
+        <div className='nav-link session'>
           {sessionLink}
         </div>
       </div>

@@ -1,15 +1,15 @@
 import React from 'react';
 import { FaUserCircle } from 'react-icons/fa';
+import { useHistory } from 'react-router-dom';
 import Button from '../../../blocks/Button';
 import ColorUtil from '../../../utils/ColorUtil';
 import './AuthorTileSquare.css';
 
-const AuthorTileSquare = ({author, ...props}) => {
-  console.log('author');
-  console.log(author);
-  let _bio = author.bio ? author.bio : "";
-  let parsed_bio = _bio.split('\\n').join(' ');
+import NavUtil from '../../../utils/NavUtil';
 
+const AuthorTileSquare = ({author, ...props}) => {
+  const history = useHistory();
+  const parsed_bio = author?.bio ? author.bio.split('\\n').join(' ') : "";
   const bioBlurb = (parsed_bio.length > 160
                     ? parsed_bio.slice(0,160) + '...'
                     : parsed_bio
@@ -24,11 +24,13 @@ const AuthorTileSquare = ({author, ...props}) => {
     // size: "5x"
   }
 
+  // const goToUserById = (id) => () => history.push(`/users/${id}`);
+
   if (!author) return <></>;
   return (
     <div className='author-tile-square'>
 
-      <div className='icon'>
+      <div className='icon' onClick={NavUtil.goToUserById(history, author.id)}>
         <FaUserCircle className='temp'
           size='40px'
           style={styleOptions}

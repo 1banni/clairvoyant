@@ -27,7 +27,6 @@ const CommentForm = ({articleId, formtype, comment, editToggle, setEditToggle}) 
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // console.log("in handle submit");
 
     if (!sessionUser) throw new Error("you must be logged in to comment on an article");
     let commentData = {
@@ -37,8 +36,6 @@ const CommentForm = ({articleId, formtype, comment, editToggle, setEditToggle}) 
     if (sessionUser) commentData.author_id = sessionUser.id;
     if (comment) commentData.id = comment.id;
 
-    // console.log('formtype');
-    // console.log(formtype);
     if (formtype === "edit") {
       dispatch(updateComment(commentData));
       setBody("");
