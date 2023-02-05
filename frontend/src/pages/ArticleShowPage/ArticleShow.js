@@ -39,11 +39,7 @@ const ArticleShow = (props) => {
     setCommentDisplay(state => !state);
   }
 
-  console.log('article');
-  console.log(article);
-          // <Image url={imageUrl} width='600' />
-
-  if (!article) return null;
+  if (!article) return <></>;
   return (
     <>
     <div className='article-show-wrapper'>

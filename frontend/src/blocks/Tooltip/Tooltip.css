@@ -1,9 +1,3 @@
-
-
-
-
-
-
 .tooltip-btn {
   display: inline-block;
   position: relative;
@@ -23,8 +17,6 @@
   white-space: nowrap;
 }
 
-
-
 .tooltip.bottom {
   bottom: calc(var(10px) * -1);
   box-shadow: 0 0 4px #bbb;
@@ -37,7 +29,6 @@
   /* border-bottom: var(--border-grn); */
 }
 
-
 .tooltip .btn.edit {
   border: none;
   /* background-color: black; */
@@ -47,3 +38,4 @@
   border: none;
   /* background-color: black; */
 }
+

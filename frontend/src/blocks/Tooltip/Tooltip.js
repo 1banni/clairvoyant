@@ -2,32 +2,33 @@ import React, { useState } from 'react';
 import Button from '../Button';
 import './Tooltip.css';
 
-const Tooltip = (props) => {
-  let timeout;
+const Tooltip = ({label, buttonname, className, timeout, ...props}) => {
   const [active, setActive] = useState(false);
-
+  buttonname ||= 'tooltip-btn';
+  className ||= 'tooltip bottom';
 
   const toggleTooltip = () => {
     if (active) setActive(false);
     else {
       setActive(true)
-      // timeout = setTimeout(() => {
-      //   setActive(false);
-      // }, 5000)
+      if (timeout) {
+        setTimeout(() => {
+          setActive(false);
+        }, timeout)
+      }
     }
   }
 
   return (
     <div>
-      <div className="tooltip-btn"
-        onClick={toggleTooltip}
-      >...
-        {active && (
-          <div className='tooltip bottom'>
-            {props.content}
-            {props.children}
-          </div>
-        )}
+      <div className={buttonname} onClick={toggleTooltip} >
+        {label}
+      {active && (
+        <div className={className}>
+          {props.content}
+          {props.children}
+        </div>
+      )}
       </div>
     </div>
   );
