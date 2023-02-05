@@ -5,6 +5,7 @@ import Image from '../../blocks/ArticleImage/ArticleImage';
 import Title from '../../blocks/ArticleTitle/ArticleTitle';
 import BanniLinks from '../../blocks/BanniLinks';
 import EditDelete from '../../blocks/EditDelete/EditDelete';
+import ArticleTileSimple from '../../components/ArticleTile/Simple/ArticleTileSimple';
 import AuthorTile from '../../components/AuthorTile/AuthorTile';
 import AuthorTileSquare from '../../components/AuthorTile/Square/AuthorTileSquare';
 import CommentIndex from '../../components/Comments';
@@ -38,6 +39,10 @@ const ArticleShow = (props) => {
   const toggleCommentDisplay = () => {
     setCommentDisplay(state => !state);
   }
+
+  const moreArticles = [15, 14, 13, 12];
+  console.log('moreArticles');
+  console.log(moreArticles);
 
   if (!article) return <></>;
   return (
@@ -88,7 +93,9 @@ const ArticleShow = (props) => {
             <AuthorTileSquare author={article.author}/>
 
             <div className='more-from-medium_'>More from Medium
-
+              {moreArticles && moreArticles.map(id => (
+                <ArticleTileSimple articleId={id}/>
+              ))}
             </div>
 
             <div className='links'>

@@ -7,12 +7,11 @@ import ArticleImage from "../../blocks/ArticleImage";
 import ArticleTitle from "../../blocks/ArticleTitle";
 import Bookmark from '../../blocks/Bookmark'
 import Image from "../../blocks/Image/Image";
+import NavUtil from "../../utils/NavUtil";
 
 const ArticleTile = ({ article }) => {
   let history = useHistory();
-  const goToArticle = () => {
-    history.push(`/articles/${article.id}`);
-  }
+
   if (article && article.imageUrls) {
     console.log('article.imageUrls');
     console.log(article.imageUrls);
@@ -25,7 +24,11 @@ const ArticleTile = ({ article }) => {
 
       <div className="article-info">
         <ArticleAuthor name={article.authorName}/>
-        <ArticleTitle article={article} includeBlurb={true} onClick={goToArticle}/>
+        <ArticleTitle
+          article={article}
+          includeBlurb={true}
+          onClick={NavUtil.goToArticleById(history, article.id)}
+        />
         <ArticleDetail article={article}>
           <Bookmark articleId={article.id} />
         </ArticleDetail>
