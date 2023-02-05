@@ -22,9 +22,9 @@ const CommentTile = ({commentId}) => {
   const color = () => ColorUtil.nameToColor('TODO - UPDATE');
   const styleOptions = {
     stroke: color(),
-    fill: "white",
-    strokeWidth: "50",
-    // size: "5x"
+    fill: 'white',
+    strokeWidth: '50',
+    // size: '5x'
   }
 
 
@@ -35,7 +35,7 @@ const CommentTile = ({commentId}) => {
 
   const handleDelete = (e) => {
     e.preventDefault();
-    // console.log("frontend CommentTile handleDelete");
+    // console.log('frontend CommentTile handleDelete');
     dispatch(deleteComment(comment.id))
   }
 
@@ -45,8 +45,8 @@ const CommentTile = ({commentId}) => {
       <div className='author'>
         <div className='author-l'>
           <div className='image'>
-            <FaUserCircle className="user-icon"
-              size="30px"
+            <FaUserCircle className='user-icon'
+              size='30px'
               style={styleOptions}
             />
           </div>
@@ -61,19 +61,19 @@ const CommentTile = ({commentId}) => {
         </div>
         <div className='author-r'>
           {isAuthor && (
-          <Tooltip>
-            <Button className="btn edit"
-                    label="Edit this response"
+          <Tooltip label='...' timeout={5000}>
+            <Button className='btn edit'
+                    label='Edit this response'
                     onClick={handleEdit}/>
-            <Button className="btn delete"
-                    label="Delete"
+            <Button className='btn delete'
+                    label='Delete'
                     onClick={handleDelete}/>
           </Tooltip>
           )}
-          {/* <Button className="report-btn"
-            containername="report-btn-ctnr"
+          {/* <Button className='report-btn'
+            containername='report-btn-ctnr'
             onClick={() => setShowEditDelete(state => !state)}
-            label="..."
+            label='...'
           >
           </Button> */}
 
@@ -82,7 +82,7 @@ const CommentTile = ({commentId}) => {
       <div className='body'>
         {editToggle
           ? (<CommentForm articleId={comment.articleId}
-                          formtype="edit"
+                          formtype='edit'
                           comment={comment}
                           setEditToggle={setEditToggle}
                           editToggle={editToggle}

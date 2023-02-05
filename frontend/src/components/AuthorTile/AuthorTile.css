@@ -47,6 +47,10 @@
   margin-top: 2px;
 }
 
+.author-tile-1 .share-bookmark .link-copied {
+  margin: 8px;
+}
+
 
 .rt {
   display: flex;

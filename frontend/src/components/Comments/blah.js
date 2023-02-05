@@ -5,10 +5,10 @@ import Tooltip from '../../blocks/Tooltip/Tooltip';
 
 const blah = () => {
 
-  let comment = "blah"
-  let isAuthor = "blah"
-  let handleEdit = "blah"
-  let handleDelete = "blah"
+  let comment = 'blah'
+  let isAuthor = 'blah'
+  let handleEdit = 'blah'
+  let handleDelete = 'blah'
 
   let styleOptions = {};
   return (
@@ -16,8 +16,8 @@ const blah = () => {
       <div className='author'>
         <div className='left'>
           <div className='image'>
-            <FaUserCircle className="user-icon"
-              size="30px"
+            <FaUserCircle className='user-icon'
+              size='30px'
               style={styleOptions}
             />
             <div className='name-and-date'>
@@ -33,11 +33,11 @@ const blah = () => {
         <div className='right'>
           {isAuthor && (
           <Tooltip>
-            <Button className="btn edit"
-                    label="Edit this response"
+            <Button className='btn edit'
+                    label='Edit this response'
                     onClick={handleEdit}/>
-            <Button className="btn delete"
-                    label="Delete"
+            <Button className='btn delete'
+                    label='Delete'
                     onClick={handleDelete}/>
           </Tooltip>
           )}

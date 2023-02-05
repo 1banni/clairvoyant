@@ -3,9 +3,8 @@ import { FaUserCircle } from 'react-icons/fa';
 import { useHistory } from 'react-router-dom';
 import Button from '../../../blocks/Button';
 import ColorUtil from '../../../utils/ColorUtil';
-import './AuthorTileSquare.css';
-
 import NavUtil from '../../../utils/NavUtil';
+import './AuthorTileSquare.css';
 
 const AuthorTileSquare = ({author, ...props}) => {
   const history = useHistory();
@@ -37,7 +36,9 @@ const AuthorTileSquare = ({author, ...props}) => {
         />
       </div>
 
-      <div className='name'>{author.name}</div>
+      <div className='name' onClick={NavUtil.goToUserById(history, author.id)}>
+        {author.name}
+      </div>
 
       <div>{/* TODO - ADD # OF FOLLOWERS */}</div>
 

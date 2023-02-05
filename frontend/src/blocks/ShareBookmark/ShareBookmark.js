@@ -20,7 +20,6 @@ const ArticleBookmark = ({articleId}) => {
   const options = {fill: "black", size:"40px" };
   const sessionUser = useSelector(state => state.session.user);
   const bookmark = useSelector(state => state.bookmarks[articleId]);
-  // const bookmark2 = useSelector(selectBookmarksByArticleId(articleId));
   const dispatch = useDispatch();
 
   let BookmarkIcon = bookmark

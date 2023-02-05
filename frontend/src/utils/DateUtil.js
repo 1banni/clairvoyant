@@ -1,6 +1,3 @@
-// TODO
-// Check BenchBnB for example
-
 const DateUtil = {
   longForm (date) {
     let options = {
@@ -12,6 +9,6 @@ const DateUtil = {
     if (dateObj.getFullYear() !== 2023) options.year = "numeric";
     return dateObj.toLocaleDateString('en-us', options);
   }
-}
+};
 
 export default DateUtil;

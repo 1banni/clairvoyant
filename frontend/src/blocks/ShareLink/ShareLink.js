@@ -24,14 +24,13 @@ const ShareLink = () => {
 
   return (
     <Button containername="icon-ctnr" className="icon-btn bookmark" onClick={copyUrlToClipboard}>
-      <FiLink className="icon share"
-              style={options}
-              size="40px"
-              />
+      <FiLink
+        className="icon share"
+        style={options}
+        size="40px"
+      />
     </Button>
+  );
+};
 
-
-  )
-}
-
-export default ShareLink
+export default ShareLink;
