@@ -1,10 +1,16 @@
 
 json.set! 'article' do
   json.set! @article.id do
-    json.extract! @article, :id, :title, :topic, :body,  :author_id, :created_at
+    json.extract! @article, :id, :title, :topic, :body, :author_id, :created_at
+
+    if @article.photos
+      json.imageUrls @article.photos.map { |file| url_for(file) }
+    end
+
     json.author_name @article.author.name
 
     json.num_claps @article.claps.count
+
 
     # json.comments @comments
   end

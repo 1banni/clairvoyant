@@ -47,7 +47,6 @@ export const fetchComments = (articleId) => async dispatch => {
 };
 
 export const createComment = (comment) => async dispatch => {
-  console.log("why am i here in createComment");
   const res = await csrfFetch('/api/comments/', {
     method: "POST",
     body: JSON.stringify(comment)
@@ -72,8 +71,6 @@ export const deleteComment = (commentId) => async dispatch => {
 };
 
 export const updateComment = comment => async dispatch => {
-  console.log("in comments(store)#updateComment");
-
   const res = await csrfFetch(`/api/comments/${comment.id}`, {
     method: "PATCH",
     body: JSON.stringify(comment)

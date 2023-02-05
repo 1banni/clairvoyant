@@ -17,8 +17,8 @@ const ArticleIndex = props => {
 
   return (
     <>
-      <div className="article-idx-ctnr">
-        <div className="article-idx">
+      <div className="article-index-ctnr">
+        <div className="article-index">
           {articles.map( article => {
             return <ArticleTile
               article={article}

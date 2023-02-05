@@ -66,7 +66,6 @@ const ArticleForm = props => {
       });
     }
 
-    // article = {...article, title, topic, blurb, body, photoFiles };
     if (formType === 'Create') {
       articleId = await dispatch(createArticle(formData));
       if (articleId) history.push(`/articles/${articleId}`);
@@ -76,10 +75,10 @@ const ArticleForm = props => {
     }
   }
 
-  const updateImages = async e => {
+  const handlePhotos = async e => {
     const files = Array.from(e.target.files);
-    console.log('files');
-    console.log(files);
+    // console.log('files');
+    // console.log(files);
     if (files) {
       files.forEach(file => {
         const fileReader = new FileReader();
@@ -94,6 +93,22 @@ const ArticleForm = props => {
     }
   };
 
+  const handleReplacePhotos = async e => {
+    setPhotoFiles([]);
+    setPhotoUrls([]);
+    const files = Array.from(e.target.files);
+    if (files) {
+      files.forEach(file => {
+        const fileReader = new FileReader();
+        fileReader.readAsDataURL(file);
+        fileReader.onload = () => {
+          setPhotoFiles(prev => [...prev, file]);
+          setPhotoUrls(prev => [...prev, fileReader.result]);
+        };
+      });
+    }
+  };
+
   // console.log('body');
   // console.log(body);
 
@@ -101,79 +116,104 @@ const ArticleForm = props => {
   return (
     <div className='article-create-page'>
       <form className='article-create-form' onSubmit={handleSubmit} >
-      <div className='pair'>
-        <div className={`label title ${active(title)}`}>Title</div>
-        {/* <ReactQuill theme='bubble' value={title} placeholder='What will you name it?' onChange={titleChange} /> */}
-        <input label=''
-            // containername='input-ctnr title'
-            className='input title'
-            type='text'
-            value={title}
-            onChange={titleChange}
-            placeholder=''
-            // size='140'
-            required
-          />
-      </div>
-      <div className='pair'>
-        <div className={`label topic ${active(topic)}`}>Topic</div>
-        <input label=''
-            // containername='input-ctnr topic'
-            className='input topic'
-            type='text'
-            value={topic}
-            onChange={topicChange}
-            placeholder='Up to 20 characters'
-            size='140'
-            maxlength='20'
-            required
-          />
-        {/* <ReactQuill theme='bubble' value={blurb} onChange={blurbChange} /> */}
-      </div>
-      <div className='pair'>
-        <div className={`label blurb ${active(blurb)}`}>Blurb</div>
-        {/* <ReactQuill theme='bubble' value={topic} onChange={topicChange} /> */}
-        <input label=''
-            // containername='input-ctnr blurb'
-            className='input blurb'
-            type='text'
-            value={blurb}
-            onChange={blurbChange}
-            placeholder='Up to 120 characters (optional)'
-            maxlength='120'
-            // required
-          />
-      </div>
-      <div className='pair body'>
-        <div className={`label body ${active(body)}`}>Body</div>
-        <ReactQuill theme='snow'
-                    modules={modules}
-                    formats={formats}
-                    value={body}
-                    onChange={setBody}
-                    id='reactquill'>
-        </ReactQuill>
-      </div>
+
+        <div className='pair'>
+          <div className={`label title ${active(title)}`}>Title</div>
+          {/* <ReactQuill theme='bubble' value={title} placeholder='What will you name it?' onChange={titleChange} /> */}
+          <input label=''
+              // containername='input-ctnr title'
+              className='input title'
+              type='text'
+              value={title}
+              onChange={titleChange}
+              placeholder=''
+              // size='140'
+              required
+            />
+        </div>
+
+        <div className='pair'>
+          <div className={`label topic ${active(topic)}`}>Topic</div>
+          <input label=''
+              // containername='input-ctnr topic'
+              className='input topic'
+              type='text'
+              value={topic}
+              onChange={topicChange}
+              placeholder='Up to 20 characters'
+              size='140'
+              maxlength='20'
+              required
+            />
+          {/* <ReactQuill theme='bubble' value={blurb} onChange={blurbChange} /> */}
+        </div>
+
+        <div className='pair'>
+          <div className={`label blurb ${active(blurb)}`}>Blurb</div>
+          {/* <ReactQuill theme='bubble' value={topic} onChange={topicChange} /> */}
+          <input label=''
+              // containername='input-ctnr blurb'
+              className='input blurb'
+              type='text'
+              value={blurb}
+              onChange={blurbChange}
+              placeholder='Up to 120 characters (optional)'
+              maxlength='120'
+              // required
+            />
+        </div>
+
+        <div className='pair body'>
+          <div className={`label body ${active(body)}`}>Body</div>
+          <ReactQuill theme='snow'
+                      modules={modules}
+                      formats={formats}
+                      value={body}
+                      onChange={setBody}
+                      id='reactquill'>
+          </ReactQuill>
+        </div>
+
         <div className='submit-compose-buttons'>
           <div className='upload-images'>
-            <label>Images</label>
+      { formType === "Create"
+        ? (
+          <div className="create">
+            <label>Upload Photos</label>
             <input
               type='file'
               accept='.jpg, .jpeg, .png'
               multiple
-              onChange={updateImages}
+              onChange={handlePhotos}
               id='choose-files'
             />
           </div>
+        ) : (
+          <div className="update">
+            <label>Replace Existing Photos</label>
+            <input
+              type='file'
+              accept='.jpg, .jpeg, .png'
+              multiple
+              onChange={handleReplacePhotos}
+              id='choose-files'
+            />
+          </div>
+        )
+      }
+          </div>
+
           <div className='preview-images'>
             <h4>Image Preview</h4>
             {/* TODO - if photoUrl is truthy, render an image of that photo with a heading of Image preview */}
             {photoUrls && photoUrls.map(photoUrl => {return (
               <img src={photoUrl} key={photoUrl.uniqeId} alt='preview' height='100px'/>
-            )})},
+            )})}
           </div>
-      </div>
+        </div>
+
         <Button type='submit' label='Submit Article'/>
+
       </form>
     </div>
   )

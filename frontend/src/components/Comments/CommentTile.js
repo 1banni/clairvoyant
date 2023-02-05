@@ -35,7 +35,7 @@ const CommentTile = ({commentId}) => {
 
   const handleDelete = (e) => {
     e.preventDefault();
-    console.log("frontend CommentTile handleDelete");
+    // console.log("frontend CommentTile handleDelete");
     dispatch(deleteComment(comment.id))
   }
 

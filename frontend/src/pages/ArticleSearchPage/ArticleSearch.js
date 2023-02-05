@@ -49,8 +49,8 @@ export default function ArticleSearch({...props}) {
           <ol>
             {filteredArticles.map(article => <ArticleTile article={article} key={article.id} />)}
           </ol>
-          <div>Loading...</div>
-        <div>Error</div>
+          {/* <div>Loading...</div> */}
+        {/* <div>Error</div> */}
       </div>
       <div className="staff-picks">Staff Picks
       </div>
