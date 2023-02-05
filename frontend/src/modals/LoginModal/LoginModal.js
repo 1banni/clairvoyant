@@ -16,6 +16,8 @@ function LoginModal(props) {
   const [password, passwordChange] = useInput('');
   const sessionUser = useSelector(state => state.session.user);
 
+  console.log('props');
+  console.log(props);
 
   let [errors, handleSubmit] = useSubmit({
     createAction: () => login({ credential, password }),
