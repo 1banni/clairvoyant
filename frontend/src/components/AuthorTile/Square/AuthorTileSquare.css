@@ -5,6 +5,7 @@
 
 /* Icon */
 .author-tile-square .icon {
+  cursor: pointer;
   margin-bottom: 10px;
 }
 
