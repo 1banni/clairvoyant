@@ -10,18 +10,22 @@
 
 /* Name */
 .author-tile-square .name {
-  margin-bottom: 10px;
+  cursor: pointer;
   font-weight: 500;
-
   font-kerning: normal;
   font-family: var(--ff-text);
-
-  cursor: pointer;
+  margin-bottom: 10px;
 }
 
 /* Bio */
 .author-tile-square .bio {
+  color: var(--color-ultralight-grey);
+  font-family: var(--ff-text);
+  font-weight: 300px;
+  font-size: 0.88rem;
   margin-bottom: 10px;
+  line-height: 20px;
+
 }
 
 
