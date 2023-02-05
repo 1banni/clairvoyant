@@ -90,10 +90,6 @@ const ArticleShow = (props) => {
           <div className={'article-sidebar'} >
 
             <AuthorTileSquare author={article.author}/>
-
-            <div className='author-tile-1'>Author Tile 2
-
-            </div>
             <div className='more-from-medium_'>More from Medium
 
             </div>
