@@ -107,11 +107,13 @@
 .comment-sidebar, .article-sidebar {
   grid-column: 1;
   grid-row: 1;
+  margin-top: 10px;
+  margin-left: 10px;
+
+  margin-right: 10px;
 }
 
 .article-sidebar {
-  margin-top: 10px;
-  margin-left: 10px;
 }
 
 .more-from-medium_ {

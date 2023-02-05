@@ -7,14 +7,15 @@ import './AuthorTileSquare.css';
 const AuthorTileSquare = ({author, ...props}) => {
   console.log('author');
   console.log(author);
+  let _bio = author.bio ? author.bio : "";
+  let parsed_bio = _bio.split('\\n').join(' ');
 
-  const bioBlurb = () => {
-    let _bio = author.bio ? author.bio : "";
-    let parsed_bio = _bio.split('\\n').join(' ');
-    return parsed_bio.length > 115
-      ? parsed_bio.slice(0,115) + '...'
-      : parsed_bio;
-  }
+  const bioBlurb = (parsed_bio.length > 160
+                    ? parsed_bio.slice(0,160) + '...'
+                    : parsed_bio
+  );
+
+
 
   const styleOptions = {
     stroke: ColorUtil.nameToColor(author?.name),
@@ -38,7 +39,7 @@ const AuthorTileSquare = ({author, ...props}) => {
 
       <div>{/* TODO - ADD # OF FOLLOWERS */}</div>
 
-      <div className='bio'>TODO - IMPORT AUTHOR BIO ONCE IN BACKEND</div>
+      <div className='bio'>{bioBlurb}</div>
 
       {/* <Button containername='btn-ctnr' className='btn'>
         Follow - TODO - IMPLEMENT ME :)

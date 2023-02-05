@@ -83,23 +83,23 @@ const ArticleShow = (props) => {
         <div className='right'>
 
           {commentDisplay && (
-          <div className={`comment-sidebar ${showComments}`} >
+          <section className={`comment-sidebar ${showComments}`} >
             <CommentIndex article={article}/>
-          </div>)}
+          </section>)}
 
-          <div className={'article-sidebar'} >
+          <section className={'article-sidebar'} >
 
             <AuthorTileSquare author={article.author}/>
+
             <div className='more-from-medium_'>More from Medium
 
             </div>
+
             <div className='links'>
-                <div className='label-1'>
-                  BY WILL BANNISTER
-                </div>
+                <h4 className='label-1'>BY WILL BANNISTER</h4>
                 <BanniLinks />
-              </div>
-          </div>
+            </div>
+          </section>
 
         </div>
         {/* <button type='button' onClick={() => history.push('/')}>Return Home */}
