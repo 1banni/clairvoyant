@@ -57,7 +57,7 @@ const SplashPage = props => {
               <div className="label-1 discover-more_">DISCOVER MORE OF WHAT MATTERS TO YOU</div>
 
               <div className="topics">
-                {topics.slice(8).map(topic => {return (
+                {topics.slice(0,13).map(topic => {return (
                 <TopicButton key={UniqUtil.key(topic)} topic={topic}
                   containername="btn-ctnr topic rect"
                   className="btn topic rect"

@@ -21,7 +21,7 @@ class Api::UsersController < ApplicationController
   # you can have whatever routes you want!
   private
   def user_params
-    params.require(:user).permit(:email, :username, :password)
+    params.require(:user).permit(:email, :username, :password, :bio)
     # front end can send data like { user: username: 'bob, password:: 'password'}
     # front end can also send it as { username: 'bob', password: 'password'}
     # ^ here, we would be able to get username column (automatically cause of controller name)
