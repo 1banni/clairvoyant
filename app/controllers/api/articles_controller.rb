@@ -2,6 +2,9 @@
 # tighten all backend routes up
 
 class Api::ArticlesController < ApplicationController
+  # wrap_parameters format: :multipart_form
+  wrap_parameters include: Article.attribute_names + [:photos], format: :multipart_form
+
   def index
     @articles = filter(Article.all)
     @user = current_user
@@ -28,8 +31,20 @@ class Api::ArticlesController < ApplicationController
     @article = Article.new(article_params)
     @article.author_id = current_user.id
 
+
+
+    p '-----------------------------------------------------------------------'
+    p '-----------------------------------------------------------------------'
+    p '-----------------------------------------------------------------------'
+    p 'in articles_controller#create'
+    p 'article_params'
+    p article_params
+    p '@article'
+    p @article
+
     if @article&.save
       render :show
+      return
     else
       render json: { errors: @article.errors.full_messages }, status: 422
     end
@@ -94,7 +109,14 @@ class Api::ArticlesController < ApplicationController
   def article_params
     # front end can send data like { user: username: 'bob, password:: 'password'}
     # front end can also send it as { username: 'bob', password: 'password'}
-    params.require(:article).permit(:title, :topic, :blurb, :body, :author_id)
+    params.require(:article).permit(
+      :title,
+      :topic,
+      :blurb,
+      :body,
+      :author_id,
+      photos: [],
+    )
   end
 
   def filter_params
