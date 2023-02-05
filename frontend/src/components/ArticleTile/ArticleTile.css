@@ -1,6 +1,6 @@
 .article-tile {
   /* width: 700px; */
-  /* width: clamp(300px, 65vw, 650px); */
+  width: clamp(300px, 100vw, 1200px);
   height: 200px;
   display: flex;
   flex-direction: row;
@@ -14,8 +14,8 @@
   justify-content: center;
 }
 
-.article-info{
-  width: 480px;
+.article-info {
+  width: 700px;
   display: flex;
   flex-direction: column;
   justify-content: space-around;

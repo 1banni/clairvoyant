@@ -4,7 +4,7 @@ import LoginPage from './pages/LoginPage';
 import SignUpPage from './pages/SignUpPage';
 import ArticleIndex from './components/ArticleIndex';
 import ArticleForm from './pages/ArticleForm';
-import ArticleShow from './pages/ArticleShow';
+import ArticleShow from './pages/ArticleShowPage';
 import ModalProvider from './context/ModalProvider';
 import ArticleSearch from './pages/ArticleSearchPage/ArticleSearch';
 import SplashPage from './pages/SplashPage';

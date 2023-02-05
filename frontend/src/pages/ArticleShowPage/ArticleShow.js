@@ -43,19 +43,24 @@ const ArticleShow = (props) => {
     <div className="article-show-wrapper">
       <div className="article-show">
         <div className="article-show-l">
-          <div className="article-view">
           <AuthorTile article={article}>
           {editDeleteToggle() &&
             <EditDelete article={article}/>
           }
-          </AuthorTile>
+      </AuthorTile>
+          <div className="article-view">
               <Title article={article} />
-              <Image containername="article-image-ctnr"
+              <div className="article-images">
+              {article && article.imageUrls?.map(imageUrl => (
+                <img key={imageUrl} src={imageUrl} alt="" /*height="300"*/ width="600" />
+              ))}
+              </div>
+              {/* <Image containername="article-image-ctnr"
                     className="article-image"
                     src="https://miro.medium.com/fit/c/400/268/0*CV8SZagj7nhTYtYn"
                     //  height="134px"
                     //  width="200px"
-              />
+              /> */}
               <Body body={article.body}/>
               <ArticleLinks article={article} toggleCommentDisplay={toggleCommentDisplay}/>
           </div>

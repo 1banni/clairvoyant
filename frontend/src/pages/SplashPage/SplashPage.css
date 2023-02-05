@@ -178,6 +178,15 @@
   /* height: 3000px; */
 }
 
+
+.article-index-ctnr {
+  width: clamp(400px, 70vw, 700px);
+
+}
+
+
+
+
 .splash-sidebar {
   width: var(--width-sidebar);
 }

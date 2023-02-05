@@ -18,14 +18,14 @@ const CommentForm = ({articleId, formtype, comment, editToggle, setEditToggle}) 
   const activeTag = (active || editToggle) ? "active" : "";
   const animationDivRef = useRef(null);
   let buttonsActive = false;
-  console.log('animationDivRef');
-  console.log(animationDivRef);
+  // console.log('animationDivRef');
+  // console.log(animationDivRef);
 
 
   useEffect(() => {
-    console.log("updating buttonsActive");
-    console.log('animationDivRef?.current?.height');
-    console.log(animationDivRef?.current?.clientHeight);
+    // console.log("updating buttonsActive");
+    // console.log('animationDivRef?.current?.height');
+    // console.log(animationDivRef?.current?.clientHeight);
     animationDivRef?.current?.clientHeight >= 48
     ? buttonsActive=true
     : buttonsActive=false;
@@ -33,7 +33,7 @@ const CommentForm = ({articleId, formtype, comment, editToggle, setEditToggle}) 
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("in handle submit");
+    // console.log("in handle submit");
 
     if (!sessionUser) throw new Error("you must be logged in to comment on an article");
     let commentData = {
@@ -43,8 +43,8 @@ const CommentForm = ({articleId, formtype, comment, editToggle, setEditToggle}) 
     if (sessionUser) commentData.author_id = sessionUser.id;
     if (comment) commentData.id = comment.id;
 
-    console.log('formtype');
-    console.log(formtype);
+    // console.log('formtype');
+    // console.log(formtype);
     if (formtype === "edit") {
       dispatch(updateComment(commentData));
       setBody("");
