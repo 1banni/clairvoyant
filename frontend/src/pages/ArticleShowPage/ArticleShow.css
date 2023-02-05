@@ -77,10 +77,6 @@
   display: flex;
   flex-direction: row;
 }
-.clap {
-  /* margin-right: 10px */
-
-}
 
 .article-links .share-bookmark {
   display: flex;
@@ -102,7 +98,7 @@
   /* flex-direction: column; */
   display: grid;
   width: var(--width-sidebar);
-  border: var(--border-rng);
+  /* border: var(--border-rng); */
   /* margin: 10px; */
   position: relative;
   /* z-index: -12; */
@@ -112,6 +108,16 @@
   grid-column: 1;
   grid-row: 1;
 }
+
+.article-sidebar {
+  margin-top: 10px;
+  margin-left: 10px;
+}
+
+.more-from-medium_ {
+
+}
+
 
 .comment-sidebar {
   height: 100%;
@@ -556,6 +562,10 @@ span {
   width: 98%;
   /* justify-self: center; */
   align-self: center;
+}
+
+.article-show .links {
+  /* margin-left: 10px; */
 }
 
 .quill {

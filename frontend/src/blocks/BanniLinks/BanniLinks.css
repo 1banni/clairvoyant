@@ -1,0 +1,33 @@
+/* .splash-sidebar .github-img {
+  width: 80px;
+    margin-left: 10px;
+  height: 40px;
+}
+
+.splash-sidebar .linked-img {
+  width: 90px;
+  margin-left: 20px;
+} */
+
+.links {
+  margin-top: 25px;
+}
+
+.external-links {
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  align-items: center;
+  margin-top: 8px;
+}
+
+
+.external-links .github-img {
+  width: 80px;
+  /* margin-left: 5px; */
+}
+
+.external-links .linked-img {
+  width: 90px;
+  margin-left: 20px;
+}
