@@ -31,11 +31,132 @@ Clairvoyant is a full stack clone of Medium, a popular blog host with a mix of a
 Production build: from the root folder, run `NPM run build`
 
 ## Selected Features and Development
+Incorporating Rich Text Editing
+- Incredible how easy the libraries made it, thanks to the creators of both. 
+- With Interweave Markup, you can limit which HTML elements are rendered
+-- This makes it easy to switch how you format/render rich text in different places in your application
+-- For instance, you can only show paragraphs, bolding. and italics in a summary feed with many [items] and show all formatting (bullets, blocks, etc.) in the view page for an individual [item]
+
+### Custom Hooks
+```
+const useStateChange = (initialValue) => {
+  // Initialize useState
+  const [value, setValue] = useState(initialValue);
+  // Create changeHandler for input form
+  const handleValue = e => {
+    setValue(e.target?.value);
+  }
+
+  return [value, setValue, handleValue];
+}
+
+export default useStateChange;
+```
+
+### Reusable Components
+
+
+### Many Modals 
+I used Shmoji Codes's approach below to incorporating many modals.  
+https://www.youtube.com/watch?v=Uj3_Qhc1aS8
+
+### Rich Text Editing
+
+
+### Animation
+
+
+One day i'll think of how to do the animation at the bottom of this page:
+https://medium.com/about
+
+### Performance
+I timed my react app using [ ]
+In order to improve the app's efficiency and reduce the number of AWS pulls, I typically passed objectIds into components related to the object and place a useSelector in the object (prevents comments from all re-rendering when one is edited.) I noticed it was slow going to my backend (comments took a few moments to appear), so I instead added a commentValidation function on my front end that tested all the input the backend tested, then dispatched the comment to the store, and then sent it to the backend. if calling update, it would save the old comment. Then, based on the result from the backend (status: :ok or not), the comment would either (a) remain in store or (b) revert to its previous form.
+Also, I edited my article store to nest both articles and article, such that it would not reload the articles every time it returned to the index page from the show page (cause these articles would. 
+In order to improve the app's efficiency and reduce the number of AWS pulls, I typically passed objectIds into components related to the object and place a useSelector in the object (prevents comments from all re-rendering when one is edited.) I noticed it was slow going to my backend (comments took a few moments to appear), so I instead added a commentValidation function on my front end that tested all the input the backend tested, then dispatched the comment to the store, and then sent it to the backend. if calling update, it would save the old comment. Then, based on the result from the backend (status: :ok or not), the comment would either (a) remain in store or (b) revert to its previous form.be being used in many places.
+
+
+### CSS
+I kept trying to refactor/abstract my CSS in the same way I would refactor/abstract React components, but I found this to be a difficult errand / not as efficient. I experimented with a few different approaches to className [attribute?]s, but I found the best option was to do the following:
+1) Give everything a simple parent class such as: "btn"/"button", "text-input", "user-tile" and store as much shared styling as possible here
+2) optionally, give elements additional shared tags, for instance className="btn edit"/"btn modal"/"btn close"/"btn delete" and additional identifiers
+3) Meanwhile, give components/subcomponents very short names describing exacly what they do. 
+```
+ return (
+    <div className='comment-index-item'>
+      <div className='author'>
+        <div className='left'>
+          <div className='image'>
+            <FaUserCircle className="user-icon"
+              size="30px"
+              style={styleOptions}
+            />
+            <div className='name-and-date'>
+              <div className='name'>
+                {comment.authorName}
+              </div>
+              <div className='date'>
+                {comment.date}
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className='right'>
+          {isAuthor && (
+          <Tooltip>
+            <Button className="btn edit"
+                    label="Edit this response"
+                    onClick={handleEdit}/>
+            <Button className="btn delete"
+                    label="Delete"
+                    onClick={handleDelete}/>
+          </Tooltip>
+          )}
+        </div>
+      </div>
+    </div>
+  )
+```
+This way, you can share functionality like
+```
+.btn {
+ cursor: pointer;
+}
+
+.btn:hover {
+ box-shadow: 0 0 2px #bbb;
+}
+
+.btn.modal {
+ border: 2px solid #444;
+ border-radius: 2px;
+}
+
+.btn.edit {
+ boder: 2px solid #8AF;
+ margin: 5px;
+}
+```
+easily grab big elements 
+```
+.comment-index-item {
+
+}
+
+```
+along with specific ones
+```
+.comment-index-item .author .name {
+ font: var(-ff-sohne);
+ font-weight: 200;
+}
+
+```
+For storing CSS files, keep variables in index.css. Have a file for each component with default behavior where it's initially used (strip out unreused parts of CSS later if component is used elsewhere).
+I am in process of updating my application throughout to follow this convention but would love to know if there's a better way.
 
 
 
-## Selected Features
-Create articles
 
 
 
