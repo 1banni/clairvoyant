@@ -7,7 +7,9 @@ json.set! 'article' do
       json.imageUrls @article.photos.map { |file| url_for(file) }
     end
 
+    json.author @article.author
     json.author_name @article.author.name
+
 
     json.num_claps @article.claps.count
 

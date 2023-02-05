@@ -9,7 +9,7 @@ import TopicButton from '../../blocks/Button/TopicButton';
 import TrendingArticles from '../../blocks/Articles/Trending';
 import UniqUtil from '../../utils/UniqUtil';
 import SignUpModal from '../../modals/SignUpModal';
-import { PNG } from '../../assets';
+import BanniLinks from '../../blocks/BanniLinks';
 
 
 
@@ -26,12 +26,15 @@ const SplashPage = props => {
     <div className="splash">
       <div className="splash-1">
         <div className="splash-1-1">
+
           <div className="splash-title">
             <h1 className="stay-curious_">Stay curious.</h1>
             <p className="discover-stories_">Discover stories, thinking, and expertise from writers on any topic.</p>
             <Button className="btn get-started_" label="Start reading" modal={SignUpModal}/>
           </div>
+
           <SplashPageAnimation />
+
         </div>
       </div>
 
@@ -50,7 +53,9 @@ const SplashPage = props => {
 
           <div className="splash-sidebar">
             <div className="top">
+
               <div className="label-1 discover-more_">DISCOVER MORE OF WHAT MATTERS TO YOU</div>
+
               <div className="topics">
                 {topics.slice(8).map(topic => {return (
                 <TopicButton key={UniqUtil.key(topic)} topic={topic}
@@ -59,21 +64,18 @@ const SplashPage = props => {
                   textname="btn-text topic rect"
                 />)})}
               </div>
+
               <div className='separator'>
 
               </div>
+
               <div className="links">
                 <div className="label-1">
                   BY WILL BANNISTER
                 </div>
-                <div className='external-links'>
-                <a href="https://github.com/1banni" target="_blank" rel="noopener noreferrer"><img id="github" className='github-img' src={PNG.GITHUB} alt="github link" /></a>
-                <a href="https://www.linkedin.com/in/will-bannister/" target="_blank" rel="noopener noreferrer"><img id ="linkedin" className='linked-img' src={PNG.LINKEDIN} alt="linkedin link" /></a>
-                  {/* <Button className="btn-external"> */}
-                    {/* <img className='github-img' src={PNG.GITHUB} size='10px' alt='github-img'/> */}
-                  {/* </Button> */}
-                </div>
+                <BanniLinks />
               </div>
+
             </div>
           </div>
         </div>
