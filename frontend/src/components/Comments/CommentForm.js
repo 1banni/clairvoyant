@@ -8,6 +8,7 @@ import useStateChange from '../../hooks/useStateChange';
 import { createComment, updateComment } from '../../store/comments';
 import 'react-quill/dist/quill.snow.css';
 import 'react-quill/dist/quill.bubble.css';
+import LoginModal from '../../modals/LoginModal';
 
 const CommentForm = ({articleId, formtype, comment, editToggle, setEditToggle}) => {
   const dispatch = useDispatch();
@@ -17,19 +18,12 @@ const CommentForm = ({articleId, formtype, comment, editToggle, setEditToggle}) 
   const create = formtype === "create";
   const activeTag = (active || editToggle) ? "active" : "";
   const animationDivRef = useRef(null);
-  let buttonsActive = false;
-  // console.log('animationDivRef');
-  // console.log(animationDivRef);
 
+  const modalToggle = sessionUser ? "" : LoginModal;
 
-  useEffect(() => {
-    // console.log("updating buttonsActive");
-    // console.log('animationDivRef?.current?.height');
-    // console.log(animationDivRef?.current?.clientHeight);
-    animationDivRef?.current?.clientHeight >= 48
-    ? buttonsActive=true
-    : buttonsActive=false;
-  })
+  const handleActivate = () => {
+    if (sessionUser) { setActive(true) };
+  }
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -79,19 +73,19 @@ const CommentForm = ({articleId, formtype, comment, editToggle, setEditToggle}) 
       ?
         <Button containername="activator-btn-ctnr"
                 className="activator-btn"
-                onClick={() => {
-                  console.log('activating')
-                  setActive(true);
-                }}
+                onClick={handleActivate}
+                modal={modalToggle}
                 label="What are your thoughts?"
         />
       :
       <div className={`create-form ${activeTag}`}>
+
         {create &&
         (<div className={`user ${activeTag}`}>
           <ArticleAuthor name={sessionUser?.name} />
         </div>
         )}
+
         <div className={`input-wrapper ${formtype}`}>
           <ReactQuill theme="snow"
                       modules={{toolbar: false}}
