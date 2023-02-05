@@ -8,8 +8,11 @@ const Button = ({children, containername, label, redirect, modal, ...props}) => 
   containername ||= "btn-ctnr";
   props.className ||= "btn";
   props.type ||= "button";
-  props.onClick ||= (modal ? () => ModalUtil.open(modal, redirect) : () => {});
+  if (modal) props.onClick = () => ModalUtil.open(modal, redirect);
+  // props.onClick ||= (modal ? () => ModalUtil.open(modal, redirect) : () => {});
 
+  console.log('props.onClick');
+  console.log(props.onClick);
 
   if (redirect) {
     console.log('redirect');
