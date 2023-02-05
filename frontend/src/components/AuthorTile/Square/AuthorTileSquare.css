@@ -1,0 +1,59 @@
+/* Outer Div */
+.author-tile-square {
+  margin: 10px;
+}
+
+/* Icon */
+.author-tile-square .icon {
+  margin-bottom: 10px;
+}
+
+/* Name */
+.author-tile-square .name {
+  margin-bottom: 10px;
+  font-weight: 500;
+
+  font-kerning: normal;
+  font-family: var(--ff-text);
+
+  cursor: pointer;
+}
+
+/* Bio */
+.author-tile-square .bio {
+  margin-bottom: 10px;
+}
+
+
+/* Follow Button */
+.author-tile-square .btn-ctnr {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.author-tile-square .btn {
+  /* position: center;
+  justify-self: center;
+  justify-content: center;
+  align-self: center;
+  text-align: center; */
+  /* display: block; */
+  background-color: var(--medium-green);
+  font-weight: 350;
+  color: white;
+  border: 0.5px solid #bbb;
+  border-radius: 24px;
+  font-size: 0.9rem;
+  height: 30px;
+  width: 100px;
+  /* box-shadow: 0px 0px 0.25px 0.25px rgba(0, 0, 0, 1.0); */
+}
+
+
+.author-tile-square .btn:hover {
+  box-shadow: none;
+  /* background-color: var(--medium-green); */
+  /* color: #000; */
+  border: 3px solid var(--medium-green);
+  font-weight: 400;
+}

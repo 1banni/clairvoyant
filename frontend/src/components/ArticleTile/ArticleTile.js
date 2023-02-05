@@ -6,6 +6,7 @@ import ArticleDetail from "../../blocks/ArticleDetail";
 import ArticleImage from "../../blocks/ArticleImage";
 import ArticleTitle from "../../blocks/ArticleTitle";
 import Bookmark from '../../blocks/Bookmark'
+import Image from "../../blocks/Image/Image";
 
 const ArticleTile = ({ article }) => {
   let history = useHistory();
@@ -32,13 +33,7 @@ const ArticleTile = ({ article }) => {
 
       <div className="article-image">
       {article.imageUrls && (article.imageUrls.length !== 0) && (
-        <img
-          key={article.imageUrls[0]}
-          src={article.imageUrls[0]}
-          alt=""
-          height="134"
-          width="200"
-        />
+        <Image url={article.imageUrls[0]} width="200" height="134"/>
       )}
       </div>
 
