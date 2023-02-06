@@ -50,6 +50,10 @@ export const fetchArticle = (articleId) => async dispatch => {
     // This payload will go to every reducer
     // receiveComment - polug it into state
     // filter in useSelector for comment
+    console.log('article');
+    console.log(article);
+    console.log('comments');
+    console.log(comments);
     dispatch(receiveArticle(article));
     dispatch(receiveComments(comments));
   }
@@ -103,11 +107,11 @@ export const updateArticle = (formData, articleId) => async dispatch => {
 
 // SELECTORS
 export const selectArticle = articleId => store => {
-  return store?.articles ? store.articles[articleId] : null;
+  return store.articles?.all ? store.articles.all[articleId] : null;
 }
 
 export const selectTopics = () => store => {
-  const articles = Object.values(store.articles);
+  const articles = Object.values(store.articles.all);
   const topics = [];
 
   articles.forEach(article => {
@@ -120,10 +124,24 @@ export const selectTopics = () => store => {
 }
 
 export const selectTrendingArticles = len => store => {
-  const articles = Object.values(store.articles);
+  const articles = Object.values(store.articles.all);
   return articles.sort((a, b) => a.numClaps > b.numClaps ? 1 : -1).slice(0,len);
 };
 
+export const selectRandomArticleIds = (len, excludeIds) => store => {
+  return Object
+    .keys(store.articles.all)
+    .filter(article => !excludeIds.includes(article.id))
+    // .sort((a, b) => 0.5 - Math.random())
+    .slice(0, len);
+  };
+
+export const selectArticlesByAuthor = (len, authorId) => store => {
+  return Object
+    .values(store.articles.all)
+    .filter(article => article.authorId === authorId)
+    .slice(0, len);
+};
 
 
 
@@ -133,20 +151,23 @@ export const selectTrendingArticles = len => store => {
 //   articles: JSON.parse(sessionStorage.getItem('articles'))
 // };
 
-const articlesReducer = (state = {}, action) => {
+const articlesReducer = (state = {all: {}, current: {}}, action) => {
   Object.freeze(state);
-
+  let newState = {...state};
   switch (action.type) {
     case RECEIVE_ARTICLES:
-      return { ...action.articles }
+      newState.all = { ...action.articles };
+      return newState;
     case RECEIVE_ARTICLE:
-      // let newState = {...state}
-      // newState[action.article.id] = action.article;
-      // POTENTIAL BUG - could just be action.article
-      return { ...action.article};
+        // let newState = {...state}
+        // newState[action.article.id] = action.article;
+        // POTENTIAL BUG - could just be action.article
+      newState.all = { ...state.all, ...action.article };
+      newState.current = { ...action.article }
+      return newState;
     case REMOVE_ARTICLE:
-      let newState = {...state};
-      delete newState[action.articleId];
+      delete newState.all[action.articleId];
+      delete newState.current[action.articleId];
       return newState;
     default:
       return state;
