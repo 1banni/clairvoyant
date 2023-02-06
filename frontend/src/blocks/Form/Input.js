@@ -1,9 +1,9 @@
 import React from 'react';
 
 function Input({...props}) {
-  props.containername ||= "input";
-  props.className ||= "input-label";
-  props.label ||= "";
+  props.containername ||= 'input';
+  props.className ||= 'input-label';
+  props.label ||= '';
 
   return (
     <div className={props.containername}>

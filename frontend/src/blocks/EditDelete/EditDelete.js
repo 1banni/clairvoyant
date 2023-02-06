@@ -21,17 +21,17 @@ const EditDelete = ({article}) => {
   }
 
   return (
-    <div className="edit-delete-ctnr">
+    <div className='edit-delete-ctnr'>
       <Button
-        containername="text-btn-ctnr"
-        className="text-btn"
-        label="Edit Article"
+        containername='text-btn-ctnr'
+        className='text-btn'
+        label='Edit Article'
         onClick={handleEditClick}
       />
       <Button
-        containername="text-btn-ctnr"
-        className="text-btn"
-        label="Delete Article"
+        containername='text-btn-ctnr'
+        className='text-btn'
+        label='Delete Article'
         onClick={handleDeleteCLick}
       />
     </div>

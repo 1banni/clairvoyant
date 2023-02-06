@@ -4,9 +4,9 @@ import React from 'react'
 import { NavLink } from 'react-router-dom';
 
 function NavItem({children, containername, label, modal, ...props}) {
-  containername ||= "nav-item-ctnr";
-  props.className ||= "nav-link";
-  // props.type ||= "button";
+  containername ||= 'nav-item-ctnr';
+  props.className ||= 'nav-link';
+  // props.type ||= 'button';
 
   return (
     <div className={containername}>

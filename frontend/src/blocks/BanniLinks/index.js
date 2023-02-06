@@ -1,3 +1,3 @@
-import BanniLinks from "./BanniLinks";
+import BanniLinks from './BanniLinks';
 
 export default BanniLinks;

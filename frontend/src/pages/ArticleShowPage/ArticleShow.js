@@ -69,8 +69,7 @@ const ArticleShow = (props) => {
               <Title article={article} />
               <div className='article-images'>
               {article && article.imageUrls?.map(imageUrl => (
-                  <Image url={imageUrl} width='600' height='134'/>
-
+                <Image url={imageUrl} width='600' height='134'/>
               ))}
               </div>
               <Body body={article.body}/>
@@ -86,7 +85,7 @@ const ArticleShow = (props) => {
 
           <div className='share-your-ideas'>
             Share your ideas with millions of readers.
-            <Button label="Write on Clairvoyant"
+            <Button label='Write on Clairvoyant'
               onClick={() => history.push('/articles/new')}
             />
           </div>

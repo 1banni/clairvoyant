@@ -20,7 +20,7 @@ const Chat = () => {
 
 
     const res = await csrfFetch('/api/chat', {
-      method: "POST",
+      method: 'POST',
       body: {prompt: prompt}
     })
 
@@ -37,14 +37,14 @@ const Chat = () => {
   return (
     <div>
     <form>
-      <Input label=""
-            className="prompt"
-            type="text"
+      <Input label=''
+            className='prompt'
+            type='text'
             value={prompt}
             onChange={promptChange}
       />
-      <Button className="btn draft" label="draft"
-        type="submit"
+      <Button className='btn draft' label='draft'
+        type='submit'
         onClick={handleInput}
       />
     </form>

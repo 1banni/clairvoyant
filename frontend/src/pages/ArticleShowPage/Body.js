@@ -5,13 +5,13 @@ import TextUtil from '../../utils/TextUtil';
 import UniqUtil from '../../utils/UniqUtil';
 
 const Body = ({body, ...props}) => {
-  if (!body) return <Redirect to="/articles"/>;
+  if (!body) return <Redirect to='/articles'/>;
 
 
   return (
-    <div className="article-body" {...props}>
+    <div className='article-body' {...props}>
       {TextUtil.BodyToArray(body).map(paragraph => {return (
-        <div key={UniqUtil.key(paragraph)} className="article-paragraph">
+        <div key={UniqUtil.key(paragraph)} className='article-paragraph'>
           <Markup content={paragraph} />
         </div>
       )})}

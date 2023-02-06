@@ -2,14 +2,12 @@ import './ShareLink.css';
 import React from 'react';
 import Button from '../Button';
 // import { FiLink } from 'react-icons/fi'
-import { FiLink } from "react-icons/fi";
+import { FiLink } from 'react-icons/fi';
 
-const ShareLink = () => {
-  const options = {
-    // stroke: "#272727",
-    // fill: "white",
-    // strokeWidth: "50"
-   }
+const ShareLink = ({size, options}) => {
+  size ||= '40px';
+
+  options ||= {};
 
   const copyUrlToClipboard = async e => {
     let url = document.location.href
@@ -23,11 +21,11 @@ const ShareLink = () => {
   }
 
   return (
-    <Button containername="icon-ctnr" className="icon-btn bookmark" onClick={copyUrlToClipboard}>
+    <Button containername='icon-ctnr' className='icon-btn bookmark' onClick={copyUrlToClipboard}>
       <FiLink
-        className="icon share"
+        className='icon share'
         style={options}
-        size="40px"
+        size={size}
       />
     </Button>
   );

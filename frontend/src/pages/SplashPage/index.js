@@ -1,2 +1,2 @@
-import SplashPage from "./SplashPage";
+import SplashPage from './SplashPage';
 export default SplashPage;

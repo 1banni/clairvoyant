@@ -50,7 +50,7 @@ export const fetchBookmarks = () => async dispatch => {
 // Question: where does re-render happen in this process / am i triggering it efficiently
 export const createBookmark = (bookmark) => async dispatch => {
   const res = await csrfFetch('/api/bookmarks/', {
-    method: "POST",
+    method: 'POST',
     body: JSON.stringify(bookmark)
   });
 
@@ -63,7 +63,7 @@ export const createBookmark = (bookmark) => async dispatch => {
 export const deleteBookmark = (bookmark) => async dispatch => {
   let articleId = bookmark.articleId;
   const res = await csrfFetch(`/api/bookmarks/${bookmark.id}`, {
-      method: "DELETE"
+      method: 'DELETE'
   });
 
   if (res.ok) {

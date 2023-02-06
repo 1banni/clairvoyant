@@ -1,6 +1,6 @@
 const TextUtil = {
   BodyToArray(body) {
-    return body.split("\\n");
+    return body.split('\\n');
   }
 }
 

@@ -29,8 +29,8 @@ function LoginModal(props) {
 
   let [, handleDemo] = useSubmit({
     createAction: () => login({
-      credential: "demo@demo.com",
-      password: "password"
+      credential: 'demo@demo.com',
+      password: 'password'
     }),
     onSuccess: () => {
       props.close();
@@ -44,38 +44,38 @@ function LoginModal(props) {
   return (
     sessionUser ? (<></>)
     : (<Modal>
-      <div className="modal">
-      <div className="modal-background">
+      <div className='modal'>
+      <div className='modal-background'>
         <h2>Sign in with email</h2>
         <p>Enter the email address and password associated with your account. Or, click the Demo User button.</p>
         {errors ? <FormErrors className='login-errors' errors={errors}/> : ''}
         <form onSubmit={handleSubmit}>
-          <Input label=""
-            className="credentials email"
-            type="text"
+          <Input label=''
+            className='credentials email'
+            type='text'
             value={credential}
             onChange={credentialChange}
-            placeholder="Email"
+            placeholder='Email'
             required
           />
           <br/>
-          <Input label=""
-            className="credentials password"
-            type="password"
+          <Input label=''
+            className='credentials password'
+            type='password'
             value={password}
             onChange={passwordChange}
-            placeholder="Password"
+            placeholder='Password'
             required
           />
           <br/>
-          <Button type="submit" label="Login" />
-          <Button label="Sign Up" modal={SignUpModal} />
+          <Button type='submit' label='Login' />
+          <Button label='Sign Up' modal={SignUpModal} />
           <Button onClick={handleDemo}>Demo User</Button>
       </form>
-      <Button containername="close-btn-container"
-              className="close-btn"
+      <Button containername='close-btn-container'
+              className='close-btn'
               onClick={props.close}
-              label="X"
+              label='X'
       />
     </div>
     </div>

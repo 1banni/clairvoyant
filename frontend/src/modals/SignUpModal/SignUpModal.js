@@ -1,9 +1,9 @@
-import { useInput, useSubmit } from "../../hooks";
-import { login, signup } from "../../store/session";
-import { Modal } from "../../context/Modal";
-import { FormErrors, Input } from "../../blocks/Form";
-import LoginModal from "../LoginModal";
-import Button from "../../blocks/Button";
+import { useInput, useSubmit } from '../../hooks';
+import { login, signup } from '../../store/session';
+import { Modal } from '../../context/Modal';
+import { FormErrors, Input } from '../../blocks/Form';
+import LoginModal from '../LoginModal';
+import Button from '../../blocks/Button';
 
 
 function SignUpModal(props) {
@@ -24,58 +24,58 @@ function SignUpModal(props) {
     wrap
   });
   let [, handleDemo] = useSubmit({
-    createAction: () => login({ credential: "demo@demo.com", password: "password" }),
+    createAction: () => login({ credential: 'demo@demo.com', password: 'password' }),
     onSuccess: () => props.close(),
   });
 
 
   return (
     <Modal>
-      <div className="modal">
-      <div className="modal-background">
+      <div className='modal'>
+      <div className='modal-background'>
         <h2>Sign up with email</h2>
         <p>Enter your email address and password.</p>
         {errors ? <FormErrors className='login-errors' errors={errors}/> : ''}
         <form onSubmit={handleSubmit}>
-          <Input label=""
-            className="credentials email"
-            type="text"
+          <Input label=''
+            className='credentials email'
+            type='text'
             value={email}
             onChange={emailChange}
-            placeholder="Email"
+            placeholder='Email'
             required
           />
-          <Input label=""
-            className="credentials username"
-            type="text"
+          <Input label=''
+            className='credentials username'
+            type='text'
             value={username}
             onChange={usernameChange}
-            placeholder="Username"
+            placeholder='Username'
             required
           />
           <br/>
-          <Input label=""
-            className="credentials password"
-            type="password"
+          <Input label=''
+            className='credentials password'
+            type='password'
             value={password}
             onChange={passwordChange}
-            placeholder="Password"
+            placeholder='Password'
             required
           />
-          <Input label=""
-            className="credentials password confirm"
-            type="password"
+          <Input label=''
+            className='credentials password confirm'
+            type='password'
             value={confirmPassword}
             onChange={confirmPasswordChange}
-            placeholder="Confirm Password"
+            placeholder='Confirm Password'
             required
           />
           <br/>
-          <Button type="submit" label="Sign Up"  />
-          <Button label="Login" modal={LoginModal}/>
+          <Button type='submit' label='Sign Up'  />
+          <Button label='Login' modal={LoginModal}/>
       </form>
-      <Button className="btn demo" onClick={handleDemo} label="Demo User"/>
-      <Button className="close-btn" onClick={props.close}>X</Button>
+      <Button className='btn demo' onClick={handleDemo} label='Demo User'/>
+      <Button className='close-btn' onClick={props.close}>X</Button>
     </div>
     </div>
     </Modal>

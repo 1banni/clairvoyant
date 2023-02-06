@@ -5,7 +5,7 @@ async function csrfFetch (url, options = {}) {
     options.headers = options.headers || {};
 
     if (options.method.toUpperCase() !== 'GET') {
-      if (!options.headers["Content-Type"] && !(options.body instanceof FormData)) {
+      if (!options.headers['Content-Type'] && !(options.body instanceof FormData)) {
         options.headers['Content-Type'] = 'application/json';
       }
       options.headers['X-CSRF-Token'] = sessionStorage.getItem('X-CSRF-Token');
@@ -24,8 +24,8 @@ export async function restoreCSRF () {
 };
 
 export function storeCSRFToken (response) {
-    const csrfToken = response.headers.get("X-CSRF-Token");
-    if (csrfToken) sessionStorage.setItem("X-CSRF-Token", csrfToken);
+    const csrfToken = response.headers.get('X-CSRF-Token');
+    if (csrfToken) sessionStorage.setItem('X-CSRF-Token', csrfToken);
 };
 
 export default csrfFetch;

@@ -1,3 +1,3 @@
-import ArticleAuthor from "./ArticleAuthor";
+import ArticleAuthor from './ArticleAuthor';
 
 export default ArticleAuthor;

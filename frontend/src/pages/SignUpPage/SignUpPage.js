@@ -15,7 +15,7 @@ const SignUpPage = () => {
   const [confirmPassword, confirmPasswordChange] = useInput('');
   const [errors, setErrors] = useState([]);
 
-  if (sessionUser) return <Redirect to="/" />;
+  if (sessionUser) return <Redirect to='/' />;
 
   const handleSubmit = async e => {
     e.preventDefault();
@@ -46,7 +46,7 @@ const SignUpPage = () => {
       <label>
         Email
         <input
-          type="text"
+          type='text'
           value={email}
           onChange={emailChange}
           required
@@ -55,7 +55,7 @@ const SignUpPage = () => {
       <label>
         Username
         <input
-          type="text"
+          type='text'
           value={username}
           onChange={usernameChange}
           required
@@ -64,7 +64,7 @@ const SignUpPage = () => {
       <label>
         Password
         <input
-          type="password"
+          type='password'
           value={password}
           onChange={passwordChange}
           required
@@ -73,13 +73,13 @@ const SignUpPage = () => {
       <label>
         Confirm Password
         <input
-          type="password"
+          type='password'
           value={confirmPassword}
           onChange={confirmPasswordChange}
           required
         />
       </label>
-      <button type="submit">Sign Up</button>
+      <button type='submit'>Sign Up</button>
     </form>
   );
 }

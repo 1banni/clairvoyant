@@ -2,8 +2,8 @@
 
 // function Input({label, ...props}) {
 //   return (
-//     <div className="input">
-//       <h4 className="input-label">
+//     <div className='input'>
+//       <h4 className='input-label'>
 //         {label}
 //       </h4>
 //       <br/>

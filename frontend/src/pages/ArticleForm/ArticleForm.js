@@ -176,9 +176,9 @@ const ArticleForm = props => {
 
         <div className='submit-compose-buttons'>
           <div className='upload-images'>
-      { formType === "Create"
+      { formType === 'Create'
         ? (
-          <div className="create">
+          <div className='create'>
             <label>Upload Photos</label>
             <input
               type='file'
@@ -189,7 +189,7 @@ const ArticleForm = props => {
             />
           </div>
         ) : (
-          <div className="update">
+          <div className='update'>
             <label>Replace Existing Photos</label>
             <input
               type='file'

@@ -1,8 +1,8 @@
 import React from 'react';
 
 const Input = ({label, containername, className, ...props}) => {
-  containername ||= "input";
-  className ||= "input-label";
+  containername ||= 'input';
+  className ||= 'input-label';
 
   return (
     <div className={containername}>

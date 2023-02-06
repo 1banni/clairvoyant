@@ -7,10 +7,10 @@ const Image = ({url, alt, wrapper, ...props}) => {
   const imageUrl = url;
   // const imageUrl = PNG.LINKEDIN;
 
-  wrapper ||= "image-wrapper";
-  alt ||= "";
-  // props.height ||= "134";
-  // props.width ||= "200";
+  wrapper ||= 'image-wrapper';
+  alt ||= '';
+  // props.height ||= '134';
+  // props.width ||= '200';
 
 
   return (

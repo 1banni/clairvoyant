@@ -39,6 +39,8 @@
 }
 
 
+
+
 .article-image-ctnr {
   /* width: 800px; */
 }
@@ -58,7 +60,7 @@
   font-family: source-serif-pro,
     Georgia,
     Cambria,
-    "Times New Roman",
+    'Times New Roman',
     Times,
     serif;
   font-size: 1.1rem;

@@ -18,30 +18,30 @@ const LoginPage = () => {
     onSuccess: () => history.push('/')
   })
 
-  if (sessionUser) return <Redirect to="/" />;
+  if (sessionUser) return <Redirect to='/' />;
   return (
-    <form className="login-form-container" onSubmit={handleSubmit}>
+    <form className='login-form-container' onSubmit={handleSubmit}>
       <FormErrors className='login-errors' errors={errors}/>
       <br/>
-      <Input label=""
-        placeholder="Username or Email"
-        className="username"
-        type="text"
+      <Input label=''
+        placeholder='Username or Email'
+        className='username'
+        type='text'
         value={credential}
         onChange={credentialChange}
         required
       />
       <br/>
-      <Input label=""
-        placeholder="Password"
-        className="password"
-        type="password"
+      <Input label=''
+        placeholder='Password'
+        className='password'
+        type='password'
         value={password}
         onChange={passwordChange}
         required
       />
       <br/>
-      <Button type="submit" label="Sign In" />
+      <Button type='submit' label='Sign In' />
     </form>
   );
 }
