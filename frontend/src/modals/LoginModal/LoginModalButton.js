@@ -6,8 +6,8 @@ function LoginModalButton({redirect}) {
 
   // TODO: link redirect here
   return (
-    <div className="LoginModalButton">
-      <Button label="Login" zigzag="TODO" redirection="/write" modal={ LoginModal({redirect: "/write"}) } />
+    <div className='LoginModalButton'>
+      <Button label='Login' zigzag='TODO' redirection='/write' modal={ LoginModal({redirect: '/write'}) } />
     </div>
   )
 }

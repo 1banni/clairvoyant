@@ -32,18 +32,18 @@ export default function ArticleSearch({...props}) {
 
   return (
     <>
-    <div className="article-search-page">
-      <div className="article-search-wrapper">
-        <div className="articles-header"></div>
-          <div className="article-search">
+    <div className='article-search-page'>
+      <div className='article-search-wrapper'>
+        <div className='articles-header'></div>
+          <div className='article-search'>
               <Input
-                label="topic"
-                placeholder="Topic Search"
-                type="text"
+                label='topic'
+                placeholder='Topic Search'
+                type='text'
                 value={topic}
                 onChange={changeTopic}
               />
-              {/* <Button type="submit" label="Search"/>
+              {/* <Button type='submit' label='Search'/>
             </form> */}
           </div>
           <ol>
@@ -52,7 +52,7 @@ export default function ArticleSearch({...props}) {
           {/* <div>Loading...</div> */}
         {/* <div>Error</div> */}
       </div>
-      <div className="staff-picks">Staff Picks
+      <div className='staff-picks'>Staff Picks
       </div>
     </div>
     </>

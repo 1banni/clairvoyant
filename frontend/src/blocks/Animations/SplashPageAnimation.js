@@ -51,10 +51,10 @@ const SplashAnimation = () => {
 
 
   return (
-    <div className="splash-animation-container">
-      <div className="splash-animation">
+    <div className='splash-animation-container'>
+      <div className='splash-animation'>
         {AnimationUtil.convertToC(grid, count.tick).map(row => row.map(el => {
-          return <div className="splash-animation-el">{el}</div>
+          return <div className='splash-animation-el'>{el}</div>
         }))}
       </div>
     </div>

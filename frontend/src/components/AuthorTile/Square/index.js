@@ -1,3 +1,3 @@
-import AuthorTileSquare from "./AuthorTileSquare";
+import AuthorTileSquare from './AuthorTileSquare';
 
 export default AuthorTileSquare;

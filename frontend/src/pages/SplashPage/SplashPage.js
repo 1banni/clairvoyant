@@ -23,14 +23,14 @@ const SplashPage = props => {
 
   return (
     <>
-    <div className="splash">
-      <div className="splash-1">
-        <div className="splash-1-1">
+    <div className='splash'>
+      <div className='splash-1'>
+        <div className='splash-1-1'>
 
-          <div className="splash-title">
-            <h1 className="stay-curious_">Stay curious.</h1>
-            <p className="discover-stories_">Discover stories, thinking, and expertise from writers on any topic.</p>
-            <Button className="btn get-started_" label="Start reading" modal={ SignUpModal }/>
+          <div className='splash-title'>
+            <h1 className='stay-curious_'>Stay curious.</h1>
+            <p className='discover-stories_'>Discover stories, thinking, and expertise from writers on any topic.</p>
+            <Button className='btn get-started_' label='Start reading' modal={ SignUpModal }/>
           </div>
 
           <SplashPageAnimation />
@@ -38,30 +38,30 @@ const SplashPage = props => {
         </div>
       </div>
 
-      <div className="splash-2">
-        <div className="splash-2-1">
+      <div className='splash-2'>
+        <div className='splash-2-1'>
           <div><TrendingArticles /></div>
         </div>
       </div>
 
-      <div className="splash-3">
-        <div className="splash-3-1">
+      <div className='splash-3'>
+        <div className='splash-3-1'>
 
-          <div className="splash-article-feed">
+          <div className='splash-article-feed'>
             <ArticleIndex />
           </div>
 
-          <div className="splash-sidebar">
-            <div className="top">
+          <div className='splash-sidebar'>
+            <div className='top'>
 
-              <div className="label-1 discover-more_">DISCOVER MORE OF WHAT MATTERS TO YOU</div>
+              <div className='label-1 discover-more_'>DISCOVER MORE OF WHAT MATTERS TO YOU</div>
 
-              <div className="topics">
+              <div className='topics'>
                 {topics.slice(0,13).map(topic => {return (
                 <TopicButton key={UniqUtil.key(topic)} topic={topic}
-                  containername="btn-ctnr topic rect"
-                  className="btn topic rect"
-                  textname="btn-text topic rect"
+                  containername='btn-ctnr topic rect'
+                  className='btn topic rect'
+                  textname='btn-text topic rect'
                 />)})}
               </div>
 
@@ -69,8 +69,8 @@ const SplashPage = props => {
 
               </div>
 
-              <div className="links">
-                <div className="label-1">
+              <div className='links'>
+                <div className='label-1'>
                   BY WILL BANNISTER
                 </div>
                 <BanniLinks />

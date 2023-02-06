@@ -1,3 +1,3 @@
-import ArticleImage from "./ArticleImage";
+import ArticleImage from './ArticleImage';
 
 export default ArticleImage;

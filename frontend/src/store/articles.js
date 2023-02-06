@@ -61,7 +61,7 @@ export const fetchArticle = (articleId) => async dispatch => {
 
 export const createArticle = (formData) => async dispatch => {
   const res = await csrfFetch('/api/articles/', {
-    method: "POST",
+    method: 'POST',
     body: formData
   });
 
@@ -74,7 +74,7 @@ export const createArticle = (formData) => async dispatch => {
 
 export const deleteArticle = articleId => async dispatch => {
   const res = await csrfFetch(`/api/articles/${articleId}`, {
-    method: "DELETE"
+    method: 'DELETE'
   });
 
   if (res.ok) dispatch(removeArticle(articleId));
@@ -83,7 +83,7 @@ export const deleteArticle = articleId => async dispatch => {
 export const updateArticle = (formData, articleId) => async dispatch => {
 
   const res = await csrfFetch(`/api/articles/${articleId}`, {
-    method: "PATCH",
+    method: 'PATCH',
     body: formData
   })
 
@@ -95,7 +95,7 @@ export const updateArticle = (formData, articleId) => async dispatch => {
 
 // export const createBookmark = (bookmarkData) => async dispatch => {
 //   const res = await csrfFetch('/api/bookmarks', {
-//     method: "POST",
+//     method: 'POST',
 //     body: JSON.stringify(bookmarkData)
 //   });
 

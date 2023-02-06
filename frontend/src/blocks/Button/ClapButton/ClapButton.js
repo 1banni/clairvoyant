@@ -14,7 +14,7 @@ const ClapButton = ({article, ...props}) => {
   const toggleClap = async e => {
 
     e.preventDefault();
-    if (!sessionUser) throw new Error("you must be logged in to bookmark a post")
+    if (!sessionUser) throw new Error('you must be logged in to bookmark a post')
 
     if (clapId) {
       dispatch(deleteClap(clapId));
@@ -28,13 +28,13 @@ const ClapButton = ({article, ...props}) => {
 
   const ClapImg = (clapId ? PNG.CLAP_ICON_TRUE : PNG.CLAP_ICON_FALSE);
   return (
-    <div className="clap">
-      <Button className="icon-btn clap"
-              containername="icon-ctnr clap"
+    <div className='clap'>
+      <Button className='icon-btn clap'
+              containername='icon-ctnr clap'
               onClick={toggleClap}>
-        <img className="clap-img" src={ClapImg} size="100px" alt="clap-img"/>
+        <img className='clap-img' src={ClapImg} size='100px' alt='clap-img'/>
       </Button>
-      <div className="clap-ct">{claps?.length}</div>
+      <div className='clap-ct'>{claps?.length}</div>
     </div>
   )
 }

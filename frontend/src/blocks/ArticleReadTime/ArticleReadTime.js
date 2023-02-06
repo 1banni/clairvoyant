@@ -7,7 +7,7 @@ const ArticleReadTime = ({body, ...props}) => {
   const readTime = TimeUtil.ReadTime(TextUtil.BodyToArray(body));
 
   return (
-    <div className="article-tile-read-time" {...props}>
+    <div className='article-tile-read-time' {...props}>
       {readTime}
     </div>
   )

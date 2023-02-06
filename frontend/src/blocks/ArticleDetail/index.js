@@ -1,3 +1,3 @@
-import ArticleDetail from "./ArticleDetail";
+import ArticleDetail from './ArticleDetail';
 
 export default ArticleDetail;

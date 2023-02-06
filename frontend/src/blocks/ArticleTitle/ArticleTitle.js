@@ -3,7 +3,7 @@ import React from 'react';
 import './ArticleTitle.css';
 
 const ArticleTitle = ({article, lineclamp, includeBlurb, ...props}) => {
-  lineclamp ||= "line-clamp-2"
+  lineclamp ||= 'line-clamp-2'
 
   const blurb = article => {
     let _blurb = article.blurb ? article.blurb : article.body;
@@ -21,10 +21,10 @@ const ArticleTitle = ({article, lineclamp, includeBlurb, ...props}) => {
 
   if (!article) return <></>;
   return (
-    <div className="title-and-blurb" key={article.id} {...props}>
+    <div className='title-and-blurb' key={article.id} {...props}>
       <h4 className={`title ${lineclamp}`}>{article.title}</h4>
       {includeBlurb && (
-      <p className="blurb line-clamp-2">
+      <p className='blurb line-clamp-2'>
         <Markup content={blurb(article)} />
       </p>
       )}

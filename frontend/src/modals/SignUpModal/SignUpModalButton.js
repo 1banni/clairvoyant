@@ -4,8 +4,8 @@ import SignUpModal from './SignUpModal'
 
 function SignUpModalButton() {
   return (
-    <div className="SignUpModalButton">
-      <Button label="Sign Up" modal={SignUpModal} />
+    <div className='SignUpModalButton'>
+      <Button label='Sign Up' modal={SignUpModal} />
     </div>
   )
 }

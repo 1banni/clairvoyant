@@ -44,7 +44,7 @@ export const login = ({ credential, password }) => async dispatch => {
 };
 
 export const logout = () => async dispatch => {
-  const res = await csrfFetch(`/api/session`, { method: "DELETE" });
+  const res = await csrfFetch(`/api/session`, { method: 'DELETE' });
   if (res.ok) {
     storeCurrentUser(null);
     dispatch(removeCurrentUser());
@@ -66,7 +66,7 @@ export const restoreSession = () => async dispatch => {
 
 export const signup = ({ username, email, password }) => async dispatch => {
   const response = await csrfFetch('/api/users', {
-    method: "POST",
+    method: 'POST',
     body: JSON.stringify({
       username,
       email,

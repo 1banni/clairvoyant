@@ -1,12 +1,12 @@
 const DateUtil = {
   longForm (date) {
     let options = {
-      day:"numeric",
-      month:"long"
+      day:'numeric',
+      month:'long'
     };
 
     let dateObj = new Date(date);
-    if (dateObj.getFullYear() !== 2023) options.year = "numeric";
+    if (dateObj.getFullYear() !== 2023) options.year = 'numeric';
     return dateObj.toLocaleDateString('en-us', options);
   }
 };

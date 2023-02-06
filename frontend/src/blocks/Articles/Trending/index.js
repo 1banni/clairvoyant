@@ -1,3 +1,3 @@
-import TrendingArticles from "./TrendingArticles";
+import TrendingArticles from './TrendingArticles';
 
 export default TrendingArticles;

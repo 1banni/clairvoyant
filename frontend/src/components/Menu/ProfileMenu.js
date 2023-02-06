@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { ReactComponent as ProfileIcon } from '../../assets/svg/profile.svg'
 import * as sessionActions from '../../store/session';
-import MenuItem from "./MenuItem";
-import Button from "../../blocks/Button";
+import MenuItem from './MenuItem';
+import Button from '../../blocks/Button';
 
 function ProfileMenu({ user }) {
   const dispatch = useDispatch();
@@ -22,7 +22,7 @@ function ProfileMenu({ user }) {
     };
 
     document.addEventListener('click', closeMenu);
-    return () => document.removeEventListener("click", closeMenu);
+    return () => document.removeEventListener('click', closeMenu);
   }, [showMenu]);
 
   const logout = (e) => {
@@ -32,21 +32,21 @@ function ProfileMenu({ user }) {
 
   return (
     <>
-      <Button className="icon-btn login-modal"
-              container-name="icon-btn-ctnr"
+      <Button className='icon-btn login-modal'
+              container-name='icon-btn-ctnr'
               onClick={openMenu}>
-        <ProfileIcon className="icon profile"/>
+        <ProfileIcon className='icon profile'/>
       </Button>
 
       {showMenu && (
-        <div className="profile-dropdown">
-          <div className="profile-dropdown-inner">
+        <div className='profile-dropdown'>
+          <div className='profile-dropdown-inner'>
           <MenuItem>{user.name}</MenuItem>
           <MenuItem>{user.email}</MenuItem>
-          <Button label="Sign out"
+          <Button label='Sign out'
                   onClick={logout}
-                  containername="btn-ctnr dropdown"
-                  className="btn dropdown"
+                  containername='btn-ctnr dropdown'
+                  className='btn dropdown'
           />
           </div>
         </div>
@@ -57,8 +57,8 @@ function ProfileMenu({ user }) {
 
     //  <div className='author-l'>
     //       <div className='image'>
-    //         <FaUserCircle className="user-icon"
-    //           size="30px"
+    //         <FaUserCircle className='user-icon'
+    //           size='30px'
     //           style={styleOptions}
     //         />
     //       </div>

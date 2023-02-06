@@ -1,3 +1,3 @@
-import ArticleBookmark from "./ArticleBookmark";
+import ArticleBookmark from './ArticleBookmark';
 
 export default ArticleBookmark;

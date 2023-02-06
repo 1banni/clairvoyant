@@ -4,7 +4,7 @@
   font-family: gt-super,
     Georgia,
     Cambria,
-    "Times New Roman",
+    'Times New Roman',
     Times,
     serif;
   font-size: 36px;
@@ -14,7 +14,7 @@
 
 .modal p, input, li {
   font-family: sohne,
-      "Helvetica Neue",
+      'Helvetica Neue',
       Helvetica,
       Arial,
       sans-serif;

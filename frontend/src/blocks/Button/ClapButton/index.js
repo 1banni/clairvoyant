@@ -1,3 +1,3 @@
-import Clap from "./ClapButton";
+import Clap from './ClapButton';
 
 export default Clap;

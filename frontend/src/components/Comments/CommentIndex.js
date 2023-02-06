@@ -11,7 +11,7 @@ const CommentIndex = ({article}) => {
   if (!comments || comments === [null]) return <></>;
   return (
     <>
-      <CommentForm articleId={article?.id} formtype="create"/>
+      <CommentForm articleId={article?.id} formtype='create'/>
       <div className='comment-index'>
         {comments && comments.map(comment => {return (
           <CommentTile key={comment?.id} commentId={comment?.id}/>

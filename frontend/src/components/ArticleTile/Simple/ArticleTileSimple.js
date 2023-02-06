@@ -28,9 +28,9 @@ const ArticleTileSimple = ({articleId}) => {
           // onClick={NavUtil.goToArticleById(history, articleId)}
         />
       </div>
-      <div className="article-image">
+      <div className='article-image'>
       {article.imageUrls && (article.imageUrls.length !== 0) && (
-        <Image url={article.imageUrls[0]} width="200" height="134"/>
+        <Image url={article.imageUrls[0]} width='200' height='134'/>
       )}
       </div>
     </div>

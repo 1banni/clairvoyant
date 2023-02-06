@@ -1,3 +1,3 @@
-import ArticleTitle from "./ArticleTitle";
+import ArticleTitle from './ArticleTitle';
 
 export default ArticleTitle;

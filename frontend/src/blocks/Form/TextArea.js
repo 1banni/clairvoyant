@@ -1,9 +1,9 @@
 import React from 'react'
 
 const TextArea = ({...props}) => {
-  props.containername ||= "input";
-  props.className ||= "input-label";
-  props.label ||= "";
+  props.containername ||= 'input';
+  props.className ||= 'input-label';
+  props.label ||= '';
 
   return (
     <div className={props.containername}>
@@ -11,7 +11,7 @@ const TextArea = ({...props}) => {
         {props.label}
       </h4>
       <br/>
-      <textarea readOnly="false" {...props}></textarea>
+      <textarea readOnly='false' {...props}></textarea>
     </div>
   )
 }

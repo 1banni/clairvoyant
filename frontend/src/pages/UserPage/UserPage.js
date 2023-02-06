@@ -18,13 +18,13 @@ const ArticleIndex = props => {
 
   return (
     <>
-      <div className="article-index-wrapper">
-        <div className="article-index"></div>
+      <div className='article-index-wrapper'>
+        <div className='article-index'></div>
         <ol>
           {articles.map(article => <ArticleTile article={article} key={article.id} />)}
         </ol>
       </div>
-      <div className="staff-picks">Staff Picks
+      <div className='staff-picks'>Staff Picks
       </div>
     </>
   )

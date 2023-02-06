@@ -8,7 +8,7 @@ import './AuthorTileSquare.css';
 
 const AuthorTileSquare = ({author, ...props}) => {
   const history = useHistory();
-  const parsed_bio = author?.bio ? author.bio.split('\\n').join(' ') : "";
+  const parsed_bio = author?.bio ? author.bio.split('\\n').join(' ') : '';
   const bioBlurb = (parsed_bio.length > 160
                     ? parsed_bio.slice(0,160) + '...'
                     : parsed_bio
@@ -18,9 +18,9 @@ const AuthorTileSquare = ({author, ...props}) => {
 
   const styleOptions = {
     stroke: ColorUtil.nameToColor(author?.name),
-    fill: "white",
-    strokeWidth: "50",
-    // size: "5x"
+    fill: 'white',
+    strokeWidth: '50',
+    // size: '5x'
   }
 
   // const goToUserById = (id) => () => history.push(`/users/${id}`);

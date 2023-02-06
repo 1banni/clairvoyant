@@ -86,7 +86,7 @@ const ArticleShow = (props) => {
 
           <div className='share-your-ideas'>
             Share your ideas with millions of readers.
-            <Button label="Write on Clairvoyant"
+            <Button label='Write on Clairvoyant'
               onClick={() => history.push('/articles/new')}
             />
           </div>

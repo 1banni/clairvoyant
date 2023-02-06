@@ -127,7 +127,7 @@
   justify-content: space-between;
   margin: 10px;
   font-size: 1rem;
-  font-feature-settings: "kern";
+  font-feature-settings: 'kern';
   font-kerning: normal;
   font-weight: 200;
   line-height: 1;

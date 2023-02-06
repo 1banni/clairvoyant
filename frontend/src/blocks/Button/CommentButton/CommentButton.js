@@ -15,13 +15,13 @@ const CommentButton = ({article, toggleCommentDisplay}) => {
 
 
   return (
-    <div className="comment">
-      <Button className="icon-btn comment"
-              containername="icon-ctnr comment"
+    <div className='comment'>
+      <Button className='icon-btn comment'
+              containername='icon-ctnr comment'
               onClick={toggleCommentDisplay}>
-        <img className="comment-img" src={CommentImg} size="100px" alt="comment-img"/>
+        <img className='comment-img' src={CommentImg} size='100px' alt='comment-img'/>
       </Button>
-      <div className="comment-ct">{comments?.length}</div>
+      <div className='comment-ct'>{comments?.length}</div>
     </div>
   )
 }

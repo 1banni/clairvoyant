@@ -50,7 +50,7 @@ export const fetchClaps = () => async dispatch => {
 // Question: where does re-render happen in this process / am i triggering it efficiently
 export const createClap = (clap) => async dispatch => {
   const res = await csrfFetch('/api/claps/', {
-    method: "POST",
+    method: 'POST',
     body: JSON.stringify(clap)
   });
 
@@ -62,7 +62,7 @@ export const createClap = (clap) => async dispatch => {
 
 export const deleteClap = (clapId) => async dispatch => {
   const res = await csrfFetch(`/api/claps/${clapId}`, {
-      method: "DELETE"
+      method: 'DELETE'
   });
 
   if (res.ok) dispatch(removeClap(clapId));

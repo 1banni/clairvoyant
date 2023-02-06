@@ -27,10 +27,14 @@ const AuthorTile = ({article, children, author}) => {
           style={styleOptions}
         />
       </div>
+
       <div>
         <div className='r'>
+
           <div className='rt'>
+
             <div className='author-name'>{article.authorName}</div>
+
             <div className='share-bookmark'>
               <Tooltip label={<ShareLink />} timeout={2000} >
                 <div className='link-copied'>
@@ -39,12 +43,15 @@ const AuthorTile = ({article, children, author}) => {
               </Tooltip>
               <Bookmark articleId={article.id} />
             </div>
+
           </div>
+
           <div className='rb'>
             <ArticleDetail article={article}>
               {children}
             </ArticleDetail>
           </div>
+
         </div>
         <div>
 
