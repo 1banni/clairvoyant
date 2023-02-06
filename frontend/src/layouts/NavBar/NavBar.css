@@ -6,7 +6,7 @@
   position: sticky;
   transition: 0.5s ease-in-out;
   top: 0;
-  z-index: 100;
+  z-index: 15;
 }
 .nav-bar-wrapper.white {
   background-color: white;
@@ -92,11 +92,6 @@
   background: black; */
 }
 
-/*
-.profile-dropdown-menu {
-  position: relative;
-  z-index: 5000;
-} */
 
 .nav-link.session {
 
@@ -116,7 +111,7 @@
   border-radius: var(--border-radius);
   background-color: var(--dropdown-bg);
   /* overflow: hidden; */
-  z-index: 1000 !important;
+  /* z-index: 1000 !important; */
 }
 
 .profile-dropdown-inner {
