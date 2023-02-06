@@ -48,7 +48,7 @@ const ArticleTile = ({ article }) => {
     </div>
       <div className="spacing-between-tiles"/>
     </div>
-  )
-}
+  );
+};
 
 export default withRouter(ArticleTile);

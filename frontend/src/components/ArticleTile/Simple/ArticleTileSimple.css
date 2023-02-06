@@ -1,0 +1,16 @@
+.article-tile-simple {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.article-tile-simple .article-info {
+}
+
+.article-tile-simple .title {
+  font-size: 0.9rem;
+  line-height: 20px;
+  max-height: 83px;
+}
+

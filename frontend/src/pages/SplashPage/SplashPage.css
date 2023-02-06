@@ -207,8 +207,7 @@
   /* height: 180px; */
   /* TODO: REPLACE ME WITH PROPER BORDER BOTTOM */
   position: -webkit-sticky;
-  /* Safari */
-  position: sticky;
+  position: sticky; /* Safari */
   top: 100px;
 }
 
@@ -232,8 +231,6 @@
 .splash-sidebar .topics .btn.topic.rect {
   /* background-color: black; */
   height: 30px;
-  /* margin-right: 5px;
-  margin-left: 5px; */
 }
 
 .splash-sidebar .separator {

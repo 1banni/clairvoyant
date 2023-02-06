@@ -1,11 +1,14 @@
 /* Page */
+.article-show-wrapper {
+  margin-left: 50px;
+  margin-right: 50px;
+}
+
 .article-show {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-between;
 }
-
-
 
 /* Left Side */
 .article-show .left {
@@ -92,39 +95,100 @@
   margin-top: 2px;
 }
 
+.more-from-author-section {
+  /* width: ; */
+  width: 100%;
+}
+.more-from-author-section .article-tile {
+  width: 100%;
+}
+.more-from-author-section .article-image {
+  width: 200px;
+  height: 120px;
+  justify-self: center;
+  align-self: center;
+  /* background: black; */
+}
+
+.share-your-ideas {
+  display: flex;
+  flex-direction: row;
+  align-self: center;
+  justify-content:flex-start;
+  align-items: center;
+  font-family: var(--ff-text);
+  text-align: center;
+  text-justify: center;
+  width: 700px;
+  margin-bottom: 20px;
+}
+
+.share-your-ideas .btn-ctnr {
+  /* margin-top: 10px; */
+  /* margin-bottom: 10px; */
+  margin-left: 10px;
+}
+
+.share-your-ideas .btn {
+  background-color: var(--medium-green);
+  font-weight: 350;
+  color: white;
+  border: 0.5px solid #bbb;
+  border-radius: 24px;
+  font-size: 0.9rem;
+  height: 30px;
+  width: 180px;
+}
+
+
 /* Right Side */
 .article-show .right {
+  display: block;
+  width: 240px;
+}
+
+.article-show .right .inner {
   /* display: flex; */
   /* flex-direction: column; */
   display: grid;
-  width: var(--width-sidebar);
+  /* width: var(--width-sidebar); */
   /* border: var(--border-rng); */
   /* margin: 10px; */
-  position: relative;
   /* z-index: -12; */
+  position: sticky;
+  top: 80px;
+  /* height: 500px; */
+  /* position: relative; */
 }
 
-.comment-sidebar, .article-sidebar {
+.comment-sidebar,
+.article-sidebar {
   grid-column: 1;
   grid-row: 1;
   margin-top: 10px;
   margin-left: 10px;
-
+  width: 240px;
   margin-right: 10px;
 }
 
 .article-sidebar {
+  z-index: 5;
 }
 
 .more-from-medium_ {
-
+  font-weight: 500;
+  font-family: var(--ff-text);
+  margin-bottom: 10px;
+  font-size: 1.0rem;
 }
 
 
 .comment-sidebar {
   height: 100%;
-  width: 0%;
+
+  /* width: 0%; */
   position: relative;
+  z-index: 10;
   /* z-index: 0; */
   /* top: 0; */
   /* left: 0; */
@@ -151,7 +215,7 @@
   /* width: 100%; */
   display: flex;
   flex-direction: column;
-  width: 100%;
+  /* width: 100%; */
   /* animation-name: loadSidebar ; */
   animation: loadSidebar both;
   animation-duration: 1s;

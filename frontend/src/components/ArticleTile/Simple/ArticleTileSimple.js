@@ -5,27 +5,34 @@ import { useHistory } from 'react-router-dom';
 import ArticleAuthor from '../../../blocks/ArticleAuthor';
 import ArticleTitle from '../../../blocks/ArticleTitle';
 import NavUtil from '../../../utils/NavUtil';
+import Image from '../../../blocks/Image/Image';
 
 const ArticleTileSimple = ({articleId}) => {
   const history = useHistory();
-  // const article = useSelector(store => store.articles[articleId]);
+  const article = useSelector(store => store.articles.all[articleId]);
 
   console.log('articleId');
   console.log(articleId);
   console.log('article');
   // console.log(article);
-  // if (!article) return <></>;
+  if (!article) return <></>;
   return (
-    <div className='article-tile-simple' >
-      {/* <div className='article-into'>
+    <div className='article-tile-simple'
+         onClick={NavUtil.goToArticleById(history, articleId)}>
+      <div className='article-into'>
         <ArticleAuthor name={article.authorName}/>
         <ArticleTitle
           article={article}
-          includeBlurb={true}
+          includeBlurb={false}
+          lineclamp='line-clamp-3'
           // onClick={NavUtil.goToArticleById(history, articleId)}
         />
-      </div> */}
-      ArticleTileSimple
+      </div>
+      <div className="article-image">
+      {article.imageUrls && (article.imageUrls.length !== 0) && (
+        <Image url={article.imageUrls[0]} width="200" height="134"/>
+      )}
+      </div>
     </div>
   );
 };

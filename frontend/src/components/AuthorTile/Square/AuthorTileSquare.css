@@ -36,12 +36,6 @@
 }
 
 .author-tile-square .btn {
-  /* position: center;
-  justify-self: center;
-  justify-content: center;
-  align-self: center;
-  text-align: center; */
-  /* display: block; */
   background-color: var(--medium-green);
   font-weight: 350;
   color: white;
@@ -50,7 +44,6 @@
   font-size: 0.9rem;
   height: 30px;
   width: 100px;
-  /* box-shadow: 0px 0px 0.25px 0.25px rgba(0, 0, 0, 1.0); */
 }
 
 

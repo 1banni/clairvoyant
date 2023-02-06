@@ -30,7 +30,7 @@ const SplashPage = props => {
           <div className="splash-title">
             <h1 className="stay-curious_">Stay curious.</h1>
             <p className="discover-stories_">Discover stories, thinking, and expertise from writers on any topic.</p>
-            <Button className="btn get-started_" label="Start reading" modal={SignUpModal}/>
+            <Button className="btn get-started_" label="Start reading" modal={ SignUpModal }/>
           </div>
 
           <SplashPageAnimation />
