@@ -69,8 +69,7 @@ const ArticleShow = (props) => {
               <Title article={article} />
               <div className='article-images'>
               {article && article.imageUrls?.map(imageUrl => (
-                  <Image url={imageUrl} width='600' height='134'/>
-
+                <Image url={imageUrl} width='600' height='134'/>
               ))}
               </div>
               <Body body={article.body}/>

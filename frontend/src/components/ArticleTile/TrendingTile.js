@@ -32,7 +32,7 @@ const TrendingTile = ({ article, idx }) => {
       </div>
         {/* <div className='spacing-between-tiles'/> */}
     </div>
-  )
-}
+  );
+};
 
 export default withRouter(TrendingTile);
