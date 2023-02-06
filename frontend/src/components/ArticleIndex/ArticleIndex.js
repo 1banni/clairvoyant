@@ -8,7 +8,7 @@ import ArticleTile from '../../components/ArticleTile/ArticleTile';
 
 const ArticleIndex = props => {
   const dispatch = useDispatch();
-  const articles = useSelector(state => Object.values(state.articles));
+  const articles = useSelector(state => Object.values(state.articles.all));
 
   useEffect(() => {
     dispatch(fetchArticles());
