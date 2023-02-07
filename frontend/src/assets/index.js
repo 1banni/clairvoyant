@@ -16,7 +16,6 @@ const SVG = {
   LOGO: require('./svg/clairvoyant-logo.svg'),
   PROFILE: require('./svg/profile.svg'),
   WRITE_LOGO: require('./svg/write-logo.svg'),
-
 }
 
 export {PNG, SVG};

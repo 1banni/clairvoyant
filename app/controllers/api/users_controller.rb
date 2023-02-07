@@ -5,10 +5,17 @@ class Api::UsersController < ApplicationController
   # (this line always happens)
   # wrap_parameters include User.attribute_names
   # TRANSFER!!!!!!!
-  wrap_parameters include: User.attribute_names + ['password']
+  wrap_parameters include: User.attribute_names + ['password'] + [:photo], format: :multipart_form
 
   def create
+    p '-----------------------------'
+    p 'in users_controller#create'
+    p 'user_params'
+    p user_params
     @user = User.new(user_params)
+    p '@user'
+    p @user
+
     if @user&.save
       login(@user)
       render :show
@@ -21,9 +28,16 @@ class Api::UsersController < ApplicationController
   # you can have whatever routes you want!
   private
   def user_params
-    params.require(:user).permit(:email, :username, :password, :bio)
     # front end can send data like { user: username: 'bob, password:: 'password'}
     # front end can also send it as { username: 'bob', password: 'password'}
     # ^ here, we would be able to get username column (automatically cause of controller name)
+    params.require(:user).permit(
+      :email,
+      :username,
+      :name,
+      :password,
+      :bio,
+      :photo
+    )
   end
 end

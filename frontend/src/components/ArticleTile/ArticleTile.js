@@ -47,7 +47,7 @@ const ArticleTile = (
     {excludeImages
     ? (<div></div>)
     : (
-      <div className='article-image'>{console.log(article?.imageUrls)}
+      <div className='article-image'>
       {article.imageUrls && (article.imageUrls.length !== 0) && (
         <Image url={article.imageUrls[0]} width='200' height='134'/>
       )}

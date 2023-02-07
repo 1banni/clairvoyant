@@ -14,10 +14,10 @@ export default function ArticleSearch({...props}) {
   let { queryName } = useParams();
   const [query, changeQuery] = useInput(queryName);
 
-  console.log('queryName');
-  console.log(queryName);
-  console.log('useParams()');
-  console.log(useParams());
+  // console.log('queryName');
+  // console.log(queryName);
+  // console.log('useParams()');
+  // console.log(useParams());
 
   const filteredArticles = useMemo(() => {
     const lowerCaseQuery = query?.toLowerCase();

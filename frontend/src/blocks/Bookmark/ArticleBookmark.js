@@ -24,8 +24,6 @@ const ArticleBookmark = ({articleId, options}) => {
   const bookmark = useSelector(state => state.bookmarks[articleId]);
   // const bookmark2 = useSelector(selectBookmarksByArticleId(articleId));
   const dispatch = useDispatch();
-  console.log('bookmarkOptions');
-  console.log(options);
 
   let BookmarkIcon = bookmark
     ? <MdOutlineBookmark className='icon bookmark' style={options}/>

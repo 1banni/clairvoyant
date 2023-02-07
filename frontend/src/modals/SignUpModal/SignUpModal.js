@@ -1,3 +1,4 @@
+import React, { useState } from 'react';
 import { useInput, useSubmit } from '../../hooks';
 import { login, signup } from '../../store/session';
 import { Modal } from '../../context/Modal';
@@ -6,20 +7,31 @@ import LoginModal from '../LoginModal';
 import Button from '../../blocks/Button';
 
 
-function SignUpModal(props) {
+const SignUpModal = (props) => {
   const [email, emailChange] = useInput('');
+  const [name, nameChange] = useInput('');
   const [username, usernameChange] = useInput('');
   const [password, passwordChange] = useInput('');
   const [confirmPassword, confirmPasswordChange] = useInput('');
+  const [photoFile, setPhotoFile] = useState(null);
+  const [photoUrl, setPhotoUrl] = useState(null);
 
   const wrap = {
     bool: (password === confirmPassword),
     errors: ['Confirm Password field must be the same as the Password field']
   }
 
+  const formData = new FormData();
+  formData.append('user[email]', email);
+  formData.append('user[username]', username);
+  formData.append('user[name]', name);
+  formData.append('user[password]', password);
+  // if (photoFile) formData.append('user[photo]', photoFile);
+
 
   let [errors, handleSubmit] = useSubmit({
-    createAction: () => signup({ email, username, password }),
+    // createAction: () => signup({ email, username, password }),
+    createAction: () => signup(formData),
     onSuccess: () => props.close(),
     wrap
   });
@@ -34,9 +46,13 @@ function SignUpModal(props) {
       <div className='modal'>
       <div className='modal-background'>
         <h2>Sign up with email</h2>
+
         <p>Enter your email address and password.</p>
+
         {errors ? <FormErrors className='login-errors' errors={errors}/> : ''}
+
         <form onSubmit={handleSubmit}>
+
           <Input label=''
             className='credentials email'
             type='text'
@@ -45,6 +61,16 @@ function SignUpModal(props) {
             placeholder='Email'
             required
           />
+
+          <Input label=''
+            className='credentials name'
+            type='text'
+            value={name}
+            onChange={nameChange}
+            placeholder='Name'
+            required
+          />
+
           <Input label=''
             className='credentials username'
             type='text'
@@ -53,7 +79,9 @@ function SignUpModal(props) {
             placeholder='Username'
             required
           />
-          <br/>
+
+          {/* <br/> */}
+
           <Input label=''
             className='credentials password'
             type='password'
@@ -62,6 +90,7 @@ function SignUpModal(props) {
             placeholder='Password'
             required
           />
+
           <Input label=''
             className='credentials password confirm'
             type='password'
@@ -70,14 +99,24 @@ function SignUpModal(props) {
             placeholder='Confirm Password'
             required
           />
+
           <br/>
+
+
+
+          <br />
+
           <Button type='submit' label='Sign Up'  />
+
           <Button label='Login' modal={LoginModal}/>
-      </form>
-      <Button className='btn demo' onClick={handleDemo} label='Demo User'/>
-      <Button className='close-btn' onClick={props.close}>X</Button>
-    </div>
-    </div>
+
+        </form>
+
+        <Button className='btn demo' onClick={handleDemo} label='Demo User'/>
+
+        <Button className='close-btn' onClick={props.close}>X</Button>
+      </div>
+      </div>
     </Modal>
   );
 }

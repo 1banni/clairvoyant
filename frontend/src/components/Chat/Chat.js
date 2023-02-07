@@ -28,8 +28,8 @@ const Chat = () => {
       // console.log('res');
       // console.log(res.body);
       const data = await res.json()
-      console.log('data');
-      console.log(data);
+      // console.log('data');
+      // console.log(data);
     }
   }
 
