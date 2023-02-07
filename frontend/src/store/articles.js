@@ -50,10 +50,6 @@ export const fetchArticle = (articleId) => async dispatch => {
     // This payload will go to every reducer
     // receiveComment - polug it into state
     // filter in useSelector for comment
-    // console.log('article');
-    // console.log(article);
-    // console.log('comments');
-    // console.log(comments);
     dispatch(receiveArticle(article));
     dispatch(receiveComments(comments));
   }

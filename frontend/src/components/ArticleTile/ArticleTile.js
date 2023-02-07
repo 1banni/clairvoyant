@@ -3,10 +3,10 @@ import { Redirect, useHistory, withRouter} from 'react-router-dom';
 import './ArticleTile.css';
 import ArticleAuthor from '../../blocks/ArticleAuthor';
 import ArticleDetail from '../../blocks/ArticleDetail';
-import ArticleImage from '../../blocks/ArticleImage';
 import ArticleTitle from '../../blocks/ArticleTitle';
 import Bookmark from '../../blocks/Bookmark'
 import Image from '../../blocks/Image/Image';
+// import Image from '../../blocks/ArticleImage/ArticleImage';
 import NavUtil from '../../utils/NavUtil';
 
 const ArticleTile = (
@@ -22,13 +22,14 @@ const ArticleTile = (
     // console.log(article.imageUrls);
   }
 
-  if (!article) return <Redirect to='/'/>;
+  if (!article) return <></>;
   return (
     <div>
     <div className='article-tile' key={article.id}>
 
       <div className='article-info'>
         <ArticleAuthor name={article.authorName}/>
+
         <ArticleTitle
           article={article}
           includeBlurb={true}
@@ -36,6 +37,7 @@ const ArticleTile = (
           blurbLineClamp={blurbLineClamp}
           onClick={NavUtil.goToArticleById(history, article.id)}
         />
+
         <ArticleDetail article={article}>
           <Bookmark articleId={article.id} />
         </ArticleDetail>
@@ -43,17 +45,12 @@ const ArticleTile = (
     {excludeImages
     ? (<div></div>)
     : (
-      <div className='article-image'>{console.log('shittt')}
+      <div className='article-image'>{console.log(article?.imageUrls)}
       {article.imageUrls && (article.imageUrls.length !== 0) && (
         <Image url={article.imageUrls[0]} width='200' height='134'/>
       )}
       </div>
     )}
-      {/* <ArticleImage
-        className='article-tile-image'
-        src='https://miro.medium.com/fit/c/400/268/0*CV8SZagj7nhTYtYn'
-        height='134px'
-        width='200px' /> */}
     </div>
       <div className='spacing-between-tiles'/>
     </div>

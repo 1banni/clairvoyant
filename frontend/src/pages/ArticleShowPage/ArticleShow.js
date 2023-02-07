@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, useParams } from 'react-router-dom';
-import Image from '../../blocks/ArticleImage/ArticleImage';
+import Image from '../../blocks/Image/Image';
 import Title from '../../blocks/ArticleTitle/ArticleTitle';
 import BanniLinks from '../../blocks/BanniLinks';
 import EditDelete from '../../blocks/EditDelete/EditDelete';
@@ -44,13 +44,6 @@ const ArticleShow = (props) => {
 
   const toggleCommentDisplay = () => setCommentDisplay(state => !state);
 
-  const moreArticles = [15, 14, 13, 12];
-  // console.log('moreArticles');
-  // console.log(moreArticles);
-
-  // console.log('fourRandomArticles');
-  // console.log(fourRandomArticles);
-
   if (!article) return <></>;
   return (
     <>
@@ -69,7 +62,7 @@ const ArticleShow = (props) => {
               <Title article={article} />
               <div className='article-images'>
               {article && article.imageUrls?.map(imageUrl => (
-                <Image url={imageUrl} width='600' height='134'/>
+                <Image url={imageUrl} /*width='750' height='600'*/ alt={imageUrl}/>
               ))}
               </div>
               <Body body={article.body}/>

@@ -5,10 +5,10 @@ import { PNG } from '../../assets';
 
 const Image = ({url, alt, wrapper, ...props}) => {
   const imageUrl = url;
+  wrapper ||= 'image-wrapper';
+  alt ||= 'alt';
   // const imageUrl = PNG.LINKEDIN;
 
-  wrapper ||= 'image-wrapper';
-  alt ||= '';
   // props.height ||= '134';
   // props.width ||= '200';
 
@@ -17,8 +17,9 @@ const Image = ({url, alt, wrapper, ...props}) => {
     <div className={wrapper}>
 
       <img
-        alt={alt}
-        key={Math.floor(Math.random() * 10^8)}
+        className='image'
+        alt={imageUrl}
+        key={imageUrl}
         src={imageUrl}
         {...props}
       />

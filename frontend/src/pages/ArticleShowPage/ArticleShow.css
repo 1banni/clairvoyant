@@ -45,12 +45,17 @@
 
 
 
-.article-image-ctnr {
-  /* width: 800px; */
+.article-view .image-wrapper {
+  /* width: 300px; */
+  /* border: var(--border-blu); */
+}
+
+.article-view .image {
+  width: var(--width-article);
 }
 
 .article-image {
-  width: 100%;
+  width: 300px;
   height: 100%;
   /* shrink, cover, etc. */
   object-fit: cover;
