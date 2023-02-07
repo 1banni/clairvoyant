@@ -18,12 +18,14 @@ import Button from '../Button'
 import { useDispatch, useSelector } from 'react-redux'
 import { createBookmark, deleteBookmark, /*selectBookmarksByArticleId*/ } from '../../store/bookmarks'
 
-const ArticleBookmark = ({articleId}) => {
-  const options = {fill: 'black', size:'20px' };
+const ArticleBookmark = ({articleId, options}) => {
+  options ||= {fill: 'black', size:'20px' };
   const sessionUser = useSelector(state => state.session.user);
   const bookmark = useSelector(state => state.bookmarks[articleId]);
   // const bookmark2 = useSelector(selectBookmarksByArticleId(articleId));
   const dispatch = useDispatch();
+  console.log('bookmarkOptions');
+  console.log(options);
 
   let BookmarkIcon = bookmark
     ? <MdOutlineBookmark className='icon bookmark' style={options}/>

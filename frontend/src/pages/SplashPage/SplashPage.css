@@ -124,7 +124,9 @@
 .trending-tile-wrapper {
   display: flex;
   flex-direction: row;
-  height: 150px;
+  height: 140px;
+  margin-left: 5px;
+  margin-right: 5px;
 }
 
 .trending-tile {
@@ -156,6 +158,12 @@
   align-self: center;
   line-height: 1.2;
   margin-bottom: 7px;
+}
+
+.trending-tile .title {
+  font-family: var(--ff-text);
+  font-size: 0.88rem;
+  font-weight: 500;
 }
 
 

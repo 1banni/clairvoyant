@@ -9,12 +9,17 @@ import Bookmark from '../../blocks/Bookmark'
 import Image from '../../blocks/Image/Image';
 import NavUtil from '../../utils/NavUtil';
 
-const ArticleTile = ({ article }) => {
+const ArticleTile = (
+  { article, excludeImages, blurbLength, blurbLineClamp }
+) => {
   let history = useHistory();
+  excludeImages ||= false;
+  blurbLength ||= 115;
+  blurbLineClamp ||= 'line-clamp-2';
 
   if (article && article.imageUrls) {
-    console.log('article.imageUrls');
-    console.log(article.imageUrls);
+    // console.log('article.imageUrls');
+    // console.log(article.imageUrls);
   }
 
   if (!article) return <Redirect to='/'/>;
@@ -27,19 +32,23 @@ const ArticleTile = ({ article }) => {
         <ArticleTitle
           article={article}
           includeBlurb={true}
+          blurbLength={blurbLength}
+          blurbLineClamp={blurbLineClamp}
           onClick={NavUtil.goToArticleById(history, article.id)}
         />
         <ArticleDetail article={article}>
           <Bookmark articleId={article.id} />
         </ArticleDetail>
       </div>
-
-      <div className='article-image'>
+    {excludeImages
+    ? (<div></div>)
+    : (
+      <div className='article-image'>{console.log('shittt')}
       {article.imageUrls && (article.imageUrls.length !== 0) && (
         <Image url={article.imageUrls[0]} width='200' height='134'/>
       )}
       </div>
-
+    )}
       {/* <ArticleImage
         className='article-tile-image'
         src='https://miro.medium.com/fit/c/400/268/0*CV8SZagj7nhTYtYn'

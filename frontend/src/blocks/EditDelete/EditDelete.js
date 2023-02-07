@@ -10,8 +10,8 @@ const EditDelete = ({article}) => {
   const dispatch = useDispatch();
 
   const handleEditClick = () => {
-    console.log('in the push');
-    console.log(`URL: /articles/${article.id}/edit`);
+    // console.log('in the push');
+    // console.log(`URL: /articles/${article.id}/edit`);
     history.push(`/articles/${article.id}/edit`);
   }
 
