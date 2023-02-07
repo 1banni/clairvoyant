@@ -16,6 +16,7 @@ function App() {
   return (
     <>
       <NavBar/>
+      {/* <NavBar2 /> */}
       <ModalProvider />
       <ResetScroll />
       <Switch>

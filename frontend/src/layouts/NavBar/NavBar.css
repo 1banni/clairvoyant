@@ -1,20 +1,25 @@
-
 .nav-bar-wrapper {
+  top: 0 !important;
   background-color: var(--medium-yellow);
   height: var(--nav-bar-height);
 
   border-bottom: var(--border);
   position: sticky;
-  top: 0;
+  /* position: -webkit-sticky; */
+  /* position: sticky; */
+  top: 0 !important;
   /* top: var(--nav-bar-height); */
   transition: 0.5s ease-in-out;
   z-index: 15;
 }
+
 .nav-bar-wrapper.white {
+  top: 0 !important;
   background-color: #fff;
 }
 
 .nav-bar-wrapper.fixed {
+  top: 0 !important;
   background-color: #fff;
 }
 
@@ -25,7 +30,8 @@
   /* height: var(--nav-bar-height); */
   flex-direction: row;
   justify-content: space-between;
-  position: relative;
+  /* position: relative; */
+  position: sticky;
   /* top: 0; */
   /* align-items: center; */
 }
@@ -40,12 +46,14 @@
   flex-direction: row;
   margin-left: 4vw;
 }
+
 /* Clairvoyant Logo */
 .nav-link.homepage {
   /* border: var(--border-grn); */
   align-self: center;
   margin-top: 5px;
 }
+
 .icon-logo {
   align-self: center;
 }
@@ -70,7 +78,7 @@
   margin-right: 2vw;
 }
 
-.nav-link.write  {
+.nav-link.write {
   /* height: var(--btn-height * 0.5); */
   /* width: 300px; */
   /* height: 40px; */

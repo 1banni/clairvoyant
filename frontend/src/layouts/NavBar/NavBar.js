@@ -24,14 +24,23 @@ function NavBar() {
       : setColorToggle(prev => 'white');
   }, [location]);
 
-  // TODO - see if you can do this with a useEffect
-  const toggleFixed = () => {
+  // TESTING THIS CODE - START
+  useEffect(() => {
     window.scrollY > 535
     // window.scrollY > 450
       ? setFixed('nav-bar-wrapper fixed')
-      : setFixed('nav-bar-wrapper'); // 'floating' not used in CSS
-  };
-  window.addEventListener('scroll', toggleFixed);
+      : setFixed('nav-bar-wrapper'); //
+  }, [])
+  // TESTING THIS CODE - END
+
+  // TODO - see if you can do this with a useEffect
+  // const toggleFixed = () => {
+  //   window.scrollY > 535
+  //   // window.scrollY > 450
+  //     ? setFixed('nav-bar-wrapper fixed')
+  //     : setFixed('nav-bar-wrapper'); // 'floating' not used in CSS
+  // };
+  // window.addEventListener('scroll', toggleFixed);
 
   let sessionLink;
   if (sessionUser) {
@@ -49,7 +58,7 @@ function NavBar() {
   }
 
   return (
-    <div className={fixed + ' ' + colorToggle}>
+    <div className={fixed + ' ' + colorToggle} role="banner">
     <div className='nav-bar'>
       <div className='nav-bar-l'>
         <div className='nav-link homepage'>
