@@ -2,6 +2,7 @@
 .splash {
   display: flex;
   flex-direction: column;
+  margin-top: var(--navbar-height);
 }
 
 /* First Panel */
@@ -216,10 +217,9 @@
 }
 
 .splash-sidebar .top {
-  /* height: 180px; */
-  /* TODO: REPLACE ME WITH PROPER BORDER BOTTOM */
   position: -webkit-sticky;
-  position: sticky; /* Safari */
+  position: sticky;
+  /* Safari */
   top: 100px;
 }
 
