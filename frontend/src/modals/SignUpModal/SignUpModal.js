@@ -1,40 +1,69 @@
 import React, { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { useInput, useSubmit } from '../../hooks';
 import { login, signup } from '../../store/session';
 import { Modal } from '../../context/Modal';
 import { FormErrors, Input } from '../../blocks/Form';
 import LoginModal from '../LoginModal';
 import Button from '../../blocks/Button';
+import { useTheme } from 'styled-components';
 
 
 const SignUpModal = (props) => {
+  const dispatch = useDispatch();
+  const sessionUser = useSelector(state => state.session.user);
   const [email, emailChange] = useInput('');
   const [name, nameChange] = useInput('');
   const [username, usernameChange] = useInput('');
   const [password, passwordChange] = useInput('');
   const [confirmPassword, confirmPasswordChange] = useInput('');
-  const [photoFile, setPhotoFile] = useState(null);
-  const [photoUrl, setPhotoUrl] = useState(null);
+  const [photoFile, setPhotoFile] = useState("");
+  const [photoUrl, setPhotoUrl] = useState("");
+  const [errors, setErrors] = useState([])
 
-  const wrap = {
-    bool: (password === confirmPassword),
-    errors: ['Confirm Password field must be the same as the Password field']
+  const handleSubmit = e => {
+    e.preventDefault();
+
+    const formData = new FormData();
+    formData.append('user[email]', email);
+    formData.append('user[username]', username);
+    formData.append('user[name]', name);
+    formData.append('user[password]', password);
+    if (photoFile) formData.append('user[photo]', photoFile);
+
+    console.log('photoFile');
+    console.log(photoFile);
+
+    console.log('photoUrl');
+    console.log(photoUrl);
+
+    if (password === confirmPassword) {
+      setErrors([]);
+      return dispatch(signup(formData))
+        .catch(async res => {
+          let data;
+          try {
+            data = await res.clone().json();
+          } catch {
+            data = await res.text();
+          }
+          if (data?.errors) setErrors(data.errors);
+          else if (data) setErrors([data]);
+          else setErrors([res.statusText]);
+        })
+        .then(props.close());
+    } else {
+      return setErrors(['Confirm Password does not match Password']);
+    }
   }
 
-  const formData = new FormData();
-  formData.append('user[email]', email);
-  formData.append('user[username]', username);
-  formData.append('user[name]', name);
-  formData.append('user[password]', password);
-  if (photoFile) formData.append('user[photo]', photoFile);
+  // let [errors, handleSubmit] = useSubmit({
+  //   // createAction: () => signup({ email, username, password }),
+  //   createAction: () => signup(formData),
+  //   onSuccess: () => props.close(),
+  //   wrap
+  // });
 
-
-  let [errors, handleSubmit] = useSubmit({
-    // createAction: () => signup({ email, username, password }),
-    createAction: () => signup(formData),
-    onSuccess: () => props.close(),
-    wrap
-  });
   let [, handleDemo] = useSubmit({
     createAction: () => login({ credential: 'demo@demo.com', password: 'password' }),
     onSuccess: () => props.close(),
@@ -42,14 +71,29 @@ const SignUpModal = (props) => {
 
 
   const handlePhoto = async e => {
-    const file = e.target.file;
+    console.log('inside of handlePhoto');
+    // const file = e.target.file;
+    const file = e.currentTarget.files[0];
+    console.log('file');
+    console.log(file);
 
     if (file) {
+      console.log("inside handlePhoto | if (file)");
       const fileReader = new FileReader();
       fileReader.readAsDataURL(file);
+
       fileReader.onload = () => {
+        console.log("inside handlePhoto | if (file) | onload");
+        console.log('photoFile');
+        console.log(photoFile);
         setPhotoFile(file);
+        console.log('photoFile');
+        console.log(photoFile);
+        console.log('photoUrl');
+        console.log(photoUrl);
         setPhotoUrl(fileReader.result);
+        console.log('photoUrl');
+        console.log(photoUrl);
       };
     }
   };

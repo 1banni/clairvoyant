@@ -79,6 +79,9 @@ export const signup = (formData) => async dispatch => {
     body: formData
   });
 
+  console.log("--------------------------------------");
+  console.log("--------------------------------------");
+  console.log("--------------------------------------");
   console.log("in session(store)#signup");
   console.log('formData');
   console.log(formData);
@@ -91,6 +94,7 @@ export const signup = (formData) => async dispatch => {
   storeCurrentUser(data.user);
   console.log('data.user');
   console.log(data.user);
+  console.log("--------------------------------------");
   dispatch(setCurrentUser(data.user));
   return response;
 }
