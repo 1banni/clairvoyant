@@ -12,6 +12,8 @@ class Api::UsersController < ApplicationController
     @user = User.find(params[:id])
     # @photo_url = rails_blob_path(@user.photo, disposition: "attachment", only_path: true)
 
+    p 'users_controller#show'
+    p @user
     if @user
       render :show
     else

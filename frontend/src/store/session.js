@@ -79,8 +79,18 @@ export const signup = (formData) => async dispatch => {
     body: formData
   });
 
+  console.log("in session(store)#signup");
+  console.log('formData');
+  console.log(formData);
+  console.log('response');
+  console.log(response);
+
   const data = await response.json();
+  console.log('data');
+  console.log(data);
   storeCurrentUser(data.user);
+  console.log('data.user');
+  console.log(data.user);
   dispatch(setCurrentUser(data.user));
   return response;
 }
