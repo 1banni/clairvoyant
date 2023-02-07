@@ -72,7 +72,11 @@ const ArticleShow = (props) => {
           <div className='more-from-author-section'>
             <h4 className='more-from-author'>More from {article.authorName}</h4>
             {moreArticlesByAuthor && moreArticlesByAuthor.map(article => (
-              <ArticleTile article={article} />
+              <ArticleTile article={article}
+                excludeAuthor={true}
+                blurbLength={235}
+                blurbLineClamp='line-clamp-3'
+              />
             ))}
           </div>
 

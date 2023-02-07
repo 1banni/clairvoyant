@@ -75,10 +75,16 @@
   font-size: 1.1rem;
   letter-spacing: -0.02rem;
   line-height: 30px;
-  margin-top: 5px;
+  margin-top: 30px;
+  /* margin-bottom: 10px; */
   color:var(--color-dark-grey);
   font-weight: 300;
   word-wrap: break-word;
+}
+
+.article-body .article-paragraph p {
+  margin-bottom: 30px;
+  /* border: var(--border-blu); */
 }
 
 .article-links {

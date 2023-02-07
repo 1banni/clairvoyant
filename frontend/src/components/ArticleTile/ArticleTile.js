@@ -10,9 +10,10 @@ import Image from '../../blocks/Image/Image';
 import NavUtil from '../../utils/NavUtil';
 
 const ArticleTile = (
-  { article, excludeImages, blurbLength, blurbLineClamp }
+  { article, excludeAuthor, excludeImages, blurbLength, blurbLineClamp }
 ) => {
   let history = useHistory();
+  excludeAuthor ||= false;
   excludeImages ||= false;
   blurbLength ||= 115;
   blurbLineClamp ||= 'line-clamp-2';
@@ -28,7 +29,8 @@ const ArticleTile = (
     <div className='article-tile' key={article.id}>
 
       <div className='article-info'>
-        <ArticleAuthor name={article.authorName}/>
+      {!excludeAuthor &&
+        <ArticleAuthor name={article.authorName}/>}
 
         <ArticleTitle
           article={article}
