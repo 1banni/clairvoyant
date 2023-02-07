@@ -6,7 +6,6 @@ import { Modal } from '../../context/Modal';
 import { FormErrors, Input } from '../../blocks/Form';
 import LoginModal from '../LoginModal';
 import Button from '../../blocks/Button';
-import { useTheme } from 'styled-components';
 
 
 const SignUpModal = (props) => {
