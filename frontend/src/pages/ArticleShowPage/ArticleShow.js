@@ -45,11 +45,11 @@ const ArticleShow = (props) => {
   const toggleCommentDisplay = () => setCommentDisplay(state => !state);
 
   const moreArticles = [15, 14, 13, 12];
-  console.log('moreArticles');
-  console.log(moreArticles);
+  // console.log('moreArticles');
+  // console.log(moreArticles);
 
-  console.log('fourRandomArticles');
-  console.log(fourRandomArticles);
+  // console.log('fourRandomArticles');
+  // console.log(fourRandomArticles);
 
   if (!article) return <></>;
   return (

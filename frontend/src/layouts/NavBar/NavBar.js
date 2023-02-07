@@ -27,6 +27,7 @@ function NavBar() {
   // TODO - see if you can do this with a useEffect
   const toggleFixed = () => {
     window.scrollY > 535
+    // window.scrollY > 450
       ? setFixed('nav-bar-wrapper fixed')
       : setFixed('nav-bar-wrapper'); // 'floating' not used in CSS
   };

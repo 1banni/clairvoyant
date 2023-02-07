@@ -49,7 +49,7 @@ function App() {
         <Route exact path='/chats/new'>
           <Chat />
         </Route>
-        <Route path='/:topicName'>
+        <Route path='/:queryName'>
           <ArticleSearch />
         </Route>
         <Route path='/'>

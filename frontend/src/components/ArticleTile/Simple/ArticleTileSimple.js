@@ -11,9 +11,9 @@ const ArticleTileSimple = ({articleId}) => {
   const history = useHistory();
   const article = useSelector(store => store.articles.all[articleId]);
 
-  console.log('articleId');
-  console.log(articleId);
-  console.log('article');
+  // console.log('articleId');
+  // console.log(articleId);
+  // console.log('article');
   // console.log(article);
   if (!article) return <></>;
   return (

@@ -2,14 +2,16 @@
 .nav-bar-wrapper {
   background-color: var(--medium-yellow);
   height: var(--nav-bar-height);
+
   border-bottom: var(--border);
   position: sticky;
-  transition: 0.5s ease-in-out;
   top: 0;
+  /* top: var(--nav-bar-height); */
+  transition: 0.5s ease-in-out;
   z-index: 15;
 }
 .nav-bar-wrapper.white {
-  background-color: white;
+  background-color: #fff;
 }
 
 .nav-bar-wrapper.fixed {
@@ -20,9 +22,11 @@
   display: flex;
   width: 100%;
   height: 100%;
+  /* height: var(--nav-bar-height); */
   flex-direction: row;
   justify-content: space-between;
   position: relative;
+  /* top: 0; */
   /* align-items: center; */
 }
 

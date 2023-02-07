@@ -14,11 +14,14 @@
   width: 100%;
   height: auto;
   object-fit: cover;
+  margin-top: 4px;
 }
 
 .comment-ct {
   font-family: var(--ff-text);
   color: var(--color-dark-grey);
-  border: var(--border-grn);
+  /* border: var(--border-grn); */
   align-self: center;
+  margin-left: 5px;
+  margin-bottom: 5px;
 }

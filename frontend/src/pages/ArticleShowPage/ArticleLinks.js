@@ -7,7 +7,8 @@ import ShareLink from '../../blocks/ShareLink';
 import Tooltip from '../../blocks/Tooltip/Tooltip';
 
 const ArticleLinks = ({article, toggleCommentDisplay}) => {
-  const shareLinkOptions = { height: 53, width: 36 };
+  const shareLinkOptions = { height: 40, width: 32 };
+  const bookmarkOptions = { height: 53, width: 36 };
 
   if (!article) return <></>;
   return (
@@ -26,7 +27,9 @@ const ArticleLinks = ({article, toggleCommentDisplay}) => {
             Link copied to clipboard
           </div>
           </Tooltip>
-        <ArticleBookmark articleId={article.id} />
+        <ArticleBookmark articleId={article.id}
+          options={bookmarkOptions}
+        />
       </div>
 
       {/* <div className='share-bookmark'>
