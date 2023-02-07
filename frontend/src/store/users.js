@@ -11,20 +11,11 @@ export const receiveUser = user => {
 };
 
 export const fetchUser = (userId) => async dispatch => {
-  console.log("inside of fetch user");
-
   const res = await csrfFetch(`/api/users/${userId}`);
 
 
-  console.log('res');
-  console.log(res);
-
   if (res.ok) {
-    console.log("inside if");
-    console.log('user');
     const user = await res.json();
-    console.log('user');
-    console.log(user);
     dispatch(receiveUser(user));
   }
 }
@@ -36,10 +27,6 @@ const usersReducer = (state = {}, action) => {
 
   switch (action.type) {
     case RECEIVE_USER:
-      console.log('action');
-      console.log(action);
-      console.log('action.user');
-      console.log(action.user);
       return { ...state,  ...action.user };
     default:
       return state;

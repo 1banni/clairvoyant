@@ -9,22 +9,11 @@ const UserPage = () => {
   const dispatch = useDispatch();
   const { userId } = useParams();
   const sessionUser = useSelector(state => state.session.user);
-  const user = useSelector(state => Object.values(state.users))
-
-  console.log('userId');
-  console.log(userId);
+  const user = useSelector(state => state.users?.user)
 
   useEffect(() => {
     if (userId) dispatch(fetchUser(userId));
   }, [dispatch, userId])
-
-
-  // console.log('sessionUser');
-  // console.log(sessionUser);
-
-
-  console.log('user');
-  console.log(user);
 
   return (
     <div>UserPage

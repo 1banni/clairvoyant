@@ -64,37 +64,14 @@ export const restoreSession = () => async dispatch => {
   return response;
 }
 
-// export const signup = ({ username, email, password }) => async dispatch => {
-//   const response = await csrfFetch('/api/users', {
-//     method: 'POST',
-//     body: JSON.stringify({
-//       username,
-//       email,
-//       password
-//     })
-//   });
 export const signup = (formData) => async dispatch => {
   const response = await csrfFetch('/api/users', {
     method: 'POST',
     body: formData
   });
 
-  console.log("--------------------------------------");
-  console.log("--------------------------------------");
-  console.log("--------------------------------------");
-  console.log("in session(store)#signup");
-  console.log('formData');
-  console.log(formData);
-  console.log('response');
-  console.log(response);
-
   const data = await response.json();
-  console.log('data');
-  console.log(data);
   storeCurrentUser(data.user);
-  console.log('data.user');
-  console.log(data.user);
-  console.log("--------------------------------------");
   dispatch(setCurrentUser(data.user));
   return response;
 }

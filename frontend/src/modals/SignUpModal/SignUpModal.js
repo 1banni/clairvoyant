@@ -30,12 +30,6 @@ const SignUpModal = (props) => {
     formData.append('user[password]', password);
     if (photoFile) formData.append('user[photo]', photoFile);
 
-    console.log('photoFile');
-    console.log(photoFile);
-
-    console.log('photoUrl');
-    console.log(photoUrl);
-
     if (password === confirmPassword) {
       setErrors([]);
       return dispatch(signup(formData))
@@ -70,29 +64,15 @@ const SignUpModal = (props) => {
 
 
   const handlePhoto = async e => {
-    console.log('inside of handlePhoto');
-    // const file = e.target.file;
     const file = e.currentTarget.files[0];
-    console.log('file');
-    console.log(file);
 
     if (file) {
-      console.log("inside handlePhoto | if (file)");
       const fileReader = new FileReader();
       fileReader.readAsDataURL(file);
 
       fileReader.onload = () => {
-        console.log("inside handlePhoto | if (file) | onload");
-        console.log('photoFile');
-        console.log(photoFile);
         setPhotoFile(file);
-        console.log('photoFile');
-        console.log(photoFile);
-        console.log('photoUrl');
-        console.log(photoUrl);
         setPhotoUrl(fileReader.result);
-        console.log('photoUrl');
-        console.log(photoUrl);
       };
     }
   };
