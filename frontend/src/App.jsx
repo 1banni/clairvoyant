@@ -11,6 +11,7 @@ import SplashPage from './pages/SplashPage';
 // import UserPage from './pages/UserPage';
 import Chat from './components/Chat/Chat';
 import ResetScroll from './context/ResetScroll';
+import UserPage from './pages/UserPage/UserPage';
 
 function App() {
   return (
@@ -49,6 +50,9 @@ function App() {
         </Route>
         <Route exact path='/chats/new'>
           <Chat />
+        </Route>
+        <Route path='/users/:userId'>
+          <UserPage />
         </Route>
         <Route path='/:queryName'>
           <ArticleSearch />

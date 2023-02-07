@@ -7,6 +7,20 @@ class Api::UsersController < ApplicationController
   # TRANSFER!!!!!!!
   wrap_parameters include: User.attribute_names + ['password'] + [:photo], format: :multipart_form
 
+
+  def show
+    @user = User.find(params[:id])
+    # @photo_url = rails_blob_path(@user.photo, disposition: "attachment", only_path: true)
+
+    if @user
+      render :show
+    else
+      p '@user.errors.full_messages'
+      p @user.errors.full_messages
+      render json: { errors: @user.errors.full_messages }, status: 422
+    end
+  end
+
   def create
     p '-----------------------------'
     p 'in users_controller#create'
@@ -15,6 +29,8 @@ class Api::UsersController < ApplicationController
     @user = User.new(user_params)
     p '@user'
     p @user
+    p '@user.valid?'
+    # p @user.valid?
 
     if @user&.save
       login(@user)

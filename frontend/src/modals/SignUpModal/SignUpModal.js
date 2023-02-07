@@ -26,7 +26,7 @@ const SignUpModal = (props) => {
   formData.append('user[username]', username);
   formData.append('user[name]', name);
   formData.append('user[password]', password);
-  // if (photoFile) formData.append('user[photo]', photoFile);
+  if (photoFile) formData.append('user[photo]', photoFile);
 
 
   let [errors, handleSubmit] = useSubmit({
@@ -39,6 +39,20 @@ const SignUpModal = (props) => {
     createAction: () => login({ credential: 'demo@demo.com', password: 'password' }),
     onSuccess: () => props.close(),
   });
+
+
+  const handlePhoto = async e => {
+    const file = e.target.file;
+
+    if (file) {
+      const fileReader = new FileReader();
+      fileReader.readAsDataURL(file);
+      fileReader.onload = () => {
+        setPhotoFile(file);
+        setPhotoUrl(fileReader.result);
+      };
+    }
+  };
 
 
   return (
@@ -102,6 +116,16 @@ const SignUpModal = (props) => {
 
           <br/>
 
+          <div className='upload-profile-picture'>
+            <label>Upload Profile Pitcure</label>
+            <input
+              type='file'
+              accept='.jpg, .jpeg, .png'
+              // multiple
+              onChange={handlePhoto}
+              id='choose-files'
+            />
+          </div>
 
 
           <br />

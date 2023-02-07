@@ -6,6 +6,7 @@ import articles from './articles';
 import comments from './comments';
 import bookmarks from './bookmarks';
 import claps from './claps';
+import users from './users';
 
 const rootReducer = combineReducers({
   session,
@@ -13,6 +14,7 @@ const rootReducer = combineReducers({
   comments,
   bookmarks,
   claps,
+  users,
 });
 
 let enhancer;
