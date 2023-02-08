@@ -80,7 +80,7 @@ const CommentForm = ({articleId, formtype, comment, editToggle, setEditToggle}) 
 
           {create &&
             (<div className={`user ${activeTag}`}>
-              <ArticleAuthor userId={sessionUser?.id} name={sessionUser?.name} />
+              <ArticleAuthor userId={sessionUser.id} name={sessionUser?.name} />
             </div>
           )}
 

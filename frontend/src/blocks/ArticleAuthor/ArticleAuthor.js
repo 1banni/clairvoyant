@@ -16,9 +16,6 @@ const ArticleAuthor = ({userId, name, children, imageId, ...props}) => {
     strokeWidth: '50'
   }
 
-  console.log('user');
-  console.log(user);
-
   useEffect(() => {
     dispatch(fetchUsers());
   }, [dispatch])

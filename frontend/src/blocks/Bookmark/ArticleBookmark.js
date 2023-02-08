@@ -42,7 +42,6 @@ const ArticleBookmark = ({articleId, options}) => {
     if (bookmark) {
       dispatch(deleteBookmark(bookmark));
     } else {
-      console.log("dispatching createBookmark");
       dispatch(createBookmark({
         user_id: sessionUser.id,
         article_id: articleId

@@ -92,8 +92,13 @@
     serif;
   font-size: 36px;
   font-stretch: expanded;
-  padding-bottom: 50px;
+  margin-bottom: 50px;
 }
+
+.modal.signup h2 {
+  margin-bottom: 10px;
+}
+
 
 .modal p, input, li {
   font-family: sohne,
@@ -106,9 +111,14 @@
 .modal p {
   font-size: 14px;
   line-height: 20px;
-  padding-bottom: 30px;
+  margin-bottom: 30px;
   width: 30vh;
   text-align: center;
+}
+
+.modal.signup p {
+  margin-bottom: 10px;
+  width: 40vh;
 }
 
 .modal input {
@@ -140,5 +150,59 @@
   text-align: center;
 }
 
+.quill-wrapper .quill {
+  width: 250px;
+  text-indent: none;
+  text-align: left;
+  margin-top: 10px;
+}
+.quill-wrapper .ql-editor {
+  width: 270px;
+  text-indent: none;
+  text-align: left;
+}
+
+.quill-wrapper p {
+  text-indent: none;
+  text-align: left;
+}
+
+/* h4 {
+  font-family: var(--ff-text);
+  font-size: 0.8rem;
+  background: pink;
+
+}*/
+.modal-background h4 {
+  /* font-family: var(--ff-text); */
+  /* font-size: 0.9rem; */
+  /* text-indent: 3px; */
+  /* margin-top: 10px; */
+  /* background: pink; */
+}
 
 
+.bio-input-label {
+  font-family: var(--ff-text);
+  font-size: 0.9rem;
+  text-indent: 3px;
+  /* margin-top: 10px; */
+
+}
+
+.profile-picture-label {
+  margin-bottom: 10px;
+}
+.profile-picture-label-ctnr {
+  height: 40px;
+}
+
+.profile-picture-label-ctnr input{
+  border: none;
+  border-bottom: none;
+}
+
+.upload-profile-picture input {
+  border: none;
+  border-bottom: none;
+}

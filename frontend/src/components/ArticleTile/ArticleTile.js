@@ -20,16 +20,8 @@ const ArticleTile = (
   excludeImages ||= false;
   blurbLength ||= 115;
   blurbLineClamp ||= 'line-clamp-2';
-  // if (articleId) {
   const article = useSelector(store => store.articles.all[articleId]);
-  // }
 
-  if (article && article.imageUrls) {
-    // console.log('article.imageUrls');
-    // console.log(article.imageUrls);
-  }
-  // console.log('article');
-  // console.log(article);
 
   if (excludeImages) console.log('excludeImages');
   if (excludeImages) console.log(excludeImages);

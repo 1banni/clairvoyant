@@ -81,8 +81,7 @@ const ArticleForm = props => {
 
   const handlePhotos = async e => {
     const files = Array.from(e.target.files);
-    // console.log('files');
-    // console.log(files);
+
     if (files) {
       files.forEach(file => {
         const fileReader = new FileReader();
@@ -112,9 +111,6 @@ const ArticleForm = props => {
       });
     }
   };
-
-  // console.log('body');
-  // console.log(body);
 
   const clearForm = () => {
     setTitle('');
@@ -187,12 +183,13 @@ const ArticleForm = props => {
           </ReactQuill>
         </div>
 
-        <div className='submit-compose-buttons'>
+
+
           <div className='upload-images'>
       { formType === 'Create'
         ? (
-          <div className='create'>
-            <label>Upload Photos</label>
+          <div className='pair'>
+            <h4 className='upload-label'>Upload Photos</h4>
             <input
               type='file'
               accept='.jpg, .jpeg, .png'
@@ -202,8 +199,8 @@ const ArticleForm = props => {
             />
           </div>
         ) : (
-          <div className='update'>
-            <label>Replace Existing Photos</label>
+          <div className='pair'>
+            <h4 className='upload-label'>Replace Existing Photos</h4>
             <input
               type='file'
               accept='.jpg, .jpeg, .png'
@@ -214,10 +211,8 @@ const ArticleForm = props => {
           </div>
         )
       }
-          </div>
-
-          <div className='preview-images'>
-            <h4>Image Preview</h4>
+          <div className='pair'>
+            <h4 className='preview-images-label'>Image Preview</h4>
             {/* TODO - if photoUrl is truthy, render an image of that photo with a heading of Image preview */}
             {photoUrls && photoUrls.map(photoUrl => {return (
               <img src={photoUrl} key={photoUrl.uniqeId} alt='preview' height='100px'/>
@@ -225,7 +220,14 @@ const ArticleForm = props => {
           </div>
         </div>
 
-        <Button type='submit' label='Submit Article'/>
+        <div className='pair submit-compose-button'>
+          <div className='upload-label'></div>
+          <Button type='submit' label='Submit Article'
+            className='btn classic'
+            containername='btn-ctnr classic'
+          />
+        </div>
+
 
       </form>
     </div>

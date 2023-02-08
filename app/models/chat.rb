@@ -17,12 +17,6 @@ class Chat < ApplicationRecord
   def self.make_api_request(prompt)
     require 'httparty'
 
-    p 'prompt'
-    p prompt
-
-    p 'apiiiiiii'
-    p ENV['OPENAI_API_KEY']
-
     response = HTTParty.post("https://api.openai.com/v1/engines/davinci-codex/completions",
       headers: {
         "Content-Type" => "application/json",

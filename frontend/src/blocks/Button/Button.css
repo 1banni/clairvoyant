@@ -136,3 +136,44 @@
 
   background-color: transparent;
 }
+
+
+.cancel-btn-ctnr {}
+
+.cancel-btn {
+  position: center;
+  justify-self: center;
+  justify-content: center;
+  align-self: center;
+  text-align: center;
+  display: block;
+  background: transparent;
+  font-weight: 100;
+  border: 0.5px solid transparent;
+  border-radius: 24px;
+  font-size: 0.87rem;
+  height: 30px;
+  width: 80px;
+  margin: 5px;
+  cursor: pointer;
+}
+
+
+.btn-ctnr.classic {
+  margin-left: 10px;
+  width: 80%;
+}
+
+
+.btn.classic {
+  background-color: var(--medium-green);
+  font-weight: 350;
+  color: white;
+  border: 0.5px solid #bbb;
+  border-radius: 24px;
+  font-size: 0.9rem;
+  height: 30px;
+  width: 180px;
+  justify-self: center;
+  align-self: center;
+}

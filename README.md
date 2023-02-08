@@ -54,10 +54,6 @@ const useStateChange = (initialValue) => {
 
 export default useStateChange;
 ```
-Example Use:
-```
-
-```
 
 
 ```
@@ -93,7 +89,31 @@ export default useSubmit;
 ```
 
 ### Reusable Components
+```
+import React from 'react';
+import ModalUtil from '../../context/ModalUtil';
+import './Button.css';
 
+const Button = ({children, containername, label, redirect, modal, ...props}) => {
+  // Defaults:
+  containername ||= 'btn-ctnr';
+  props.className ||= 'btn';
+  props.type ||= 'button';
+  if (modal) props.onClick = () => ModalUtil.open(modal, redirect);
+
+  return (
+    <div className={containername}>
+      <button {...props}>
+        {label}
+        {children}
+      </button>
+    </div>
+  );
+};
+
+
+export default Button;
+```
 
 ### Rich Text Editing
 The app combines React Quill and Interweave libraries to enable rich text editing.
@@ -112,85 +132,6 @@ In order to improve the app's efficiency and reduce the number of AWS pulls, I t
 
 
 ### CSS
-I kept trying to refactor/abstract my CSS in the same way I would refactor/abstract React components, but I found this to be a difficult errand / not as efficient. I experimented with a few different approaches to className [attribute?]s, but I found the best option was to do the following:
-1) Give everything a simple parent class such as: "btn"/"button", "text-input", "user-tile" and store as much shared styling as possible here
-2) optionally, give elements additional shared tags, for instance className="btn edit"/"btn modal"/"btn close"/"btn delete" and additional identifiers
-3) Meanwhile, give components/subcomponents very short names describing exacly what they do.
-```
- return (
-    <div className='comment-index-item'>
-      <div className='author'>
-        <div className='left'>
-          <div className='image'>
-            <FaUserCircle className="user-icon"
-              size="30px"
-              style={styleOptions}
-            />
-            <div className='name-and-date'>
-              <div className='name'>
-                {comment.authorName}
-              </div>
-              <div className='date'>
-                {comment.date}
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className='right'>
-          {isAuthor && (
-          <Tooltip>
-            <Button className="btn edit"
-                    label="Edit this response"
-                    onClick={handleEdit}/>
-            <Button className="btn delete"
-                    label="Delete"
-                    onClick={handleDelete}/>
-          </Tooltip>
-          )}
-        </div>
-      </div>
-    </div>
-  )
-```
-This way, you can share functionality like
-```
-.btn {
- cursor: pointer;
-}
-
-.btn:hover {
- box-shadow: 0 0 2px #bbb;
-}
-
-.btn.modal {
- border: 2px solid #444;
- border-radius: 2px;
-}
-
-.btn.edit {
- boder: 2px solid #8AF;
- margin: 5px;
-}
-```
-easily grab big elements
-```
-.comment-index-item {
-
-}
-
-```
-along with specific ones
-```
-.comment-index-item .author .name {
- font: var(-ff-sohne);
- font-weight: 200;
-}
-
-```
-For storing CSS files, keep variables in index.css. Have a file for each component with default behavior where it's initially used (strip out unreused parts of CSS later if component is used elsewhere).
-I am in process of updating my application throughout to follow this convention but would love to know if there's a better way.
-
-
 
 
 

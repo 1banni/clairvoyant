@@ -6,16 +6,19 @@ import { Modal } from '../../context/Modal';
 import { FormErrors, Input } from '../../blocks/Form';
 import LoginModal from '../LoginModal';
 import Button from '../../blocks/Button';
+import useStateChange from '../../hooks/useStateChange';
+import ReactQuill from 'react-quill';
 
 
 const SignUpModal = (props) => {
   const dispatch = useDispatch();
   const sessionUser = useSelector(state => state.session.user);
-  const [email, emailChange] = useInput('');
-  const [name, nameChange] = useInput('');
-  const [username, usernameChange] = useInput('');
-  const [password, passwordChange] = useInput('');
-  const [confirmPassword, confirmPasswordChange] = useInput('');
+  const [email, setEmail, emailChange] = useStateChange('');
+  const [name, setName, nameChange] = useStateChange('');
+  const [username, setUsername, usernameChange] = useStateChange('');
+  const [bio, setBio, bioChange] = useStateChange('');
+  const [password, setPassword, passwordChange] = useStateChange('');
+  const [confirmPassword, setConfirmPassword, confirmPasswordChange] = useStateChange('');
   const [photoFile, setPhotoFile] = useState("");
   const [photoUrl, setPhotoUrl] = useState("");
   const [errors, setErrors] = useState([])
@@ -27,6 +30,7 @@ const SignUpModal = (props) => {
     formData.append('user[email]', email);
     formData.append('user[username]', username);
     formData.append('user[name]', name);
+    formData.append('user[bio]', bio);
     formData.append('user[password]', password);
     if (photoFile) formData.append('user[photo]', photoFile);
 
@@ -80,9 +84,9 @@ const SignUpModal = (props) => {
 
   return (
     <Modal>
-      <div className='modal'>
-      <div className='modal-background'>
-        <h2>Sign up with email</h2>
+      <div className='modal signup'>
+      <div className='modal-background signup'>
+        <h2 className='sign-up-with-email'>Sign up with email</h2>
 
         <p>Enter your email address and password.</p>
 
@@ -107,6 +111,27 @@ const SignUpModal = (props) => {
             placeholder='Name'
             required
           />
+
+          <Input label=''
+            className='bio-input-label'
+            type='text'
+            // value={bio}
+            // onChange={bioChange}
+            placeholder='Bio (below)'
+            readOnly={true}
+            required
+          />
+          {/* <h4 className='header-small'>Bio</h4> */}
+          <div className='quill-wrapper'>
+            <ReactQuill theme='snow'
+              modules={{toolbar: false}}
+              formats={[]}
+              value={bio}
+              onChange={setBio}
+              id='reactquill'
+              toolbar={false}
+            />
+          </div>
 
           <Input label=''
             className='credentials username'
@@ -137,10 +162,19 @@ const SignUpModal = (props) => {
             required
           />
 
-          <br/>
 
+          <Input label=''
+            className='profile-picture-label'
+            containername='profile-picture-label-ctnr'
+            type='text'
+            // value={bio}
+            // onChange={bioChange}
+            placeholder='Upload Profile Picture'
+            readOnly={true}
+            required
+          />
+          {/* <label>Upload Profile Pitcure</label> */}
           <div className='upload-profile-picture'>
-            <label>Upload Profile Pitcure</label>
             <input
               type='file'
               accept='.jpg, .jpeg, .png'
@@ -151,7 +185,6 @@ const SignUpModal = (props) => {
           </div>
 
 
-          <br />
 
           <Button type='submit' label='Sign Up'  />
 

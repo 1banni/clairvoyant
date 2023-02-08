@@ -15,9 +15,6 @@ const Chat = () => {
 
   const handleInput = async (e) => {
     e.preventDefault()
-    // console.log('tokenApp');
-    // console.log(tokenApp);
-
 
     const res = await csrfFetch('/api/chat', {
       method: 'POST',
@@ -25,11 +22,7 @@ const Chat = () => {
     })
 
     if (res.ok) {
-      // console.log('res');
-      // console.log(res.body);
       const data = await res.json()
-      // console.log('data');
-      // console.log(data);
     }
   }
 

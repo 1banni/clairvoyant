@@ -50,6 +50,7 @@
 }
 
 .search-page .search-results .article-tile {
+  margin-top: 10px;
   width: 100%;
 }
 
@@ -57,7 +58,7 @@
   width: 100%;
   /* width: 700px; */
   /* background: black; */
-  border: var(--border-pnk);
+  /* border: var(--border-pnk); */
   /* display: block; */
 }
 

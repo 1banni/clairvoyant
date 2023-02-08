@@ -14,9 +14,6 @@ const ArticleTileSimple = ({articleId, imageWidth, excludeImage}) => {
   imageWidth ||= '100';
   excludeImage ||= false;
 
-  console.log('excludeImage');
-  console.log(excludeImage);
-
   if (!article) return <></>;
   return (
     <div className='article-tile-simple'

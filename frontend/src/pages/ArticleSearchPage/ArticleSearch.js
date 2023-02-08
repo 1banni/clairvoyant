@@ -7,18 +7,10 @@ import { useInput } from '../../hooks';
 import { fetchArticles } from '../../store/articles';
 
 export default function ArticleSearch({...props}) {
-  // incomingTopic ||= '';
-  // incomingPageNum ||= 1;
   const dispatch = useDispatch();
   const articles = useSelector(state => Object.values(state.articles.all));
   let { queryName } = useParams();
   const [query, changeQuery] = useInput(queryName);
-
-  console.log('articles');
-  console.log(articles);
-
-  console.log('query');
-  console.log(query);
 
   const filteredArticles = useMemo(() => {
     const lowerCaseQuery = query?.toLowerCase();
@@ -30,12 +22,13 @@ export default function ArticleSearch({...props}) {
         || (article.title.toLowerCase().includes(lowerCaseQuery))
       ))
       : articles
-  }, [articles, query]);
+  }, [query, articles]);
   // TODO: Confirm that adding articles and topic to the above dependency array didn't mess anything up
 
   useEffect(() => {
     dispatch(fetchArticles())
   }, [dispatch]);
+
 
   if (!filteredArticles) return <></>;
   return (
