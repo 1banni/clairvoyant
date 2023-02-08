@@ -42,6 +42,9 @@ const UserPage = () => {
   //   }
   // }, [excludeIds, articles]];
 
+  console.log('bookmarkedArticles');
+  console.log(bookmarkedArticles);
+
 
   useEffect(() => {
     dispatch(fetchUsers());
@@ -70,13 +73,13 @@ const UserPage = () => {
       {tab === 'articles' && authoredArticles &&
         authoredArticles.map(authoredArticle => { console.log('articlesssss'); return (
         <div>
-          <ArticleTile key={authoredArticle.id} articleId={authoredArticle.id}/>
+          <ArticleTile key={authoredArticle?.id} articleId={authoredArticle?.id}/>
         </div>
       )})}
 
       {tab === 'bookmarks' && bookmarkedArticles &&
         bookmarkedArticles.map(bookmarkedArticle => { return (
-        <ArticleTile key={bookmarkedArticle.id} articleId={bookmarkedArticle.articleId}/>
+        <ArticleTile key={bookmarkedArticle?.id} articleId={bookmarkedArticle?.articleId}/>
       )})}
 
       </section>

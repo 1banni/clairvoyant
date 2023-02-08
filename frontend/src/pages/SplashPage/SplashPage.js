@@ -26,8 +26,8 @@ const SplashPage = props => {
 
   useEffect(() => {
     dispatch(fetchArticles());
-    dispatch(fetchBookmarks(sessionUser.id))
-  }, [dispatch])
+    if (sessionUser) dispatch(fetchBookmarks(sessionUser.id));
+  }, [dispatch, sessionUser]);
 
 
 
