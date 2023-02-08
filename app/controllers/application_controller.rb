@@ -61,7 +61,7 @@ class ApplicationController < ActionController::API
     #   render json: ['No current user']
     # end
     @article = Article.find(3)
-    render '/api/test/index' 
+    render '/api/test/index'
   end
 
 
@@ -88,5 +88,16 @@ class ApplicationController < ActionController::API
       render 'api/errors/internal_server_error', status: :internal_server_error
       logger.error "\n#{@message}:\n\t#{@stack.join("\n\t")}\n"
     end
+  end
+
+  def filter_params
+    # Makes filter namespace optional in URL
+    # Returns nested parameters
+    params.fetch(:filter, {})
+  end
+
+  def filter(relation)
+    return relation if filter_params == {}
+    return relation.where(filter_params)
   end
 end

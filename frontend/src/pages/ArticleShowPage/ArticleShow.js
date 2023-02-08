@@ -99,6 +99,7 @@ const ArticleShow = (props) => {
 
             <section className={'article-sidebar'} >
 
+              {/* <AuthorTileSquare authorId={article.author?.id}/> */}
               <AuthorTileSquare author={article.author}/>
 
               <div className='more-articles'>

@@ -7,38 +7,35 @@ class Api::UsersController < ApplicationController
   # TRANSFER!!!!!!!
   wrap_parameters include: User.attribute_names + ['password'] + [:photo], format: :multipart_form
 
+  def index
+    @users = filter(User.all)
+    if @users
+      render :index
+    else
+      render json: {}, status: :ok
+    end
+  end
+
 
   def show
     @user = User.find(params[:id])
     # @photo_url = rails_blob_path(@user.photo, disposition: "attachment", only_path: true)
 
-    p 'users_controller#show'
-    p @user
     if @user
       render :show
     else
-      p '@user.errors.full_messages'
-      p @user.errors.full_messages
       render json: { errors: @user.errors.full_messages }, status: 422
     end
   end
 
   def create
-    p '-----------------------------'
-    p 'in users_controller#create'
-    p 'user_params'
-    p user_params
     @user = User.new(user_params)
-    p '@user'
-    p @user
-    p '@user.valid?'
-    # p @user.valid?
 
     if @user&.save
       login(@user)
       render :show
     else
-      # render json: @user.errors.full_messages, state: 422
+      # render json: @user.errors.full_messages, status: 422
       render json: { errors: @user.errors.full_messages , status: :unprocessable_entity }
     end
   end
@@ -57,5 +54,19 @@ class Api::UsersController < ApplicationController
       :bio,
       :photo
     )
+  end
+
+  # TODO: TRY DELETING ME AND SEE IF IT (user index) STILL WORKS
+  # it should,
+
+  def filter_params
+    # Makes filter namespace optional in URL
+    # Returns nested parameters
+    params.fetch(:filter, {})
+  end
+
+  def filter(relation)
+    return relation if filter_params == {}
+    return relation.where(filter_params)
   end
 end
