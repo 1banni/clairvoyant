@@ -133,9 +133,37 @@ export const selectRandomArticleIds = (len, excludeIds) => store => {
   };
 
 export const selectArticlesByAuthor = (len, authorId) => store => {
+  // console.log("in selectArticlesByAuthor");
+  // console.log('Object.values(store.articles.all');
+  // console.log(Object.values(store.articles.all));
+  // console.log('authorId');
+  // console.log(authorId);
+
+  // let articles = Object.values(store.articles.all);
+  // let authoredArticles = [];
+  // articles.forEach(article => {
+  //   console.log('article.authorId');
+  //   console.log(article.authorId);
+  //   console.log('typeof article.authorId');
+  //   console.log(typeof article.authorId);
+  //   console.log('authorId');
+  //   console.log(authorId);
+  //   console.log('typeof authorId');
+  //   console.log(typeof authorId);
+  //   if (Number(article.authorId) === Number(authorId)) {
+  //     console.log("pushing");
+  //     authoredArticles.push(article);
+  //   }
+  // })
+
+  // console.log('authoredArticles');
+  // console.log(authoredArticles);
+
+  // return authoredArticles;
+
   return Object
     .values(store.articles.all)
-    .filter(article => article.authorId === authorId)
+    .filter(article => Number(article.authorId) === Number(authorId))
     .slice(0, len);
 };
 

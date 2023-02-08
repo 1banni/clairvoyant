@@ -22,6 +22,8 @@ const ArticleTile = (
     // console.log('article.imageUrls');
     // console.log(article.imageUrls);
   }
+  console.log('article');
+  console.log(article);
 
   if (!article) return <></>;
   return (
