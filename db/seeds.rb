@@ -55,17 +55,16 @@ ApplicationRecord.transaction do
     "Avid traveler and cultural explorer, sharing my adventures and discoveries from around the world. Believes that travel is the best teacher and is on a mission to inspire others to embrace new experiences."
   ]
 
-  user_test = User.create!(
-    username: 'test',
-    name: 'Test User',
-    email: 'test@gmail.com',
-    password: 'iuhiuh'
-  )
+  usernames = [ "GlowingGorilla", "CosmicCactus", "RadiantRhino", "JollyJaguar", "SparkleSquirrel", "DazzlingDeer", "GlimmeringGiraffe", "ShimmeringSheep", "FlashyFox", "GlitzyGorilla"]
+  emails = [ "GlowingGorilla@test.com", "CosmicCactus@test.com", "RadiantRhino@test.com", "JollyJaguar@test.com", "SparkleSquirrel@test.com", "DazzlingDeer@test.com", "GlimmeringGiraffe@test.com", "ShimmeringSheep@test.com", "FlashyFox@test.com", "GlitzyGorilla@test.com"]
+  # names = [ "Emma Smith", "Olivia Johnson", "Ava Brown", "Jacob Williams", "Isabella Davis", "Sophia Wilson", "Michael Garcia", "Charlotte Thompson", "William Anderson", "Evelyn Perez"]
+  names = [ "Emma", "Olivia", "Ava", "Jacob", "Isabella", "Sophia", "Michael", "Charlotte", "William", "Evelyn"]
+
 
   user_william = User.create!(
-    username: 'williB',
-    name: 'William B.',
-    email: 'william@gmail.com',
+    username: 'will',
+    name: 'William',
+    email: 'will@gmail.com',
     password: 'iuhiuh',
     bio: 'Maker of clairvoyant.'
   )
@@ -80,24 +79,48 @@ ApplicationRecord.transaction do
 
   user_ryan = User.create!(
     username: 'randy',
-    name: 'Ryan Anderson',
+    name: 'Ryan',
     email: 'randy@gmail.com',
     password: 'randy111',
     bio: "I'm Ryan, attempting to write out of my home in Los Angeles and elsewhere. I've established this blog as both a medium for distribution of my writing and an external, real (but virtual) force compelling me to write more."
   )
+  user_ryan.photo.attach({
+    io: URI.open("https://clairvoyant-seeds.s3.us-west-2.amazonaws.com/profile-photos/ryan.webp"),
+    filename: 'ryan.webp'
+  })
+
 
   # More users
   i = 0
   while (i < 10)
-    User.create!({
-      username: Faker::Internet.unique.username(specifier: 3),
-      name: Faker::Internet.name,
-      email: Faker::Internet.unique.email,
+    user = User.create!({
+      # username: Faker::Internet.unique.username(specifier: 3),
+      # name: Faker::Internet.name,
+      # email: Faker::Internet.unique.email,
+      username: usernames[i],
+      email: emails[i],
+      name: names[i],
       password: 'password',
-      bio: bios[i]
+      bio: bios[i],
+      photo: ''
     })
+    user.photo.attach({io: URI.open("https://home-zillow-dev.s3.us-west-2.amazonaws.com/17.310-townsend/310-townsend.jpg"), filename: "310-townsend.jpg"})
     i = i + 1
   end
+
+  #     {io: URI.open("https://home-zillow-dev.s3.us-west-2.amazonaws.com/17.310-townsend/310-townsend-1.jpg"), filename: "310-townsend-1.jpg"},
+  #     {io: URI.open("https://home-zillow-dev.s3.us-west-2.amazonaws.com/17.310-townsend/310-townsend-2.jpg"), filename: "310-townsend-2.jpg"},
+  #     {io: URI.open("https://home-zillow-dev.s3.us-west-2.amazonaws.com/17.310-townsend/310-townsend-3.jpg"), filename: "310-townsend-3.jpg"},
+  #     {io: URI.open("https://home-zillow-dev.s3.us-west-2.amazonaws.com/17.310-townsend/310-townsend-4.jpg"), filename: "310-townsend-4.jpg"}
+  # ])
+
+
+  user_test = User.create!(
+    username: 'test',
+    name: 'Test User',
+    email: 'test@gmail.com',
+    password: 'iuhiuh'
+  )
 
   puts "Creating articles..."
   seed_topics = [
