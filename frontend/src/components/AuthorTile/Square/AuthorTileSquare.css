@@ -9,6 +9,11 @@
   margin-bottom: 10px;
 }
 
+.author-tile-square .image {
+  cursor: pointer;
+  width: 50px;
+}
+
 /* Name */
 .author-tile-square .name {
   cursor: pointer;

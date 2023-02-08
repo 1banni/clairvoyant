@@ -24,6 +24,7 @@ const AuthorTileSquare = ({authorId, ...props}) => {
   }, [dispatch])
 
 
+
   const styleOptions = {
     stroke: ColorUtil.nameToColor(author?.name),
     fill: 'white',

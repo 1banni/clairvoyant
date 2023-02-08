@@ -1,0 +1,77 @@
+/* OUTER DIV */
+.user-page {
+  display: flex;
+  flex-direction: row;
+  justify-content: baseline;
+  align-items: baseline;
+  margin-top: 50px;
+  margin-left: 100px;
+  margin-right: 100px;
+}
+
+/* SECTIONS */
+.user-page .main {
+  margin-right: 20px;
+}
+
+.user-page .sidebar {
+  display: flex;
+  flex-direction: column;
+  align-items: baseline;
+  margin-left: 40px;
+}
+
+/* CONTENT */
+.user-page .main .name {
+  font-family: var(--ff-text);
+  font-weight: 500;
+  font-size: 2.4rem;
+  margin-bottom: 50px;
+  letter-spacing: 0.053em;
+  word-spacing: 0.1em;
+  width: var(--width-main);
+  /* width: 1000px; */
+}
+
+
+.user-page .tabs {
+  display: flex;
+  flex-direction: row;
+  font-family: var(--ff-text);
+  color: var(--color-light-grey);
+  font-weight: 400;
+  font-size: 1.6rem;
+  text-indent: 0.3rem;
+  margin-bottom: 30px;
+  border-bottom: 2px solid var(--color-dark-grey);
+}
+
+.user-page .tabs .active {
+  color: var(--color-dark-grey);
+}
+.user-page .tabs .inactive {
+  cursor: pointer;
+}
+
+
+.user-page .tabs .bookmarks-label {
+  margin-left: 8px;
+}
+
+.user-page .tabs .claps-label {
+  margin-left: 8px;
+}
+
+
+/* ARTICLE TILES */
+.user-page .article-tile {
+  width: var(--article-width);
+}
+
+.user-page .article-tile .article-info {
+  width: 400px;
+}
+
+.user-page .article-tile .article-image {
+  width: 200px;
+}
