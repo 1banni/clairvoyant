@@ -11,7 +11,7 @@ const Body = ({body, ...props}) => {
   return (
     <div className='article-body' {...props}>
       {TextUtil.BodyToArray(body).map(paragraph => {return (
-        <div key={UniqUtil.key(paragraph)} className='article-paragraph'>
+        <div key={paragraph} className='article-paragraph'>
           <Markup content={paragraph} />
         </div>
       )})}

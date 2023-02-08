@@ -28,9 +28,9 @@ const ArticleTitle = ({
     <div className='title-and-blurb' key={article.id} {...props}>
       <h4 className={`title ${lineclamp}`}>{article.title}</h4>
       {includeBlurb && (
-      <p className={`blurb ${lineclamp}`}>
+      <div className={`blurb ${lineclamp}`}>
         <Markup content={blurb(article)} />
-      </p>
+      </div>
       )}
     </div>
   );

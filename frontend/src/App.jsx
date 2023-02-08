@@ -17,22 +17,12 @@ function App() {
   return (
     <>
       <NavBar/>
-      {/* <NavBar2 /> */}
       <ModalProvider />
       <ResetScroll />
       <Switch>
         <Route exact path='/'>
           <SplashPage />
         </Route>
-        <Route path='/signup'>
-          <SignUpPage />
-        </Route>
-        <Route path='/login'>
-          <LoginPage />
-        </Route>
-        {/* <Route path='/users/:userId'>
-          <UserPage />
-        </Route> */}
         <Route exact path='/articles/new'>
           <ArticleForm />
         </Route>

@@ -9,23 +9,26 @@ import ArticleTile from '../../components/ArticleTile/ArticleTile';
 const ArticleIndex = ({imageDims, ...props}) => {
   const dispatch = useDispatch();
   const articles = useSelector(state => Object.values(state.articles.all));
+  const sessionUser = useSelector(state => state.session.user);
 
   useEffect(() => {
     dispatch(fetchArticles());
-    dispatch(fetchBookmarks());
-  }, [dispatch]);
+    if (sessionUser) dispatch(fetchBookmarks(sessionUser.id));
+  }, [dispatch, sessionUser]);
 
   return (
     <>
       <div className='article-index-ctnr'>
         <div className='article-index'>
-          {articles.map( article => {
-            return <ArticleTile
-              articleId={article.id}
-              key={article.id}
-              imageDims={imageDims}
-            />
-          })}
+
+          {articles.map( article => (
+          <ArticleTile
+            articleId={article.id}
+            key={article.id}
+            imageDims={imageDims}
+          />
+          ))}
+
         </div>
       </div>
     </>

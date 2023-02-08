@@ -37,12 +37,13 @@ const ArticleShow = (props) => {
   useEffect(() => {
     dispatch(fetchClaps());
     dispatch(fetchArticles());
-    dispatch(fetchBookmarks(sessionUser.id))
+    if (sessionUser)
+      dispatch(fetchBookmarks(sessionUser.id));
     if (articleId) {
       dispatch(fetchArticle(articleId));
       dispatch(fetchComments(articleId));
     }
-  }, [dispatch, articleId]);
+  }, [dispatch, articleId, sessionUser]);
 
   const toggleCommentDisplay = () => setCommentDisplay(state => !state);
 
@@ -81,6 +82,7 @@ const ArticleShow = (props) => {
 
           {moreArticlesByAuthor.map(article => (
             <ArticleTile articleId={article.id}
+              key={article.id}
               excludeAuthor={true}
               blurbLength={235}
               blurbLineClamp='line-clamp-3'
@@ -114,7 +116,7 @@ const ArticleShow = (props) => {
               <div className='more-articles'>
                 <h4 className='more-from-medium_'>More from Medium</h4>
                 {fourRandomArticles && fourRandomArticles.map(articleId => (
-                  <ArticleTileSimple articleId={articleId}/>
+                  <ArticleTileSimple articleId={articleId} key={articleId}/>
                 ))}
               </div>
 
@@ -125,9 +127,6 @@ const ArticleShow = (props) => {
             </section>
 
           </div>
-        {/* <button type='button' onClick={() => history.push('/')}>Return Home */}
-          {/* <Link to='/'>Return Home</Link> */}
-        {/* </button> */}
         </div>
       </div>
 

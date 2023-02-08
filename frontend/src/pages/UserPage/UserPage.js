@@ -42,9 +42,6 @@ const UserPage = () => {
   //   }
   // }, [excludeIds, articles]];
 
-  console.log('bookmarkedArticles');
-  console.log(bookmarkedArticles);
-
 
   useEffect(() => {
     dispatch(fetchUsers());
@@ -52,6 +49,14 @@ const UserPage = () => {
     if (userId) dispatch(fetchBookmarks(userId));
   }, [dispatch, userId]);
 
+  console.log('authoredArticles');
+  console.log(authoredArticles);
+
+  console.log('bookmarkedArticles');
+  console.log(bookmarkedArticles);
+
+  console.log('fourRandomArticles');
+  console.log(fourRandomArticles);
 
   if (!user) return <></>;
   return (
@@ -71,15 +76,13 @@ const UserPage = () => {
         </div>
 
       {tab === 'articles' && authoredArticles &&
-        authoredArticles.map(authoredArticle => { console.log('articlesssss'); return (
-        <div>
-          <ArticleTile key={authoredArticle?.id} articleId={authoredArticle?.id}/>
-        </div>
+        authoredArticles.map(authoredArticle => { return (
+          <ArticleTile key={authoredArticle.id} articleId={authoredArticle?.id}/>
       )})}
 
       {tab === 'bookmarks' && bookmarkedArticles &&
         bookmarkedArticles.map(bookmarkedArticle => { return (
-        <ArticleTile key={bookmarkedArticle?.id} articleId={bookmarkedArticle?.articleId}/>
+        <ArticleTile key={bookmarkedArticle.id} articleId={bookmarkedArticle?.articleId}/>
       )})}
 
       </section>
@@ -88,7 +91,7 @@ const UserPage = () => {
         <div className='more-articles'>
           <h4 className='more-from-medium_'>More from Medium</h4>
         {fourRandomArticles && fourRandomArticles.map(articleId => (
-          <ArticleTileSimple articleId={articleId}
+          <ArticleTileSimple key={articleId} articleId={articleId}
             excludeImage={true}
           />
         ))}

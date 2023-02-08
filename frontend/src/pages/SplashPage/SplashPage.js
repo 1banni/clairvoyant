@@ -12,14 +12,7 @@ import SignUpModal from '../../modals/SignUpModal';
 import BanniLinks from '../../blocks/BanniLinks';
 import { fetchBookmarks } from '../../store/bookmarks';
 
-
-
 const SplashPage = props => {
-  const articleFeedImageDims = {
-    height: '100',
-    width: '150'
-  }
-
   const dispatch = useDispatch();
   const topics = useSelector(selectTopics());
   const sessionUser = useSelector(state => state.session.user);
@@ -28,9 +21,6 @@ const SplashPage = props => {
     dispatch(fetchArticles());
     if (sessionUser) dispatch(fetchBookmarks(sessionUser.id));
   }, [dispatch, sessionUser]);
-
-
-
 
   return (
     <>
@@ -63,7 +53,7 @@ const SplashPage = props => {
         <div className='splash-3-1'>
 
           <div className='splash-article-feed'>
-            <ArticleIndex imageDims={articleFeedImageDims}/>
+            <ArticleIndex />
           </div>
 
           <div className='splash-sidebar'>
@@ -73,7 +63,7 @@ const SplashPage = props => {
 
               <div className='topics'>
                 {topics.slice(0,13).map(topic => {return (
-                <TopicButton key={UniqUtil.key(topic)} topic={topic}
+                <TopicButton key={topic} topic={topic}
                   containername='btn-ctnr topic rect'
                   className='btn topic rect'
                   textname='btn-text topic rect'
