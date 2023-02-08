@@ -10,15 +10,18 @@ import TrendingArticles from '../../blocks/Articles/Trending';
 import UniqUtil from '../../utils/UniqUtil';
 import SignUpModal from '../../modals/SignUpModal';
 import BanniLinks from '../../blocks/BanniLinks';
+import { fetchBookmarks } from '../../store/bookmarks';
 
 
 
 const SplashPage = props => {
   const dispatch = useDispatch();
   const topics = useSelector(selectTopics());
+  const sessionUser = useSelector(state => state.session.user);
 
   useEffect(() => {
     dispatch(fetchArticles());
+    dispatch(fetchBookmarks(sessionUser.id))
   }, [dispatch])
 
   return (

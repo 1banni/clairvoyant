@@ -76,8 +76,7 @@
   letter-spacing: -0.02rem;
   line-height: 30px;
   margin-top: 30px;
-  /* margin-bottom: 10px; */
-  color:var(--color-dark-grey);
+  color: var(--color-dark-grey);
   font-weight: 300;
   word-wrap: break-word;
 }
@@ -87,10 +86,12 @@
   /* border: var(--border-blu); */
 }
 
-.article-links {
+.article-show .article-links {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  margin-right: 15px;
+  /* background: black; */
 }
 
 .article-links .clap-comment {

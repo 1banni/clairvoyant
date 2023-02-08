@@ -21,7 +21,7 @@
   margin-left: 40px;
 }
 
-/* CONTENT */
+/* MAIN CONTENT */
 .user-page .main .name {
   font-family: var(--ff-text);
   font-weight: 500;
@@ -70,9 +70,31 @@
 }
 
 .user-page .article-tile .article-info {
-  width: 400px;
+  width: 500px;
+}
+
+.user-page .article-tile .blurb {
+  width: 500px;
 }
 
 .user-page .article-tile .article-image {
   width: 200px;
+}
+
+
+
+/* SIDEBAR CONTENT */
+.user-page .sidebar .more-from-medium_ {
+  margin-top: 40px;
+}
+
+
+.user-page .sidebar .article-tile-simple .title {
+  width: 250px;
+}
+
+
+.user-page .sidebar .article-tile-simple .article-image {
+  width: 100px;
+  /* background-color: black; */
 }

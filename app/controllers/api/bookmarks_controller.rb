@@ -51,11 +51,17 @@ class Api::BookmarksController < ApplicationController
   # end
 
   def create
+    p 'in bookmarks_controller#create'
+    p 'bookmark_params'
+    p bookmark_params
     @bookmark = Bookmark.new(bookmark_params)
+    p '@bookmark'
+    p @bookmark
     # @bookmark.user_id = current_user.id
     # render '/login' if !@user (or if @user.id != bookmark_params.user_id)
     # @article = Article.find(bookmark_params['article_id'])
     if @bookmark&.save
+      p 'bookmark saved'
       render :create
     else
       render json: { errors: @bookmark.errors.full_messages }, status: 422

@@ -59,6 +59,7 @@ export const fetchBookmarks = (userId) => async dispatch => {
 
 // Question: where does re-render happen in this process / am i triggering it efficiently
 export const createBookmark = (bookmark) => async dispatch => {
+  console.log("BOOKMARK");
   const res = await csrfFetch('/api/bookmarks/', {
     method: 'POST',
     body: JSON.stringify(bookmark)

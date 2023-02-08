@@ -89,8 +89,5 @@ const UserPage = () => {
   );
 };
 
-// TODO: DELETE THIS UNUSED CODE
-// {user && user.photoUrl &&
-      // <Image url={user.photoUrl} /*width='750' height='600'*/ alt={user.photoUrl}/>}
 
 export default UserPage;

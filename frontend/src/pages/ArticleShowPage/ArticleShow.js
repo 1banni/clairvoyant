@@ -17,6 +17,7 @@ import ArticleLinks from './ArticleLinks';
 import './ArticleShow.css';
 import Body from './Body';
 import Button from '../../blocks/Button';
+import { fetchBookmarks } from '../../store/bookmarks';
 
 const ArticleShow = (props) => {
   const dispatch = useDispatch();
@@ -36,6 +37,7 @@ const ArticleShow = (props) => {
   useEffect(() => {
     dispatch(fetchClaps());
     dispatch(fetchArticles());
+    dispatch(fetchBookmarks(sessionUser.id))
     if (articleId) {
       dispatch(fetchArticle(articleId));
       dispatch(fetchComments(articleId));
@@ -43,6 +45,7 @@ const ArticleShow = (props) => {
   }, [dispatch, articleId]);
 
   const toggleCommentDisplay = () => setCommentDisplay(state => !state);
+
 
   if (!article) return <></>;
   return (
@@ -69,16 +72,22 @@ const ArticleShow = (props) => {
               <ArticleLinks article={article} toggleCommentDisplay={toggleCommentDisplay}/>
           </div>
 
+          {moreArticlesByAuthor && moreArticlesByAuthor.length > 0 &&
           <div className='more-from-author-section'>
-            <h4 className='more-from-author'>More from {article.authorName}</h4>
-            {moreArticlesByAuthor && moreArticlesByAuthor.map(article => (
-              <ArticleTile article={article}
-                excludeAuthor={true}
-                blurbLength={235}
-                blurbLineClamp='line-clamp-3'
-              />
-            ))}
+
+            <h4 className='more-from-author'>
+              More from {article.authorName}
+            </h4>
+
+          {moreArticlesByAuthor.map(article => (
+            <ArticleTile articleId={article.id}
+              excludeAuthor={true}
+              blurbLength={235}
+              blurbLineClamp='line-clamp-3'
+            />
+          ))}
           </div>
+          }
 
           <div className='share-your-ideas'>
             Share your ideas with millions of readers.

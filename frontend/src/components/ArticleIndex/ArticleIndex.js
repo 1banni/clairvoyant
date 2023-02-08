@@ -21,7 +21,7 @@ const ArticleIndex = props => {
         <div className='article-index'>
           {articles.map( article => {
             return <ArticleTile
-              article={article}
+              articleId={article.id}
               key={article.id} />
           })}
         </div>
