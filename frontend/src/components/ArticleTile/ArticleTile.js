@@ -14,9 +14,10 @@ const ArticleTile = (
   { articleId, excludeAuthor, excludeImages, blurbLength, blurbLineClamp, imageDims }
 ) => {
   let history = useHistory();
+  const sessionUser = useSelector(state => state.session.user);
   imageDims ||= { height: '134', width: '200' };
   // excludeAuthor ||= false;
-  // excludeImages ||= false;
+  excludeImages ||= false;
   blurbLength ||= 115;
   blurbLineClamp ||= 'line-clamp-2';
   // if (articleId) {
@@ -30,6 +31,9 @@ const ArticleTile = (
   // console.log('article');
   // console.log(article);
 
+  if (excludeImages) console.log('excludeImages');
+  if (excludeImages) console.log(excludeImages);
+
   if (!article) return <></>;
   return (
     <div>
@@ -37,7 +41,7 @@ const ArticleTile = (
 
       <div className='article-info'>
       {!excludeAuthor &&
-        <ArticleAuthor name={article.authorName}/>}
+        <ArticleAuthor userId={article.authorId} name={article.authorName}/>}
 
         <ArticleTitle
           article={article}
@@ -51,13 +55,12 @@ const ArticleTile = (
           <Bookmark articleId={article.id} />
         </ArticleDetail>
       </div>
-    {excludeImages
-    ? (<div></div>)
-    : (
+    {!excludeImages && article.imageUrls && (article.imageUrls.length !== 0) &&
+     (
       <div className='article-image'>
-      {article.imageUrls && (article.imageUrls.length !== 0) && (
-        <Image url={article.imageUrls[0]} width={imageDims.width} height={imageDims.height}/>
-      )}
+      {
+        <Image url={article.imageUrls[0]} /*width={imageDims.width} height={imageDims.height}*//>
+      }
       </div>
     )}
     </div>

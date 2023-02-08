@@ -4,13 +4,18 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  width: 100%;
 }
+
+
 
 /* sub-containers */
 .article-tile-detail-1 {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: flex-start;
+  /* width: var(--tile-main-width); */
+  width: 100%;
 }
 
 .article-tile-detail-2 {

@@ -23,6 +23,12 @@
 .user-name-icon-ctnr .user-name {
   font-family: var(--ff-text);
   color: var(--alt-text-color);
-  margin-left: 5px;
+  /* margin-left: 5px; */
+  margin-bottom: 10px;
 }
 
+
+.user-name {
+  /* background-color: green; */
+  margin-left: 5px;
+}

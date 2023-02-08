@@ -1,5 +1,5 @@
 import './UserPage.css';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { fetchArticles, selectArticlesByAuthor, selectRandomArticleIds } from '../../store/articles';
@@ -16,25 +16,31 @@ const UserPage = () => {
   const { userId } = useParams();
   const sessionUser = useSelector(state => state.session.user);
   const user = useSelector(store => store.users.all[userId]);
+  const articles = useSelector(store => store.articles.all);
 
   const [tab, setTab] = useState('articles');
   const active = tabName => tabName === tab ? 'active' : 'inactive';
 
   const authoredArticles = useSelector(selectArticlesByAuthor(20, userId));
   const excludeIds = authoredArticles
-  ? authoredArticles.map(article => Number(article.id))
-  : [];
-
-  console.log('authoredArticles');
-  console.log(authoredArticles);
+    ? authoredArticles.map(article => Number(article.id))
+    : []
+  ;
 
   const bookmarkedArticles = useSelector(selectBookmarksByUserId(userId));
 
-  console.log('bookmarkedArticles');
-  console.log(bookmarkedArticles);
-
-  // const bookmarkedArticles = useSelector(select)
+  // TODO: CONVERT TO useMemo here and elsewhere
   const fourRandomArticles = useSelector(selectRandomArticleIds(4, excludeIds));
+  // const fourRandomArticles = useMemo[() => {
+  //   console.log('Object.keys(articles)');
+
+  //   console.log(Object.keys(articles));
+
+
+  //   if (articles) {
+  //     return Object.keys(articles).filter(article => !excludeIds.includes(article.id));
+  //   }
+  // }, [excludeIds, articles]];
 
 
   useEffect(() => {
@@ -73,15 +79,15 @@ const UserPage = () => {
         <ArticleTile key={bookmarkedArticle.id} articleId={bookmarkedArticle.articleId}/>
       )})}
 
-
-
       </section>
       <section className='sidebar'>
         <AuthorTileSquare authorId={user.id}/>
         <div className='more-articles'>
           <h4 className='more-from-medium_'>More from Medium</h4>
         {fourRandomArticles && fourRandomArticles.map(articleId => (
-          <ArticleTileSimple articleId={articleId}/>
+          <ArticleTileSimple articleId={articleId}
+            excludeImage={true}
+          />
         ))}
         </div>
       </section>

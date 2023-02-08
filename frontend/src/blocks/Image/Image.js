@@ -3,27 +3,21 @@ import React from 'react'
 import { PNG } from '../../assets';
 
 
-const Image = ({url, alt, wrapper, ...props}) => {
+const Image = ({url, alt, wrapper, className, ...props}) => {
   const imageUrl = url;
   wrapper ||= 'image-wrapper';
+  className ||= 'image';
   alt ||= 'alt';
-  // const imageUrl = PNG.LINKEDIN;
-
-  // props.height ||= '134';
-  // props.width ||= '200';
-
 
   return (
     <div className={wrapper}>
-
       <img
-        className='image'
+        className={className}
         alt={imageUrl}
         key={imageUrl}
         src={imageUrl}
         /*{...props}*/
       />
-
     </div>
   )
 }

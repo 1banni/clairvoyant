@@ -2,7 +2,6 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 
 const useSubmit = ({createAction, onSuccess}) => {
-
   const dispatch = useDispatch();
   let [errors, setErrors] = useState([]);
 

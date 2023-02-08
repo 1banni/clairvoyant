@@ -14,14 +14,15 @@ export default function ArticleSearch({...props}) {
   let { queryName } = useParams();
   const [query, changeQuery] = useInput(queryName);
 
-  // console.log('queryName');
-  // console.log(queryName);
-  // console.log('useParams()');
-  // console.log(useParams());
+  console.log('articles');
+  console.log(articles);
+
+  console.log('query');
+  console.log(query);
 
   const filteredArticles = useMemo(() => {
     const lowerCaseQuery = query?.toLowerCase();
-      // return articles;
+
     return query
       ? articles.filter(article => (
         (article.topic.toLowerCase().includes(lowerCaseQuery))
@@ -32,13 +33,9 @@ export default function ArticleSearch({...props}) {
   }, [articles, query]);
   // TODO: Confirm that adding articles and topic to the above dependency array didn't mess anything up
 
-  // const [pageNum, setPageNum] = useInput(1);
-
-
   useEffect(() => {
     dispatch(fetchArticles())
   }, [dispatch]);
-
 
   if (!filteredArticles) return <></>;
   return (
@@ -58,7 +55,7 @@ export default function ArticleSearch({...props}) {
         <div className='results-label'>Articles</div>
         <ol className='search-results'>
         {filteredArticles.map(article => (
-          <ArticleTile article={article} key={article.id}
+          <ArticleTile articleId={article.id} key={article.id}
             excludeImages={true}
             blurbLength={300}
             blurbLineClamp={'line-clamp-3'}

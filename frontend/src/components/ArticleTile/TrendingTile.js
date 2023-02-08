@@ -1,7 +1,7 @@
 import React from 'react';
 import { Redirect, useHistory, withRouter} from 'react-router-dom';
 import './ArticleTile.css';
-import Author from '../../blocks/ArticleAuthor';
+import ArticleAuthor from '../../blocks/ArticleAuthor';
 import ArticleDetail from '../../blocks/ArticleDetail';
 
 const TrendingTile = ({ article, idx }) => {
@@ -19,7 +19,7 @@ const TrendingTile = ({ article, idx }) => {
 
       <div className='trending-tile' key={article.id}>
         <div className='trending-tile-1'>
-          <Author name={article.authorName}/>
+          <ArticleAuthor userId={article.authorId} name={article.authorName}/>
         </div>
         <div className='trending-tile-2'>
           <h4 className='title line-clamp-2' onClick={goToArticle}>

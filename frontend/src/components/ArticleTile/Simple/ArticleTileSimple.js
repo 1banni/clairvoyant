@@ -7,29 +7,37 @@ import ArticleTitle from '../../../blocks/ArticleTitle';
 import NavUtil from '../../../utils/NavUtil';
 import Image from '../../../blocks/Image/Image';
 
-const ArticleTileSimple = ({articleId, imageWidth}) => {
+const ArticleTileSimple = ({articleId, imageWidth, excludeImage}) => {
   const history = useHistory();
-  const article = useSelector(store => store.articles.all[articleId]);
+  const sessionUser = useSelector(state => state.session.user);
+  const article = useSelector(state => state.articles.all[articleId]);
   imageWidth ||= '100';
+  excludeImage ||= false;
+
+  console.log('excludeImage');
+  console.log(excludeImage);
 
   if (!article) return <></>;
   return (
     <div className='article-tile-simple'
          onClick={NavUtil.goToArticleById(history, articleId)}>
       <div className='article-into'>
-        <ArticleAuthor name={article.authorName}/>
+        <ArticleAuthor userId={article.authorId} name={article.authorName}
+        />
         <ArticleTitle
           article={article}
           includeBlurb={false}
           lineclamp='line-clamp-3'
+
           // onClick={NavUtil.goToArticleById(history, articleId)}
         />
       </div>
+      {!excludeImage &&
       <div className='article-image'>
       {article.imageUrls && (article.imageUrls.length !== 0) && (
         <Image url={article.imageUrls[0]} width={imageWidth} />
       )}
-      </div>
+      </div>}
     </div>
   );
 };

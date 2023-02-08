@@ -210,6 +210,22 @@
   font-size: 1.0rem;
 }
 
+.more-articles .user-name {
+  font-size: 0.8rem;
+  text-align: center;
+  line-height: 1.0rem;
+
+}
+
+.trending-tile .user-name-icon-ctnr {
+
+}
+
+
+
+.trending-tile-2 {
+  margin-bottom: 5px;
+}
 
 .comment-sidebar {
   height: 100%;

@@ -151,9 +151,9 @@ const articlesReducer = (state = {all: {}, current: {}}, action) => {
       newState.all = { ...action.articles };
       return newState;
     case RECEIVE_ARTICLE:
-        // let newState = {...state}
-        // newState[action.article.id] = action.article;
-        // POTENTIAL BUG - could just be action.article
+      // let newState = {...state};
+      // newState[action.article.id] = action.article;
+      // POTENTIAL BUG - could just be action.article
       newState.all = { ...state.all, ...action.article };
       newState.current = { ...action.article }
       return newState;
