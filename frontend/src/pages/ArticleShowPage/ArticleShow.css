@@ -55,8 +55,8 @@
 }
 
 .article-image {
-  width: 300px;
-  height: 100%;
+  /* width: 300px; */
+  /* height: 100%; */
   /* shrink, cover, etc. */
   object-fit: cover;
 }

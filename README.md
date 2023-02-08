@@ -32,12 +32,14 @@ Production build: from the root folder, run `NPM run build`
 
 ## Selected Features and Development
 Incorporating Rich Text Editing
-- Incredible how easy the libraries made it, thanks to the creators of both. 
+- Incredible how easy the libraries made it, thanks to the creators of both.
 - With Interweave Markup, you can limit which HTML elements are rendered
 -- This makes it easy to switch how you format/render rich text in different places in your application
 -- For instance, you can only show paragraphs, bolding. and italics in a summary feed with many [items] and show all formatting (bullets, blocks, etc.) in the view page for an individual [item]
 
 ### Custom Hooks
+#### useStateChange
+Wraps useState with an event handler for capturing text input.
 ```
 const useStateChange = (initialValue) => {
   // Initialize useState
@@ -52,16 +54,49 @@ const useStateChange = (initialValue) => {
 
 export default useStateChange;
 ```
+Example Use:
+```
+
+```
+
+
+```
+import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+
+const useSubmit = ({createAction, onSuccess}) => {
+  const dispatch = useDispatch();
+  let [errors, setErrors] = useState([]);
+
+  const handleSubmit = async e => {
+    e.preventDefault();
+
+    setErrors([]);
+    return dispatch(createAction())
+      .catch(async res => {
+          let data;
+          try { data = await res.clone().json(); }
+          catch { data = await res.text(); }
+
+          if (data?.errors) setErrors(data.errors);
+          else if (data) setErrors([data]);
+          else setErrors([res.statusText]);
+      })
+      .then(onSuccess)
+  }
+
+  return [errors, handleSubmit];
+}
+
+export default useSubmit;
+
+```
 
 ### Reusable Components
 
 
-### Many Modals 
-I used Shmoji Codes's approach below to incorporating many modals.  
-https://www.youtube.com/watch?v=Uj3_Qhc1aS8
-
 ### Rich Text Editing
-
+The app combines React Quill and Interweave libraries to enable rich text editing.
 
 ### Animation
 
@@ -72,7 +107,7 @@ https://medium.com/about
 ### Performance
 I timed my react app using [ ]
 In order to improve the app's efficiency and reduce the number of AWS pulls, I typically passed objectIds into components related to the object and place a useSelector in the object (prevents comments from all re-rendering when one is edited.) I noticed it was slow going to my backend (comments took a few moments to appear), so I instead added a commentValidation function on my front end that tested all the input the backend tested, then dispatched the comment to the store, and then sent it to the backend. if calling update, it would save the old comment. Then, based on the result from the backend (status: :ok or not), the comment would either (a) remain in store or (b) revert to its previous form.
-Also, I edited my article store to nest both articles and article, such that it would not reload the articles every time it returned to the index page from the show page (cause these articles would. 
+Also, I edited my article store to nest both articles and article, such that it would not reload the articles every time it returned to the index page from the show page (cause these articles would.
 In order to improve the app's efficiency and reduce the number of AWS pulls, I typically passed objectIds into components related to the object and place a useSelector in the object (prevents comments from all re-rendering when one is edited.) I noticed it was slow going to my backend (comments took a few moments to appear), so I instead added a commentValidation function on my front end that tested all the input the backend tested, then dispatched the comment to the store, and then sent it to the backend. if calling update, it would save the old comment. Then, based on the result from the backend (status: :ok or not), the comment would either (a) remain in store or (b) revert to its previous form.be being used in many places.
 
 
@@ -80,7 +115,7 @@ In order to improve the app's efficiency and reduce the number of AWS pulls, I t
 I kept trying to refactor/abstract my CSS in the same way I would refactor/abstract React components, but I found this to be a difficult errand / not as efficient. I experimented with a few different approaches to className [attribute?]s, but I found the best option was to do the following:
 1) Give everything a simple parent class such as: "btn"/"button", "text-input", "user-tile" and store as much shared styling as possible here
 2) optionally, give elements additional shared tags, for instance className="btn edit"/"btn modal"/"btn close"/"btn delete" and additional identifiers
-3) Meanwhile, give components/subcomponents very short names describing exacly what they do. 
+3) Meanwhile, give components/subcomponents very short names describing exacly what they do.
 ```
  return (
     <div className='comment-index-item'>
@@ -137,7 +172,7 @@ This way, you can share functionality like
  margin: 5px;
 }
 ```
-easily grab big elements 
+easily grab big elements
 ```
 .comment-index-item {
 

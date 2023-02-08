@@ -1,0 +1,20 @@
+.image {
+  width: 100%;
+  margin: auto;
+  display: block;
+  text-align: center;
+  width: var(--tile-image-width);
+  /* height: var(--tile-height); */
+}
+
+.image-wrapper {
+  display: flex;
+  justify-content: center;
+  align-self: flex-end;;
+  width: var(--tile-image-width);
+  height: var(--tile-height);
+  /* height: 150px; */
+  /* background-color: #0a0a23; */
+  margin-left: 20px;
+}
+

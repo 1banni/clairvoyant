@@ -21,7 +21,7 @@ const Image = ({url, alt, wrapper, ...props}) => {
         alt={imageUrl}
         key={imageUrl}
         src={imageUrl}
-        {...props}
+        /*{...props}*/
       />
 
     </div>

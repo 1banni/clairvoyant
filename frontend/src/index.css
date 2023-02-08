@@ -46,6 +46,9 @@ html {
   --border-ylw: 4px solid #fffd82;
   --border-rng: 4px solid #ff9b71;
   --border-radius: 10px solid #505050;
+  --tile-height: 140px;
+  --tile-main-width: clamp(300px, 70vw, 600px);
+  --tile-image-width: clamp(100px, 30vw, 180px);
   --width-article: clamp(300px, 70vw, 800px);
   --width-main: clamp(300px, 70vw, 700px);
   --width-sidebar: clamp(200px, 30vw, 350px);

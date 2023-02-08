@@ -15,6 +15,11 @@ import { fetchBookmarks } from '../../store/bookmarks';
 
 
 const SplashPage = props => {
+  const articleFeedImageDims = {
+    height: '100',
+    width: '150'
+  }
+
   const dispatch = useDispatch();
   const topics = useSelector(selectTopics());
   const sessionUser = useSelector(state => state.session.user);
@@ -24,6 +29,9 @@ const SplashPage = props => {
     dispatch(fetchBookmarks(sessionUser.id))
   }, [dispatch])
 
+
+
+
   return (
     <>
     <div className='splash'>
@@ -32,7 +40,9 @@ const SplashPage = props => {
 
           <div className='splash-title'>
             <h1 className='stay-curious_'>Stay curious.</h1>
+
             <p className='discover-stories_'>Discover stories, thinking, and expertise from writers on any topic.</p>
+
             <Button className='btn get-started_' label='Start reading' modal={ SignUpModal }/>
           </div>
 
@@ -43,7 +53,9 @@ const SplashPage = props => {
 
       <div className='splash-2'>
         <div className='splash-2-1'>
-          <div><TrendingArticles /></div>
+          <div>
+            <TrendingArticles />
+          </div>
         </div>
       </div>
 
@@ -51,7 +63,7 @@ const SplashPage = props => {
         <div className='splash-3-1'>
 
           <div className='splash-article-feed'>
-            <ArticleIndex />
+            <ArticleIndex imageDims={articleFeedImageDims}/>
           </div>
 
           <div className='splash-sidebar'>

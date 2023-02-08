@@ -11,11 +11,12 @@ import NavUtil from '../../utils/NavUtil';
 import { useSelector } from 'react-redux';
 
 const ArticleTile = (
-  { articleId, excludeAuthor, excludeImages, blurbLength, blurbLineClamp }
+  { articleId, excludeAuthor, excludeImages, blurbLength, blurbLineClamp, imageDims }
 ) => {
   let history = useHistory();
-  excludeAuthor ||= false;
-  excludeImages ||= false;
+  imageDims ||= { height: '134', width: '200' };
+  // excludeAuthor ||= false;
+  // excludeImages ||= false;
   blurbLength ||= 115;
   blurbLineClamp ||= 'line-clamp-2';
   // if (articleId) {
@@ -55,7 +56,7 @@ const ArticleTile = (
     : (
       <div className='article-image'>
       {article.imageUrls && (article.imageUrls.length !== 0) && (
-        <Image url={article.imageUrls[0]} width='200' height='134'/>
+        <Image url={article.imageUrls[0]} width={imageDims.width} height={imageDims.height}/>
       )}
       </div>
     )}

@@ -6,7 +6,7 @@ import ArticleTile from '../../components/ArticleTile/ArticleTile';
 // import './ArticleTile.css';
 
 
-const ArticleIndex = props => {
+const ArticleIndex = ({imageDims, ...props}) => {
   const dispatch = useDispatch();
   const articles = useSelector(state => Object.values(state.articles.all));
 
@@ -22,7 +22,9 @@ const ArticleIndex = props => {
           {articles.map( article => {
             return <ArticleTile
               articleId={article.id}
-              key={article.id} />
+              key={article.id}
+              imageDims={imageDims}
+            />
           })}
         </div>
       </div>

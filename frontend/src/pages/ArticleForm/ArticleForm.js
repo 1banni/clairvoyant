@@ -9,6 +9,7 @@ import Button from '../../blocks/Button';
 import './ArticleForm.css'
 import 'react-quill/dist/quill.snow.css';
 import 'react-quill/dist/quill.bubble.css';
+import useStateChange from '../../hooks/useStateChange';
 
 
 const ArticleForm = props => {
@@ -22,10 +23,10 @@ const ArticleForm = props => {
   if (formType === 'Create') {
     article = { title: '', body: '', blurb: '', topic: '' }
   }
-  const [title, titleChange] = useInput(article.title);
-  const [topic, topicChange] = useInput(article.body);
+  const [title, setTitle, titleChange] = useStateChange(article.title);
+  const [topic, setTopic, topicChange] = useStateChange(article.body);
   const [body, setBody] = useState(article.body);
-  const [blurb, blurbChange] = useInput(article.blurb);
+  const [blurb, setBlurb, blurbChange] = useStateChange(article.blurb);
   const [photoFiles, setPhotoFiles] = useState([]);
   const [photoUrls, setPhotoUrls] = useState(article?.photoUrls || []);
   // TODO -> make the setter convert into array, and then render split with spaces
@@ -67,9 +68,13 @@ const ArticleForm = props => {
 
     if (formType === 'Create') {
       articleId = await dispatch(createArticle(formData));
-      if (articleId) history.push(`/articles/${articleId}`);
+      if (articleId) {
+        clearForm();
+        history.push(`/articles/${articleId}`);
+      }
     } else {
       dispatch(updateArticle(formData, articleId))
+      // TODO - check response / error handling
         .then(history.push(`/articles/${articleId}`));
     }
   }
@@ -110,6 +115,15 @@ const ArticleForm = props => {
 
   // console.log('body');
   // console.log(body);
+
+  const clearForm = () => {
+    setTitle('');
+    setBody('');
+    setTopic('');
+    setBlurb('');
+    setPhotoFiles([]);
+    setPhotoUrls([]);
+  }
 
   if (!sessionUser) return <Redirect to='/login' />;
   return (
