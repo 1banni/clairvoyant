@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { fetchArticles, selectArticlesByAuthor, selectRandomArticleIds } from '../../store/articles';
 import { fetchUsers } from '../../store/users';
-import { fetchBookmarks } from '../../store/bookmarks';
+import { fetchBookmarks, selectBookmarksByUserId } from '../../store/bookmarks';
 import ArticleTile from '../../components/ArticleTile/ArticleTile';
 import AuthorTileSquare from '../../components/AuthorTile/Square/AuthorTileSquare';
 import ArticleTileSimple from '../../components/ArticleTile/Simple/ArticleTileSimple';
@@ -25,16 +25,23 @@ const UserPage = () => {
   ? authoredArticles.map(article => Number(article.id))
   : [];
 
-  const fourRandomArticles = useSelector(selectRandomArticleIds(4, excludeIds));
+  console.log('authoredArticles');
+  console.log(authoredArticles);
+
+  const bookmarkedArticles = useSelector(selectBookmarksByUserId(userId));
+
+  console.log('bookmarkedArticles');
+  console.log(bookmarkedArticles);
 
   // const bookmarkedArticles = useSelector(select)
+  const fourRandomArticles = useSelector(selectRandomArticleIds(4, excludeIds));
 
 
   useEffect(() => {
     dispatch(fetchUsers());
     dispatch(fetchArticles());
-    dispatch(fetchBookmarks())
-  }, [dispatch]);
+    if (userId) dispatch(fetchBookmarks(userId));
+  }, [dispatch, userId]);
 
 
   if (!user) return <></>;
@@ -49,14 +56,25 @@ const UserPage = () => {
           <h4 className={`bookmarks-label ${active('bookmarks')}`}
             onClick={() => setTab('bookmarks')}
           >Bookmarks</h4>
-          <h4 className={`claps-label ${active('claps')}`}
+          {/* <h4 className={`claps-label ${active('claps')}`}
               onClick={() => setTab('claps')}
-          >Claps</h4>
+          >Claps</h4> */}
         </div>
 
-        {tab === 'articles' && authoredArticles && authoredArticles.map(authoredArticle => { return (
-          <ArticleTile key={authoredArticle.id} article={authoredArticle}/>
-        )})}
+      {tab === 'articles' && authoredArticles &&
+        authoredArticles.map(authoredArticle => { console.log('articlesssss'); return (
+        <div>
+          <ArticleTile key={authoredArticle.id} articleId={authoredArticle.id}/>
+        </div>
+      )})}
+
+      {tab === 'bookmarks' && bookmarkedArticles &&
+        bookmarkedArticles.map(bookmarkedArticle => { return (
+        <ArticleTile key={bookmarkedArticle.id} articleId={bookmarkedArticle.articleId}/>
+      )})}
+
+
+
       </section>
       <section className='sidebar'>
         <AuthorTileSquare authorId={user.id}/>

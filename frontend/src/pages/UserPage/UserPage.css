@@ -48,6 +48,7 @@
 
 .user-page .tabs .active {
   color: var(--color-dark-grey);
+  /* border-bottom: 2px solid var(--medium-yellow); */
 }
 .user-page .tabs .inactive {
   cursor: pointer;

@@ -8,15 +8,19 @@ import Bookmark from '../../blocks/Bookmark'
 import Image from '../../blocks/Image/Image';
 // import Image from '../../blocks/ArticleImage/ArticleImage';
 import NavUtil from '../../utils/NavUtil';
+import { useSelector } from 'react-redux';
 
 const ArticleTile = (
-  { article, excludeAuthor, excludeImages, blurbLength, blurbLineClamp }
+  { articleId, excludeAuthor, excludeImages, blurbLength, blurbLineClamp }
 ) => {
   let history = useHistory();
   excludeAuthor ||= false;
   excludeImages ||= false;
   blurbLength ||= 115;
   blurbLineClamp ||= 'line-clamp-2';
+  // if (articleId) {
+  const article = useSelector(store => store.articles.all[articleId]);
+  // }
 
   if (article && article.imageUrls) {
     // console.log('article.imageUrls');

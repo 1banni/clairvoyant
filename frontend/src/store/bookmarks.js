@@ -29,23 +29,33 @@ export const removeBookmark = articleId => {
 
 // THUNK ACTION CREATORS
 // TODO: Consider building these differently
-export const fetchBookmark = (bookmarkId) => async dispatch => {
-  const res = await csrfFetch(`/api/bookmarks/${bookmarkId}`);
+// export const fetchBookmark = (bookmarkId) => async dispatch => {
+//   const res = await csrfFetch(`/api/bookmarks/${bookmarkId}`);
 
-  if (res.ok) {
-    const bookmark = await res.json();
-    dispatch(receiveBookmark(bookmark));
-  }
-};
+//   if (res.ok) {
+//     const bookmark = await res.json();
+//     dispatch(receiveBookmark(bookmark));
+//   }
+// };
 
-export const fetchBookmarks = () => async dispatch => {
-  const res = await csrfFetch('/api/bookmarks');
+export const fetchBookmarks = (userId) => async dispatch => {
+  console.log("fetching bookmarks");
+  const res = await csrfFetch(`/api/bookmarks/${userId}`);
+  console.log("finish line");
 
   if (res.ok) {
     const bookmarks = await res.json();
     dispatch(receiveBookmarks(bookmarks));
   }
 };
+// export const fetchBookmarks = () => async dispatch => {
+//   const res = await csrfFetch('/api/bookmarks');
+
+//   if (res.ok) {
+//     const bookmarks = await res.json();
+//     dispatch(receiveBookmarks(bookmarks));
+//   }
+// };
 
 // Question: where does re-render happen in this process / am i triggering it efficiently
 export const createBookmark = (bookmark) => async dispatch => {
@@ -60,7 +70,7 @@ export const createBookmark = (bookmark) => async dispatch => {
   }
 };
 
-export const deleteBookmark = (bookmark) => async dispatch => {
+export const deleteBookmark = (bookmark) => async (dispatch) => {
   let articleId = bookmark.articleId;
   const res = await csrfFetch(`/api/bookmarks/${bookmark.id}`, {
       method: 'DELETE'
@@ -72,6 +82,13 @@ export const deleteBookmark = (bookmark) => async dispatch => {
 };
 
 // SELECTORS
+export const selectBookmarksByUserId = (userId) => (state) => {
+  return Object
+    .values(state.bookmarks)
+    .filter(bookmark => Number(bookmark.userId) === Number(userId));
+};
+
+
 // export const selectBookmarksByArticleId = (articleId) => (state) => {
 //   let bookmarks = Object.values(state.bookmarks).filter(bookmark => bookmark['articleId'] === articleId);
 //   return (bookmarks.length > 0
@@ -81,11 +98,11 @@ export const deleteBookmark = (bookmark) => async dispatch => {
 // };
 
 
-const initialState = {
-  bookmarks: JSON.parse(sessionStorage.getItem('bookmarks'))
-};
+// const initialState = {
+//   bookmarks: JSON.parse(sessionStorage.getItem('bookmarks'))
+// };
 
-const bookmarksReducer = (state = initialState, action) => {
+const bookmarksReducer = (state = {}, action) => {
   switch (action.type) {
     case RECEIVE_BOOKMARKS:
       return { ...action.bookmarks };
