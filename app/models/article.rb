@@ -27,5 +27,4 @@ class Article < ApplicationRecord
   has_many :clappers, through: :claps, source: :user
   has_many :bookmarkers, through: :bookmarks, source: :user
   has_many :commenters, through: :comments, source: :user
-
 end

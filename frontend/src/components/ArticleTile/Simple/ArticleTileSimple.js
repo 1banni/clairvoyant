@@ -19,7 +19,7 @@ const ArticleTileSimple = ({articleId, imageWidth, excludeImage}) => {
     <div className='article-tile-simple'
          onClick={NavUtil.goToArticleById(history, articleId)}>
       <div className='article-into'>
-        <ArticleAuthor userId={article.authorId} name={article.authorName}
+        <ArticleAuthor photoURL={article.authorPhotoUrl} user={article.author} userId={article.authorId} name={article.authorName}
         />
         <ArticleTitle
           article={article}

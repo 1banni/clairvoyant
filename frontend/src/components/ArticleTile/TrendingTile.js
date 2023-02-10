@@ -4,7 +4,7 @@ import './ArticleTile.css';
 import ArticleAuthor from '../../blocks/ArticleAuthor';
 import ArticleDetail from '../../blocks/ArticleDetail';
 
-const TrendingTile = ({ article, idx }) => {
+const TrendingTile = ({ article, photoURL, idx }) => {
   let history = useHistory();
   const goToArticle = () => {
     history.push(`/articles/${article.id}`);
@@ -20,7 +20,7 @@ const TrendingTile = ({ article, idx }) => {
       <div className='trending-tile' key={article.id}>
 
         <div className='trending-tile-1'>
-          <ArticleAuthor userId={article.authorId} name={article.authorName}/>
+          <ArticleAuthor user={article.author} userId={article.authorId} name={article.authorName} photoURL={photoURL}/>
         </div>
 
         <div className='trending-tile-2'>

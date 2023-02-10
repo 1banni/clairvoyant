@@ -7,8 +7,9 @@ import { Redirect } from 'react-router-dom';
 import Bookmark from '../../blocks/Bookmark';
 import ShareLink from '../../blocks/ShareLink';
 import Tooltip from '../../blocks/Tooltip/Tooltip';
+import Image from '../../blocks/Image/Image';
 
-const AuthorTile = ({article, children, author}) => {
+const AuthorTile = ({article, children, photoURL, author}) => {
   const color = () => ColorUtil.nameToColor(article.authorName);
 
   const styleOptions = {
@@ -22,10 +23,14 @@ const AuthorTile = ({article, children, author}) => {
   return (
     <div className='author-tile-1 '>
       <div className='l'>
-        <FaUserCircle className='user-icon'
-          size='40px'
-          style={styleOptions}
+      {photoURL
+      ? <Image url={photoURL} alt={photoURL}
+          className='image icon'
+          wrapper='image-wrapper icon'
         />
+      : <FaUserCircle
+          style={styleOptions}
+      />}
       </div>
 
       <div>

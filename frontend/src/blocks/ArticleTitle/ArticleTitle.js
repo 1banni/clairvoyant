@@ -19,6 +19,7 @@ const ArticleTitle = ({
     let _blurb = article.blurb ? article.blurb : article.body;
     let parsed_blurb = _blurb.split('\\n').join(' ')
     return parsed_blurb.length > blurbLength
+      // ? parsed_blurb
       ? parsed_blurb.slice(0,blurbLength) + '...'
       : parsed_blurb;
   }

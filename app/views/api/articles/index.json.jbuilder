@@ -11,11 +11,14 @@
 
     if article.photos
       json.imageUrls article.photos.map { |file| url_for(file) }
-
     end
     # json.imageUrls article.photos.map { |file| url_for(file) }
     # equivalent to above
     # json.title article.title
+
+    json.author article.author
+
+    json.author_photo_url url_for(article.author.photo) if article.author.photo.attached?
 
     json.author_name article.author.name
 

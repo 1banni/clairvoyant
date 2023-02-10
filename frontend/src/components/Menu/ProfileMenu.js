@@ -32,7 +32,7 @@ function ProfileMenu({ user }) {
     dispatch(sessionActions.logout());
   };
 
-  console.log('user');
+  console.log('ProfileMenu | user');
   console.log(user);
 
   return (

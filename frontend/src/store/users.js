@@ -54,15 +54,33 @@ const usersReducer = (state = {all: {}, one: {}}, action) => {
   switch (action.type) {
     case RECEIVE_USER:
       // return { ...state,  ...action.user };
-      newState.one = { ...action.user };
-      newState.all = { ...state.all, ...action.user };
-      return newState;
+      // newState.one = { ...action.user };
+      // newState.all = { ...state.all, ...action.user };
+      // return newState;
+      return { ...action.user };
     case RECEIVE_USERS:
-      newState.all = { ...state.all, ...action.users };
-      return newState;
+      // newState.all = { ...state.all, ...action.users };
+      // return newState;
+      return { ...action.users }
     default:
       return state;
   }
 }
+// const usersReducer = (state = {all: {}, one: {}}, action) => {
+//   Object.freeze(state);
+//   const newState = {...state}
+//   switch (action.type) {
+//     case RECEIVE_USER:
+//       // return { ...state,  ...action.user };
+//       newState.one = { ...action.user };
+//       newState.all = { ...state.all, ...action.user };
+//       return newState;
+//     case RECEIVE_USERS:
+//       newState.all = { ...state.all, ...action.users };
+//       return newState;
+//     default:
+//       return state;
+//   }
+// }
 
 export default usersReducer;

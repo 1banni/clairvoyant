@@ -33,4 +33,18 @@
   /* justify-self: flex-end; */
   line-height: 1.25rem;
   margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+span {
+  /* background-color: black; */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  /* width: 250px; */
+  /* display: block; */
+  /* height: 54px; */
+  /* line-height: 17px; */
+  /* font-size: 16px; */
+
 }

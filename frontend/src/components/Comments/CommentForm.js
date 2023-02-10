@@ -55,8 +55,6 @@ const CommentForm = ({articleId, formtype, comment, editToggle, setEditToggle}) 
     } else {
       setEditToggle(false);
     }
-    // console.log('handleCancel');
-    // return '';
   }
 
 
@@ -80,7 +78,7 @@ const CommentForm = ({articleId, formtype, comment, editToggle, setEditToggle}) 
 
           {create &&
             (<div className={`user ${activeTag}`}>
-              <ArticleAuthor userId={sessionUser.id} name={sessionUser?.name} />
+              <ArticleAuthor photoURL={comment.authorPhotoUrl} user={comment.author} userId={sessionUser.id} name={sessionUser?.name} />
             </div>
           )}
 

@@ -19,8 +19,8 @@ const TrendingArticles = () => {
       </IconWithLabel>
 
       <div className='trending-articles'>
-        {trending && trending.map((article, idx) => { return (
-          <TrendingTile key={article.id} idx={idx} article={article}/>
+        {trending && trending.map((article, idx) => { console.log(article.authorPhotoUrl); return (
+          <TrendingTile key={article.id} idx={idx} article={article} photoURL={article.authorPhotoUrl}/>
         )})}
       </div>
 

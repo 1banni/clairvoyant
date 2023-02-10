@@ -7,11 +7,9 @@ import Button from '../../blocks/Button'
 import ArticleIndex from '../../components/ArticleIndex/ArticleIndex';
 import TopicButton from '../../blocks/Button/TopicButton';
 import TrendingArticles from '../../blocks/Articles/Trending';
-import UniqUtil from '../../utils/UniqUtil';
 import SignUpModal from '../../modals/SignUpModal';
 import BanniLinks from '../../blocks/BanniLinks';
 import { fetchBookmarks } from '../../store/bookmarks';
-import { fetchUsers } from '../../store/users';
 
 const SplashPage = props => {
   const dispatch = useDispatch();
@@ -20,9 +18,12 @@ const SplashPage = props => {
 
   useEffect(() => {
     dispatch(fetchArticles());
-    // dispatch(fetchUsers());
     if (sessionUser) dispatch(fetchBookmarks(sessionUser.id));
   }, [dispatch, sessionUser]);
+
+
+  console.log('sessionUser');
+  console.log(sessionUser);
 
   return (
     <>

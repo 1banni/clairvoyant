@@ -55,7 +55,7 @@ const ArticleShow = (props) => {
       <div className='article-show'>
 
         <div className='left'>
-          <AuthorTile article={article}>
+          <AuthorTile photoURL={article.authorPhotoUrl} article={article}>
 
           {editDeleteToggle() &&
             <EditDelete article={article}/>
@@ -111,7 +111,7 @@ const ArticleShow = (props) => {
             <section className={'article-sidebar'} >
 
               {/* <AuthorTileSquare authorId={article.author?.id}/> */}
-              <AuthorTileSquare authorId={article.authorId}/>
+              <AuthorTileSquare author={article.author} photoURL={article.authorPhotoUrl} authorId={article.authorId}/>
 
               <div className='more-articles'>
                 <h4 className='more-from-medium_'>More from Medium</h4>

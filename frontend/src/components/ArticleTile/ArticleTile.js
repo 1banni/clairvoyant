@@ -33,7 +33,7 @@ const ArticleTile = (
 
       <div className='article-info'>
       {!excludeAuthor &&
-        <ArticleAuthor userId={article.authorId} name={article.authorName}/>}
+        <ArticleAuthor photoURL={article.authorPhotoUrl} user={article.author} userId={article.authorId} name={article.authorName}/>}
 
         <ArticleTitle
           article={article}

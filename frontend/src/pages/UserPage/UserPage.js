@@ -3,7 +3,7 @@ import React, { useEffect, useMemo, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { fetchArticles, selectArticlesByAuthor, selectRandomArticleIds } from '../../store/articles';
-import { fetchUsers } from '../../store/users';
+import { fetchUser } from '../../store/users';
 import { fetchBookmarks, selectBookmarksByUserId } from '../../store/bookmarks';
 import ArticleTile from '../../components/ArticleTile/ArticleTile';
 import AuthorTileSquare from '../../components/AuthorTile/Square/AuthorTileSquare';
@@ -15,7 +15,7 @@ const UserPage = () => {
   const dispatch = useDispatch();
   const { userId } = useParams();
   const sessionUser = useSelector(state => state.session.user);
-  const user = useSelector(store => store.users.all[userId]);
+  const user = useSelector(store => store.user);
   const articles = useSelector(store => store.articles.all);
 
   const [tab, setTab] = useState('articles');
@@ -44,19 +44,10 @@ const UserPage = () => {
 
 
   useEffect(() => {
-    dispatch(fetchUsers());
+    dispatch(fetchUser(userId));
     dispatch(fetchArticles());
     if (userId) dispatch(fetchBookmarks(userId));
   }, [dispatch, userId]);
-
-  console.log('authoredArticles');
-  console.log(authoredArticles);
-
-  console.log('bookmarkedArticles');
-  console.log(bookmarkedArticles);
-
-  console.log('fourRandomArticles');
-  console.log(fourRandomArticles);
 
   if (!user) return <></>;
   return (
@@ -87,7 +78,7 @@ const UserPage = () => {
 
       </section>
       <section className='sidebar'>
-        <AuthorTileSquare authorId={user.id}/>
+        <AuthorTileSquare author={user} photoURL={user.photoUrl} authorId={user.id}/>
         <div className='more-articles'>
           <h4 className='more-from-medium_'>More from Medium</h4>
         {fourRandomArticles && fourRandomArticles.map(articleId => (
