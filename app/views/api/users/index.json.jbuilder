@@ -3,7 +3,7 @@
     json.extract! user,
       :id, :username, :name, :email, :bio, :created_at, :updated_at
 
-    json.photoUrl Rails.application.routes.url_helpers.url_for(user.photo) if user.photo.attached?
+    json.photoUrl url_for(user.photo) if user.photo.attached?
   end
 end
 
