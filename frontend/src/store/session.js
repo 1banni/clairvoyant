@@ -91,6 +91,9 @@ export const signup = (formData) => async dispatch => {
 // Selector
 export const selectSessionUser = store => {
   if (store.session.user) {
+    console.log('store selectSessionUser');
+    console.log('store.session.user');
+    console.log(store.session.user);
     return Object.values(store.session.user)
   } else {
     return null;
