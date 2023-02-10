@@ -11,6 +11,7 @@
 
     if article.photos
       json.imageUrls article.photos.map { |file| url_for(file) }
+
     end
     # json.imageUrls article.photos.map { |file| url_for(file) }
     # equivalent to above

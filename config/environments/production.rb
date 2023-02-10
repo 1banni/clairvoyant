@@ -22,18 +22,18 @@ Rails.application.configure do
 
    # Enable/disable caching. By default caching is disabled.
   # Run rails dev:cache to toggle caching.
-  if Rails.root.join("tmp/caching-dev.txt").exist?
-    config.cache_store = :memory_store
-    config.public_file_server.headers = {
-      "Cache-Control" => "public, max-age=#{2.days.to_i}"
-    }
-  else
-    config.action_controller.perform_caching = false
+  # if Rails.root.join("tmp/caching-dev.txt").exist?
+  #   config.cache_store = :memory_store
+  #   config.public_file_server.headers = {
+  #     "Cache-Control" => "public, max-age=#{2.days.to_i}"
+  #   }
+  # else
+  #   config.action_controller.perform_caching = false
 
-    config.cache_store = :null_store
+  #   config.cache_store = :null_store
 
-    config.active_record.dump_schema_after_migration = false
-  end
+  #   config.active_record.dump_schema_after_migration = false
+  # end
 
   # Ensures that a master key has been made available in either ENV["RAILS_MASTER_KEY"]
   # or in config/master.key. This key is used to decrypt credentials (and other encrypted files).
