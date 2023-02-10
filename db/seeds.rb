@@ -173,13 +173,6 @@ require 'open-uri'
   )
 
 
-  # article1.photos.attach([
-  #     {io: URI.open("https://home-zillow-dev.s3.us-west-2.amazonaws.com/17.310-townsend/310-townsend.jpg"), filename: "310-townsend.jpg"},
-  #     {io: URI.open("https://home-zillow-dev.s3.us-west-2.amazonaws.com/17.310-townsend/310-townsend-1.jpg"), filename: "310-townsend-1.jpg"},
-  #     {io: URI.open("https://home-zillow-dev.s3.us-west-2.amazonaws.com/17.310-townsend/310-townsend-2.jpg"), filename: "310-townsend-2.jpg"},
-  #     {io: URI.open("https://home-zillow-dev.s3.us-west-2.amazonaws.com/17.310-townsend/310-townsend-3.jpg"), filename: "310-townsend-3.jpg"},
-  #     {io: URI.open("https://home-zillow-dev.s3.us-west-2.amazonaws.com/17.310-townsend/310-townsend-4.jpg"), filename: "310-townsend-4.jpg"}
-  # ])
 
   # Article 1
   articles << Article.create!(
