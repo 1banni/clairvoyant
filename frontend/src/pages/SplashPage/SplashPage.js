@@ -11,6 +11,7 @@ import UniqUtil from '../../utils/UniqUtil';
 import SignUpModal from '../../modals/SignUpModal';
 import BanniLinks from '../../blocks/BanniLinks';
 import { fetchBookmarks } from '../../store/bookmarks';
+import { fetchUsers } from '../../store/users';
 
 const SplashPage = props => {
   const dispatch = useDispatch();
@@ -19,6 +20,7 @@ const SplashPage = props => {
 
   useEffect(() => {
     dispatch(fetchArticles());
+    dispatch(fetchUsers());
     if (sessionUser) dispatch(fetchBookmarks(sessionUser.id));
   }, [dispatch, sessionUser]);
 
