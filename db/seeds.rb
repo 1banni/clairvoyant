@@ -96,7 +96,7 @@ require 'open-uri'
     "https://clairvoyant-seeds.s3.us-west-2.amazonaws.com/profile-photos/olga-nayda-fHXpgMd_XhE-unsplash.jpg", # William
     "https://clairvoyant-seeds.s3.us-west-2.amazonaws.com/profile-photos/toa-heftiba-O3ymvT7Wf9U-unsplash.jpg",
   ]
-  articles = []
+  articles = ['TODO']
 
 
   user_william = User.create!(
