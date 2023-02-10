@@ -17,12 +17,13 @@ class Article < ApplicationRecord
   belongs_to :author, class_name: :User, foreign_key: :author_id
 
   has_many_attached :photos
+
   has_many :claps, dependent: :destroy
   has_many :bookmarks, dependent: :destroy
-  # has_many :comments, dependent: :destroy
+  has_many :comments, dependent: :destroy
 
   has_many :clappers, through: :claps, source: :user
   has_many :bookmarkers, through: :bookmarks, source: :user
-  # has_many :commenters, through: :comments, source: :user
+  has_many :commenters, through: :comments, source: :user
 
 end
