@@ -9,6 +9,10 @@ const Image = ({url, alt, wrapper, className, ...props}) => {
   className ||= 'image';
   alt ||= 'alt';
 
+
+  console.log('url');
+  console.log(url);
+
   return (
     <div className={wrapper}>
       <img

@@ -70,6 +70,20 @@ ApplicationRecord.transaction do
     "William",
     "Evelyn"
   ]
+
+  photoNames = [
+    "leah-hetteberg-cUKy1J3wzqg-unsplash.jpg",
+    "joseph-gonzalez-iFgRcqHznqg-unsplash.jpg",
+    "mustafa-omar-RGtSTDmmcCk-unsplash.jpg",
+    "podpros-GEnCnYhA1J4-unsplash.jpg",
+    "jurica-koletic-7YVZYZeITc8-unsplash.jpg",
+    "gian-cescon-00ByEXKcSkA-unsplash.jpg",
+    "luis-villasmil-hh3ViD0r0Rc-unsplash.jpg",
+    "michael-dam-mEZ3PoFGs_k-unsplash.jpg",
+    "olga-nayda-fHXpgMd_XhE-unsplash.jpg",
+    "toa-heftiba-O3ymvT7Wf9U-unsplash.jpg"
+  ]
+
   photos = [
     "https://clairvoyant-seeds.s3.us-west-2.amazonaws.com/profile-photos/leah-hetteberg-cUKy1J3wzqg-unsplash.jpg",
     "https://clairvoyant-seeds.s3.us-west-2.amazonaws.com/profile-photos/joseph-gonzalez-iFgRcqHznqg-unsplash.jpg",
@@ -125,7 +139,7 @@ ApplicationRecord.transaction do
       password: 'password',
       bio: bios[i],
     })
-    user.photo.attach({io: URI.open("#{photos[i]}"), filename: "#{names[i]}.jpg"})
+    user.photo.attach({io: URI.open("#{photos[i]}"), filename: "#{photoNames[i]}.jpg"})
     fake_users << user
     i = i + 1
   end
