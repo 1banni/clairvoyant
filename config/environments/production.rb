@@ -151,9 +151,6 @@
 #   # config.action_cable.disable_request_forgery_protection = true
 # end
 
-
-86 lines (63 sloc)  3.58 KB
-
 require "active_support/core_ext/integer/time"
 
 Rails.application.configure do
