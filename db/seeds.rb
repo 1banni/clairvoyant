@@ -8,7 +8,7 @@
 require 'open-uri'
 
 
-ApplicationRecord.transaction do
+# ApplicationRecord.transaction do
   puts "Destroying tables..."
   # Unnecessary if using `rails db:seed:replant`
   Comment.destroy_all
@@ -340,7 +340,7 @@ ApplicationRecord.transaction do
   #   filename: "article-1.jpg"
   # )
   puts "Done!"
-end
+# end
 
 
 
