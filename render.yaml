@@ -7,7 +7,7 @@ databases:
 services:
   - type: web
     name: clairvoyant
-    plan: free
+    plan: standard
     region: oregon
     branch: main
     env: ruby
