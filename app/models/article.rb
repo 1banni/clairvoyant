@@ -10,7 +10,9 @@
 #  body       :text             not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
-#
+
+require "open-uri"
+
 class Article < ApplicationRecord
   validates :title, :author_id, :topic, :body, presence: true
 

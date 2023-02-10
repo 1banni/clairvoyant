@@ -18,17 +18,21 @@ const TrendingTile = ({ article, idx }) => {
       </div>
 
       <div className='trending-tile' key={article.id}>
+
         <div className='trending-tile-1'>
           <ArticleAuthor userId={article.authorId} name={article.authorName}/>
         </div>
+
         <div className='trending-tile-2'>
           <h4 className='title line-clamp-2' onClick={goToArticle}>
             {article.title}
           </h4>
         </div>
+
         <div className='trending-tile-3'>
           <ArticleDetail article={article}/>
         </div>
+
       </div>
         {/* <div className='spacing-between-tiles'/> */}
     </div>

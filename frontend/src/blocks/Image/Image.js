@@ -10,8 +10,8 @@ const Image = ({url, alt, wrapper, className, ...props}) => {
   alt ||= 'alt';
 
 
-  console.log('url');
-  console.log(url);
+  // console.log('url');
+  // console.log(url);
 
   return (
     <div className={wrapper}>

@@ -12,6 +12,10 @@
 #  updated_at      :datetime         not null
 #  bio             :string
 #
+
+require "open-uri"
+
+
 class User < ApplicationRecord
   # VALIDATIONS
   validates :username,

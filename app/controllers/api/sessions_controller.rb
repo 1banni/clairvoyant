@@ -9,8 +9,10 @@ class Api::SessionsController < ApplicationController
 
   def show
     @user = current_user
+
     if @user
       render 'api/users/show'
+      # render :show
     else
       # render json: ['No current user']
       # if user were nested, this would be
@@ -26,6 +28,7 @@ class Api::SessionsController < ApplicationController
     if @user
       login(@user)
       render 'api/users/show'
+      # render :show
     else
       render json: { errors: ["Invalid username or password."] }, status: :unauthorized
     end

@@ -18,6 +18,10 @@ function NavBar() {
   const [colorToggle, setColorToggle] = useState('white');
   const [fixed, setFixed] = useState('nav-bar-wrapper');
 
+
+  console.log('sessionUser');
+  console.log(sessionUser);
+
   useEffect(()=> {
     location.pathname === '/'
       ? setColorToggle(prev => 'yellow')
@@ -25,22 +29,22 @@ function NavBar() {
   }, [location]);
 
   // TESTING THIS CODE - START
-  useEffect(() => {
-    window.scrollY > 535
-    // window.scrollY > 450
-      ? setFixed('nav-bar-wrapper fixed')
-      : setFixed('nav-bar-wrapper'); //
-  }, [])
-  // TESTING THIS CODE - END
-
-  // TODO - see if you can do this with a useEffect
-  // const toggleFixed = () => {
+  // useEffect(() => {
   //   window.scrollY > 535
   //   // window.scrollY > 450
   //     ? setFixed('nav-bar-wrapper fixed')
-  //     : setFixed('nav-bar-wrapper'); // 'floating' not used in CSS
-  // };
-  // window.addEventListener('scroll', toggleFixed);
+  //     : setFixed('nav-bar-wrapper'); //
+  // }, [])
+  // TESTING THIS CODE - END
+
+  // TODO - see if you can do this with a useEffect
+  const toggleFixed = () => {
+    window.scrollY > 535
+    // window.scrollY > 450
+      ? setFixed('nav-bar-wrapper fixed')
+      : setFixed('nav-bar-wrapper'); // 'floating' not used in CSS
+  };
+  window.addEventListener('scroll', toggleFixed);
 
   let sessionLink;
   if (sessionUser) {

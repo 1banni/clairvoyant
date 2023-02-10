@@ -4,10 +4,12 @@ import { ReactComponent as ProfileIcon } from '../../assets/svg/profile.svg'
 import * as sessionActions from '../../store/session';
 import MenuItem from './MenuItem';
 import Button from '../../blocks/Button';
+import { useHistory } from 'react-router-dom';
 
 function ProfileMenu({ user }) {
   const dispatch = useDispatch();
   const [showMenu, setShowMenu] = useState(false);
+  const history = useHistory();
 
   const openMenu = () => {
     if (showMenu) return;
@@ -30,6 +32,9 @@ function ProfileMenu({ user }) {
     dispatch(sessionActions.logout());
   };
 
+  console.log('user');
+  console.log(user);
+
   return (
     <>
       <Button className='icon-btn login-modal'
@@ -41,8 +46,20 @@ function ProfileMenu({ user }) {
       {showMenu && (
         <div className='profile-dropdown'>
           <div className='profile-dropdown-inner'>
-          <MenuItem>{user.name}</MenuItem>
-          <MenuItem>{user.email}</MenuItem>
+          <div className='user-links'  >
+            <div
+
+            className="name">
+              {user.name}
+            </div>
+
+            <div
+
+              className="name">
+
+              {user.email}
+            </div>
+          </div>
           <Button label='Sign out'
                   onClick={logout}
                   containername='btn-ctnr dropdown'

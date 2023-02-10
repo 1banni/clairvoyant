@@ -28,22 +28,31 @@ const storeCurrentUser = user => {
 
 // THUNK ACTION CREATORS
 export const login = ({ credential, password }) => async dispatch => {
+  console.log('logging in user');
   const res = await csrfFetch('/api/session', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ credential,password })
   });
 
+  console.log('res');
+  console.log(res);
+
 
   if (res.ok) {
     const data = await res.json();
+    console.log('data');
+    console.log(data);
     storeCurrentUser(data.user);
+    console.log('data.user');
+    console.log(data.user);
     dispatch(setCurrentUser(data.user));
   }
   return res;
 };
 
 export const logout = () => async dispatch => {
+  console.log('logging out user');
   const res = await csrfFetch(`/api/session`, { method: 'DELETE' });
   if (res.ok) {
     storeCurrentUser(null);
@@ -55,6 +64,7 @@ export const logout = () => async dispatch => {
 }
 
 export const restoreSession = () => async dispatch => {
+  console.log('restoring session');
   const response = await csrfFetch('/api/session');
   storeCSRFToken(response);
 
@@ -65,6 +75,7 @@ export const restoreSession = () => async dispatch => {
 }
 
 export const signup = (formData) => async dispatch => {
+  console.log('signing up user');
   const response = await csrfFetch('/api/users', {
     method: 'POST',
     body: formData
@@ -75,6 +86,18 @@ export const signup = (formData) => async dispatch => {
   dispatch(setCurrentUser(data.user));
   return response;
 }
+
+
+// Selector
+export const selectSessionUser = store => {
+  if (store.session.user) {
+    return Object.values(store.session.user)
+  } else {
+    return null;
+  }
+}
+
+
 
 const initialState = {
   user: JSON.parse(sessionStorage.getItem('currentUser'))
