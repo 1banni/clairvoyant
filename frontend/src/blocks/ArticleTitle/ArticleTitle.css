@@ -36,7 +36,7 @@
   margin-bottom: 5px;
 }
 
-span {
+.title-and-blurb span {
   /* background-color: black; */
   white-space: nowrap;
   overflow: hidden;
@@ -48,3 +48,5 @@ span {
   /* font-size: 16px; */
 
 }
+
+

@@ -71,6 +71,10 @@
   margin-bottom: 30px;
 }
 
+br {
+  margin-bottom: 30px;
+}
+
 .article-show .article-links {
   display: flex;
   flex-direction: row;
