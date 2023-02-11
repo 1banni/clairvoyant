@@ -18,10 +18,6 @@ function NavBar() {
   const [colorToggle, setColorToggle] = useState('white');
   const [fixed, setFixed] = useState('nav-bar-wrapper');
 
-
-  console.log('sessionUser');
-  console.log(sessionUser);
-
   useEffect(()=> {
     location.pathname === '/'
       ? setColorToggle(prev => 'yellow')

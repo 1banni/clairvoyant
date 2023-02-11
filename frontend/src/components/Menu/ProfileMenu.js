@@ -32,9 +32,6 @@ function ProfileMenu({ user }) {
     dispatch(sessionActions.logout());
   };
 
-  console.log('ProfileMenu | user');
-  console.log(user);
-
   return (
     <>
       <Button className='icon-btn login-modal'

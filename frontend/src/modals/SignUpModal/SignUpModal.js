@@ -8,6 +8,7 @@ import LoginModal from '../LoginModal';
 import Button from '../../blocks/Button';
 import useStateChange from '../../hooks/useStateChange';
 import ReactQuill from 'react-quill';
+import Image from '../../blocks/Image/Image';
 
 
 const SignUpModal = (props) => {
@@ -162,29 +163,40 @@ const SignUpModal = (props) => {
             required
           />
 
+          <div className='upload-preview'>
+            <div className='upload'>
 
-          <Input label=''
-            className='profile-picture-label'
-            containername='profile-picture-label-ctnr'
-            type='text'
-            // value={bio}
-            // onChange={bioChange}
-            placeholder='Upload Profile Picture'
-            readOnly={true}
-            required
-          />
-          {/* <label>Upload Profile Pitcure</label> */}
-          <div className='upload-profile-picture'>
-            <input
-              type='file'
-              accept='.jpg, .jpeg, .png'
-              // multiple
-              onChange={handlePhoto}
-              id='choose-files'
-            />
+              <Input label=''
+                className='profile-picture-label'
+                containername='profile-picture-label-ctnr'
+                type='text'
+                // value={bio}
+                // onChange={bioChange}
+                placeholder='Upload Profile Picture'
+                readOnly={true}
+                required
+              />
+              {/* <label>Upload Profile Pitcure</label> */}
+
+              <div className='upload-profile-picture'>
+                <input
+                  type='file'
+                  accept='.jpg, .jpeg, .png'
+                  // multiple
+                  onChange={handlePhoto}
+                  id='choose-files'
+                />
+              </div>
+
+            </div>
+
+            <div className='preview'>
+                 {/* TODO - if photoUrl is truthy, render an image of that photo with a heading of Image preview */}
+                {photoUrl &&
+                <Image url={photoUrl} key={photoUrl.uniqeId} alt='preview' />
+                }
+            </div>
           </div>
-
-
 
           <Button type='submit' label='Sign Up'  />
 

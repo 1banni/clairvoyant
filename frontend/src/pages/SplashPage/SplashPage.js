@@ -21,10 +21,6 @@ const SplashPage = props => {
     if (sessionUser) dispatch(fetchBookmarks(sessionUser.id));
   }, [dispatch, sessionUser]);
 
-
-  console.log('sessionUser');
-  console.log(sessionUser);
-
   return (
     <>
     <div className='splash'>

@@ -202,7 +202,26 @@
   border-bottom: none;
 }
 
+.upload-preview input {
+  width: 80px;
+  min-width: 180px;
+}
+
+.upload-preview {
+  display: flex;
+  flex-direction: row;
+}
+
+.preview .image-wrapper {
+  width: 30px;
+  height: 80px;
+}
+.preview .image {
+  width: 30px;
+}
+
 .upload-profile-picture input {
   border: none;
   border-bottom: none;
 }
+

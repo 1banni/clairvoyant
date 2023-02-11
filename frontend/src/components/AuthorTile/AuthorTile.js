@@ -25,8 +25,8 @@ const AuthorTile = ({article, children, photoURL, author}) => {
       <div className='l'>
       {photoURL
       ? <Image url={photoURL} alt={photoURL}
-          className='image icon'
-          wrapper='image-wrapper icon'
+               className='image icon'
+               wrapper='image-wrapper icon'
         />
       : <FaUserCircle
           style={styleOptions}
