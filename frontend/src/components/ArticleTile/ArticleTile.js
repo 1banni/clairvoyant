@@ -51,7 +51,10 @@ const ArticleTile = (
      (
       <div className='article-image'>
       {
-        <Image url={article.imageUrls[0]} /*width={imageDims.width} height={imageDims.height}*//>
+        <Image  url={article.imageUrls[0]}
+                wrapper='article-image-wrapper'
+                className='article-image'
+        /*width={imageDims.width} height={imageDims.height}*//>
       }
       </div>
     )}

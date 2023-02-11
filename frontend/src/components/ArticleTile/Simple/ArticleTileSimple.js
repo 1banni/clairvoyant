@@ -32,7 +32,10 @@ const ArticleTileSimple = ({articleId, imageWidth, excludeImage}) => {
       {!excludeImage &&
       <div className='article-image'>
       {article.imageUrls && (article.imageUrls.length !== 0) && (
-        <Image url={article.imageUrls[0]} width={imageWidth} />
+        <Image url={article.imageUrls[0]} width={imageWidth}
+          wrapper='article-image-wrapper'
+          className='article-image'
+        />
       )}
       </div>}
     </div>

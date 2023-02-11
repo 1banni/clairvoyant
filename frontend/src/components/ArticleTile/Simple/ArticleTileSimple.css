@@ -14,10 +14,10 @@
   max-height: 83px;
 }
 
-.article-image .image-wrapper {
+.article-image .article-image-wrapper {
   border-radius:0%;
 }
-.article-image .image {
+.article-image .article-image {
   border-radius:0%;
 }
 
@@ -25,13 +25,13 @@
   width: 100px;
 }
 
-.article-tile-simple .article-image .image-wrapper {
+.article-tile-simple .article-image .article-image-wrapper {
   width: 100px;
   height: 100px;
   margin: 0;
 }
 
-.article-tile-simple .article-image .image {
+.article-tile-simple .article-image .article-image {
   width: 80px;
   align-self: center;
   justify-self: center;
