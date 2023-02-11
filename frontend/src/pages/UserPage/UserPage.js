@@ -49,8 +49,6 @@ const UserPage = () => {
     if (userId) dispatch(fetchBookmarks(userId));
   }, [dispatch, userId]);
 
-  console.log('user');
-  console.log(user);
 
   if (!user) return <></>;
   return (

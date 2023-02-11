@@ -23,9 +23,6 @@ const ArticleTile = (
   const article = useSelector(store => store.articles.all[articleId]);
 
 
-  if (excludeImages) console.log('excludeImages');
-  if (excludeImages) console.log(excludeImages);
-
   if (!article) return <></>;
   return (
     <div>
