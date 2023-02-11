@@ -1,13 +1,12 @@
-import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { Input } from '../../blocks/Form';
-// import { fetchComments } from '../../store/comments';
-import CommentTile from './CommentTile';
 import './CommentIndex.css';
+import React from 'react';
+import { useSelector } from 'react-redux';
 import CommentForm from './CommentForm';
+import CommentTile from './CommentTile';
 
 const CommentIndex = ({article}) => {
   const comments = useSelector(store => Object.values(store.comments));
+
   if (!comments || comments === [null]) return <></>;
   return (
     <>

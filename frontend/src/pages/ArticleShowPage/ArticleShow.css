@@ -165,6 +165,7 @@ br {
   top: 80px;
 }
 
+
 .article-show .right .author-tile-square .image {
   display: flex;
 }
@@ -189,12 +190,13 @@ br {
   grid-row: 1;
   margin-top: 10px;
   margin-left: 10px;
-  width: 240px;
+  width: 280px;
   margin-right: 10px;
 }
 
 .article-sidebar {
   z-index: 5;
+  margin-left: 20px;
 }
 
 .more-from-medium_ {
@@ -248,85 +250,10 @@ br {
   }
 
   to {
-    left: 0;
+    left: 0em;
   }
 }
 
-.comment-form-ctnr {
-  margin: 10px;
-  box-shadow: 0 0 3.5px #444;
-  border: none;
-}
-
-.comment-form-ctnr.create {
-  min-height: 48px;
-}
-
-.comment-form-ctnr.create.active {
-  display: flex;
-  flex-direction: column;
-  min-height: 48px;
-  animation-name: expand;
-  animation-duration: 2s;
-  animation-timing-function: ease-in-out;
-}
-
-@keyframes expand {
-  from {
-    max-height: 48px;
-  }
-
-  to {
-    max-height: 300px;
-  }
-}
-
-
-.respond-btn.create {
-  opacity: 0;
-}
-
-.respond-btn.create.active {
-  animation-name: loadButtons;
-  animation-duration: 0.5s;
-  animation-timing-function: ease-in;
-  animation-fill-mode: forwards;
-}
-
-@keyframes loadButtons {
-  from {
-    opacity: 0;
-  }
-
-  to {
-    opacity: 1;
-  }
-}
-
-.cancel-btn.create {
-  opacity: 0;
-}
-
-.cancel-btn.create.active {
-  animation-name: loadButtons2;
-  animation-duration: 0.5s;
-  animation-timing-function: ease-in;
-  animation-fill-mode: forwards;
-}
-
-@keyframes loadButtons2 {
-  from {
-    opacity: 0;
-  }
-
-  to {
-    opacity: 1;
-  }
-}
-
-.comment-form-ctnr.active {
-  min-height: 150px;
-}
 
 .outer-1 {
 }
