@@ -14,9 +14,9 @@ const ShareLink = ({size, options}) => {
 
     navigator.clipboard.writeText(url).then(function() {
       // TODO: UPDATE with alert
-      console.log('Copied!');
+      // console.log('Copied!');
     }, function() {
-      console.log('Copy error')
+      // console.log('Copy error')
     });
   }
 
