@@ -42,7 +42,7 @@
   width: var(--width-article);
 }
 
-.article-image {
+.article-view .article-image {
   object-fit: cover;
   width: var(--width-article);
 }

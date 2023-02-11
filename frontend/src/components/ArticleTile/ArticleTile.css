@@ -2,7 +2,7 @@
   /* width: 700px; */
   /* width: var(--tile-width); */
   height: var(--tile-height);
-  width: 80%;
+  /* width: 80%; */
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -23,7 +23,7 @@
   flex-direction: column;
   justify-content: space-between;
   align-content: space-around;
-  width: 100%;
+  width: clamp(200px, 40vw, 500px);
   /* align-items: space-around; */
   /* margin: 3px; */
   /* margin-bottom: 10px; */

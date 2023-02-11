@@ -15,7 +15,7 @@ const UserPage = () => {
   const dispatch = useDispatch();
   const { userId } = useParams();
   const sessionUser = useSelector(state => state.session.user);
-  const user = useSelector(store => store.user);
+  const user = useSelector(store => store.users.user);
   const articles = useSelector(store => store.articles.all);
 
   const [tab, setTab] = useState('articles');
@@ -48,6 +48,9 @@ const UserPage = () => {
     dispatch(fetchArticles());
     if (userId) dispatch(fetchBookmarks(userId));
   }, [dispatch, userId]);
+
+  console.log('user');
+  console.log(user);
 
   if (!user) return <></>;
   return (

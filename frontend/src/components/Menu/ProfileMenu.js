@@ -45,9 +45,7 @@ function ProfileMenu({ user }) {
           <div className='profile-dropdown-inner'>
           <div className='user-links'  >
             <div
-
-            className="name">
-              {user.name}
+              className="name">{user.name}
             </div>
 
             <div
@@ -55,6 +53,13 @@ function ProfileMenu({ user }) {
               className="name">
 
               {user.email}
+            </div>
+
+            <div>
+              <Button label="Go to profile"
+                className='btn dropdown'
+                onClick={() => history.push(`/users/${user.id}`)}
+              />
             </div>
           </div>
           <Button label='Sign out'

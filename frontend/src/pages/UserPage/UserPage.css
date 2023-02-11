@@ -98,3 +98,16 @@
   /* width: 100px; */
   /* background-color: black; */
 }
+
+
+.profile-dropdown .name {
+  margin-bottom: 10px;
+}
+
+.profile-dropdown .btn {
+  margin-bottom: 10px;
+}
+
+.profile-dropdown .btn-ctnr.dropdown {
+  margin-bottom: 20px;
+}

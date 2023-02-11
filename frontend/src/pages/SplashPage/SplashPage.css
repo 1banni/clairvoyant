@@ -187,14 +187,15 @@
 .splash-article-feed {
   /* margin-top: -15px; */
   padding: 0;
-  width: clamp(400px, 70vw, 700px);
+
+  /* width: clamp(400px, 70vw, 600px); */
   /* height: 3000px; */
 }
 
 
 .article-index-ctnr {
-  width: clamp(400px, 70vw, 700px);
-
+  /* width: clamp(400px, 70vw, 700px); */
+/*  */
 }
 
 
