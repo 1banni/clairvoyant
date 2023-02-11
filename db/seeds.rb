@@ -96,8 +96,21 @@ require 'open-uri'
     "https://clairvoyant-seeds.s3.us-west-2.amazonaws.com/profile-photos/olga-nayda-fHXpgMd_XhE-unsplash.jpg", # William
     "https://clairvoyant-seeds.s3.us-west-2.amazonaws.com/profile-photos/toa-heftiba-O3ymvT7Wf9U-unsplash.jpg",
   ]
-  articles = []
 
+  article_photos = [
+    "https://clairvoyant-seeds.s3.us-west-2.amazonaws.com/article-1.webp",
+    "https://clairvoyant-seeds.s3.us-west-2.amazonaws.com/article-2.jpeg",
+    "https://clairvoyant-seeds.s3.us-west-2.amazonaws.com/article-3.jpeg",
+    "https://clairvoyant-seeds.s3.us-west-2.amazonaws.com/article-4.jpeg",
+    "https://clairvoyant-seeds.s3.us-west-2.amazonaws.com/article-5.jpeg",
+    "https://clairvoyant-seeds.s3.us-west-2.amazonaws.com/article-6.webp",
+    "https://clairvoyant-seeds.s3.us-west-2.amazonaws.com/article-7.webp",
+    "https://clairvoyant-seeds.s3.us-west-2.amazonaws.com/article08.jpeg",
+    "https://clairvoyant-seeds.s3.us-west-2.amazonaws.com/article-9.webp",
+    "https://clairvoyant-seeds.s3.us-west-2.amazonaws.com/article-10.webp",
+    "https://clairvoyant-seeds.s3.us-west-2.amazonaws.com/article-11.webp",
+    "https://clairvoyant-seeds.s3.us-west-2.amazonaws.com/article-12.webp"
+  ]
 
   user_william = User.create!(
     username: 'will',
@@ -164,6 +177,7 @@ require 'open-uri'
     'Writing'
   ]
 
+  articles=[]
   # Article 0
   articles << Article.create!(
     title: "Notes on Atlantic-World Painting from a Visit to the National Gallery of Art",
@@ -171,6 +185,7 @@ require 'open-uri'
     topic: "Art",
     author: user_ryan
   )
+
 
 
 
@@ -296,6 +311,15 @@ require 'open-uri'
     topic: 'Coding',
     author: fake_users[4]
   )
+
+  i = 0
+  while (i < 12)
+    articles[i].photos.attach([{
+      io: URI.open("#{article_photos[i]}"),
+      filename: "article_photo_#{i}"
+    }])
+    i += 1
+  end
 
   puts "Creating bookmarks..."
   bookmarks = []

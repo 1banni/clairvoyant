@@ -14,3 +14,25 @@
   max-height: 83px;
 }
 
+.article-image .image-wrapper {
+  border-radius:0%;
+}
+.article-image .image {
+  border-radius:0%;
+}
+
+.article-tile-simple .article-image {
+  width: 100px;
+}
+
+.article-tile-simple .article-image .image-wrapper {
+  width: 100px;
+  height: 100px;
+  margin: 0;
+}
+
+.article-tile-simple .article-image .image {
+  width: 80px;
+  align-self: center;
+  justify-self: center;
+}

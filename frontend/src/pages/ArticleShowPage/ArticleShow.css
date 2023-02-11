@@ -44,6 +44,7 @@
 
 .article-image {
   object-fit: cover;
+  width: var(--width-article);
 }
 
 .article-body {
