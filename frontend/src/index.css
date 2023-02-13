@@ -48,6 +48,7 @@ html {
   --border-radius: 10px solid #505050;
   --tile-height: 140px;
   --tile-main-width: clamp(300px, 70vw, 600px);
+  --tile-main-width-2: clamp(300px, 30vw, 500px);
   --tile-image-width: clamp(100px, 30vw, 180px);
   --width-article: clamp(300px, 70vw, 800px);
   --width-main: clamp(300px, 70vw, 700px);

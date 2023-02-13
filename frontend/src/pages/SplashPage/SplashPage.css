@@ -192,6 +192,15 @@
   /* height: 3000px; */
 }
 
+.splash-article-feed .blurb {
+  /* width: clamp(300px, 30vw, 600px); */
+  width: var(--tile-main-width-2);
+}
+
+.splash-article-feed .blurb p {
+  text-overflow: ellipsis;
+}
+
 
 .article-index-ctnr {
   /* width: clamp(400px, 70vw, 700px); */

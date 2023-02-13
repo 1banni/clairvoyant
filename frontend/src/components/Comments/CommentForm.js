@@ -78,7 +78,7 @@ const CommentForm = ({articleId, formtype, comment, editToggle, setEditToggle}) 
 
           {create &&
             (<div className={`user ${activeTag}`}>
-              <ArticleAuthor photoURL={comment.authorPhotoUrl} user={comment.author} userId={sessionUser.id} name={sessionUser?.name} />
+              <ArticleAuthor photoURL={sessionUser.photoUrl} user={sessionUser} userId={sessionUser.id} name={sessionUser?.name} />
             </div>
           )}
 
