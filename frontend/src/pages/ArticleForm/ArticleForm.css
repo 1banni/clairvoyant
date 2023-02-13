@@ -30,6 +30,11 @@
   height: 100%;
 }
 
+.article-create-form .body .quill {
+  width: clamp(300px, 80vw, 1000px);
+
+}
+
 .article-create-form .pair .label {
   display: inline-block;
   color: var(--color-ultralight-grey2);

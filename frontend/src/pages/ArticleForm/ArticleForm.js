@@ -10,6 +10,8 @@ import './ArticleForm.css'
 import 'react-quill/dist/quill.snow.css';
 import 'react-quill/dist/quill.bubble.css';
 import useStateChange from '../../hooks/useStateChange';
+import ModalUtil from '../../context/ModalUtil';
+import LoginModal from '../../modals/LoginModal';
 
 
 const ArticleForm = props => {
@@ -121,7 +123,9 @@ const ArticleForm = props => {
     setPhotoUrls([]);
   }
 
-  if (!sessionUser) return <Redirect to='/login' />;
+  if (!sessionUser) {
+    ModalUtil.open(LoginModal);
+  }
   return (
     <div className='article-create-page'>
       <form className='article-create-form' onSubmit={handleSubmit} >
