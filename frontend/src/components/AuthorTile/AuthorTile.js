@@ -16,7 +16,6 @@ const AuthorTile = ({article, children, photoURL, author}) => {
     stroke: color(),
     fill: 'white',
     strokeWidth: '50',
-    // size: '5x'
   }
 
   if (!article) return <Redirect to='/articles'/>;

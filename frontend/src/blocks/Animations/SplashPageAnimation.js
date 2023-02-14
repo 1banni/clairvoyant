@@ -1,9 +1,6 @@
-import React, { useEffect, useState } from 'react'
 import './SplashPageAnimation.css';
-// import * as Animate from '../../utils/animation';
+import React, { useEffect, useState } from 'react'
 import AnimationUtil from '../../utils/AnimationUtil';
-
-
 
 const mAnimatedGrid = [
   [0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,1,1,0,1,0,0,1,1,0],
@@ -57,14 +54,11 @@ const SplashAnimation = () => {
           .convertToC(grid, count.tick)
           .map((row, rowIdx) =>
             row.map((el, colIdx) => {
-
-          return <div key={rowIdx + '~' + colIdx} className='splash-animation-el'>{el}</div>
-
+              return <div key={rowIdx + '~' + colIdx} className='splash-animation-el'>{el}</div>
         }))}
-
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default SplashAnimation
+export default SplashAnimation;

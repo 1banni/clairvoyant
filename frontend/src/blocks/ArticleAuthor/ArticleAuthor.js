@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { FaUserCircle } from 'react-icons/fa'
 import ColorUtil from '../../utils/ColorUtil';
 import Image from '../Image/Image';
@@ -22,11 +22,12 @@ const ArticleAuthor = ({user, name, children, photoURL, imageId, ...props}) => {
       : <FaUserCircle
           style={styleOptions}
       />}
-      {/* <FaUserCircle className='user-icon'
-        style={styleOptions}
-      /> */}
       </div>
-      <div className='user-name'>{name || user.name}</div>
+
+      <div className='user-name'>
+        {name || user.name}
+      </div>
+
       {children}
     </div>
   )

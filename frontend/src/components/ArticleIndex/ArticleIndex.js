@@ -3,7 +3,6 @@ import { useSelector, useDispatch } from 'react-redux';
 import { fetchArticles } from '../../store/articles';
 import { fetchBookmarks } from '../../store/bookmarks';
 import ArticleTile from '../../components/ArticleTile/ArticleTile';
-// import './ArticleTile.css';
 
 
 const ArticleIndex = ({imageDims, ...props}) => {
@@ -19,7 +18,7 @@ const ArticleIndex = ({imageDims, ...props}) => {
   return (
     <>
       <div className='article-index-ctnr'>
-        <div className='article-index'>
+        <div className='article-index' {...props}>
 
           {articles.map( article => (
           <ArticleTile
@@ -32,7 +31,7 @@ const ArticleIndex = ({imageDims, ...props}) => {
         </div>
       </div>
     </>
-  )
-}
+  );
+};
 
 export default ArticleIndex;

@@ -27,7 +27,6 @@ const ArticleShow = (props) => {
   const article = useSelector(store => store.articles.current[articleId]);
   const fourRandomArticles = useSelector(selectRandomArticleIds(4, [articleId]));
   const moreArticlesByAuthor = useSelector(selectArticlesByAuthor(6, article?.authorId));
-  // TODO: ABSTRACT STATE TOGGLE INTO ITS OWN HOOK
   const [commentDisplay, setCommentDisplay] = useState(false);
   const showComments = commentDisplay ? 'show' : '';
   const editDeleteToggle = () => {
@@ -46,7 +45,6 @@ const ArticleShow = (props) => {
   }, [dispatch, articleId, sessionUser]);
 
   const toggleCommentDisplay = () => setCommentDisplay(state => !state);
-
 
   if (!article) return <></>;
   return (

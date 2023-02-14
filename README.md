@@ -13,10 +13,12 @@ Clairvoyant is a full stack clone of Medium, a popular blog host with a mix of a
 * Frontend: Javascript + React/Redux
   * Written in Javascript
   * Uses React to render components and Redux for state management
-* [APIs: ChatGPT]
+* Libraries
+  * React Quill
+  * Interweave
 
 ## Installation
-1. Clone the repository: git clone https://github.com/3anni/clairvoyant.git
+1. Clone the repository: git clone https://github.com/1banni/clairvoyant.git
 2. Install the dependencies
   * From the root directory, run `bundle install`
   * From the frontend directory, run `npm install`
@@ -28,14 +30,150 @@ Clairvoyant is a full stack clone of Medium, a popular blog host with a mix of a
   * In development mode, the frontend is served up on port 3000 and the backend on 5000
   * In production mode, the app is served on port 500
 
-Production build: from the root folder, run `NPM run build`
+Production build: from the root folder, run `npm run build`
 
 ## Selected Features and Development
-Incorporating Rich Text Editing
-- Incredible how easy the libraries made it, thanks to the creators of both.
-- With Interweave Markup, you can limit which HTML elements are rendered
--- This makes it easy to switch how you format/render rich text in different places in your application
--- For instance, you can only show paragraphs, bolding. and italics in a summary feed with many [items] and show all formatting (bullets, blocks, etc.) in the view page for an individual [item]
+### Create Article
+Article creation utilizes FileReader and two useState arrays to let users load multiple image files.
+```
+  const handlePhotos = async e => {
+    const files = Array.from(e.target.files);
+
+    if (files) {
+      files.forEach(file => {
+        const fileReader = new FileReader();
+        fileReader.readAsDataURL(file);
+        fileReader.onload = () => {
+          // setPhotoFiles(prev => prev.push(file));
+          // setPhotoUrls(prev => prev.push(fileReader.result));
+          setPhotoFiles(prev => [...prev, file]);
+          setPhotoUrls(prev => [...prev, fileReader.result]);
+        };
+      });
+    }
+  };
+```
+The app combines React Quill and Interweave libraries to enable rich text editing and display.
+```
+<div className='pair'>
+  <div className={`label blurb ${active(blurb)}`}>Blurb</div>
+  <input label=''
+      className='input blurb'
+      type='text'
+      value={blurb}
+      onChange={blurbChange}
+      placeholder='Up to 120 characters (optional)'
+      maxlength='120'
+    />
+</div>
+
+<div className='pair body'>
+  <div className={`label body ${active(body)}`}>Body</div>
+  <ReactQuill theme='snow'
+              modules={modules}
+              formats={formats}
+              value={body}
+              onChange={setBody}
+              id='reactquill'>
+  </ReactQuill>
+</div>
+```
+The inputs are sent to the backend in a FormData object. The photos are attached via Rails Active Storage and uploaded to AWS. Catch blocks are used to store error messages from the backend which are then displayed on the frontend.
+```
+  const handleSubmit = async e => {
+    e.preventDefault();
+    if (!sessionUser) return ModalUtil.open(LoginModal);
+
+    const formData = new FormData();
+    formData.append('article[title]',title);
+    formData.append('article[topic]',topic);
+    if (blurb) formData.append('article[blurb]',blurb);
+    formData.append('article[body]',body);
+
+    if (photoFiles?.length > 0) {
+      photoFiles.forEach(photo => {
+        formData.append('article[photos][]',photo);
+      });
+    }
+
+    if (formType === 'Create') {
+        articleId = dispatch(createArticle(formData))
+        .catch( async res => {
+          let data;
+          try {
+            data = await res.clone().json();
+          } catch {
+            data = await res.text();
+          }
+
+          if (data?.errors) setErrors(data.errors);
+          else if (data) setErrors([data]);
+          else setErrors([res.statusText]);
+        })
+      if (articleId) {
+        clearForm();
+        history.push(`/articles/${articleId}`);
+      }
+    } else {
+      dispatch(updateArticle(formData, articleId))
+        .catch( async res => {
+          let data;
+          try {
+            data = await res.clone().json();
+          } catch {
+            data = await res.text();
+          }
+
+          if (data?.errors) setErrors(data.errors);
+          else if (data) setErrors([data]);
+          else setErrors([res.statusText]);
+        })
+        .then(history.push(`/articles/${articleId}`));
+    }
+  }
+
+```
+### Bookmarks & Claps
+Users can applaud and bookmark articles and view bookmarked articles on the profile page. Icons for both toggle based on whether the user has applauded/bookmarked a specific post.
+```
+const Bookmark = ({articleId, options}) => {
+  options ||= {fill: 'black', size:'20px' };
+  const dispatch = useDispatch();
+  const sessionUser = useSelector(state => state.session.user);
+  const bookmark = useSelector(state => state.bookmarks[articleId]);
+
+  let BookmarkIcon = bookmark
+    ? <MdOutlineBookmark className='icon bookmark' style={options}/>
+    : <MdOutlineBookmarkAdd className='icon bookmark' style={options}/>;
+
+  const toggleBookmark = async e => {
+    e.preventDefault();
+
+    if (!sessionUser) ModalUtil.open(LoginModal);
+
+    if (bookmark) {
+      dispatch(deleteBookmark(bookmark));
+    } else {
+      dispatch(createBookmark({
+        user_id: sessionUser.id,
+        article_id: articleId
+      }));
+    }
+  };
+
+  return (
+    <Button className='icon-btn bookmark'
+            containername='icon-btn-ctnr bookmark'
+            onClick={toggleBookmark}>
+      {BookmarkIcon}
+    </Button>
+  );
+};
+
+export default Bookmark;
+```
+
+
 
 ### Custom Hooks
 #### useStateChange
@@ -54,8 +192,7 @@ const useStateChange = (initialValue) => {
 
 export default useStateChange;
 ```
-
-
+#### useSubmit
 ```
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
@@ -82,13 +219,15 @@ const useSubmit = ({createAction, onSuccess}) => {
   }
 
   return [errors, handleSubmit];
-}
+};
 
 export default useSubmit;
 
 ```
 
 ### Reusable Components
+#### Buttons
+All buttons in the app are built using the Button class below, which provides default classNames for styling and the ability to open modals with the button.
 ```
 import React from 'react';
 import ModalUtil from '../../context/ModalUtil';
@@ -111,53 +250,141 @@ const Button = ({children, containername, label, redirect, modal, ...props}) => 
   );
 };
 
-
 export default Button;
 ```
+#### Tile Components
+Since the website has many different article tiles that show various bits of information about articles, I seperated the items that can be displayed on a tile into individual components, such as Author, Detail, and ReadTime. These building blocks are used in different combinations for different article tiles around the app.
+```
+const ArticleAuthor = ({user, name, children, photoURL, imageId, ...props}) => {
+  const styleOptions = {
+    stroke: ColorUtil.nameToColor(name),
+    fill: 'white',
+    strokeWidth: '50'
+  }
 
-### Rich Text Editing
-The app combines React Quill and Interweave libraries to enable rich text editing.
+  return (
+    <div className='user-name-icon-ctnr'>
+      <div className='user-icon-ctnr'>
+      {photoURL
+      ? <Image url={photoURL} alt={photoURL}
+          className='image icon'
+          wrapper='image-wrapper icon'
+        />
+      : <FaUserCircle
+          style={styleOptions}
+      />}
+      </div>
+
+      <div className='user-name'>
+        {name || user.name}
+      </div>
+
+      {children}
+    </div>
+  )
+}
+```
+#### Tooltips
+```
+import React, { useState } from 'react';
+import './Tooltip.css';
+
+const Tooltip = ({label, buttonname, className, timeout, ...props}) => {
+  const [active, setActive] = useState(false);
+  buttonname ||= 'tooltip-btn';
+  className ||= 'tooltip bottom';
+
+  const toggleTooltip = () => {
+    if (active) setActive(false);
+    else {
+      setActive(true)
+      if (timeout) {
+        setTimeout(() => {
+          setActive(false);
+        }, timeout)
+      }
+    }
+  }
+
+  return (
+    <div>
+      <div className={buttonname} onClick={toggleTooltip} >
+        {label}
+      {active && (
+        <div className={className}>
+          {props.content}
+          {props.children}
+        </div>
+      )}
+      </div>
+    </div>
+  );
+};
+
+export default Tooltip;
+```
+
 
 ### Animation
+The splash page animation uses an array of integers ranging from 0 to 30. A counter ticks from 1 to 30 back and forth, and any spaces in the array with a number below the counter are shown.
+```
+const SplashAnimation = () => {
+  const grid = mAnimatedGrid;
+  const [count, setCount] = useState({ tick: 1, dir: 1 });
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      const ceil = 30;
+      const floor = 3;
+      setCount(prev => {
+        if (prev.tick > ceil) {
+          return {tick: ceil, dir: -1}
+        } else if (prev.tick < floor) {
+          return {tick: floor, dir: 1};
+        } else {
+          const nextTick = prev.tick + prev.dir
+          return {tick: nextTick, dir: prev.dir}
+        }
+      });
+    }, 50);
+
+    return () => {
+      clearInterval(interval);
+    }
+  }, []);
 
 
-One day i'll think of how to do the animation at the bottom of this page:
-https://medium.com/about
+  return (
+    <div className='splash-animation-container'>
+      <div className='splash-animation'>
+        {AnimationUtil
+          .convertToC(grid, count.tick)
+          .map((row, rowIdx) =>
+            row.map((el, colIdx) => {
+              return <div key={rowIdx + '~' + colIdx} className='splash-animation-el'>{el}</div>
+        }))}
+      </div>
+    </div>
+  );
+};
+```
 
-### Performance
-I timed my react app using [ ]
-In order to improve the app's efficiency and reduce the number of AWS pulls, I typically passed objectIds into components related to the object and place a useSelector in the object (prevents comments from all re-rendering when one is edited.) I noticed it was slow going to my backend (comments took a few moments to appear), so I instead added a commentValidation function on my front end that tested all the input the backend tested, then dispatched the comment to the store, and then sent it to the backend. if calling update, it would save the old comment. Then, based on the result from the backend (status: :ok or not), the comment would either (a) remain in store or (b) revert to its previous form.
-Also, I edited my article store to nest both articles and article, such that it would not reload the articles every time it returned to the index page from the show page (cause these articles would.
-In order to improve the app's efficiency and reduce the number of AWS pulls, I typically passed objectIds into components related to the object and place a useSelector in the object (prevents comments from all re-rendering when one is edited.) I noticed it was slow going to my backend (comments took a few moments to appear), so I instead added a commentValidation function on my front end that tested all the input the backend tested, then dispatched the comment to the store, and then sent it to the backend. if calling update, it would save the old comment. Then, based on the result from the backend (status: :ok or not), the comment would either (a) remain in store or (b) revert to its previous form.be being used in many places.
+### Active Record
+Rails Active Record associations are used to fetch related records from multiple database tables.
+```
+class Article < ApplicationRecord
+  validates :title, :author_id, :topic, :body, presence: true
 
+  belongs_to :author, class_name: :User, foreign_key: :author_id
 
-### CSS
+  has_many_attached :photos
 
+  has_many :claps, dependent: :destroy
+  has_many :bookmarks, dependent: :destroy
+  has_many :comments, dependent: :destroy
 
-
-### Image Credit
-
-
-
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+  has_many :clappers, through: :claps, source: :user
+  has_many :bookmarkers, through: :bookmarks, source: :user
+  has_many :commenters, through: :comments, source: :user
+end
+```

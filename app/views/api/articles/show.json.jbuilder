@@ -1,4 +1,3 @@
-
 json.set! 'article' do
   json.set! @article.id do
     json.extract! @article, :id, :title, :topic, :body, :author_id, :created_at
@@ -26,19 +25,4 @@ if @comments
     end
   end
 end
-
-
-# if @comments
-#   p 'in json jbuilder show for comments'
-#   p '-------------------------------------------------'
-#   p @comments
-# end
-
-  # QUESTION COMMENTS - does this work?
-  # json.set! comment.parent_id do
-  #   json.extract! :id, :body, :author_id, :parent_id, :created_at
-  # end
-
-
-
 

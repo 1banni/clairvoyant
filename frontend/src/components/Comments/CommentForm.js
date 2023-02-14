@@ -1,10 +1,8 @@
-import React, { useState, useEffect, useRef } from 'react'
-import { FaPassport } from 'react-icons/fa';
+import React, { useState, useRef } from 'react'
 import ReactQuill from 'react-quill';
 import { useDispatch, useSelector } from 'react-redux';
 import ArticleAuthor from '../../blocks/ArticleAuthor/ArticleAuthor';
 import Button from '../../blocks/Button'
-import useStateChange from '../../hooks/useStateChange';
 import { createComment, updateComment } from '../../store/comments';
 import 'react-quill/dist/quill.snow.css';
 import 'react-quill/dist/quill.bubble.css';
@@ -13,7 +11,7 @@ import LoginModal from '../../modals/LoginModal';
 const CommentForm = ({articleId, formtype, comment, editToggle, setEditToggle}) => {
   const dispatch = useDispatch();
   const sessionUser = useSelector(state => state.session.user);
-  const [body, setBody, handleBody] = useStateChange(comment?.body);
+  const [body, setBody] = useState(comment?.body);
   const [active, setActive] = useState(false);
   const create = formtype === 'create';
   const activeTag = (active || editToggle) ? 'active' : '';

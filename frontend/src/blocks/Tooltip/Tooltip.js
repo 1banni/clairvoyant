@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import Button from '../Button';
 import './Tooltip.css';
 
 const Tooltip = ({label, buttonname, className, timeout, ...props}) => {

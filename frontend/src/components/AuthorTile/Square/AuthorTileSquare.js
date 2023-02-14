@@ -1,8 +1,6 @@
 import React, { useEffect } from 'react';
 import { FaUserCircle } from 'react-icons/fa';
-import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-import Button from '../../../blocks/Button';
 import Image from '../../../blocks/Image/Image';
 import ColorUtil from '../../../utils/ColorUtil';
 import NavUtil from '../../../utils/NavUtil';
@@ -28,7 +26,7 @@ const AuthorTileSquare = ({author, authorId, photoURL, ...props}) => {
 
       <div className='icon' onClick={NavUtil.goToUserById(history, author.id)}>
         {photoURL
-        ? <Image url={photoURL} /*width='750' height='600'*/ alt={photoURL}/>
+        ? <Image url={photoURL} alt={photoURL}/>
         : <FaUserCircle className='temp'
           size='40px'
           style={styleOptions}
@@ -39,16 +37,16 @@ const AuthorTileSquare = ({author, authorId, photoURL, ...props}) => {
         {author.name}
       </div>
 
-      <div>{/* TODO - ADD # OF FOLLOWERS */}</div>
-
       <div className='bio'>{bioBlurb}</div>
-
-      {/* <Button containername='btn-ctnr' className='btn'>
-        Follow - TODO - IMPLEMENT ME :)
-      </Button> */}
-
     </div>
   );
 };
 
 export default AuthorTileSquare;
+
+
+// <div>TODO - ADD # OF FOLLOWERS</div>
+
+// <Button containername='btn-ctnr' className='btn'>
+  // Follow - TODO - IMPLEMENT ME :)
+// </Button>

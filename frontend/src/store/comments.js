@@ -92,12 +92,10 @@ export const selectCommentsByArticleId = articleId => state => {
 };
 
 
-
-// STORE
+// REDUCER / STORE
 const initialState = {
   comments: JSON.parse(sessionStorage.getItem('comments'))
 };
-
 
 const commentsReducer = (state = initialState, action) => {
   switch(action.type) {

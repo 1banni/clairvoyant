@@ -1,13 +1,11 @@
 import './Image.css';
 import React from 'react'
-import { PNG } from '../../assets';
 
 
-const Image = ({url, alt, wrapper, className, ...props}) => {
+const Image = ({url, wrapper, className, ...props}) => {
   const imageUrl = url;
   wrapper ||= 'image-wrapper';
   className ||= 'image';
-  alt ||= 'alt';
 
   return (
     <div className={wrapper}>
@@ -16,7 +14,7 @@ const Image = ({url, alt, wrapper, className, ...props}) => {
         alt={imageUrl}
         key={imageUrl}
         src={imageUrl}
-        /*{...props}*/
+        {...props}
       />
     </div>
   )

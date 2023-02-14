@@ -28,16 +28,6 @@ export const removeBookmark = articleId => {
 };
 
 // THUNK ACTION CREATORS
-// TODO: Consider building these differently
-// export const fetchBookmark = (bookmarkId) => async dispatch => {
-//   const res = await csrfFetch(`/api/bookmarks/${bookmarkId}`);
-
-//   if (res.ok) {
-//     const bookmark = await res.json();
-//     dispatch(receiveBookmark(bookmark));
-//   }
-// };
-
 export const fetchBookmarks = (userId) => async dispatch => {
   const res = await csrfFetch(`/api/bookmarks/${userId}`);
 
@@ -46,16 +36,7 @@ export const fetchBookmarks = (userId) => async dispatch => {
     dispatch(receiveBookmarks(bookmarks));
   }
 };
-// export const fetchBookmarks = () => async dispatch => {
-//   const res = await csrfFetch('/api/bookmarks');
 
-//   if (res.ok) {
-//     const bookmarks = await res.json();
-//     dispatch(receiveBookmarks(bookmarks));
-//   }
-// };
-
-// Question: where does re-render happen in this process / am i triggering it efficiently
 export const createBookmark = (bookmark) => async dispatch => {
   const res = await csrfFetch('/api/bookmarks/', {
     method: 'POST',
@@ -87,19 +68,7 @@ export const selectBookmarksByUserId = (userId) => (state) => {
 };
 
 
-// export const selectBookmarksByArticleId = (articleId) => (state) => {
-//   let bookmarks = Object.values(state.bookmarks).filter(bookmark => bookmark['articleId'] === articleId);
-//   return (bookmarks.length > 0
-//     ? bookmarks[0]
-//     : {}
-//   );
-// };
-
-
-// const initialState = {
-//   bookmarks: JSON.parse(sessionStorage.getItem('bookmarks'))
-// };
-
+// REDUCER
 const bookmarksReducer = (state = {}, action) => {
   switch (action.type) {
     case RECEIVE_BOOKMARKS:
@@ -114,6 +83,5 @@ const bookmarksReducer = (state = {}, action) => {
       return state;
   }
 };
-
 
 export default bookmarksReducer;

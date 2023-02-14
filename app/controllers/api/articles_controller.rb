@@ -1,6 +1,3 @@
-# TODO UTMOST IMPORTANCE
-# tighten all backend routes up
-
 class Api::ArticlesController < ApplicationController
   # wrap_parameters format: :multipart_form
   wrap_parameters include: Article.attribute_names + [:photos], format: :multipart_form
@@ -18,8 +15,6 @@ class Api::ArticlesController < ApplicationController
   def show
     @article = Article.find(params[:id])
     @comments = Comment.where(article_id: params[:id])
-    # @user = @article.user
-
 
     if @article
       render :show
@@ -54,7 +49,7 @@ class Api::ArticlesController < ApplicationController
         render json: { errors: ["You must be logged in as author to edit the article."] }
       end
     else
-      render json: { errors: ["Article not found. Email support at backend@clairvoyant.com"]}
+      render json: { errors: ["Article not found. Email support at backend@clairvoyant.com"] }
     end
   end
 
@@ -62,7 +57,6 @@ class Api::ArticlesController < ApplicationController
     @article = Article.find(params[:id])
     if @article && @article.author_id == current_user.id
       if @article.destroy
-        # render 'api/users/show'
         render json: {}, status: :ok
       else
         render json: { errors: ["You must be logged in as author to delete the article."]}, status: 422
@@ -98,7 +92,7 @@ class Api::ArticlesController < ApplicationController
   private
   def article_params
     # front end can send data like { user: username: 'bob, password:: 'password'}
-    # front end can also send it as { username: 'bob', password: 'password'}
+    # can also send data like { username: 'bob', password: 'password'}
     params.require(:article).permit(
       :title,
       :topic,

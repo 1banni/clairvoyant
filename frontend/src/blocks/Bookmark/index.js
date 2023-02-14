@@ -1,3 +1,3 @@
-import ArticleBookmark from './ArticleBookmark';
+import Bookmark from './Bookmark';
 
-export default ArticleBookmark;
+export default Bookmark;

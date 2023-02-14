@@ -1,14 +1,11 @@
 import { Route, Switch } from 'react-router-dom';
 import NavBar from './layouts/NavBar/NavBar';
-import LoginPage from './pages/LoginPage';
-import SignUpPage from './pages/SignUpPage';
 import ArticleIndex from './components/ArticleIndex';
 import ArticleForm from './pages/ArticleForm';
 import ArticleShow from './pages/ArticleShowPage';
 import ModalProvider from './context/ModalProvider';
 import ArticleSearch from './pages/ArticleSearchPage/ArticleSearch';
 import SplashPage from './pages/SplashPage';
-// import UserPage from './pages/UserPage';
 import Chat from './components/Chat/Chat';
 import ResetScroll from './context/ResetScroll';
 import UserPage from './pages/UserPage/UserPage';

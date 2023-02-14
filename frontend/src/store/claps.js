@@ -28,7 +28,6 @@ export const removeClap = clapId => {
 };
 
 // THUNK ACTION CREATORS
-// TODO: Consider building these differently
 export const fetchClap = (clapId) => async dispatch => {
   const res = await csrfFetch(`/api/claps/${clapId}`);
 

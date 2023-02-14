@@ -1,5 +1,5 @@
 import './UserPage.css';
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { fetchArticles, selectArticlesByAuthor, selectRandomArticleIds } from '../../store/articles';
@@ -14,9 +14,7 @@ import ArticleTileSimple from '../../components/ArticleTile/Simple/ArticleTileSi
 const UserPage = () => {
   const dispatch = useDispatch();
   const { userId } = useParams();
-  const sessionUser = useSelector(state => state.session.user);
   const user = useSelector(store => store.users.user);
-  const articles = useSelector(store => store.articles.all);
 
   const [tab, setTab] = useState('articles');
   const active = tabName => tabName === tab ? 'active' : 'inactive';
@@ -26,21 +24,8 @@ const UserPage = () => {
     ? authoredArticles.map(article => Number(article.id))
     : []
   ;
-
   const bookmarkedArticles = useSelector(selectBookmarksByUserId(userId));
-
-  // TODO: CONVERT TO useMemo here and elsewhere
   const fourRandomArticles = useSelector(selectRandomArticleIds(4, excludeIds));
-  // const fourRandomArticles = useMemo[() => {
-  //   console.log('Object.keys(articles)');
-
-  //   console.log(Object.keys(articles));
-
-
-  //   if (articles) {
-  //     return Object.keys(articles).filter(article => !excludeIds.includes(article.id));
-  //   }
-  // }, [excludeIds, articles]];
 
 
   useEffect(() => {
@@ -56,15 +41,15 @@ const UserPage = () => {
       <section className='main'>
         <h2 className='name'>{user.name}</h2>
         <div className='tabs'>
-          <h4 className={`articles-label ${active('articles')}`}
+
+         <h4 className={`articles-label ${active('articles')}`}
               onClick={() => setTab('articles')}
           >Articles</h4>
+
           <h4 className={`bookmarks-label ${active('bookmarks')}`}
             onClick={() => setTab('bookmarks')}
           >Bookmarks</h4>
-          {/* <h4 className={`claps-label ${active('claps')}`}
-              onClick={() => setTab('claps')}
-          >Claps</h4> */}
+
         </div>
 
       {tab === 'articles' && authoredArticles &&

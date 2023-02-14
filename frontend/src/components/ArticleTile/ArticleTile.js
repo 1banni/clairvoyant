@@ -1,22 +1,24 @@
-import React from 'react';
-import { Redirect, useHistory, withRouter} from 'react-router-dom';
 import './ArticleTile.css';
+import React from 'react';
+import { useHistory, withRouter} from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import ArticleAuthor from '../../blocks/ArticleAuthor';
 import ArticleDetail from '../../blocks/ArticleDetail';
 import ArticleTitle from '../../blocks/ArticleTitle';
 import Bookmark from '../../blocks/Bookmark'
 import Image from '../../blocks/Image/Image';
-// import Image from '../../blocks/ArticleImage/ArticleImage';
 import NavUtil from '../../utils/NavUtil';
-import { useSelector } from 'react-redux';
 
-const ArticleTile = (
-  { articleId, excludeAuthor, excludeImages, blurbLength, blurbLineClamp, imageDims }
-) => {
+const ArticleTile = ({
+  articleId,
+  excludeAuthor,
+  excludeImages,
+  blurbLength,
+  blurbLineClamp,
+  imageDims
+}) => {
   let history = useHistory();
-  const sessionUser = useSelector(state => state.session.user);
   imageDims ||= { height: '134', width: '200' };
-  // excludeAuthor ||= false;
   excludeImages ||= false;
   blurbLength ||= 115;
   blurbLineClamp ||= 'line-clamp-2';
@@ -51,7 +53,7 @@ const ArticleTile = (
         <Image  url={article.imageUrls[0]}
                 wrapper='article-image-wrapper'
                 className='article-image'
-        /*width={imageDims.width} height={imageDims.height}*//>
+        />
       }
       </div>
     )}

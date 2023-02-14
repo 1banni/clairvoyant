@@ -1,9 +1,4 @@
-# TRANSFER THESE NOTES!!!!
-
-
 class Api::SessionsController < ApplicationController
-  # This is a failsafe. We're going to prevent people on front end
-  # from seeing the login form
   before_action :require_logged_out, only: [:create]
   before_action :require_logged_in, only: [:destroy]
 
@@ -12,10 +7,7 @@ class Api::SessionsController < ApplicationController
 
     if @user
       render 'api/users/show'
-      # render :show
     else
-      # render json: ['No current user']
-      # if user were nested, this would be
       render json: { user: nil }
     end
   end
@@ -28,7 +20,6 @@ class Api::SessionsController < ApplicationController
     if @user
       login(@user)
       render 'api/users/show'
-      # render :show
     else
       render json: { errors: ["Invalid username or password."] }, status: :unauthorized
     end

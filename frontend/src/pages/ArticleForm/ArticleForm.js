@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useHistory, Redirect, useParams } from 'react-router-dom';
+import { useHistory, useParams } from 'react-router-dom';
 import ReactQuill from 'react-quill';
 import $ from 'jquery';
 import { createArticle, selectArticle, updateArticle } from '../../store/articles';
-import { useInput } from '../../hooks';
 import Button from '../../blocks/Button';
 import './ArticleForm.css'
 import 'react-quill/dist/quill.snow.css';
@@ -30,7 +29,8 @@ const ArticleForm = props => {
   const [body, setBody] = useState(article.body);
   const [blurb, setBlurb, blurbChange] = useStateChange(article.blurb);
   const [photoFiles, setPhotoFiles] = useState([]);
-  const [photoUrls, setPhotoUrls] = useState(article?.photoUrls || []);
+  const [photoUrls, setPhotoUrls] = useState([]);
+  const [errors, setErrors] = useState([]);
   // TODO -> make the setter convert into array, and then render split with spaces
   // format each word to look like tag within input box
   const modules = {
@@ -55,7 +55,8 @@ const ArticleForm = props => {
 
   const handleSubmit = async e => {
     e.preventDefault();
-    if (!sessionUser) throw new Error('you must be logged in to bookmark a post');
+    if (!sessionUser) return ModalUtil.open(LoginModal);
+
     const formData = new FormData();
     formData.append('article[title]',title);
     formData.append('article[topic]',topic);
@@ -69,14 +70,38 @@ const ArticleForm = props => {
     }
 
     if (formType === 'Create') {
-      articleId = await dispatch(createArticle(formData));
+      articleId = dispatch(createArticle(formData))
+        .catch( async res => {
+          let data;
+          try {
+            data = await res.clone().json();
+          } catch {
+            data = await res.text();
+          }
+
+          if (data?.errors) setErrors(data.errors);
+          else if (data) setErrors([data]);
+          else setErrors([res.statusText]);
+        })
+
       if (articleId) {
         clearForm();
         history.push(`/articles/${articleId}`);
       }
     } else {
       dispatch(updateArticle(formData, articleId))
-      // TODO - check response / error handling
+        .catch( async res => {
+          let data;
+          try {
+            data = await res.clone().json();
+          } catch {
+            data = await res.text();
+          }
+
+          if (data?.errors) setErrors(data.errors);
+          else if (data) setErrors([data]);
+          else setErrors([res.statusText]);
+        })
         .then(history.push(`/articles/${articleId}`));
     }
   }
@@ -123,9 +148,7 @@ const ArticleForm = props => {
     setPhotoUrls([]);
   }
 
-  if (!sessionUser) {
-    ModalUtil.open(LoginModal);
-  }
+  if (!sessionUser) ModalUtil.open(LoginModal);
   return (
     <div className='article-create-page'>
       <form className='article-create-form' onSubmit={handleSubmit} >
@@ -163,16 +186,13 @@ const ArticleForm = props => {
 
         <div className='pair'>
           <div className={`label blurb ${active(blurb)}`}>Blurb</div>
-          {/* <ReactQuill theme='bubble' value={topic} onChange={topicChange} /> */}
           <input label=''
-              // containername='input-ctnr blurb'
               className='input blurb'
               type='text'
               value={blurb}
               onChange={blurbChange}
               placeholder='Up to 120 characters (optional)'
               maxlength='120'
-              // required
             />
         </div>
 
@@ -231,9 +251,14 @@ const ArticleForm = props => {
             containername='btn-ctnr classic'
           />
         </div>
-
-
       </form>
+      <div className='form-errors'>
+        {errors && errors.map(error => (
+          <div key={error}>
+            {error}
+          </div>
+        ))}
+      </div>
     </div>
   )
 }

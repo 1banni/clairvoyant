@@ -10,8 +10,6 @@ import Button from '../../blocks/Button';
 import LoginModal from '../../modals/LoginModal';
 import './NavBar.css';
 
-// const myImg = require('./assets/Profilemethods.png');
-
 function NavBar() {
   const location = useLocation();
   const sessionUser = useSelector(state => state.session.user);
@@ -24,21 +22,10 @@ function NavBar() {
       : setColorToggle(prev => 'white');
   }, [location]);
 
-  // TESTING THIS CODE - START
-  // useEffect(() => {
-  //   window.scrollY > 535
-  //   // window.scrollY > 450
-  //     ? setFixed('nav-bar-wrapper fixed')
-  //     : setFixed('nav-bar-wrapper'); //
-  // }, [])
-  // TESTING THIS CODE - END
-
-  // TODO - see if you can do this with a useEffect
   const toggleFixed = () => {
     window.scrollY > 535
-    // window.scrollY > 450
       ? setFixed('nav-bar-wrapper fixed')
-      : setFixed('nav-bar-wrapper'); // 'floating' not used in CSS
+      : setFixed('nav-bar-wrapper');
   };
   window.addEventListener('scroll', toggleFixed);
 
@@ -68,7 +55,7 @@ function NavBar() {
         </div>
       </div>
       <div className='nav-bar-r'>
-        {/* TODO: rename 'articles/new' to 'write' */}
+
         {sessionUser
         ? (
         <Link to='/articles/new'>

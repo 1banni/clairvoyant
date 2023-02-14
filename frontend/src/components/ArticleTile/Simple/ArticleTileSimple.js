@@ -19,17 +19,22 @@ const ArticleTileSimple = ({articleId, imageWidth, excludeImage}) => {
     <div className='article-tile-simple'
          onClick={NavUtil.goToArticleById(history, articleId)}>
       <div className='article-into'>
-        <ArticleAuthor photoURL={article.authorPhotoUrl} user={article.author} userId={article.authorId} name={article.authorName}
+        <ArticleAuthor
+          photoURL={article.authorPhotoUrl}
+          user={article.author}
+          userId={article.authorId}
+          name={article.authorName}
         />
+
         <ArticleTitle
           article={article}
           includeBlurb={false}
           lineclamp='line-clamp-3'
-
-          // onClick={NavUtil.goToArticleById(history, articleId)}
         />
       </div>
+
       {!excludeImage &&
+
       <div className='article-image'>
       {article.imageUrls && (article.imageUrls.length !== 0) && (
         <Image url={article.imageUrls[0]} width={imageWidth}
