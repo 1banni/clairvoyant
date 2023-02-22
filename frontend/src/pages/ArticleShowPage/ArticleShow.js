@@ -1,3 +1,4 @@
+import './ArticleShow.css';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, useParams } from 'react-router-dom';
@@ -14,7 +15,6 @@ import { fetchArticle, fetchArticles, selectArticlesByAuthor, selectRandomArticl
 import { fetchClaps } from '../../store/claps';
 import { fetchComments } from '../../store/comments';
 import ArticleLinks from './ArticleLinks';
-import './ArticleShow.css';
 import Body from './Body';
 import Button from '../../blocks/Button';
 import { fetchBookmarks } from '../../store/bookmarks';
