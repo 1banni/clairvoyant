@@ -65,6 +65,7 @@ const ArticleShow = (props) => {
               <div className='article-images'>
               {article && article.imageUrls?.map(imageUrl => (
                 <Image url={imageUrl} alt={imageUrl}
+                       key={imageUrl}
                        wrapper='article-image-wrapper'
                        className={'article-image'}
                 />
