@@ -10,10 +10,6 @@ export default function ArticleSearch({...props}) {
   const dispatch = useDispatch();
   const articles = useSelector(state => Object.values(state.articles.all));
   let { queryName } = useParams();
-  console.log('queryName');
-  console.log(queryName);
-  console.log('useParams');
-  console.log(useParams().toString());
   const [query, changeQuery] = useInput(queryName);
 
   const filteredArticles = useMemo(() => {

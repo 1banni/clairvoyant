@@ -1,0 +1,58 @@
+/* SECTIONS */
+.homepage {
+  margin-top: 30px;
+  margin-left: 50px;
+  margin-right: 50px;
+
+}
+
+.homepage .main {
+
+}
+
+.homepage .sidebar {
+  margin-left: 50px;
+}
+
+
+/* CONTENT */
+
+.homepage .header {
+  margin-bottom: 20px;
+  font-family: var(--ff-header);
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+.homepage .topics {
+  display: flex;
+  flex-direction: row;
+}
+
+.homepage .articles {
+  margin-top: 30px;
+}
+
+.homepage .articles .article-info {
+  width: clamp(400px, 43vw, 600px);
+}
+
+
+.homepage .user {}
+
+
+.homepage .more-articles {}
+
+
+/* ELEMENTS */
+/* (buttons, links, other small bits) */
+.homepage .btn-ctnr.topic.rect {
+  /* margin-left: 15px; */
+}
+
+.homepage .btn.topic.rect {
+  height: 32px;
+  /* margin-left: 30px; */
+  /* width: 120%; */
+  margin-right: 20px;
+}

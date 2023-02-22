@@ -10,16 +10,24 @@ import TrendingArticles from '../../blocks/Articles/Trending';
 import SignUpModal from '../../modals/SignUpModal';
 import BanniLinks from '../../blocks/BanniLinks';
 import { fetchBookmarks } from '../../store/bookmarks';
+import { useHistory } from 'react-router-dom';
 
 const SplashPage = props => {
   const dispatch = useDispatch();
+  const history = useHistory();
   const topics = useSelector(selectTopics());
   const sessionUser = useSelector(state => state.session.user);
+  const goToHomepage =  () => history.push(`/home`);
+
 
   useEffect(() => {
     dispatch(fetchArticles());
     if (sessionUser) dispatch(fetchBookmarks(sessionUser.id));
   }, [dispatch, sessionUser]);
+
+  const getStartedButton = sessionUser
+    ? <Button className='btn get-started_' label='Start reading' onClick={goToHomepage}/>
+    : <Button className='btn get-started_' label='Start reading' modal={ SignUpModal }/>;
 
   return (
     <>
@@ -32,10 +40,11 @@ const SplashPage = props => {
 
             <p className='discover-stories_'>Discover stories, thinking, and expertise from writers on any topic.</p>
 
-            <Button className='btn get-started_' label='Start reading' modal={ SignUpModal }/>
+            {/* <Button className='btn get-started_' label='Start reading' modal={ SignUpModal }/> */}
+            {getStartedButton}
           </div>
 
-          <SplashPageAnimation />
+          {<SplashPageAnimation />}
 
         </div>
       </div>

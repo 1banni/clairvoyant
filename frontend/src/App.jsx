@@ -6,9 +6,9 @@ import ArticleShow from './pages/ArticleShowPage';
 import ModalProvider from './context/ModalProvider';
 import ArticleSearch from './pages/ArticleSearchPage/ArticleSearch';
 import SplashPage from './pages/SplashPage';
-import Chat from './components/Chat/Chat';
 import ResetScroll from './context/ResetScroll';
 import UserPage from './pages/UserPage/UserPage';
+import HomePage from './pages/HomePage';
 
 function App() {
   return (
@@ -29,6 +29,9 @@ function App() {
         <Route path='/articles/:articleId'>
           <ArticleShow />
         </Route>
+        <Route exact path='/home'>
+          <HomePage />
+        </Route>
         <Route path='/search/:queryName'>
           <ArticleSearch />
         </Route>
@@ -38,9 +41,9 @@ function App() {
         <Route path='/articles/'>
           <ArticleIndex />
         </Route>
-        <Route exact path='/chats/new'>
+        {/* <Route exact path='/chats/new'>
           <Chat />
-        </Route>
+        </Route> */}
         <Route path='/users/:userId'>
           <UserPage />
         </Route>

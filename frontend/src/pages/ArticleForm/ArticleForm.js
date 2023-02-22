@@ -148,7 +148,7 @@ const ArticleForm = props => {
     setPhotoUrls([]);
   }
 
-  if (!sessionUser) ModalUtil.open(LoginModal);
+  if (!sessionUser) return ModalUtil.open(LoginModal);
   return (
     <div className='article-create-page'>
       <form className='article-create-form' onSubmit={handleSubmit} >

@@ -3,7 +3,8 @@ import React from 'react'
 
 
 const Image = ({url, wrapper, className, ...props}) => {
-  const imageUrl = url;
+  // const imageUrl = url;
+  let imageUrl;
   wrapper ||= 'image-wrapper';
   className ||= 'image';
 
