@@ -5,16 +5,20 @@ import { useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchArticles } from '../../store/articles';
 import ArticleTile from '../../components/ArticleTile';
+import AuthorTileSquare from '../../components/AuthorTile/Square/AuthorTileSquare';
+import ArticleTileSimple from '../../components/ArticleTile/Simple/ArticleTileSimple';
+import BanniLinks from '../../blocks/BanniLinks';
 
 const HomePage = () => {
-  const topics = ["Art", "Architecture", "History", "Movies",
-                  "Books", "Music", "Coding", "Cooking", "Gaming"]
+  const topics = ["Architecture", "History", "Art", "Climate",
+                  "Books", "Policy", "Coding", "Recipes", "Gaming"]
+                  // "Movies", "Music",]
   const dispatch = useDispatch();
   const history = useHistory();
   const sessionUser = useSelector(state => state.session.user)
   const articles = useSelector(state => Object.values(state.articles.all));
+  const articleSubset = [3, 10, 11, 8, 13];
   const [activeTopic, setActiveTopic] = useState();
-
 
   const filteredArticles = useMemo(() => {
     const lowerCaseQuery = activeTopic?.toLowerCase();
@@ -33,14 +37,10 @@ const HomePage = () => {
   }, [dispatch]);
 
 
-  console.log('topic');
-  console.log(activeTopic);
-
   const handleTopic = (topic) => {
-    if (topic === activeTopic) {
-      setActiveTopic('')
-    }
-    else setActiveTopic(topic)
+    (topic === activeTopic
+    ? setActiveTopic('')
+    : setActiveTopic(topic));
   }
 
   if (!sessionUser) return history.push('/');
@@ -64,7 +64,7 @@ const HomePage = () => {
         <div className='articles'>
         {filteredArticles.map(article => (
           <ArticleTile articleId={article.id} key={article.id}
-            excludeImages={true}
+            excludeImages={false}
             blurbLength={300}
             blurbLineClamp={'line-clamp-3'}
           />
@@ -73,16 +73,22 @@ const HomePage = () => {
 
       </section>
 
-      <section className='sidebar'>
-
-        <div className='user'>USER SQUARE
-          {/* MAP SELECTED TOPIC BUTTONS HERE */}
+      <section className={'sidebar'} >
+        <div className='user'>
+          <AuthorTileSquare author={sessionUser} photoURL={sessionUser.photoUrl} authorId={sessionUser.id}/>
         </div>
 
-        <div className='more-articles'>MORE STUFF
+              <div className='more-articles'>
+                <h4 className='more-from-medium_'>More from Medium</h4>
+                {articleSubset.map(articleId => (
+                  <ArticleTileSimple articleId={articleId} key={articleId}/>
+                ))}
+              </div>
 
-        </div>
-
+              <div className='links'>
+                  <h4 className='label-1'>BY WILL BANNISTER</h4>
+                  <BanniLinks />
+              </div>
       </section>
     </div>
 

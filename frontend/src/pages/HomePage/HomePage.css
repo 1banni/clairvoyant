@@ -3,7 +3,9 @@
   margin-top: 30px;
   margin-left: 50px;
   margin-right: 50px;
-
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 .homepage .main {
@@ -17,6 +19,7 @@
 
 /* CONTENT */
 
+/* content - main */
 .homepage .header {
   margin-bottom: 20px;
   font-family: var(--ff-header);
@@ -37,11 +40,16 @@
   width: clamp(400px, 43vw, 600px);
 }
 
-
+/* content - sidebar */
 .homepage .user {}
 
+.homepage .more-articles {
+  margin-top: 20px;
+}
 
-.homepage .more-articles {}
+.homepage .more-articles .article-image-wrapper {
+  height: auto;
+}
 
 
 /* ELEMENTS */

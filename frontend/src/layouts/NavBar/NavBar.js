@@ -16,6 +16,8 @@ function NavBar() {
   const sessionUser = useSelector(state => state.session.user);
   const [colorToggle, setColorToggle] = useState('white');
   const [fixed, setFixed] = useState('nav-bar-wrapper');
+  const onSearchPage = location.pathname.includes('/search/');
+  const landingPage = sessionUser ? '/home' : '/';
 
   useEffect(()=> {
     location.pathname === '/'
@@ -50,12 +52,12 @@ function NavBar() {
     <div className='nav-bar'>
       <div className='nav-bar-l'>
         <div className='nav-link homepage'>
-          <NavItem exact to='/'>
+          <NavItem exact to={landingPage}>
             <ClairvoyantLogo className='icon logo' />
           </NavItem>
         </div>
 
-        {sessionUser
+        {sessionUser && !onSearchPage
         ? <SearchBar />
         : <div></div>}
       </div>

@@ -3,8 +3,8 @@ import React from 'react'
 
 
 const Image = ({url, wrapper, className, ...props}) => {
-  // const imageUrl = url;
   let imageUrl;
+  imageUrl = url; // Comment me out to disable images in development
   wrapper ||= 'image-wrapper';
   className ||= 'image';
 
