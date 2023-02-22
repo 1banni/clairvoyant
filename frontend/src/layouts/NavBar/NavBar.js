@@ -9,6 +9,7 @@ import NavItem from '../../components/NavItem/NavItem';
 import Button from '../../blocks/Button';
 import LoginModal from '../../modals/LoginModal';
 import './NavBar.css';
+import SearchBar from './SearchBar';
 
 function NavBar() {
   const location = useLocation();
@@ -53,6 +54,10 @@ function NavBar() {
             <ClairvoyantLogo className='icon logo' />
           </NavItem>
         </div>
+
+        {sessionUser
+        ? <SearchBar />
+        : <div></div>}
       </div>
       <div className='nav-bar-r'>
 

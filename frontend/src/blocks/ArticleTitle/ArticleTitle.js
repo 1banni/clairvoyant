@@ -18,8 +18,6 @@ const ArticleTitle = ({
   const blurb = article => {
     let _blurb = article.blurb ? article.blurb : article.body;
     let parsed_blurb = _blurb.split('\\n').join(' ').split('</p><p>').join(' ')
-    console.log('parsed_blurb');
-    console.log(parsed_blurb);
     return parsed_blurb.length > blurbLength
       // ? parsed_blurb
       ? parsed_blurb.slice(0,blurbLength) + '...'

@@ -29,7 +29,10 @@ function App() {
         <Route path='/articles/:articleId'>
           <ArticleShow />
         </Route>
-        <Route path='/articles/search'>
+        <Route path='/search/:queryName'>
+          <ArticleSearch />
+        </Route>
+        <Route path='/search'>
           <ArticleSearch />
         </Route>
         <Route path='/articles/'>
@@ -40,9 +43,6 @@ function App() {
         </Route>
         <Route path='/users/:userId'>
           <UserPage />
-        </Route>
-        <Route path='/:queryName'>
-          <ArticleSearch />
         </Route>
         <Route path='/'>
           <SplashPage />

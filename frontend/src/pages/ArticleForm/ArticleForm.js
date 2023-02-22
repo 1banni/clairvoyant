@@ -70,7 +70,7 @@ const ArticleForm = props => {
     }
 
     if (formType === 'Create') {
-      articleId = dispatch(createArticle(formData))
+      articleId = await dispatch(createArticle(formData))
         .catch( async res => {
           let data;
           try {
@@ -203,10 +203,22 @@ const ArticleForm = props => {
                       formats={formats}
                       value={body}
                       onChange={setBody}
-                      id='reactquill'>
+                      id='reactquill'
+                      required>
           </ReactQuill>
         </div>
 
+
+      <div className='pair errors'>
+        <div className='label errors'></div>
+        <div className='form-errors'>
+          {errors && errors.map(error => (
+            <div key={error}>
+              {error}
+            </div>
+          ))}
+        </div>
+      </div>
 
 
           <div className='upload-images'>
@@ -252,13 +264,7 @@ const ArticleForm = props => {
           />
         </div>
       </form>
-      <div className='form-errors'>
-        {errors && errors.map(error => (
-          <div key={error}>
-            {error}
-          </div>
-        ))}
-      </div>
+
     </div>
   )
 }

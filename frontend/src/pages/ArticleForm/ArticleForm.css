@@ -61,6 +61,19 @@
   margin-top: 100px;
 }
 
+.article-create-form .form-errors {
+  /* margin-top: 20px; */
+  color:rgba(200, 0, 0, 0.9);
+  font-family: var(--ff-header);
+}
+
+.article-create-form .pair.errors {
+  min-height: 20px;
+}
+
+.article-create-form .pair .label.errors {
+  min-height: 20px;
+}
 
 /* border: var(--border-blu); */
 

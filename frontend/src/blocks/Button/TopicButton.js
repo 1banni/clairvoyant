@@ -8,7 +8,7 @@ const TopicButton = ({containername, textname, className, topic}) => {
   textname ||= 'btn-text topic';
 
   const history = useHistory();
-  const goToTopic = () => history.push(`/${topic}`);
+  const goToTopic = () => history.push(`/search/${topic}`);
 
   return (
     <Button className={className}
