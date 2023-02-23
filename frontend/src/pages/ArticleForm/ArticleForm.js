@@ -25,12 +25,18 @@ const ArticleForm = props => {
     article = { title: '', body: '', blurb: '', topic: '' }
   }
   const [title, setTitle, titleChange] = useStateChange(article.title);
-  const [topic, setTopic, topicChange] = useStateChange(article.body);
+  const [topic, setTopic, topicChange] = useStateChange(article.topic);
   const [body, setBody] = useState(article.body);
   const [blurb, setBlurb, blurbChange] = useStateChange(article.blurb);
   const [photoFiles, setPhotoFiles] = useState([]);
   const [photoUrls, setPhotoUrls] = useState([]);
   const [errors, setErrors] = useState([]);
+
+
+  console.log('blurb');
+  console.log(blurb);
+
+
   // TODO -> make the setter convert into array, and then render split with spaces
   // format each word to look like tag within input box
   const modules = {
@@ -114,8 +120,6 @@ const ArticleForm = props => {
         const fileReader = new FileReader();
         fileReader.readAsDataURL(file);
         fileReader.onload = () => {
-          // setPhotoFiles(prev => prev.push(file));
-          // setPhotoUrls(prev => prev.push(fileReader.result));
           setPhotoFiles(prev => [...prev, file]);
           setPhotoUrls(prev => [...prev, fileReader.result]);
         };
