@@ -3,7 +3,7 @@
 Clairvoyant is a full stack clone of Medium, a popular blog host with a mix of amateur and professional journalism. It allows users to post articles and read other users' articles. Users can comment, post, like, bookmark, and share as well. Articles and comments have full CRUD functionality, and users can search articles and filter by topic.
 
 
-<p>Live link: <a href="https://www.freecodecamp.org/" target="_blank" rel="noopener noreferrer">Clairvoyant</a></p>
+<p>Live link: <a href="https://clairvoyant.onrender.com/" target="_blank" rel="noopener noreferrer">Clairvoyant</a></p>
 
 <img src="./frontend/src/assets/png/clairvoyant.png" alt="screenshot">
 
