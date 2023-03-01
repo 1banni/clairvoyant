@@ -44,13 +44,16 @@
 .nav-bar-l {
   display: flex;
   flex-direction: row;
+  align-content: space-between;
   margin-left: 4vw;
 }
 
 /* Clairvoyant Logo */
 .nav-link.homepage {
   /* border: var(--border-grn); */
+  justify-self: flex-start;
   align-self: center;
+  justify-self: flex-start;
   margin-top: 10px;
 }
 
