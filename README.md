@@ -10,7 +10,7 @@ Clairvoyant is a full stack clone of Medium, a popular blog host with a mix of a
 ## Clairvoyant Stack:
 * Backend: Ruby on Rails
   * Used for models, controllers, routes
-  * Pases data to frontend via JBuilder/JSON
+  * Passes data to frontend via JBuilder/JSON
 * Database: PostgreSQL
   * Connected to backend via a rails framework
 * Image Hosting: AWS
